@@ -3,8 +3,18 @@
 }
 .header_left_list{
     display: flex;
+    align-items: center;
 
     li+li{
         margin-left: 50px;
     }
+}
+.one_plus_one{
+    max-width: 200px;
+    padding: 5px 10px;
+    text-align: center;
+    border: 2px solid rgba(255,255,255,.7);
+    border-radius: 7px;
+    color: white;
+    background: #e31c25;
 }

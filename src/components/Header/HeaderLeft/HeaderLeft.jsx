@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import HeaderCategory from './../HeaderCategory';
 
@@ -17,6 +18,13 @@ const HeaderLeft = () => {
                 </li>
                 <li>
                     <HeaderCategory />
+                </li>
+                <li>
+                    <Link to='/'>
+                        <div className={style.one_plus_one}>
+                            Заберу сам 1+1
+                        </div>
+                    </Link>
                 </li>
             </ul>
         </div>

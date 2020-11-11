@@ -9,12 +9,13 @@ import './partials/_common.scss'
 import './index.css';
 
 import App from './App';
+import store from './redux/store';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider>
+      <Provider store={store}>
         <App />
       </Provider>
     </BrowserRouter>

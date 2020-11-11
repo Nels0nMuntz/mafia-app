@@ -1,0 +1,17 @@
+.header_right_wrapper{
+    flex: 1 0 0;
+}
+.header_right_list{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    li+li{
+        margin-left: 50px;
+    }
+    li{
+        span{
+            color: white;
+        }
+    }
+}
