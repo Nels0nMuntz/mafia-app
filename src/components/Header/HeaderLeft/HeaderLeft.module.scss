@@ -1,0 +1,10 @@
+.header_left_wrapper{
+    flex: 1 0 0;
+}
+.header_left_list{
+    display: flex;
+
+    li+li{
+        margin-left: 50px;
+    }
+}

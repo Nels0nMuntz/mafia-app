@@ -1,0 +1,23 @@
+.category{
+    position: relative;
+    cursor: pointer;
+    transition: opacity 0.15s linear;
+    user-select: none;
+    &::after{
+        position: absolute;
+        content: '';
+        top: 40%;
+        right: -18px;
+        width: 6px;
+        height: 6px;
+        border: 6px solid transparent;
+        border-top-color: white;
+    }
+    &:hover{
+        opacity: 0.75;
+    }
+}
+.category_name{
+    font-size: 18px;
+    font-weight: 500;
+}
