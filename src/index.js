@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
 
+import 'antd/dist/antd.css';
 import './partials/_fonts.scss'
 import './partials/_base.scss'
 import './partials/_common.scss'

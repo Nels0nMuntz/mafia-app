@@ -6,13 +6,20 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const initialState = {
     categories: [
         {
+            type: "city",
             title: 'Харьков'
         },
         {
+            type: "restaurants",
             title: 'Рестораны'
         },
         {
+            type: "contacts",
             title: 'Контакты'
+        },
+        {
+            type: "language",
+            title: 'RU'
         },
     ],
     isFetching: false
@@ -33,9 +40,9 @@ export default headerReducer;
 const setCategories = categories => ({type: SET_CATEGORIES, payload: categories});
 const toggleIsFetching = value => ({type: TOGGLE_IS_FETCHING, payload: value});
 
-export const requestCategories = () => async dispatch => {
+export const requestCategories = () =>  async dispatch => {
     dispatch(toggleIsFetching(true));
-    const response = await headerAPI.getCategories();
+    let response = await headerAPI.getCategories();
     dispatch(setCategories(response));
     dispatch(toggleIsFetching(false));
 }

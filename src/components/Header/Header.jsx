@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+
+import { requestCategories } from '../../redux/header-reducer';
 import Hamburger from './Hamburger/Hamburger'
 
 import style from './Header.module.scss'
@@ -6,7 +9,16 @@ import HeaderLeft from './HeaderLeft/HeaderLeft';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
 import HeaderRight from './HeaderRight/HeaderRight';
 
+
 const Header = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        console.log('Effect');
+        dispatch(requestCategories())
+    }, [])
+
     return (
         <header className={style.header}>
             <div className="section-container">
@@ -24,3 +36,4 @@ const Header = () => {
 }
 
 export default Header
+ 
