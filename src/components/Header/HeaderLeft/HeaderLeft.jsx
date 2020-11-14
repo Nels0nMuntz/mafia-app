@@ -27,6 +27,7 @@ const HeaderLeft = () => {
                 </li>
                 <li>
                     <HeaderDropdown
+                        type={categories.find(category => category.type === 'contacts').type}
                         title={categories.find(category => category.type === 'contacts').title}
                         list={categories.find(category => category.type === 'contacts').list}
                     />

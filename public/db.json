@@ -1,5 +1,5 @@
 {
-    "categories": [
+    "header-categories": [
         {  
             "id": 1,
             "type": "city",
@@ -73,19 +73,23 @@
             "list": [
                 {
                     "id": 1,
-                    "content": "0577520330"
+                    "content": "0577520330",
+                    "iconUrl": "https://roll-club.kh.ua/wp-content/themes/rollclub/assets/images/icons/icon-phone.svg"
                 },
                 {
                     "id": 2,
-                    "content": "0983373939"
+                    "content": "0983373939",
+                    "iconUrl": "https://mafia.ua/img/t097.png"
                 },
                 {
                     "id": 3,
-                    "content": "0994493939"
+                    "content": "0994493939",
+                    "iconUrl": "https://mafia.ua/img/t099.png"
                 },
                 {
                     "id": 4,
-                    "content": "0938313939"
+                    "content": "0938313939",
+                    "iconUrl": "https://mafia.ua/img/t093.png"
                 }
             ]
         },
@@ -103,6 +107,28 @@
                     "content": "UA"
                 }
             ]
+        }
+    ],
+    "sort-categories": [
+        {
+            "id": 1,
+            "content": "по популярности"
+        },
+        {
+            "id": 2,
+            "content": "по новизне"
+        },
+        {
+            "id": 3,
+            "content": "по убыванию цен"
+        },
+        {
+            "id": 4,
+            "content": "по возростанию цен"
+        },
+        {
+            "id": 5,
+            "content": "по алфавиту"
         }
     ]
 }

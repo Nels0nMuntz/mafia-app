@@ -47,8 +47,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
     appearance: none;
     outline: none;
 }
-
-img{
-    display: block;
-    width: 100%;
+a,
+button{
+    color: black;
 }
+
+// img{
+//     display: block;
+//     width: 100%;
+// }

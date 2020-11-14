@@ -1,0 +1,16 @@
+.products_filter{
+    width: 100%;
+    top: 80px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+}
+.products_filter_wrapper{
+    height: 75px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.products_filter_title{
+    font-size: 28px;
+    font-weight: 700;
+}

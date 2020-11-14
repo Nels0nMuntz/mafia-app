@@ -1,4 +1,6 @@
+
 .ant-dropdown-link{
+    font-weight: 500;
     color: white;
     transition: opacity 0.15s linear;
 
@@ -21,10 +23,48 @@
         border-top-color: white;
     }
 }
-.ant-dropdown-menu-item-only-child{
+.ant-dropdown-menu-item{
     font-size: 16px;
-    padding: 10px 20px  10px 25px;
+    padding: 12px 20px  12px 25px;
+
+    img{
+        margin: 0 10px 0 -8px;
+        width: 20px;
+        height: 20px;
+    }
+    a{
+        color: black;
+    }
 }
 .ant-dropdown-placement-bottomLeft > .ant-dropdown-arrow {
     left: 30px;
+}
+.ant-dropdown-menu-section{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+
+    button{
+        position: relative;
+        width: 170px;
+        font-size: 14px;
+        padding: 12px 10px 12px 35px;
+        border-radius: 3px;
+        color: white;
+        background-color: #8c9f3f;
+        transition: background-color 0.1s linear;
+        &:hover{
+            background-color: #9ab338;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-45%);
+            width: 20px;
+            height: 20px;
+            background: url('../../../assets/images/add-comment-button.svg') no-repeat center center / cover;
+        }
+    }
 }

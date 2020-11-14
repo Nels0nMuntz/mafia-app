@@ -15,7 +15,6 @@ const Header = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        console.log('Effect');
         dispatch(requestCategories())
     }, [])
 
@@ -28,7 +27,7 @@ const Header = () => {
                         <HeaderLeft/>
                         <HeaderLogo/>
                         <HeaderRight/>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </header>
