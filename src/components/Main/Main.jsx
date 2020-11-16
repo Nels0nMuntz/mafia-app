@@ -7,7 +7,7 @@ import style from './Main.module.scss'
 
 const Main = () => {
     return (
-        <main>
+        <main className={style.main}>
             <CategoryMenu />
             <ProductsFilter/>
         </main>

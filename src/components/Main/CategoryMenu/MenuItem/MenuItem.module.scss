@@ -1,0 +1,33 @@
+.link{
+    background-color: white;
+    .activeLink{
+        background-color: #e1b787;
+    }
+}
+.menu_item{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(169,144,113,.2);
+    transition: background-color 0.1s linear;
+    &:hover{
+        background-color: #e1b787;
+    }
+    img{
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    span{
+        font-size: 14px;
+        line-height: 1.25;
+        color: transparent;
+        transition: color 0.2s linear;
+    }
+    &.visibled{
+        span{
+            color: black;
+        }
+    }
+}

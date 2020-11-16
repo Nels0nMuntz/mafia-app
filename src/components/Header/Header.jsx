@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
+import classnames from 'classnames'
 
 import { requestCategories } from '../../redux/header-reducer';
 import Hamburger from './Hamburger/Hamburger'
@@ -19,8 +20,11 @@ const Header = () => {
     }, [])
 
     return (
-        <header className={style.header}>
-            <div className="section-container">
+        <header className={classnames(
+            'header',
+            style.header,            
+        )}>
+            {/* <div className="section-container"> */}
                 <div className={style.header_wrapper}>
                     <Hamburger />
                     <div className={style.header_inner}>
@@ -29,7 +33,7 @@ const Header = () => {
                         <HeaderRight/>
                     </div>                    
                 </div>
-            </div>
+            {/* </div> */}
         </header>
     )
 }

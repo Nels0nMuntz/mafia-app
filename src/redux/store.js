@@ -1,10 +1,14 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunkMiddleware from 'redux-thunk';
-import headerReducer from './header-reducer';
+import header from './header-reducer';
+import filter from './filter-reducer';
+import menu from './menu-reducer';
 
 
 const rootReducer = combineReducers({
-    headerReducer,
+    header,
+    filter,
+    menu,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -12,3 +12,10 @@ export const filterAPI = {
             .then(data => data)
     }
 }
+export const menuAPI = {
+    getCategories(){
+        return fetch('http://localhost:3001/menu-categories/')
+            .then(response => response.json())
+            .then(data => data)
+    }
+}

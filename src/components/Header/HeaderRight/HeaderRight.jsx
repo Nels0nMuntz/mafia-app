@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 
 import style from './HeaderRight.module.scss'
 import cartImg from '../../../assets/images/shopping-cart.svg'
-import HeaderDropdown from './../../libs-components/HeaderDropdown/HeaderDropdown';
+import HeaderDropdown from './../../../libs-components/HeaderDropdown/HeaderDropdown';
 
 const HeaderRight = () => {
 
-    const categories = useSelector(state => state.headerReducer.categories)
+    const categories = useSelector(state => state.header.categories)
 
     return (
         <div className={style.header_right_wrapper}>

@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import style from './HeaderLeft.module.scss'
-import HeaderDropdown from './../../libs-components/HeaderDropdown/HeaderDropdown';
+import HeaderDropdown from './../../../libs-components/HeaderDropdown/HeaderDropdown';
 
 
 const HeaderLeft = () => {
 
-    const categories = useSelector(state => state.headerReducer.categories)
+    const categories = useSelector(state => state.header.categories)
     
     return (
         <div className={style.header_left_wrapper}>

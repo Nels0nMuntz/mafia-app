@@ -6,9 +6,10 @@
     left: 0;
     width: 100%;
     max-height: 80px;
+    z-index: 100;
 }
 .header_wrapper{
-    padding: 20.5px 0px;
+    padding: 20.5px 25px;
     display: flex;
     align-items: center;
 }

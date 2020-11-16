@@ -1,17 +1,23 @@
-.menu_wrapper{
+.menu{
     position: fixed;
     top: 80px;
     left: 0;
     width: 80px;
     height: calc(100vh - 80px);
+    overflow: hidden;
     box-shadow: 0 0 30px rgba(0,0,0,.2);
-    background-color: yellow;
+    background-color: rgb(255, 255, 255);
+    transition: width 0.3s ease-out;
+
+    &.increased{
+        width: 200px;
+    }
 }
 
 
 
 @media screen and (max-width: 1020px){
-    .menu_wrapper{
+    .menu{
         width: 100% !important;
         height: 60px;
     }

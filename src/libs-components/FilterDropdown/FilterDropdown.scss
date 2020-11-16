@@ -1,0 +1,16 @@
+.products_filter .ant-dropdown-link {
+    font-weight: 500;
+    color      : black;
+    position   : relative;
+
+    &::after {
+        content         : '';
+        position        : absolute;
+        top             : 40%;
+        right           : -15px;
+        width           : 5px;
+        height          : 5px;
+        border          : 5px solid transparent;
+        border-top-color: black;
+    }
+}
