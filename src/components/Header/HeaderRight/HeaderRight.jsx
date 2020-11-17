@@ -11,7 +11,6 @@ import withBreakpoints from './../../HOC/withBreakpoints';
 
 
 const HeaderRight = ({ queryMatches }) => {
-    console.log(queryMatches);
     const { md, lg } = { ...queryMatches }
 
     const categories = useSelector(state => state.header.categories)

@@ -4,12 +4,9 @@ import { Dropdown, Menu } from 'antd';
 import './HeaderDropdown.scss'
 
 import { Link } from 'react-router-dom';
+import withBreakpoints from './../../components/HOC/withBreakpoints';
 
-const HeaderDropdown = ({ type, title, list, iconUrl }) => {
-
-    const matches = window.matchMedia("(max-width: 1100px)").matches;
-    const [isMatches, setIsMatches] = React.useState(matches);
-    React.useEffect(() => setIsMatches(matches), [matches]);
+const HeaderDropdown = ({ type, title, list, iconUrl, queryMatches }) => {
 
     const formatPhone = number => {
         return `(${number.slice(0, 3)}) ${number.slice(3, 6)}-${number.slice(6 - 8)}-${number.slice(8 - 10)}`;
@@ -59,18 +56,20 @@ const HeaderDropdown = ({ type, title, list, iconUrl }) => {
             arrow
         >
             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                {iconUrl && (
+                {iconUrl && queryMatches && queryMatches.lg ? (
                     <div
                         className="ant-dropdown-link-icon"
                         style={{
                             backgroundImage: `url(${iconUrl})`
                         }}
                     ></div>
-                )}
-                {(isMatches && type === 'contacts') ? "" : title}
+                ) : null}
+                {type === 'contacts' && queryMatches && queryMatches.lg ? '' : title}
             </a>
         </Dropdown>
     )
 }
 
-export default HeaderDropdown
+export default withBreakpoints(HeaderDropdown, {
+    lg: '(max-width: 1100px)',
+})

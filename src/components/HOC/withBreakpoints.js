@@ -2,13 +2,11 @@ import React from 'react'
 
 const withBreakpoints = (Component, queries) => {
 
-    const HOC = () => {
+    const HOC = (props) => {
 
         const [queryMatch, setQueryMatch] = React.useState(null);
-        console.log('useState');
 
         React.useEffect(() => {
-            console.log('useEffect');
 
             const mediaQueryLists = {};
             const keys = Object.keys(queries);
@@ -63,6 +61,7 @@ const withBreakpoints = (Component, queries) => {
         return (
             <Component
                 queryMatches={queryMatch}
+                {...props}
             />
         );
     }
