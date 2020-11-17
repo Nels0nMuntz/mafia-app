@@ -1,5 +1,11 @@
 .header_right_wrapper{
     flex: 1 0 0;
+
+    
+    @media screen and (max-width: 1100px){
+        flex: 0 0 0;
+        order: 3;
+    }
 }
 .header_right_list{
     display: flex;
@@ -24,7 +30,7 @@
                 display: block;
                 position: absolute;
                 top: -8px;
-                right: 64px;
+                left: 14px;
                 font-size: 10px;
                 width: 16px;
                 height: 16px;
@@ -34,6 +40,10 @@
                 color: white;
                 background-color: #fc4e4e;
             }
+        }
+        
+        @media screen and (max-width: 1250px){
+            font-size: 14px;
         }
     }
 }

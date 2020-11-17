@@ -4,6 +4,7 @@
             "id": 1,
             "type": "city",
             "title": "Харьков",
+            "iconUrl": "../src/assets/images/pin.svg",
             "list": [
                 {
                     "id": 1,

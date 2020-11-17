@@ -17,6 +17,7 @@ const HeaderLeft = () => {
                     <HeaderDropdown
                         title={categories.find(category => category.type === 'city').title}
                         list={categories.find(category => category.type === 'city').list}
+                        iconUrl={categories.find(category => category.type === 'city').iconUrl}
                     />
                 </li>
                 <li>

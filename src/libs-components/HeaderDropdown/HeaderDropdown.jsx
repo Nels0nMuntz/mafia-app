@@ -2,9 +2,11 @@ import React from 'react'
 import { Dropdown, Menu } from 'antd';
 
 import './HeaderDropdown.scss'
+import locationimgUrl from '../../assets/images/pin.svg'
+
 import { Link } from 'react-router-dom';
 
-const HeaderDropdown = ({ type, title, list }) => {
+const HeaderDropdown = ({ type, title, list, iconUrl }) => {
 
     const formatPhone = number => {
         return `(${number.slice(0, 3)}) ${number.slice(3, 6)}-${number.slice(6 - 8)}-${number.slice(8 - 10)}`;
@@ -53,7 +55,15 @@ const HeaderDropdown = ({ type, title, list }) => {
             trigger={list ? ['click'] : ['contextMen']}
             arrow
         >
-            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>{title}</a>
+            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                <div 
+                    className="ant-dropdown-link-icon"
+                    style={{
+                        backgroundImage: "url(../../../src/assets/images/logo.svg)"
+                    }}
+                ></div>
+                {title}
+            </a>
         </Dropdown>
     )
 }

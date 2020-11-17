@@ -6,6 +6,25 @@
         transition: opacity 0.15s linear;
         position: relative;
         font-size: 16px;
+        display: flex;
+        // &::before{
+        //     content: '';
+        //     position: absolute;
+        //     top: 50%;
+        //     margin-top: -11px;
+        //     left: -15px;
+        //     width: 20px;
+        //     height: 22px;
+        //     background: url(../../assets/images/pin.svg) no-repeat center center / contain;
+        // }
+        .ant-dropdown-link-icon{
+            width: 20px;
+            height: 22px;
+            margin-right: 5px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+        }
         &::after{
             content: '';
             position: absolute;
@@ -19,6 +38,10 @@
         &:hover{
             color: white;
             opacity: 0.8;
+        }
+
+        @media screen and (max-width: 1250px){
+            font-size: 14px;
         }
     }
 } 
