@@ -2,15 +2,18 @@ import React from 'react'
 import { Dropdown, Menu } from 'antd';
 
 import './HeaderDropdown.scss'
-import locationimgUrl from '../../assets/images/pin.svg'
 
 import { Link } from 'react-router-dom';
 
 const HeaderDropdown = ({ type, title, list, iconUrl }) => {
 
+    const matches = window.matchMedia("(max-width: 1100px)").matches;
+    const [isMatches, setIsMatches] = React.useState(matches);
+    React.useEffect(() => setIsMatches(matches), [matches]);
+
     const formatPhone = number => {
         return `(${number.slice(0, 3)}) ${number.slice(3, 6)}-${number.slice(6 - 8)}-${number.slice(8 - 10)}`;
-    }
+    };
 
     const menu = (
         <Menu>
@@ -56,13 +59,15 @@ const HeaderDropdown = ({ type, title, list, iconUrl }) => {
             arrow
         >
             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                <div 
-                    className="ant-dropdown-link-icon"
-                    style={{
-                        backgroundImage: "url(../../../src/assets/images/logo.svg)"
-                    }}
-                ></div>
-                {title}
+                {iconUrl && (
+                    <div
+                        className="ant-dropdown-link-icon"
+                        style={{
+                            backgroundImage: `url(${iconUrl})`
+                        }}
+                    ></div>
+                )}
+                {(isMatches && type === 'contacts') ? "" : title}
             </a>
         </Dropdown>
     )

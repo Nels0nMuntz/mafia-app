@@ -1,6 +1,5 @@
 .header_right_wrapper{
     flex: 1 0 0;
-
     
     @media screen and (max-width: 1100px){
         flex: 0 0 0;
@@ -14,14 +13,21 @@
 
     li+li{
         margin-left: 50px;
+        @media screen and (max-width: 1100px){
+            margin-left: 35px;
+        }
     }
     li{
+        .avatar_icon{
+            width: 20px;
+            height: 22px;
+        }
         div{
             position: relative;
             color: white;
             display: flex;
             align-items: center;
-            img{
+            .cart_icon{
                 width: 22px;
                 height: 22px;
                 margin-right: 10px; 

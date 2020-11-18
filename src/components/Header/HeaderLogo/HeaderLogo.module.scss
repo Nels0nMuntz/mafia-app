@@ -1,12 +1,17 @@
 .logo_wrapper {
 
-    @media screen and (max-width: 1100px){
-        flex: 1 0 0;
+    @media screen and (max-width: 1100px) {
+        flex : 1 0 0;
         order: 1;
     }
 
     img {
         width : 135px;
         height: 30px;
+
+        @media screen and (max-width: 720px) {
+            width : auto;
+            height: 20px;
+        }
     }
 }

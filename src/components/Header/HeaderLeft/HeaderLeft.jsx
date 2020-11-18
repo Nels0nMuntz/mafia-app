@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import style from './HeaderLeft.module.scss'
+import pinImgUrl from '../../../assets/images/pin.svg'
+import phoneImgUrl from '../../../assets/images/phone.svg'
+
 import HeaderDropdown from './../../../libs-components/HeaderDropdown/HeaderDropdown';
 
 
@@ -17,7 +20,7 @@ const HeaderLeft = () => {
                     <HeaderDropdown
                         title={categories.find(category => category.type === 'city').title}
                         list={categories.find(category => category.type === 'city').list}
-                        iconUrl={categories.find(category => category.type === 'city').iconUrl}
+                        iconUrl={pinImgUrl}
                     />
                 </li>
                 <li>
@@ -31,6 +34,7 @@ const HeaderLeft = () => {
                         type={categories.find(category => category.type === 'contacts').type}
                         title={categories.find(category => category.type === 'contacts').title}
                         list={categories.find(category => category.type === 'contacts').list}
+                        iconUrl={phoneImgUrl}
                     />
                 </li>
                 <li>
