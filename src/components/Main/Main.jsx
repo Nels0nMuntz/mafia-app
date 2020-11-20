@@ -9,7 +9,7 @@ const Main = () => {
     return (
         <main className={style.main}>
             <CategoryMenu />
-            <ProductsFilter/>
+            {/* <ProductsFilter/> */}
         </main>
     )
 }

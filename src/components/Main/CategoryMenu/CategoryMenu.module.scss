@@ -13,12 +13,21 @@
         width: 200px;
     }
 }
-
+.menu_list{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
 
 @media screen and (max-width: 1020px){
     .menu{
         width: 100% !important;
         height: 60px;
+    }
+    .menu_list{
+        flex-direction: row;
     }
 }

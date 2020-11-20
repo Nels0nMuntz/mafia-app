@@ -28,7 +28,7 @@ const CategoryMenu = () => {
             onMouseOver={changeIncreaseMode}
             onMouseOut={changeIncreaseMode}
         >
-            <ul>
+            <ul className={style.menu_list}>
                 {categories.length && (
                     categories.map(({ id, content, imageUrl }) => (
                         <li 
@@ -43,11 +43,6 @@ const CategoryMenu = () => {
                         </li>
                     ))
                 )}
-                {/* <li>
-                    <MenuItem
-                        visibled={increaseMode}
-                    />
-                </li> */}
             </ul>
         </aside>
     );
