@@ -52,11 +52,9 @@ const HeaderRight = ({ queryMatches }) => {
             </ul>
         </div>
     )
-}
+};
 
-const HeaderRightWithBreakpoints = withBreakpoints(HeaderRight, {
+export default withBreakpoints(HeaderRight, {
     md: '(max-width: 720px)',
     lg: '(max-width: 1100px)',
 });
-
-export default HeaderRightWithBreakpoints;

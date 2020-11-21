@@ -7,17 +7,17 @@ import Hamburger from './Hamburger/Hamburger'
 
 import style from './Header.module.scss'
 import HeaderLeft from './HeaderLeft/HeaderLeft';
-import HeaderLogoWithBreakpoints from './HeaderLogo/HeaderLogo';
-import HeaderRightWithBreakpoints from './HeaderRight/HeaderRight';
+import HeaderLogo from './HeaderLogo/HeaderLogo';
+import HeaderRight from './HeaderRight/HeaderRight';
 
 
 const Header = () => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(requestCategories())
-    }, [])
+        dispatch(requestCategories());
+    }, []);
 
     return (
         <header className={classnames(
@@ -28,12 +28,12 @@ const Header = () => {
                 <Hamburger />
                 <div className={style.header_inner}>
                     <HeaderLeft />
-                    <HeaderLogoWithBreakpoints />
-                    <HeaderRightWithBreakpoints />
+                    <HeaderLogo />
+                    <HeaderRight />
                 </div>
             </div>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

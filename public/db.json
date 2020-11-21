@@ -177,5 +177,67 @@
             "content": "Напитки",
             "imageUrl": "https://mafia.ua/storage/editor/fotos/napitki_1501672791634.svg"
         }
+    ],
+    "main-slider": [
+        {
+            "id": 1,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/kaliforniya-set_1600930514228.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/kaliforniya-set_1600930522868.jpeg"
+        },
+        {
+            "id": 2,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/super-fila_1601038298107.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/super-fila_1601038314655.jpeg"
+        },
+        {
+            "id": 3,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/karibskaya-picca_1599646870677.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/karibskaya-picca_1599646880204.jpeg"
+        },
+        {
+            "id": 4,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/pokupajte-ne-vyhodya-iz-doma_1586092352451.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/pokupajte-ne-vyhodya-iz-doma_1586632140609.jpeg"
+        },
+        {
+            "id": 5,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/picca-mafiya_1601038081261.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/picca-mafiya_1601038094500.jpeg"
+        },
+        {
+            "id": 6,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/losos-losos_160093071926.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/losos-losos_1600930740544.jpeg"
+        },
+        {
+            "id": 7,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/4-syra-metrovaya_1591952107848.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/4-syra-metrovaya_1591952121196.jpeg"
+        },
+        {
+            "id": 8,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/8dc2dae786116dc7087dbbfffce443ad_1588869858.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/172b2351aafe9df0ec7e427dd8a3e862_1588869866.jpeg"
+        },
+        {
+            "id": 9,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/pomogaem-geroyam_1587454063527.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/pomogaem-geroyam_1587454071770.jpeg"
+        },
+        {
+            "id": 10,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/atlantik-set_160343506869.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/atlantik-set_1603435081326.jpeg"
+        },
+        {
+            "id": 11,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/5eebb6c7e084a4e1641c44f6ec5d6ff9_1563257120.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/0d8da3b1bd47fcbdce05dce8a88d8887_1563257130.jpeg"
+        },
+        {
+            "id": 12,
+            "imageUrlDesctop": "https://mafia.ua/storage/editor/fotos/1440x430/16ef5f8df503ff06efa0f9b3ff0cc3af_1563528943.jpeg",
+            "imageUrlMobile": "https://mafia.ua/storage/editor/fotos/420x480/92e97d12caf99070fcc589501efde0e8_1563529085.jpeg"
+        }
     ]
 }

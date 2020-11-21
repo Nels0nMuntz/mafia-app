@@ -1,33 +1,38 @@
-.menu{
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 80px;
-    height: calc(100vh - 80px);
-    overflow: hidden;
-    box-shadow: 0 0 30px rgba(0,0,0,.2);
+.menu {
+    position        : fixed;
+    top             : 80px;
+    left            : 0;
+    width           : 80px;
+    height          : calc(100vh - 80px);
+    overflow        : hidden;
+    box-shadow      : 0 0 30px rgba(0, 0, 0, .2);
     background-color: rgb(255, 255, 255);
-    transition: width 0.3s ease-out;
+    z-index: 10;
+    transition      : width 0.3s ease-out;
 
-    &.increased{
+    &.increased {
         width: 200px;
     }
-}
-.menu_list{
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
 
-
-@media screen and (max-width: 1020px){
-    .menu{
-        width: 100% !important;
+    @media screen and (max-width: 1020px) {
+        width : 100% !important;
         height: 60px;
     }
-    .menu_list{
+    @media screen and (max-width: 720px) {
+        top             : 60px;
+    }
+}
+
+.menu_list {
+    overflow-x    : hidden;
+    overflow-y    : auto;
+    height        : 100%;
+    display       : flex;
+    flex-direction: column;
+
+    @media screen and (max-width: 1020px) {
         flex-direction: row;
+        overflow-x    : auto;
+        overflow-y    : hidden;
     }
 }

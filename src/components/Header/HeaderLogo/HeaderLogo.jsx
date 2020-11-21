@@ -28,10 +28,8 @@ const HeaderLogo = ({ queryMatches }) => {
             </Link>
         </div>
     )
-}
+};
 
-const HeaderLogoWithBreakpoints = withBreakpoints(HeaderLogo, {
+export default withBreakpoints(HeaderLogo, {
     md: '(max-width: 720px)',
-})
-
-export default HeaderLogoWithBreakpoints;
+});

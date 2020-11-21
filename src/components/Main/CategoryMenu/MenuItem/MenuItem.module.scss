@@ -24,10 +24,19 @@
         line-height: 1.25;
         color: transparent;
         transition: color 0.2s linear;
+
+        @media screen and (max-width: 1020px) {  
+            white-space: nowrap;
+        }
     }
     &.visibled{
         span{
             color: black;
         }
+    }
+
+    @media screen and (max-width: 1020px) {  
+        width: auto;      
+        padding: 14px 25px;
     }
 }

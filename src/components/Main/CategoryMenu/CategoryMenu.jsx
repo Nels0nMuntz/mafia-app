@@ -1,17 +1,20 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import style from './CategoryMenu.module.scss'
-
 import MenuItem from './MenuItem/MenuItem';
 import { requestMenuCategories } from '../../../redux/menu-reducer';
 import { useDispatch, useSelector } from 'react-redux';
+import withBreakpoints from './../../HOC/withBreakpoints';
 
-const CategoryMenu = () => {
+import style from './CategoryMenu.module.scss'
+
+const CategoryMenu = ({ queryMatches }) => {
 
     const [increaseMode, setIncreaseMode] = React.useState(false);
     const dispatch = useDispatch();
-    const categories = useSelector(state => state.menu.categories)
+    const categories = useSelector(state => state.menu.categories);
+
+    let isVisibiled = increaseMode || (queryMatches && queryMatches.lg)
 
     React.useEffect(() => {
         dispatch(requestMenuCategories());
@@ -38,7 +41,7 @@ const CategoryMenu = () => {
                             <MenuItem
                                 title={content}
                                 imageUrl={imageUrl}
-                                visibled={increaseMode}
+                                visibled={isVisibiled}
                             />
                         </li>
                     ))
@@ -48,4 +51,6 @@ const CategoryMenu = () => {
     );
 };
 
-export default CategoryMenu
+export default withBreakpoints(CategoryMenu, {
+    lg: '(max-width: 1020px)',
+});
