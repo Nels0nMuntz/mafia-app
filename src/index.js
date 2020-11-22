@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 import './partials/_fonts.scss'
 import './partials/_base.scss'
 import './partials/_common.scss'
+import './partials/_vars.scss'
 import './index.css';
 
 import App from './App';
