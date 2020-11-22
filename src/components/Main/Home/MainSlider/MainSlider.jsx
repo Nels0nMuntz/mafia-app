@@ -17,9 +17,11 @@ const MainSlider = ({queryMatches}) => {
         dispatch(setMainSlider())
     }, []);
 
+    console.log('render "MainSlider"');
+    console.log(sliderData);
     return (
-        <div className='main_slider' >
-
+        <section className='main_slider' >
+            <h1>Slider</h1>
             <Carousel
                 autoplay
                 dots={false}
@@ -38,7 +40,7 @@ const MainSlider = ({queryMatches}) => {
                     ))
                 )}
             </Carousel>
-        </div>
+        </section>
     )
 }
 

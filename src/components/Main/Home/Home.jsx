@@ -12,6 +12,18 @@ const Home = () => {
             <section>
                 <MainSlider />
             </section>
+            <section className={style.reccomend}>
+                <h2>Мы рекомендуем</h2>
+                <div className={style.slider_container}>
+
+                </div>
+            </section>
+            <section className={style.delivery}>
+                <h2>Меню доставки</h2>
+                <div className={style.slider_container}>
+
+                </div>
+            </section>
         </div>
     )
 }
