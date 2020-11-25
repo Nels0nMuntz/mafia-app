@@ -8,8 +8,6 @@ import url from '../../../../assets/images/main-slider/slide_1.jpeg'
 
 
 const MainSlider = ({ sliderData, queryMatches }) => {
-
-    console.log(sliderData);
     return (
         <section className='main_slider' >
             <Carousel

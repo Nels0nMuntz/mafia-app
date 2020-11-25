@@ -11,7 +11,9 @@ import style from './Home.module.scss'
 
 const Home = () => {
 
-    const sliderData = useSelector(state => state.home.mainSlider);
+    const mainSlider = useSelector(state => state.home.mainSlider);
+    const homeSlider = useSelector(state => state.home.homeSlider);
+    const deliverySlider = useSelector(state => state.home.deliverySlider);
     const dispatch = useDispatch();
     React.useEffect(() => {
         dispatch(setMainSlider())
@@ -21,18 +23,20 @@ const Home = () => {
         <div>
             <section>
                 <MainSlider
-                    sliderData={sliderData}
+                    sliderData={mainSlider}
                 />
             </section>
             <section className={classnames(
-                style.reccomended,
+                style.recommended,
                 style.section__wrapper
             )}>
                 <div className={style.titleBlock}>
                     <h2>Мы рекомендуем</h2>
                 </div>
                 <div className={style.slider_container}>
-                    <HomeSlider />
+                    <HomeSlider 
+                        sliderData={homeSlider}
+                    />
                 </div>
             </section>
             <section className={classnames(

@@ -1,10 +1,12 @@
 import React from 'react'
 import { Carousel } from 'antd';
 
+import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdown';
+
 import './HomeSlider.scss'
 import imgUrl from './../../../../assets/images/home_slider_test.jpeg'
 
-const HomeSlider = () => {
+const HomeSlider = ({ sliderData }) => {
 
     const settings = {
         autoplay: false,
@@ -26,7 +28,7 @@ const HomeSlider = () => {
                 }
             },
             {
-                breakpoint: 649,
+                breakpoint: 650,
                 settings: {
                     slidesToShow: 1,
                 }
@@ -36,65 +38,41 @@ const HomeSlider = () => {
 
     return (
         <div className="homeSlider">
-            <Carousel {...settings}>
-                <div className="homeSlider__item item-homeSlider">
-                    <div className="item-homeSlider__content">
-                        <img src={imgUrl} alt='' />
-                        <div className="item-homeSlider__info">
-                            <h3>Мафия</h3>
-                            <div className="item-homeSlider__weight-block">
-                                <div className="item-homeSlider__weight">570 г.</div>
-                                <div className="item-homeSlider__swicher swicher-homeSlider">
-                                    <span>Средняя</span>
-                                    <label>
-                                        <input className="visually-hidden" type="checkbox"/>
-                                        <span/>
-                                    </label>
-                                    <span>Большая</span>
+            {sliderData.length && (
+                <Carousel {...settings}>
+                    {sliderData.map(({id, title, description, imageUrl, gifts, sizes}) => (
+                        <div className="homeSlider__item item-homeSlider" key={`homeSlider_${id}`}>
+                            <div className="item-homeSlider__content">
+                                <img src={imageUrl} alt='' />
+                                <div className="item-homeSlider__info">
+                                    <h3>{title}</h3>
+                                    <div className="item-homeSlider__weight-block">
+                                        <div className="item-homeSlider__weight">570 г.</div>
+                                        <div className="item-homeSlider__swicher swicher-homeSlider">
+                                            <span>Средняя</span>
+                                            <label>
+                                                <input className="visually-hidden" type="checkbox" />
+                                                <span />
+                                            </label>
+                                            <span>Большая</span>
+                                        </div>
+                                    </div>
+                                    <p className="item-homeSlider__descr">Ролл филадельфия кунсей, Ролл калифорния, Маки с масляной, Маки с лососем, Ролл филадельфия с лососем, Чизу ролл</p>
+                                    <div className="item-homeSlider__price-gift">
+                                        <div className="item-homeSlider__price">399 грн.</div>
+                                        <div className="item-homeSlider__gift-block gift-block">
+                                            <GiftDropdown />
+                                        </div>
+                                    </div>
+                                    <div className="item-homeSlider__order">
+                                        <button className="item-homeSlider__btn">Заказать</button>
+                                    </div>
                                 </div>
                             </div>
-                            <p className="item-homeSlider__descr">Ролл филадельфия кунсей, Ролл калифорния, Маки с масляной, Маки с лососем, Ролл филадельфия с лососем, Чизу ролл</p>
                         </div>
-                    </div>
-                </div>
-
-                <div className="homeSlider__item item-homeSlider">
-                    <div className="item-homeSlider__content">
-                        <img src={imgUrl} alt='' />
-                        <div className="item-homeSlider__info">
-                            <h3>Мафия</h3>
-                            <div className="item-item-homeSlider__weight-block">
-                                <span className="item-homeSlider__weight"></span>
-                                <span className="item-homeSlider__weight"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="homeSlider__item item-homeSlider">
-                    <div className="item-homeSlider__content">
-                        <img src={imgUrl} alt='' />
-                        <div className="item-homeSlider__info">
-                            <h3>Мафия</h3>
-                            <div className="item-item-homeSlider__weight-block">
-                                <span className="item-homeSlider__weight"></span>
-                                <span className="item-homeSlider__weight"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="homeSlider__item item-homeSlider">
-                    <div className="item-homeSlider__content">
-                        <img src={imgUrl} alt='' />
-                        <div className="item-homeSlider__info">
-                            <h3>Мафия</h3>
-                            <div className="item-item-homeSlider__weight-block">
-                                <span className="item-homeSlider__weight"></span>
-                                <span className="item-homeSlider__weight"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Carousel>
+                    ))}
+                </Carousel>
+            )}
         </div>
     )
 }

@@ -1,80 +1,153 @@
 .homeSlider {
-    margin: 0 -10px;
+    margin: 0 -12px;
 
     .homeSlider__item {
-        padding: 10px;
+        padding: 12px;
 
-        &:hover {
-            .homeSlider__content {
-                box-shadow: 0 0 10px 2px #ccc;
+        .item-homeSlider__content {
+            z-index   : 1;
+            transition: box-shadow 0.12s linear;
+
+            &:hover {
+                box-shadow: 0 0 12px 3px #ccc;
             }
-        }
 
-        .homeSlider__content {
-            z-index: 1;
-            transition: box-shadow 0.1s linear;
         }
 
         img {
             display: block;
-            width: 100%;
-            height: auto;
-            cursor: pointer;
+            width  : 100%;
+            height : auto;
+            cursor : pointer;
         }
 
         .item-homeSlider__info {
             padding: 20px;
 
             h3 {
-                font-size: 24px;
+                font-size    : 24px;
                 margin-bottom: 30px;
             }
 
             .item-homeSlider__weight-block {
-                display: flex;
+                display        : flex;
                 justify-content: space-between;
-                align-items: center;
-                font-size: 14px;
+                align-items    : center;
+                flex-wrap: wrap;
+                font-size      : 14px;
+                margin-bottom  : 10px;
 
                 .item-homeSlider__weight {
+                    flex-grow: 1;
+                    min-width: 50px;
+                    line-height: 35px;
+                    margin-right: 10px;
                     color: var(--gray-secondary);
                 }
 
                 .swicher-homeSlider {
-                    display: flex;
+                    display    : flex;
                     align-items: center;
 
                     label {
                         margin: 0 7px;
 
-                        input:checked + span::after {
-                            left: auto;
+                        input:checked+span::after {
+                            left : auto;
                             right: 3px;
                         }
 
                         span {
-                            position: relative;
-                            display: block;
-                            width: 50px;
-                            height: 28px;
-                            border-radius: 14px;
+                            position        : relative;
+                            display         : block;
+                            width           : 50px;
+                            height          : 28px;
+                            border-radius   : 14px;
                             background-color: var(--green-main);
-                            cursor: pointer;
+                            cursor          : pointer;
+
                             &::after {
-                                content: "";
-                                position: absolute;
-                                display: block;
-                                top: 3px;
-                                left: 3px;
-                                right: auto;
-                                width: 22px;
-                                height: 22px;
-                                border-radius: 50%;
+                                content         : "";
+                                position        : absolute;
+                                display         : block;
+                                top             : 3px;
+                                left            : 3px;
+                                right           : auto;
+                                width           : 22px;
+                                height          : 22px;
+                                border-radius   : 50%;
                                 background-color: white;
-                                transition: all 0.2s ease;
+                                transition      : all 0.2s ease;
                             }
                         }
                     }
+                }
+            }
+
+            .item-homeSlider__descr {
+                position     : relative;
+                font-size    : 14px;
+                font-weight  : 300;
+                line-height  : 18px;
+                height       : 54px;
+                margin-bottom: 40px;
+                overflow     : hidden;
+                color        : var(--gray);
+
+                &:after {
+                    content   : '';
+                    position  : absolute;
+                    left      : 0;
+                    bottom    : 0;
+                    width     : 100%;
+                    height    : 25px;
+                    background: linear-gradient(0deg, white 0%, transparent 80%, transparent 100%);
+                }
+
+                @media screen and (max-width: 575px) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .item-homeSlider__price-gift {
+                display      : flex;
+                align-items  : center;
+                flex-wrap    : wrap;
+                margin-bottom: 10px;
+
+                .item-homeSlider__price {
+                    width      : 40%;
+                    font-size  : 24px;
+                    line-height: 50px;
+                    color      : black;
+                    flex-grow: 1;
+                }
+
+                .item-homeSlider__gift-block {
+                    width    : 60%;
+                    min-width: 205px;
+                    flex-grow: 1;
+                }
+            }
+
+            .item-homeSlider__btn {
+                width        : 100%;
+                padding      : 15px 0;
+                text-align   : center;
+                font-size    : 16px;
+                color        : var(--green-main);
+                border       : 1px solid var(--green-main);
+                border-radius: 3px;
+                transition   : color 0.1s linear, background-color 0.1s linear;
+
+                &:hover {
+                    color           : white;
+                    background-color: var(--green-main);
+                }
+
+                @media screen and (max-width: 575px) {
+                    padding  : 12px 0;
+                    font-size: 15px;
                 }
             }
         }

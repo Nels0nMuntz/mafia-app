@@ -3,7 +3,9 @@ import { homeAPI } from './../api/api';
 const SET_MAIN_SLIDER = 'SET_SLIDER';
 
 const initialState = {
-    mainSlider: []
+    mainSlider: [],
+    homeSlider: [],
+    deliverySlider: [],
 }
 
 const homeReducer = (state = initialState, action) => {

@@ -1,13 +1,35 @@
 .section__wrapper{
     padding: 40px;
+
+    @media screen and (max-width: 991px) {
+        padding: 30px;
+    }
+    @media screen and (max-width: 767px) {
+        padding: 20px;
+    }
+
     .titleBlock{
         margin-bottom: 40px;
+
+        @media screen and (max-width: 767px) {
+            margin-bottom: 20px;
+        }
+
         h2{
             font-size: 36px;
             font-weight: 700;
+
+            @media screen and (max-width: 767px) {
+                font-size: 26px;
+                text-align: center;
+            }
         }
     }
     .slider_container{
         padding: 0 30px;
+        
+        @media screen and (max-width: 575px) {
+            padding: 0;
+        }
     }
 }
