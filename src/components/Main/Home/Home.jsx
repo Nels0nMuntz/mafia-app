@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setMainSlider } from '../../../redux/home-reducer';
+import { setMainSlider, setHomeSlider } from '../../../redux/home-reducer';
 import MainSlider from './MainSlider/MainSlider';
 import HomeSlider from './HomeSlider/HomeSlider';
 
@@ -16,7 +16,8 @@ const Home = () => {
     const deliverySlider = useSelector(state => state.home.deliverySlider);
     const dispatch = useDispatch();
     React.useEffect(() => {
-        dispatch(setMainSlider())
+        dispatch(setMainSlider());
+        dispatch(setHomeSlider());
     }, []);
 
     return (

@@ -16,7 +16,7 @@ const HomeSlider = ({ sliderData }) => {
         slidesToScroll: 1,
         responsive: [
             {
-                breakpoint: 1599,
+                breakpoint: 1820,
                 settings: {
                     slidesToShow: 3,
                 }
@@ -40,7 +40,7 @@ const HomeSlider = ({ sliderData }) => {
         <div className="homeSlider">
             {sliderData.length && (
                 <Carousel {...settings}>
-                    {sliderData.map(({id, title, description, imageUrl, gifts, sizes}) => (
+                    {sliderData.map(({ id, title, description, imageUrl, gifts, sizes }) => (
                         <div className="homeSlider__item item-homeSlider" key={`homeSlider_${id}`}>
                             <div className="item-homeSlider__content">
                                 <img src={imageUrl} alt='' />
@@ -57,11 +57,11 @@ const HomeSlider = ({ sliderData }) => {
                                             <span>Большая</span>
                                         </div>
                                     </div>
-                                    <p className="item-homeSlider__descr">Ролл филадельфия кунсей, Ролл калифорния, Маки с масляной, Маки с лососем, Ролл филадельфия с лососем, Чизу ролл</p>
+                                    <p className="item-homeSlider__descr">{description}</p>
                                     <div className="item-homeSlider__price-gift">
                                         <div className="item-homeSlider__price">399 грн.</div>
                                         <div className="item-homeSlider__gift-block gift-block">
-                                            <GiftDropdown />
+                                            {gifts.length ? <GiftDropdown /> : null}                                            
                                         </div>
                                     </div>
                                     <div className="item-homeSlider__order">

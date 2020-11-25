@@ -1,6 +1,7 @@
 import { homeAPI } from './../api/api';
 
-const SET_MAIN_SLIDER = 'SET_SLIDER';
+const SET_MAIN_SLIDER = 'SET_MAIN_SLIDER';
+const SET_HOME_SLIDER = 'SET_HOME_SLIDER';
 
 const initialState = {
     mainSlider: [],
@@ -12,6 +13,8 @@ const homeReducer = (state = initialState, action) => {
     switch (action.type){
         case SET_MAIN_SLIDER:
             return {...state, mainSlider: action.payload};
+        case SET_HOME_SLIDER:
+            return {...state, homeSlider: action.payload};
         default:
             return state;
     };
@@ -20,8 +23,13 @@ const homeReducer = (state = initialState, action) => {
 export default homeReducer;
 
 const setMainSliderAC = data => ({type: SET_MAIN_SLIDER, payload: data});
+const setHomeSliderAC = data => ({type: SET_HOME_SLIDER, payload: data});
 
 export const setMainSlider = () => async dispatch => {
     let response = await homeAPI.getMainSliderData();
     dispatch(setMainSliderAC(response));
+}
+export const setHomeSlider = () => async dispatch => {
+    let response = await homeAPI.getHomeSlider();
+    dispatch(setHomeSliderAC(response));
 }

@@ -1,28 +1,18 @@
+const getData = (endPoint) => {
+    return fetch(`http://localhost:3080/${endPoint}/`)
+        .then(response => response.json())
+        .then(data => data)    
+}
 export const headerAPI = {
-    getCategories(){
-        return fetch('http://localhost:3001/header-categories/')
-            .then(response => response.json())
-            .then(data => data)
-    }
+    getCategories(){return getData('header-categories')}
 };
 export const filterAPI = {
-    getCategories(){
-        return fetch('http://localhost:3001/sort-categories/')
-            .then(response => response.json())
-            .then(data => data)
-    }
+    getCategories(){return getData('sort-categories')}
 };
 export const menuAPI = {
-    getCategories(){
-        return fetch('http://localhost:3001/menu-categories/')
-            .then(response => response.json())
-            .then(data => data)
-    }
+    getCategories(){return getData('menu-categories')}
 };
 export const homeAPI = {
-    getMainSliderData(){
-        return fetch('http://localhost:3001/main-slider/')
-            .then(response => response.json())
-            .then(data => data)
-    },
+    getMainSliderData(){return getData('main-slider')},
+    getHomeSlider(){return getData('recommend-slider')},
 };
