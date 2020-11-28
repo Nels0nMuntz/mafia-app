@@ -1,22 +1,22 @@
 import React from 'react'
+import HomeSlide from './HomeSlide';
+
 import { Carousel } from 'antd';
 
-import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdown';
-
 import './HomeSlider.scss'
-import imgUrl from './../../../../assets/images/home_slider_test.jpeg'
+
 
 const HomeSlider = ({ sliderData }) => {
-
     const settings = {
         autoplay: false,
-        autoplaySpeed: 5000,
         dots: false,
+        arrows: true,
+        autoplaySpeed: 5000,
         slidesToShow: 4,
         slidesToScroll: 1,
         responsive: [
             {
-                breakpoint: 1820,
+                breakpoint: 1790,
                 settings: {
                     slidesToShow: 3,
                 }
@@ -34,47 +34,22 @@ const HomeSlider = ({ sliderData }) => {
                 }
             },
         ]
-    }
-
+    };
+    
     return (
         <div className="homeSlider">
             {sliderData.length && (
                 <Carousel {...settings}>
-                    {sliderData.map(({ id, title, description, imageUrl, gifts, sizes }) => (
-                        <div className="homeSlider__item item-homeSlider" key={`homeSlider_${id}`}>
-                            <div className="item-homeSlider__content">
-                                <img src={imageUrl} alt='' />
-                                <div className="item-homeSlider__info">
-                                    <h3>{title}</h3>
-                                    <div className="item-homeSlider__weight-block">
-                                        <div className="item-homeSlider__weight">570 г.</div>
-                                        <div className="item-homeSlider__swicher swicher-homeSlider">
-                                            <span>Средняя</span>
-                                            <label>
-                                                <input className="visually-hidden" type="checkbox" />
-                                                <span />
-                                            </label>
-                                            <span>Большая</span>
-                                        </div>
-                                    </div>
-                                    <p className="item-homeSlider__descr">{description}</p>
-                                    <div className="item-homeSlider__price-gift">
-                                        <div className="item-homeSlider__price">399 грн.</div>
-                                        <div className="item-homeSlider__gift-block gift-block">
-                                            {gifts.length ? <GiftDropdown /> : null}                                            
-                                        </div>
-                                    </div>
-                                    <div className="item-homeSlider__order">
-                                        <button className="item-homeSlider__btn">Заказать</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    {sliderData.map(slideData => (
+                        <HomeSlide
+                            key={`${slideData.title}_${slideData.id}`}
+                            data={slideData}
+                        />
                     ))}
                 </Carousel>
             )}
         </div>
     )
-}
+};
 
-export default HomeSlider
+export default HomeSlider;

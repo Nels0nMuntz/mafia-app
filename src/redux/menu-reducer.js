@@ -25,6 +25,5 @@ const requestMenuCategoriesAC = categories => ({type: REQUEST_MENU_CATEGORIES, p
 
 export const requestMenuCategories = () => async dispatch => {
     let response = await menuAPI.getCategories();
-    console.log(response);
     dispatch(requestMenuCategoriesAC(response));
 }

@@ -1,5 +1,5 @@
 .section__wrapper{
-    padding: 40px;
+    padding: 40px 40px;
 
     @media screen and (max-width: 991px) {
         padding: 30px;
@@ -26,7 +26,7 @@
         }
     }
     .slider_container{
-        padding: 0 20px;
+        padding: 0 15px;
         
         @media screen and (max-width: 575px) {
             padding: 0;
