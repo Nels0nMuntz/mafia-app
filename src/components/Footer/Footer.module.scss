@@ -1,0 +1,95 @@
+.footer {
+    display: flex;
+    width: 100%;
+    padding: 40px 40px 40px 160px;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: black;
+
+    @media screen and (max-width: 1750px) {
+        padding: 40px 40px 40px 120px;
+    }
+    @media screen and (max-width: 1199px) {
+        flex-direction: column;
+    }
+
+    .footer__left {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+
+        .footer__logo_copy {
+            margin-right: 80px;
+            &:last-child {
+                margin-right: 0;
+            }
+            @media screen and (max-width: 1400px) {
+                margin-right: 60px;
+            }
+            @media screen and (max-width: 1199px) {
+                width: 100%;
+                margin-right: 0;
+                text-align: center;
+            }
+
+            .footer__logo {
+                margin-bottom: 30px;                
+            }
+            .footer__copy_left {
+                @media screen and (max-width: 1400px) {
+                    display: none;
+                }
+            }
+        }
+
+        .footer__nav{
+            display: flex;
+            @media screen and (max-width: 1199px) {
+                width: 100%;
+                justify-content: space-evenly;
+                text-align: center;
+            }
+
+            .footer__column {
+                margin-right: 80px;
+                padding: 0 5px 15px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                @media screen and (max-width: 1400px) {
+                    margin-right: 50px;
+                }
+                @media screen and (max-width: 1199px) {
+                    margin-right: 0;
+                }
+    
+                span {
+                    line-height: 26px;
+                }
+            }
+        }        
+    }
+
+    .footer__right {
+        .footer__social {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            @media screen and (max-width: 1199px) {
+                justify-content: center;
+            }
+
+            span {
+                margin-left: 10px;
+                width: 24px;
+                height: 24px;
+
+                img {
+                    width: 100%;
+                    display: block;
+                }
+            }
+        }
+    }
+}

@@ -26,22 +26,50 @@ const HomeSlide = ({ data }) => {
                     gift: key
                 },
             })
-        ) 
+        )
     };
 
-    const onClickCheckbox = () => {
-        console.log(slideData.checkboxState);
-        setSlideData({
-            ...slideData,
-            checkboxState: !slideData.checkboxState,
-            selected: {
-                ...slideData.selected,
-                size: data.sizes[+(!slideData.checkboxState)]
-            },
-        })
+    const onClickCheckbox = (event) => {
+        // it will work when click on some of cerain size heppened
+        if (event.target.dataset.value) {
+            const value = event.target.dataset.value;
+            // this condition helps React to avoid making unnecessary rerenders
+            if(value === slideData.selected.size.value) return
+            value === slideData.sizes[0].value && (
+                setSlideData({
+                    ...slideData,
+                    checkboxState: false,
+                    selected: {
+                        ...slideData.selected,
+                        size: data.sizes[0]
+                    },
+                })
+            );
+            event.target.dataset.value === slideData.sizes[1].value && (
+                setSlideData({
+                    ...slideData,
+                    checkboxState: true,
+                    selected: {
+                        ...slideData.selected,
+                        size: data.sizes[1]
+                    },
+                })
+            );
+        }
+        // it will work when click on checkbox heppened
+        else {
+            setSlideData({
+                ...slideData,
+                checkboxState: !slideData.checkboxState,
+                selected: {
+                    ...slideData.selected,
+                    size: data.sizes[+(!slideData.checkboxState)]
+                },
+            })
+        }
     }
 
-    // console.log('RENDER HomeSlide');
+    console.log('RENDER HomeSlide');
 
     return (
         <div className="homeSlider__item item-homeSlider" key={`homeSlider_${slideData.id}`}>
@@ -53,20 +81,23 @@ const HomeSlide = ({ data }) => {
                         <div className="item-homeSlider__weight">{slideData.selected.size.weight}</div>
                         {slideData.sizes.length === 2 ? (
                             <div className="item-homeSlider__swicher swicher-homeSlider">
-                                <span>{slideData.sizes[0].value}</span>
+                                <span
+                                    data-value={slideData.sizes[0].value}
+                                    onClick={onClickCheckbox}
+                                >{slideData.sizes[0].value}</span>
                                 <div
-                                    className="swicher-homeSlider__checkbox"
+                                    className={classnames(
+                                        "swicher-homeSlider__checkbox",
+                                        slideData.checkboxState && 'checked'
+                                    )}
                                     onClick={onClickCheckbox}
                                 >
-                                    <span 
-                                        className={`${slideData.checkboxState ? 'checked' : ''}`}
-                                    />
-                                </div>
-                                {/* <label>
-                                    <input className="visually-hidden" type="checkbox" />
                                     <span />
-                                </label> */}
-                                <span>{slideData.sizes[1].value}</span>
+                                </div>
+                                <span
+                                    data-value={slideData.sizes[1].value}
+                                    onClick={onClickCheckbox}
+                                >{slideData.sizes[1].value}</span>
                             </div>
                         ) : null}
                     </div>
@@ -84,7 +115,10 @@ const HomeSlide = ({ data }) => {
                         </div>
                     </div>
                     <div className="item-homeSlider__order">
-                        <button className="item-homeSlider__btn">Заказать</button>
+                        <button 
+                            className="item-homeSlider__btn"
+                            onClick={() => console.log(slideData)}
+                        >Заказать</button>
                     </div>
                 </div>
             </div>

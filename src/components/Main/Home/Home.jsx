@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setMainSlider, setHomeSlider } from '../../../redux/home-reducer';
 import MainSlider from './MainSlider/MainSlider';
 import HomeSlider from './HomeSlider/HomeSlider';
+import DeliverySlider from './DeliverySlider/DeliverySlider';
 
 import style from './Home.module.scss'
 
@@ -48,7 +49,7 @@ const Home = () => {
                     <h2>Меню доставки</h2>
                 </div>
                 <div className={style.slider_container}>
-
+                    <DeliverySlider/>
                 </div>
             </section>
         </div>

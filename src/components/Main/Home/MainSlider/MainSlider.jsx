@@ -4,7 +4,6 @@ import { Carousel } from 'antd';
 import withBreakpoints from './../../../HOC/withBreakpoints'
 
 import './MainSlider.scss'
-import url from '../../../../assets/images/main-slider/slide_1.jpeg'
 
 
 const MainSlider = ({ sliderData, queryMatches }) => {

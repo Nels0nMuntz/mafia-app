@@ -1,0 +1,89 @@
+.deliverySlider {
+    padding: 20px 0;
+    .deliverySlider__item {
+        text-align: center;
+
+        .item-deliverySlider__image {
+            svg {
+                width: 100px;
+                height: 100px;
+                @media screen and (max-width: 1199px) {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+        .item-deliverySlider__title {
+            font-size: 18px;
+            color: black;
+            margin-top: 10px;
+            padding: 0 5px;
+            @media screen and (max-width: 991px) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .slick-arrow {
+        width: 30px;
+        height: 30px;
+        margin-top: -15px;
+        border-radius: 50%;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 57%;
+            left: 57%;
+            margin: -13px 0 0 -13px;
+            width: 26px;
+            height: 26px;
+            border-radius: 2px;
+            border: 2.5px solid transparent;
+            border-top-color: black;
+            border-left-color: black;
+
+            font-family: initial;
+            font-size: 0;
+            line-height: 0;
+            opacity: 1;
+            color: none;
+
+            @media screen and (max-width: 575px) {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+
+    .ant-carousel button.slick-prev {
+        left: -25px;
+        transform: rotate(-45deg);
+
+        @media screen and (max-width: 1099px) {
+            left: -20px;
+        }
+        @media screen and (max-width: 767px) {
+            left: -15px;
+        }
+        @media screen and (max-width: 767px) {
+            left: -5px;
+        }
+    }
+
+    .ant-carousel button.slick-next {
+        right: -25px;
+        transform: rotate(135deg);
+
+        @media screen and (max-width: 1099px) {
+            right: -20px;
+        }
+        @media screen and (max-width: 767px) {
+            right: -15px;
+        }
+        @media screen and (max-width: 767px) {
+            right: -5px;
+        }
+    }
+}

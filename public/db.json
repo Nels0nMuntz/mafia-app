@@ -344,5 +344,12 @@
                 }
             ]
         }
+    ],
+    "delivery-slider": [
+        {
+            "id": 1,
+            "title": "Pizza",
+            "svgCode": ""
+        }
     ]
 }

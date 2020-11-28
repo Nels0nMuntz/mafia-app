@@ -4,9 +4,10 @@ import HomeSlide from './HomeSlide';
 import { Carousel } from 'antd';
 
 import './HomeSlider.scss'
+import withBreakpoints from '../../../HOC/withBreakpoints';
 
 
-const HomeSlider = ({ sliderData }) => {
+const HomeSlider = ({ queryMatches, sliderData }) => {
     const settings = {
         autoplay: false,
         dots: false,
@@ -35,21 +36,32 @@ const HomeSlider = ({ sliderData }) => {
             },
         ]
     };
-    
+
     return (
         <div className="homeSlider">
             {sliderData.length && (
-                <Carousel {...settings}>
-                    {sliderData.map(slideData => (
+                queryMatches && queryMatches.sm ? (
+                    sliderData.map(slideData => (
                         <HomeSlide
                             key={`${slideData.title}_${slideData.id}`}
                             data={slideData}
                         />
-                    ))}
-                </Carousel>
+                    ))
+                ) : (
+                    <Carousel {...settings}>
+                        {sliderData.map(slideData => (
+                            <HomeSlide
+                                key={`${slideData.title}_${slideData.id}`}
+                                data={slideData}
+                            />
+                        ))}
+                    </Carousel>
+                )
             )}
         </div>
     )
 };
 
-export default HomeSlider;
+export default withBreakpoints(HomeSlider, {
+    sm: '(max-width: 650px)',
+});
