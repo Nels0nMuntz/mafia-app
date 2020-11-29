@@ -48,6 +48,10 @@ const Footer = () => {
                         <img src={facebookUrl} alt="fb" />
                     </span>
                 </div>
+                <div className={style.footer__copy_right}>
+                    <p>© 2002 - 2020 MAFIA</p>
+                    <p>Все права защищены.</p>
+                </div>
             </div>
         </footer>
     )
