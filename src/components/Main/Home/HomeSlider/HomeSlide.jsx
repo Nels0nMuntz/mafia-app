@@ -67,9 +67,7 @@ const HomeSlide = ({ data }) => {
                 },
             })
         }
-    }
-
-    console.log('RENDER HomeSlide');
+    };
 
     return (
         <div className="homeSlider__item item-homeSlider" key={`homeSlider_${slideData.id}`}>

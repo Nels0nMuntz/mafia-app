@@ -8,7 +8,7 @@
 .burger{
     display: none;
 }
-.burger+label{
+.burger_wrapper{
     display: block;
     position: relative;
     width: 30px;
@@ -16,7 +16,7 @@
     cursor: pointer;    
 	transition: all .5s;
 }
-.burger+label div{
+.burger_wrapper div{
     position: absolute;
     left: 0;
     width: 100%;
@@ -24,25 +24,28 @@
     background-color: white;
 	transition: all .5s;
 }
-.burger+label div:first-child{
+.burger_wrapper div:first-child{
     top: 0;
 }
-.burger+label div:nth-child(2){
+.burger_wrapper div:nth-child(2){
     top: 50%;
     margin-top: -1px;
 }
-.burger+label div:last-child{
+.burger_wrapper div:last-child{
     bottom: 0;
 }
 /* menu-3 */
-.menu_3:checked + label div:first-child{
+.active{
+    pointer-events: none;
+}
+.active div:first-child{
     top: 11px;
     left: 4px;
     width: 27px;
     transform: rotate(-315deg);
     z-index: 1;
 }
-.menu_3:checked + label div:nth-child(2){
+.active div:nth-child(2){
     top: -7px;
     left: -2px;
     width: 40px;
@@ -51,7 +54,7 @@
     background: black;
     border: 2px solid white;
 }
-.menu_3:checked + label div:last-child{
+.active div:last-child{
     top: 11px;
     left: 4px;
     width: 27px;

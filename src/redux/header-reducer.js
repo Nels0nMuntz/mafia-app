@@ -2,6 +2,7 @@ import { headerAPI } from './../api/api';
 
 const SET_CATEGORIES = 'SET_CATEGORIES';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_MENU_STATE = 'TOGGLE_MENU_STATE';
 
 const initialState = {
     categories: [
@@ -22,7 +23,8 @@ const initialState = {
             title: 'RU'
         },
     ],
-    isFetching: false
+    isFetching: false,
+    isMenuOpen: false,
 };
 
 const headerReducer = (state = initialState, action) => {
@@ -31,6 +33,8 @@ const headerReducer = (state = initialState, action) => {
             return {...state, categories: action.payload}
         case TOGGLE_IS_FETCHING: 
             return {...state, isFetching: action.payload}
+        case TOGGLE_MENU_STATE: 
+            return {...state, isMenuOpen: action.payload}
         default:
             return state;
     }
@@ -39,6 +43,7 @@ export default headerReducer;
 
 const setCategories = categories => ({type: SET_CATEGORIES, payload: categories});
 const toggleIsFetching = value => ({type: TOGGLE_IS_FETCHING, payload: value});
+export const toggleMenuState = (value = false) => ({ type: TOGGLE_MENU_STATE, payload: value })
 
 export const requestCategories = () =>  async dispatch => {
     dispatch(toggleIsFetching(true));
