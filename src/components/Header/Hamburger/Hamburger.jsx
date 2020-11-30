@@ -11,17 +11,16 @@ const Hamburger = () => {
 
     const dispatch = useDispatch();
     const isMenuOpen = useSelector(state => state.header.isMenuOpen);
-    const node = React.useRef();
+    let isPermitted = true;
     
     const onClickBurger = () => {
-        if(!isMenuOpen){
+        if(!isMenuOpen && isPermitted){
             console.log('open');
             dispatch(toggleMenuState(true));
+            isPermitted = false;
         }
-        node.current.removeEventListener('click', onClickBurger)
     };
     
-    console.log(node);
 
     return (
         <div className={style.hamburger}>
@@ -38,9 +37,7 @@ const Hamburger = () => {
                     style.burger_wrapper,
                     isMenuOpen && style.active
                 )}
-                className={style.burger_wrapper}
                 onClick={onClickBurger}
-                ref={node}
             >
                 <div></div>
                 <div></div>

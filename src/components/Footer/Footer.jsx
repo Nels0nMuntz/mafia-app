@@ -3,6 +3,7 @@ import React from 'react'
 import style from './Footer.module.scss'
 import logoUrl from './../../assets/images/logo.svg'
 import facebookUrl from './../../assets/images/facebook-logo.svg'
+import { Link } from 'react-router-dom'
 
 
 const Footer = () => {
@@ -11,7 +12,9 @@ const Footer = () => {
             <div className={style.footer__left}>
                 <div className={style.footer__logo_copy}>
                     <div className={style.footer__logo}>
-                        <img src={logoUrl} alt="logo" />
+                        <Link to='/'>
+                            <img src={logoUrl} alt="logo" />
+                        </Link>
                     </div>
                     <div className={style.footer__copy_left}>
                         <p>© 2002 - 2020 MAFIA</p>

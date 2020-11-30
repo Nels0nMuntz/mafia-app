@@ -15,9 +15,9 @@ const Menu = () => {
 
     React.useEffect(() => {
 
-        const hendler = event => { 
-            if(!node || node.current.contains(event.target)) return;
-            if(isMenuOpen){
+        const hendler = event => {
+            if (!node || node.current.contains(event.target)) return;
+            if (isMenuOpen) {
                 console.log('close');
                 dispatch(toggleMenuState());
             }
@@ -25,7 +25,7 @@ const Menu = () => {
 
         document.body.addEventListener('mousedown', hendler);
         return () => { document.body.removeEventListener('mousedown', hendler); }
-    }, [ node, isMenuOpen ])
+    }, [node, isMenuOpen])
 
     return (
         <div
@@ -76,6 +76,6 @@ const Menu = () => {
             </nav>
         </div>
     )
-}
+};
 
-export default Menu
+export default Menu;

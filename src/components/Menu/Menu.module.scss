@@ -1,5 +1,7 @@
 .wrapper {
-    position: absolute;
+    position: fixed;
+    top: 80px;
+    left: 0;
     width: 100%;
     z-index: 15;
     background-color: rgb(247, 247, 247);
