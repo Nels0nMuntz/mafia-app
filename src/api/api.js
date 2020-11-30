@@ -4,7 +4,8 @@ const getData = (endPoint) => {
         .then(data => data)    
 }
 export const headerAPI = {
-    getCategories(){return getData('header-categories')}
+    getCategories(){return getData('header-categories')},
+    getMenu(){return getData('menu')},
 };
 export const filterAPI = {
     getCategories(){return getData('sort-categories')}

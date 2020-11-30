@@ -3,36 +3,73 @@
     top: 80px;
     left: 0;
     width: 100%;
-    z-index: 15;
-    background-color: rgb(247, 247, 247);
-    border-bottom: 1px solid #cccccc;
+    height: calc(100% - 80px);
+    z-index: 14;
+    overflow-y: auto;
     transform: translateY(-100%);
-    transition: transform 0.5s ease;    
+    transition: transform 0.5s ease; 
+       
+    nav{
+        z-index: 15;
+        background-color: rgb(32, 32, 32);
+        background-image: url(../../assets/images/logo-menu.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 30%;
+        box-shadow: 0 0 30px rgba(0,0,0,.8);
+
+        @media screen and (max-width: 1199px){
+            background-size: 50%;
+        }
+        @media screen and (max-width: 768px){
+            background-size: 0%;
+        }
+    }
+
+    @media screen and (max-width: 720px){
+        top: 60px;
+        height: calc(100% - 60px);
+    }
 }
 .active {
     transform: translateY(0);
 }
+
 .menu_list {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(16.666%,1fr));
+    color: white;
+    background-color: rgba(0, 0, 0, 0.78);
 
     & > li {
-        flex: 1 1 0;
+        border-bottom: 1px solid #cccccc;
+    }
+
+    @media screen and (max-width: 1199px){
+        grid-template-columns: repeat(auto-fill,minmax(25%,1fr));
+    }
+    @media screen and (max-width: 991px){
+        grid-template-columns: repeat(auto-fill,minmax(33.333%,1fr));
+    }
+    @media screen and (max-width: 767px){
+        grid-template-columns: repeat(auto-fill,minmax(50%,1fr));
+    }
+    @media screen and (max-width: 575px){
+        grid-template-columns: repeat(auto-fill,minmax(100%,1fr));
     }
 }
 .menu_item {
     padding: 0 20px;
-    background-color: white;
-    border-bottom: 1px solid #cccccc;
 
     span {
         display: block;
-        padding: 20px 0;
+        padding: 25px 0;
         font-size: 18px;
         font-weight: 700;
+        @media screen and (max-width: 575px){
+            padding: 15px 0;
+        }
     }
 }
 .submenu_item {
@@ -40,8 +77,11 @@
         padding: 0 20px;
         span {
             display: block;
-            padding: 16px 0;
+            padding: 15px 0;
             font-size: 15px;
+            @media screen and (max-width: 575px){
+                padding: 10px 0;
+            }
         }
     }
 }

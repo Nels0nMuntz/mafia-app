@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import classnames from 'classnames'
 
-import { toggleMenuState } from '../../redux/header-reducer'
+import { requestMenu, toggleMenuState } from '../../redux/header-reducer'
 
 import style from './Menu.module.scss'
 
@@ -10,22 +10,27 @@ import style from './Menu.module.scss'
 const Menu = () => {
 
     const dispatch = useDispatch();
+    const menu = useSelector(state => state.header.menu);
     const isMenuOpen = useSelector(state => state.header.isMenuOpen);
-    const node = React.useRef();
+    const nav = React.useRef();
 
     React.useEffect(() => {
 
+        dispatch(requestMenu());
+
         const hendler = event => {
-            if (!node || node.current.contains(event.target)) return;
+            if (!nav || nav.current.contains(event.target)) return;
             if (isMenuOpen) {
                 console.log('close');
                 dispatch(toggleMenuState());
+                document.body.style.overflow = 'auto';
+                document.body.style.paddingRight = '0';
             }
         };
 
         document.body.addEventListener('mousedown', hendler);
         return () => { document.body.removeEventListener('mousedown', hendler); }
-    }, [node, isMenuOpen])
+    }, [isMenuOpen])
 
     return (
         <div
@@ -33,11 +38,24 @@ const Menu = () => {
                 style.wrapper,
                 isMenuOpen && style.active
             )}
-            ref={node}
         >
-            <nav>
+            <nav ref={nav}>
                 <ul className={style.menu_list}>
-                    <li>
+                    {menu.length && menu.map(({ id, item, submenu }) => (
+                        <li key={`${item}_${id}`}>
+                            <div className={style.menu_item}>
+                                <span>{item}</span>
+                            </div>
+                            <ul className={style.submenu_item}>
+                                {submenu.map((elem, index) => (
+                                    <li key={`${elem}_${index}`}>
+                                        <span>{elem}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                    {/* <li>
                         <div className={style.menu_item}>
                             <span>Меню</span>
                         </div>
@@ -71,7 +89,7 @@ const Menu = () => {
                                 <span>Новости</span>
                             </li>
                         </ul>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </div>

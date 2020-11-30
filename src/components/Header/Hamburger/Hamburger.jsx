@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenuState } from '../../../redux/header-reducer'
 
 import style from './Hamburger.module.scss'
+import { getScrollbar } from './../../../redux/scrollbar';
 
 
 const Hamburger = () => {
@@ -17,6 +18,8 @@ const Hamburger = () => {
         if(!isMenuOpen && isPermitted){
             console.log('open');
             dispatch(toggleMenuState(true));
+            getScrollbar(document.body);
+            document.body.style.overflow = 'hidden';
             isPermitted = false;
         }
     };
