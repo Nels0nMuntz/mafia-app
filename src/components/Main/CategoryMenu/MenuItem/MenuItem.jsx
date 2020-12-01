@@ -7,9 +7,9 @@ import style from './MenuItem.module.scss'
 // import imgUrl from '../../../../assets/images/menu-icon.svg'
 
 
-const MenuItem = ({ visibled, title, imageUrl }) => {
+const MenuItem = ({ visibled, title, imageUrl, link }) => {
     return (
-        <Link
+        <Link to={`/menu-dostavki/${link}`}
             className={style.link}
         >
             <div className={

@@ -13,7 +13,7 @@ const HeaderLogo = ({ queryMatches }) => {
 
     return (
         <div className={style.logo_wrapper}>
-            <Link>
+            <Link to="/">
                 {queryMatches && (
                     <>
                         {

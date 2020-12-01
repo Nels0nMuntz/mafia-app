@@ -9,7 +9,7 @@ import style from './Header.module.scss'
 import HeaderLeft from './HeaderLeft/HeaderLeft';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
 import HeaderRight from './HeaderRight/HeaderRight';
-import { getScrollbar } from './../../redux/scrollbar';
+import { getScrollbar } from './../../scrollbar/scrollbar';
 
 
 const Header = () => {
@@ -22,7 +22,6 @@ const Header = () => {
     if(node && node.current){
         isMenuOpen ? getScrollbar(node.current) : node.current.style.paddingRight = '0'
     }
-    // node && (isMenuOpen ? getScrollbar(node.current) : node.current.style.paddingRight = '0')
 
     useEffect(() => {
         console.log(isMenuOpen);

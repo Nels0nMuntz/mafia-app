@@ -1,0 +1,14 @@
+.products_catalog{
+    padding: 100px 80px 20px;
+}
+.products_breadcrumbs{
+    margin-bottom: 40px;
+}
+.breadcrumbs_container{
+    padding: 0 15px;
+}
+.products_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    margin: 0 -30px;
+}

@@ -1,7 +1,9 @@
 .homeSlider {
     margin: 0 -12px;
     touch-action: none;
-
+}
+.homeSlider,
+.products_catalog_item_wrapper{
     .homeSlider__item {
         padding: 12px;
 

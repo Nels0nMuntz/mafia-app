@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenuState } from '../../../redux/header-reducer'
 
 import style from './Hamburger.module.scss'
-import { getScrollbar } from './../../../redux/scrollbar';
+import { getScrollbar } from './../../../scrollbar/scrollbar';
 
 
 const Hamburger = () => {

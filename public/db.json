@@ -135,47 +135,56 @@
         {
             "id": 1,
             "content": "Пицца",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/picca_1501672668452.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/picca_1501672668452.svg",
+            "link": "pizza"
         },
         {
             "id": 2,
             "content": "Суши и сеты",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/sushi-i-sety_1501672706713.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/sushi-i-sety_1501672706713.svg",
+            "link": "sushi"
         },
         {
             "id": 3,
             "content": "Продукты",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/produkty_158593185288.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/produkty_158593185288.svg",
+            "link": "producty"
         },
         {
             "id": 4,
             "content": "Салаты и закуски",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/salaty_1501672718780.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/salaty_1501672718780.svg",
+            "link": "salaty"
         },
         {
             "id": 5,
             "content": "Супы",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/supy_1501672742344.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/supy_1501672742344.svg",
+            "link": "supy"
         },
         {
             "id": 6,
             "content": "Горячие блюда",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/goryachie-blyuda_1501672762195.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/goryachie-blyuda_1501672762195.svg",
+            "link": "goryachie-bluda"
         },
         {
             "id": 7,
             "content": "Грузинские блюда",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/gruzinskie-blyuda-ot-georgia.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/gruzinskie-blyuda-ot-georgia.svg",
+            "link": "gruzinskie-bluda"
         },
         {
             "id": 8,
             "content": "Десерты",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/deserty_1501672776799.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/deserty_1501672776799.svg",
+            "link": "deserty"
         },
         {
             "id": 9,
             "content": "Напитки",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/napitki_1501672791634.svg"
+            "imageUrl": "https://mafia.ua/storage/editor/fotos/napitki_1501672791634.svg",
+            "link": "napitki"
         }
     ],
     "main-slider": [

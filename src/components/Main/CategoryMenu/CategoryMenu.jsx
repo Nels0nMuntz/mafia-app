@@ -33,7 +33,7 @@ const CategoryMenu = ({ queryMatches }) => {
         >
             <ul className={style.menu_list}>
                 {categories.length && (
-                    categories.map(({ id, content, imageUrl }) => (
+                    categories.map(({ id, content, imageUrl, link }) => (
                         <li 
                             key={id}
                             className={style.menu_item}
@@ -42,6 +42,7 @@ const CategoryMenu = ({ queryMatches }) => {
                                 title={content}
                                 imageUrl={imageUrl}
                                 visibled={isVisibiled}
+                                link={link}
                             />
                         </li>
                     ))

@@ -23,7 +23,7 @@ const ProductsFilter = () => {
                 style.products_filter
             )
         }>
-            <section className={style.products_filter_wrapper}>
+            <div className={style.products_filter_wrapper}>
                 <h1 className={style.products_filter_title}>Pizza</h1>
                 <div className={style.products_filter_catalog}>
                     <span>Сортировать: </span>
@@ -31,7 +31,7 @@ const ProductsFilter = () => {
                         list={categories}
                     />
                 </div>
-            </section>
+            </div>
         </section>
     )
 }
