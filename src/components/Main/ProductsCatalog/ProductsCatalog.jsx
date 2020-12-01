@@ -12,8 +12,8 @@ const ProductsCatalog = () => {
     const dispatch = useDispatch();
     const pizzaCatalog = useSelector(state => state.catalog.pizza);
     React.useEffect(() => {
-        // dispatch(requestPizzaCatalog());
-    }, []);
+        dispatch(requestPizzaCatalog());
+    }, [pizzaCatalog]);
     const children = React.useMemo(() => (pizzaCatalog.map(item => ( <ProductCard key={`${item.id}_${item.title}`} cardData={item} /> )) ), [pizzaCatalog]);
 
     return (

@@ -5,13 +5,19 @@ import './GiftDropdown.scss'
 
 const GiftDropdown = ({ list, value, callback }) => {
 
-    // console.log('RENDER GiftDropdown');
+    const onClickHandler = ({key}) => {
+        console.log(key);
+        console.log(value);
+        console.log(key === value);
+        return key !== value ? callback() : undefined;
+    }
 
     const menu = (
         <Menu
-            onClick={callback}
+            // callback will return value of attribute "key" of <Menu.Item></Menu.Item>
+            onClick={onClickHandler}
         >
-            {list.map((content, index) => (
+            {list.map(content => (
                 <Menu.Item 
                     key={content}
                 >

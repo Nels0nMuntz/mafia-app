@@ -5,14 +5,12 @@ import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdow
 
 import './../../Home/HomeSlider/HomeSlider.scss'
 
-// import imageUrl from './../../../../assets/images/pizza.jpeg'
-
 
 /**
  * State each of cards encoded in binary notation
  * Every certain state has its own code in binary:
  * ___________________________________
- * | Two sizes              | 0000001 |
+ * | Is two sizes              | 0000001 |
  * | Middle size            | 0000010 |
  * | Big size               | 0000100 |
  * | The presence of a gift | 0001000 |
@@ -31,7 +29,7 @@ const ProductCard = ({ cardData }) => {
 
     const {title, description, imageUrl, gifts, sizes} = cardData;
 
-    const IS_TWQ_SIZES =    1;
+    const IS_TWO_SIZES =    1;
     const MIDDLE_SIZE =     2;
     const BIG_SIZE =        4;
     const HAS_GIFT =        8;
@@ -46,11 +44,11 @@ const ProductCard = ({ cardData }) => {
 
     const getCode = (size = MIDDLE_SIZE, gift = GIFT_1) => {
         let code = 0;
-        if (cardData.sizes.length === 2) code += IS_TWQ_SIZES;
+        if (cardData.sizes.length === 2) code += IS_TWO_SIZES;
         code += size;
         if (cardData.gifts.length){
             code += HAS_GIFT;
-            code += gift;        
+            code += gift;
         };
         if (cardData.sizes[0].discount) code += DISCOUNT;
         return code;
@@ -58,26 +56,26 @@ const ProductCard = ({ cardData }) => {
 
     const initialState = {cardCode: getCode()};
 
-    const reducer = (state, action) => {
+    const reducer = (state, action) => {console.log(action);
         switch (action.type) {
-            // case SET_MIDDLE_SIZE:
-            //     return {...state, cardCode: getCode(MIDDLE_SIZE)};
-            // case SET_BIG_SIZE:
-            //     return {...state, cardCode: getCode(BIG_SIZE)};
-            // case SET_GIFT:
-            //     return {cardCode: getCode(GIFT_1)};
-            // case SET_NO_GIFT:
-            //     return {cardCode: getCode(NO_GIFT)};
+            case SET_MIDDLE_SIZE:
+                return {...state, cardCode: getCode(MIDDLE_SIZE)};
+            case SET_BIG_SIZE:
+                return {...state, cardCode: getCode(BIG_SIZE)};
+            case SET_GIFT:
+                return {cardCode: getCode(GIFT_1)};
+            case SET_NO_GIFT:
+                return {cardCode: getCode(NO_GIFT)};
             default:
                 return state;
         }
     }
 
     const [state, dispatch] = React.useReducer(reducer, initialState);
-
-    // const cardCode = getCode();
-    // console.log(cardData.title + ' ' + cardCode);
-    // console.log(cardCode & BIG_SIZE);
+    
+    const setMiddleSize = () => dispatch({type: SET_MIDDLE_SIZE});
+    const setBigSize = () => dispatch({type: SET_BIG_SIZE});
+    const onClickDropdown = () => state.cardCode & GIFT_1 ? dispatch({type: SET_NO_GIFT}) : dispatch({type: SET_GIFT});
 
     return (
         <div className="products_catalog_item_wrapper">
@@ -88,24 +86,22 @@ const ProductCard = ({ cardData }) => {
                         <h3>{title}</h3>
                         <div className="item-homeSlider__weight-block">
                         <div className="item-homeSlider__weight">{state.cardCode & MIDDLE_SIZE ? sizes[0].weight : sizes[1].weight}</div>
-                        {state.cardCode & IS_TWQ_SIZES ? (
+                        {state.cardCode & IS_TWO_SIZES ? (
                             <div className="item-homeSlider__swicher swicher-homeSlider">
                                 <span
-                                    data-value={sizes[0].value}
-                                    onClick={dispatch({type: SET_MIDDLE_SIZE})}
+                                    onClick={setMiddleSize}
                                 >{sizes[0].value}</span>
                                 <div
                                     className={classnames(
                                         "swicher-homeSlider__checkbox",
-                                        // slideData.checkboxState && 'checked'
+                                        state.cardCode & BIG_SIZE && 'checked'
                                     )}
-                                    onClick={state.cardCode & MIDDLE_SIZE ? dispatch({type: SET_BIG_SIZE}) : dispatch({type: SET_MIDDLE_SIZE})}
+                                    onClick={state.cardCode & MIDDLE_SIZE ? setBigSize : setMiddleSize}
                                 >
                                     <span />
                                 </div>
                                 <span
-                                    data-value={sizes[1].value}
-                                    onClick={dispatch({type: SET_BIG_SIZE})}
+                                    onClick={setBigSize}
                                 >{sizes[1].value}</span>
                             </div>
                         ) : null}
@@ -118,7 +114,7 @@ const ProductCard = ({ cardData }) => {
                                 <GiftDropdown
                                     list={gifts}
                                     value={state.cardCode & GIFT_1 ? gifts[0] : gifts[1]}
-                                    // callback={onClickDropdown}
+                                    callback={onClickDropdown}
                                 />
                             ) : null}
                         </div>
