@@ -7,14 +7,15 @@ import style from './ProductsCatalog.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 
 
-const ProductsCatalog = () => {
+const ProductsCatalog = () => { 
 
     const dispatch = useDispatch();
     const pizzaCatalog = useSelector(state => state.catalog.pizza);
     React.useEffect(() => {
         dispatch(requestPizzaCatalog());
-    }, [pizzaCatalog]);
-    const children = React.useMemo(() => (pizzaCatalog.map(item => ( <ProductCard key={`${item.id}_${item.title}`} cardData={item} /> )) ), [pizzaCatalog]);
+    }, []);
+    const children = () => (pizzaCatalog.map(item => ( <ProductCard key={`${item.id}_${item.title}`} cardData={item} /> )) );
+    // const children = React.useMemo(() => (pizzaCatalog.map(item => ( <ProductCard key={`${item.id}_${item.title}`} cardData={item} /> )) ), [pizzaCatalog]);
 
     return (
         <section className={style.products_catalog}>
@@ -24,7 +25,7 @@ const ProductsCatalog = () => {
                 </div>
             </div>
             <div className={style.products_container}>
-                {pizzaCatalog.length && children}
+                {pizzaCatalog.length && children()}
             </div>
         </section>
     );

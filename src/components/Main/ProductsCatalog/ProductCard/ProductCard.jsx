@@ -5,120 +5,133 @@ import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdow
 
 import './../../Home/HomeSlider/HomeSlider.scss'
 
+function decorate(execFunc) {
+    let cache = new Map();
+    const hash = array => array.reduce((prev, curr) => prev + curr, '');
 
-/**
- * State each of cards encoded in binary notation
- * Every certain state has its own code in binary:
- * ___________________________________
- * | Is two sizes              | 0000001 |
- * | Middle size            | 0000010 |
- * | Big size               | 0000100 |
- * | The presence of a gift | 0001000 |
- * | No gift                | 0010000 |
- * | Gift 1                 | 0100000 |
- * | Discount               | 1000000 |
- * ___________________________________
- * 
- * The way to know either card contains some of feature or not 
- * is comparing one of these code and individual code of each card,
- * wich will be define below
- **/
+    return function (...rest) {
+        console.log(cache);
+        let key = hash(rest);
+        if (cache.has(key)) return { type: 'DEFAULT' }
+        let result = execFunc(...rest);
+        cache.set(key, result);
+        return result
+    }
+}
 
 
 const ProductCard = ({ cardData }) => {
+    console.log('render');
 
-    const {title, description, imageUrl, gifts, sizes} = cardData;
-
-    const IS_TWO_SIZES =    1;
-    const MIDDLE_SIZE =     2;
-    const BIG_SIZE =        4;
-    const HAS_GIFT =        8;
-    const NO_GIFT =         16;
-    const GIFT_1 =          32;
-    const DISCOUNT =        64;
-
-    const SET_MIDDLE_SIZE = 'SET_MIDDLE_SIZE';
-    const SET_BIG_SIZE = 'SET_BIG_SIZE';
+    const TOGGLE_SIZE = 'TOGGLE_SIZE';
     const SET_GIFT = 'SET_GIFT';
-    const SET_NO_GIFT = 'SET_NO_GIFT';
 
-    const getCode = (size = MIDDLE_SIZE, gift = GIFT_1) => {
-        let code = 0;
-        if (cardData.sizes.length === 2) code += IS_TWO_SIZES;
-        code += size;
-        if (cardData.gifts.length){
-            code += HAS_GIFT;
-            code += gift;
-        };
-        if (cardData.sizes[0].discount) code += DISCOUNT;
-        return code;
+    const initialState = {
+        title: cardData.title,
+        description: cardData.description,
+        imageUrl: cardData.imageUrl,
+        hasTwoSizes: cardData.sizes.length === 2,
+        hasGifts: !!cardData.gifts.length,
+        gifts: cardData.gifts,
+        selectedSize: {
+            weight: cardData.sizes[0].weight,
+            price: cardData.sizes[0].price,
+        },
+        selectedGift: cardData.gifts[0],
+        checkbox: false,
     };
 
-    const initialState = {cardCode: getCode()};
-
-    const reducer = (state, action) => {console.log(action);
+    const reducer = (state, action) => {
         switch (action.type) {
-            case SET_MIDDLE_SIZE:
-                return {...state, cardCode: getCode(MIDDLE_SIZE)};
-            case SET_BIG_SIZE:
-                return {...state, cardCode: getCode(BIG_SIZE)};
+            case TOGGLE_SIZE:
+                return {
+                    ...state,
+                    selectedSize: {
+                        weight: action.payload.weight,
+                        price: action.payload.price,
+                    },
+                    checkbox: action.payload.checkbox,
+                };
             case SET_GIFT:
-                return {cardCode: getCode(GIFT_1)};
-            case SET_NO_GIFT:
-                return {cardCode: getCode(NO_GIFT)};
+                return { ...state, selectedGift: action.payload };
             default:
                 return state;
         }
-    }
+    };
 
     const [state, dispatch] = React.useReducer(reducer, initialState);
-    
-    const setMiddleSize = () => dispatch({type: SET_MIDDLE_SIZE});
-    const setBigSize = () => dispatch({type: SET_BIG_SIZE});
-    const onClickDropdown = () => state.cardCode & GIFT_1 ? dispatch({type: SET_NO_GIFT}) : dispatch({type: SET_GIFT});
+
+    const toggleSizeAC = (weight, price, checkbox) => {
+        return {
+            type: TOGGLE_SIZE,
+            payload: {
+                weight,
+                price,
+                checkbox,
+            }
+        }
+    };
+    const toggleSizeWithCache = decorate(toggleSizeAC); 
+
+    const setGiftAC = value => ({ type: SET_GIFT, payload: value });
+
+    const onClickButton = event => {
+        if (event.target.dataset.default) {
+            dispatch(toggleSizeWithCache(cardData.sizes[0].weight, cardData.sizes[0].price, false));
+        } else if (event.target.dataset.checkbox) {
+            dispatch(toggleSizeWithCache(cardData.sizes[+(!state.checkbox)].weight, cardData.sizes[+(!state.checkbox)].price, !state.checkbox));
+        } else {
+            dispatch(toggleSizeAC(cardData.sizes[1].weight, cardData.sizes[1].price, true));
+        }
+    };
+
+    const onClickDropdown = value => dispatch(setGiftAC(value));    
+
 
     return (
         <div className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
                 <div className="item-homeSlider__content">
-                    <img src={imageUrl} alt='' />
+                    <img src={state.imageUrl} alt='' />
                     <div className="item-homeSlider__info">
-                        <h3>{title}</h3>
+                        <h3>{state.title}</h3>
                         <div className="item-homeSlider__weight-block">
-                        <div className="item-homeSlider__weight">{state.cardCode & MIDDLE_SIZE ? sizes[0].weight : sizes[1].weight}</div>
-                        {state.cardCode & IS_TWO_SIZES ? (
-                            <div className="item-homeSlider__swicher swicher-homeSlider">
-                                <span
-                                    onClick={setMiddleSize}
-                                >{sizes[0].value}</span>
-                                <div
-                                    className={classnames(
-                                        "swicher-homeSlider__checkbox",
-                                        state.cardCode & BIG_SIZE && 'checked'
-                                    )}
-                                    onClick={state.cardCode & MIDDLE_SIZE ? setBigSize : setMiddleSize}
-                                >
-                                    <span />
+                            <div className="item-homeSlider__weight">{state.selectedSize.weight}</div>
+                            {state.hasTwoSizes ? (
+                                <div className="item-homeSlider__swicher swicher-homeSlider">
+                                    <span
+                                        data-default
+                                        onClick={onClickButton}
+                                    >Средняя</span>
+                                    <div
+                                        data-checkbox
+                                        className={classnames(
+                                            "swicher-homeSlider__checkbox",
+                                            state.checkbox && 'checked'
+                                        )}
+                                        onClick={onClickButton}
+                                    >
+                                        <span />
+                                    </div>
+                                    <span
+                                        onClick={onClickButton}
+                                    >Большая</span>
                                 </div>
-                                <span
-                                    onClick={setBigSize}
-                                >{sizes[1].value}</span>
-                            </div>
-                        ) : null}
-                    </div>
-                    <p className="item-homeSlider__descr">{description}</p>
-                        <div className="item-homeSlider__price-gift">
-                        <div className="item-homeSlider__price">{`${state.cardCode & MIDDLE_SIZE ? sizes[0].price : sizes[1].price} грн.`}</div>
-                        <div className="item-homeSlider__gift-block gift-block">
-                            {state.cardCode & HAS_GIFT ? (
-                                <GiftDropdown
-                                    list={gifts}
-                                    value={state.cardCode & GIFT_1 ? gifts[0] : gifts[1]}
-                                    callback={onClickDropdown}
-                                />
                             ) : null}
                         </div>
-                    </div>
+                        <p className="item-homeSlider__descr">{state.description}</p>
+                        <div className="item-homeSlider__price-gift">
+                            <div className="item-homeSlider__price">{`${state.selectedSize.price} грн.`}</div>
+                            <div className="item-homeSlider__gift-block gift-block">
+                                {state.hasGifts ? (
+                                    <GiftDropdown
+                                        list={state.gifts}
+                                        value={state.selectedGift}
+                                        callback={onClickDropdown}
+                                    />
+                                ) : null}
+                            </div>
+                        </div>
                         <div className="item-homeSlider__order">
                             <button
                                 className="item-homeSlider__btn"

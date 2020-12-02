@@ -3,13 +3,11 @@ import { Menu, Dropdown } from 'antd';
 
 import './GiftDropdown.scss'
 
-const GiftDropdown = ({ list, value, callback }) => {
+const GiftDropdown = ({ list, value, callback }) => { 
+    // console.log({ list, value, callback });
 
     const onClickHandler = ({key}) => {
-        console.log(key);
-        console.log(value);
-        console.log(key === value);
-        return key !== value ? callback() : undefined;
+        callback(key);
     }
 
     const menu = (
