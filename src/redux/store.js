@@ -4,6 +4,7 @@ import header from './header-reducer';
 import filter from './filter-reducer';
 import menu from './menu-reducer';
 import home from './home-reducer';
+import catalog from './catalog-reducer';
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     filter,
     menu,
     home,
+    catalog,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

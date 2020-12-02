@@ -14,7 +14,7 @@ const Home = () => {
 
     const mainSlider = useSelector(state => state.home.mainSlider);
     const homeSlider = useSelector(state => state.home.homeSlider);
-    const deliverySlider = useSelector(state => state.home.deliverySlider);
+    // const deliverySlider = useSelector(state => state.home.deliverySlider);
     const dispatch = useDispatch();
     React.useEffect(() => {
         dispatch(setMainSlider());

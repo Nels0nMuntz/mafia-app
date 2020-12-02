@@ -24,7 +24,6 @@ const Header = () => {
     }
 
     useEffect(() => {
-        console.log(isMenuOpen);
         dispatch(requestCategories());
     }, [isMenuOpen, node]);
 
