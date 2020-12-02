@@ -10,7 +10,7 @@ import { Route, useRouteMatch } from 'react-router-dom';
 
 const Main = () => {
 
-    let match = useRouteMatch("/menu-dostavki/:slag");
+    let match = useRouteMatch("/:slag");
 
     return (
         <main className={style.main}>
@@ -19,7 +19,7 @@ const Main = () => {
             <Route path='/' exact >
                 <Home />
             </Route>
-            <Route path='/menu-dostavki/pizza' >
+            <Route path='/pizza' >
                 <ProductsCatalog />
             </Route>
         </main>

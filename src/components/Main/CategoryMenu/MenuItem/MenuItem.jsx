@@ -9,7 +9,7 @@ import style from './MenuItem.module.scss'
 
 const MenuItem = ({ visibled, title, imageUrl, link }) => {
     return (
-        <Link to={`/menu-dostavki/${link}`}
+        <Link to={`/${link}`}
             className={style.link}
         >
             <div className={
