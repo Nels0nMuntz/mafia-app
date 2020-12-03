@@ -5,7 +5,8 @@ import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdow
 
 import './../../Home/HomeSlider/HomeSlider.scss'
 
-function decorate(execFunc) {
+
+function decorate(execFunc) {console.log('Done');
     let cache = new Map();
     const hash = array => array.reduce((prev, curr) => prev + curr, '');
 
@@ -17,11 +18,9 @@ function decorate(execFunc) {
         cache.set(key, result);
         return result
     }
-}
+};
 
-
-const ProductCard = ({ cardData }) => {
-    console.log('render');
+const ProductCard = ({ cardData }) => {console.log('render');
 
     const TOGGLE_SIZE = 'TOGGLE_SIZE';
     const SET_GIFT = 'SET_GIFT';
@@ -39,6 +38,7 @@ const ProductCard = ({ cardData }) => {
         },
         selectedGift: cardData.gifts[0],
         checkbox: false,
+        prevState: null,
     };
 
     const reducer = (state, action) => {
@@ -51,6 +51,7 @@ const ProductCard = ({ cardData }) => {
                         price: action.payload.price,
                     },
                     checkbox: action.payload.checkbox,
+                    prevState: action.payload.className,
                 };
             case SET_GIFT:
                 return { ...state, selectedGift: action.payload };
@@ -61,31 +62,34 @@ const ProductCard = ({ cardData }) => {
 
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
-    const toggleSizeAC = (weight, price, checkbox) => {
+    const toggleSizeAC = (weight, price, checkbox, className) => {
         return {
             type: TOGGLE_SIZE,
             payload: {
                 weight,
                 price,
                 checkbox,
+                className
             }
         }
     };
-    const toggleSizeWithCache = decorate(toggleSizeAC); 
 
     const setGiftAC = value => ({ type: SET_GIFT, payload: value });
 
     const onClickButton = event => {
-        if (event.target.dataset.default) {
-            dispatch(toggleSizeWithCache(cardData.sizes[0].weight, cardData.sizes[0].price, false));
-        } else if (event.target.dataset.checkbox) {
-            dispatch(toggleSizeWithCache(cardData.sizes[+(!state.checkbox)].weight, cardData.sizes[+(!state.checkbox)].price, !state.checkbox));
+        const target = event.target;
+        const className = target.className;
+        if(state.prevState === className) return;
+        if (target.dataset.default) {
+            dispatch(toggleSizeAC(cardData.sizes[0].weight, cardData.sizes[0].price, false, className));
         } else {
-            dispatch(toggleSizeAC(cardData.sizes[1].weight, cardData.sizes[1].price, true));
+            dispatch(toggleSizeAC(cardData.sizes[1].weight, cardData.sizes[1].price, true, className));
         }
     };
 
-    const onClickDropdown = value => dispatch(setGiftAC(value));    
+    const onClickCheckbox = () => dispatch(toggleSizeAC(cardData.sizes[+(!state.checkbox)].weight, cardData.sizes[+(!state.checkbox)].price, !state.checkbox));
+
+    const onClickDropdown = value => value === state.selectedGift ? undefined : dispatch(setGiftAC(value));    
 
 
     return (
@@ -100,6 +104,7 @@ const ProductCard = ({ cardData }) => {
                             {state.hasTwoSizes ? (
                                 <div className="item-homeSlider__swicher swicher-homeSlider">
                                     <span
+                                        className="size-btn-1"
                                         data-default
                                         onClick={onClickButton}
                                     >Средняя</span>
@@ -109,11 +114,12 @@ const ProductCard = ({ cardData }) => {
                                             "swicher-homeSlider__checkbox",
                                             state.checkbox && 'checked'
                                         )}
-                                        onClick={onClickButton}
+                                        onClick={onClickCheckbox}
                                     >
                                         <span />
                                     </div>
                                     <span
+                                        className="size-btn-2"
                                         onClick={onClickButton}
                                     >Большая</span>
                                 </div>

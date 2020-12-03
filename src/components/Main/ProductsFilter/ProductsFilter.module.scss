@@ -5,10 +5,13 @@
 }
 .products_filter_wrapper{
     height: 75px;
-    padding: 0 40px;
+    padding: 0 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 991px) {
+        padding: 0 30px;
+    }
 }
 .products_filter_title{
     font-size: 28px;

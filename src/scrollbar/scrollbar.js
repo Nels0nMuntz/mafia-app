@@ -8,3 +8,4 @@ export const getScrollbar = (node) => { console.log(node);
     div.remove();        
     node.style.paddingRight = scrollWidth + 'px';
 }
+
