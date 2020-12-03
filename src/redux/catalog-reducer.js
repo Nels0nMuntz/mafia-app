@@ -4,6 +4,7 @@ const SET_PIZZA = 'SET_PIZZA';
 
 const initialState = {
     pizza: [],
+    sushi: [],
 };
 
 const catalogReducer = (state = initialState, action) => {

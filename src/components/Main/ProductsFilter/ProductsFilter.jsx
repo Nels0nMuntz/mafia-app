@@ -6,6 +6,7 @@ import style from './ProductsFilter.module.scss'
 
 import FilterDropdown from './../../../libs-components/FilterDropdown/FilterDropdown';
 import { requestSortCategories } from '../../../redux/filter-reducer';
+import FastCategories from './FastCategories/FastCategories';
 
 const ProductsFilter = () => {
 
@@ -25,6 +26,7 @@ const ProductsFilter = () => {
         }>
             <div className={style.products_filter_wrapper}>
                 <h1 className={style.products_filter_title}>Pizza</h1>
+                <FastCategories/>
                 <div className={style.products_filter_catalog}>
                     <span>Сортировать: </span>
                     <FilterDropdown

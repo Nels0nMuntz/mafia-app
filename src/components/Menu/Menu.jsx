@@ -21,7 +21,6 @@ const Menu = () => {
         const hendler = event => {
             if (!nav || nav.current.contains(event.target)) return;
             if (isMenuOpen) {
-                console.log('close');
                 dispatch(toggleMenuState());
                 document.body.style.overflow = 'auto';
                 document.body.style.paddingRight = '0';

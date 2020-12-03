@@ -1,27 +1,29 @@
 import React from 'react'
+import { Route, useRouteMatch, Switch } from 'react-router-dom';
 
 import CategoryMenu from './CategoryMenu/CategoryMenu';
 import ProductsFilter from './ProductsFilter/ProductsFilter';
 import Home from './Home/Home';
-import ProductsCatalog from './ProductsCatalog/ProductsCatalog';
+import ProductsCatalogContainer from './ProductsCatalog/ProductsCatalogContainer';
 
 import style from './Main.module.scss'
-import { Route, useRouteMatch } from 'react-router-dom';
 
 const Main = () => {
 
-    let match = useRouteMatch("/:slag");
+    let match = useRouteMatch("/:slag"); 
 
     return (
         <main className={style.main}>
             <CategoryMenu />
-            {match && <ProductsFilter/>}
-            <Route path='/' exact >
-                <Home />
-            </Route>
-            <Route path='/pizza' >
-                <ProductsCatalog />
-            </Route>
+            {match && <ProductsFilter />}
+            <Switch>
+                <Route exact path='/' >
+                    <Home />
+                </Route>
+                <Route exact path={match && match.url} >
+                    <ProductsCatalogContainer/>
+                </Route>
+            </Switch>
         </main>
     )
 }

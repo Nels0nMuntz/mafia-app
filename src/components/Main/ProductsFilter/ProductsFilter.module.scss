@@ -8,7 +8,10 @@
     padding: 0 80px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
+    @media screen and (max-width: 1750px) {
+        padding: 0 40px;
+    }
     @media screen and (max-width: 991px) {
         padding: 0 30px;
     }

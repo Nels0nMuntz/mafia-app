@@ -1,26 +1,12 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdown';
+import GiftDropdown from './../../../libs-components/GiftDropdown/GiftDropdown';
 
-import './../../Home/HomeSlider/HomeSlider.scss'
+import './../Home/HomeSlider/HomeSlider.scss'
 
 
-function decorate(execFunc) {console.log('Done');
-    let cache = new Map();
-    const hash = array => array.reduce((prev, curr) => prev + curr, '');
-
-    return function (...rest) {
-        console.log(cache);
-        let key = hash(rest);
-        if (cache.has(key)) return { type: 'DEFAULT' }
-        let result = execFunc(...rest);
-        cache.set(key, result);
-        return result
-    }
-};
-
-const ProductCard = ({ cardData }) => {console.log('render');
+const ProductCard = ({ cardData }) => {
 
     const TOGGLE_SIZE = 'TOGGLE_SIZE';
     const SET_GIFT = 'SET_GIFT';
@@ -93,7 +79,7 @@ const ProductCard = ({ cardData }) => {console.log('render');
 
 
     return (
-        <div className="products_catalog_item_wrapper">
+        <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
                 <div className="item-homeSlider__content">
                     <img src={state.imageUrl} alt='' />
@@ -147,7 +133,7 @@ const ProductCard = ({ cardData }) => {console.log('render');
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     )
 }
 

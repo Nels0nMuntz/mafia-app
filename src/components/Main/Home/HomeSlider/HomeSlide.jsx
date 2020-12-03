@@ -115,7 +115,7 @@ const HomeSlide = ({ data }) => {
                     <div className="item-homeSlider__order">
                         <button 
                             className="item-homeSlider__btn"
-                            onClick={() => console.log(slideData)}
+                            // onClick={() => console.log(slideData)}
                         >Заказать</button>
                     </div>
                 </div>

@@ -1,0 +1,13 @@
+.fast_categories{
+    flex: 1 1 0;
+    padding: 0 20px 0 180px;
+    height: 100%;
+    display: flex;
+
+    li{
+        button{
+            height: 100%;
+            padding: 0 25px;
+        }
+    }
+}

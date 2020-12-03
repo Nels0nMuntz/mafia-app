@@ -16,7 +16,6 @@ const Hamburger = () => {
     
     const onClickBurger = () => {
         if(!isMenuOpen && isPermitted){
-            console.log('open');
             dispatch(toggleMenuState(true));
             getScrollbar(document.body);
             document.body.style.overflow = 'hidden';
@@ -27,14 +26,6 @@ const Hamburger = () => {
 
     return (
         <div className={style.hamburger}>
-            {/* <input 
-                className={classnames(
-                    style.burger, 
-                    style.menu_3
-                )}
-                type="checkbox" 
-                id="burger"
-            /> */}
             <div 
                 className={classnames(
                     style.burger_wrapper,
@@ -47,25 +38,6 @@ const Hamburger = () => {
                 <div></div>
             </div>
         </div>
-
-        // <div className={style.hamburger}>
-        //     <input 
-        //         className={classnames(
-        //             style.burger, 
-        //             style.menu_3
-        //         )}
-        //         type="checkbox" 
-        //         id="burger"
-        //     />
-        //     <label 
-        //         htmlFor="burger"
-        //         onClick={onClickBurger}
-        //     >
-        //         <div></div>
-        //         <div></div>
-        //         <div></div>
-        //     </label>
-        // </div>
     )
 }
 

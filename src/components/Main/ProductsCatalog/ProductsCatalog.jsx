@@ -1,42 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 
-import ProductCard from './ProductCard/ProductCard';
-import { requestPizzaCatalog } from '../../../redux/catalog-reducer';
+import ProductCard from './ProductCard';
 
 import style from './ProductsCatalog.module.scss'
+import withBreadcrumbs from './../../HOC/withBreadcrumbs';
 
 
-const ProductsCatalog = withRouter((props) => {
+const ProductsCatalog = ({breadcrumbItems, catalog}) => { console.log(catalog);
 
-    const breadcrumbNameMap = {
-        '/pizza': 'Пицца',
-    };
-
-    const { location } = props;
-    const pathSnippets = location.pathname.split('/').filter(i => i);
-    const extraBreadcrumbItems = pathSnippets.map((_, index) => {
-        const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
-        return (
-            <Breadcrumb.Item key={url}>
-                <Link to={url}>{breadcrumbNameMap[url]}</Link>
-            </Breadcrumb.Item>
-        );
-    });
-    const breadcrumbItems = [
-        <Breadcrumb.Item key="home">
-            <Link to="/">Главная</Link>
-        </Breadcrumb.Item>,
-    ].concat(extraBreadcrumbItems);
-
-    const dispatch = useDispatch();
-    const pizzaCatalog = useSelector(state => state.catalog.pizza);
-    React.useEffect(() => {
-        dispatch(requestPizzaCatalog());
-    }, []);
-    const children = () => (pizzaCatalog.map(item => (<ProductCard key={`${item.id}_${item.title}`} cardData={item} />)));
+    const children = () => (catalog.map(item => (<ProductCard key={`${item.id}_${item.title}`} cardData={item} />)));
     // const children = React.useMemo(() => (pizzaCatalog.map(item => ( <ProductCard key={`${item.id}_${item.title}`} cardData={item} /> )) ), [pizzaCatalog]);
 
     return (
@@ -47,10 +20,10 @@ const ProductsCatalog = withRouter((props) => {
                 </div>
             </div>
             <div className={style.products_container}>
-                {pizzaCatalog.length && children()}
+                {catalog.length && children()}
             </div>
         </section>
     );
-});
+};
 
-export default ProductsCatalog;
+export default withBreadcrumbs(ProductsCatalog);

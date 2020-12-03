@@ -1,4 +1,4 @@
-export const getScrollbar = (node) => { console.log(node);
+export const getScrollbar = (node) => { 
     const div = document.createElement('div');
     div.style.overflowY = 'scroll';
     div.style.width = '50px';
