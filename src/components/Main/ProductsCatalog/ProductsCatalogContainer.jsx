@@ -8,7 +8,7 @@ import { requestPizzaCatalog } from '../../../redux/catalog-reducer';
 
 const ProductsCatalogContainer = () => {
 
-    let { url, params } = useRouteMatch("/:slag");
+    const { url, params } = useRouteMatch("/:slag");
     const slag = params.slag;
 
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const ProductsCatalogContainer = () => {
     return (
         <Route exact path={url} >
             <ProductsCatalog
-                catalog={catalog}
+                catalog={catalog.list ?? []}
             />
         </Route>
 

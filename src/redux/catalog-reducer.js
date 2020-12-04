@@ -3,8 +3,8 @@ import { catalogAPI } from './../api/api';
 const SET_PIZZA = 'SET_PIZZA';
 
 const initialState = {
-    pizza: [],
-    sushi: [],
+    pizza: {},
+    sushi: {},
 };
 
 const catalogReducer = (state = initialState, action) => {

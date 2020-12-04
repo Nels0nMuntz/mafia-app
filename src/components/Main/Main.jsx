@@ -10,12 +10,12 @@ import style from './Main.module.scss'
 
 const Main = () => {
 
-    let match = useRouteMatch("/:slag"); 
+    const match = useRouteMatch("/:slag"); 
 
     return (
         <main className={style.main}>
             <CategoryMenu />
-            {match && <ProductsFilter />}
+            {match && <ProductsFilter slag={match.params.slag} />}
             <Switch>
                 <Route exact path='/' >
                     <Home />
