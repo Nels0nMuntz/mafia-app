@@ -1,6 +1,12 @@
 .hamburger{
-    margin-right: 50px;
+    margin-right: 110px;
     
+    @media screen and (max-width: 1750px){
+        margin-right: 70px;
+    }
+    @media screen and (max-width: 1400px){
+        margin-right: 40px;
+    }
     @media screen and (max-width: 1100px){
         margin-right: 12px;
     }

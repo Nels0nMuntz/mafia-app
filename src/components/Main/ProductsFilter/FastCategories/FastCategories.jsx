@@ -4,19 +4,28 @@ import style from './FastCategories.module.scss'
 
 const FastCategories = ({fastCategories, callback}) => {
 
-    // const onClickButton = event => callback(event.target.dataset.category);
+    const [activeCategory, setActiveCategory] = React.useState('default')
+
+    const onClickButton = event => {
+        const category = event.target.dataset.category;
+        callback(category);
+        setActiveCategory(category);
+    };
 
     return (
         <ul className={style.fast_categories}>
-            <li>
                 {fastCategories.map(({id, name, value}) => (
-                    <button
-                        key={id}
-                        data-category={value}
-                        // onClick={onClickButton}
-                    >{name}</button>
+                    <li>
+                        <button
+                            key={id}
+                            data-category={value}
+                            onClick={onClickButton}
+                            className={activeCategory === value ? style.active : ''}
+                            >{name}
+                        </button>
+                        <span></span>
+                    </li>
                 ))}
-            </li>
         </ul>
     );
 };

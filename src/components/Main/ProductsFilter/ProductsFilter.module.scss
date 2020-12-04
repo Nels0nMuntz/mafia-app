@@ -8,7 +8,6 @@
     padding: 0 80px;
     display: flex;
     align-items: center;
-    // justify-content: space-between;
     @media screen and (max-width: 1750px) {
         padding: 0 40px;
     }
@@ -19,4 +18,15 @@
 .products_filter_title{
     font-size: 28px;
     font-weight: 700;
+}
+.products_filter_catalog_wrapper{
+    flex-grow: 1;
+}
+.products_filter_catalog{
+    width: 270px;
+    margin-left: auto;
+    text-align: left;
+}
+.fast_categories_wrapper{
+    height: 100%;
 }

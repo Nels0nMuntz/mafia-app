@@ -3,16 +3,16 @@ import { Dropdown, Menu } from 'antd';
 
 import './FilterDropdown.scss'
 
-const FilterDropdown = ({ list }) => {
+const FilterDropdown = ({ list, value, callback }) => {
 
-
+    const onClickItem = ({key}) => callback(key);
 
     const menu = (
-        <Menu>
+        <Menu onClick={onClickItem} >
             {list.length && (
-                list.map(({id, content}) => (
+                list.map(({content}) => (
                     <Menu.Item
-                        key={id}
+                        key={content}
                     >
                         <span>{content}</span>
                     </Menu.Item>
@@ -29,7 +29,7 @@ const FilterDropdown = ({ list }) => {
             arrow
         >
             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                {list.length ? list[0].content : ''}
+                {value}
             </a>
         </Dropdown>
     )

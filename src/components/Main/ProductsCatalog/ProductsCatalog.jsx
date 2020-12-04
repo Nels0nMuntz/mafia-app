@@ -7,10 +7,9 @@ import style from './ProductsCatalog.module.scss'
 import withBreadcrumbs from './../../HOC/withBreadcrumbs';
 
 
-const ProductsCatalog = ({breadcrumbItems, catalog}) => { console.log(catalog);
+const ProductsCatalog = React.memo(({ breadcrumbItems, list }) => {
 
-    const children = () => (catalog.map(item => (<ProductCard key={`${item.id}_${item.title}`} cardData={item} />)));
-    // const children = React.useMemo(() => (pizzaCatalog.map(item => ( <ProductCard key={`${item.id}_${item.title}`} cardData={item} /> )) ), [pizzaCatalog]);
+    const children = () => (list.map(item => (<ProductCard key={`${item.id}_${item.title}`} cardData={item} />)));
 
     return (
         <section className={style.products_catalog}>
@@ -20,10 +19,10 @@ const ProductsCatalog = ({breadcrumbItems, catalog}) => { console.log(catalog);
                 </div>
             </div>
             <div className={style.products_container}>
-                {catalog.length && children()}
+                {list.length && children()}
             </div>
         </section>
     );
-};
+}, (prevProps, nextProps) => prevProps.list === nextProps.list);
 
 export default withBreadcrumbs(ProductsCatalog);

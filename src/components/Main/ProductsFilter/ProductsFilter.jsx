@@ -1,32 +1,47 @@
 import React, { useEffect } from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
+
+import FilterDropdown from './../../../libs-components/FilterDropdown/FilterDropdown';
+import { changeCurrentCategory, requestSortCategories } from '../../../redux/filter-reducer';
+import FastCategories from './FastCategories/FastCategories';
+import { changeFastCategory } from '../../../redux/catalog-reducer';
 
 import style from './ProductsFilter.module.scss'
 
-import FilterDropdown from './../../../libs-components/FilterDropdown/FilterDropdown';
-import { requestSortCategories } from '../../../redux/filter-reducer';
-import FastCategories from './FastCategories/FastCategories';
-
 const ProductsFilter = ({ slag }) => {
 
-    const dispatch = useDispatch()
-    const categories = useSelector(state => state.filter.categories);
-    // const catalog = useSelector(state => state.catalog[slag]);
-    
+    const dispatch = useDispatch();
+    const onClickFastCategory = category => dispatch(changeFastCategory(category));
+    const onClickCategory = category => dispatch(changeCurrentCategory(category));
 
-    const getCatalog = state => state.catalog[slag];
-    const filterSelector = createSelector(
-        [getCatalog],
-        catalog => catalog
-    )
-    const catalog = useSelector(filterSelector);
-    const fastCategories = catalog.fastCategories ?? [];
+    const getCurrentCategory = createSelector(
+        state => state.filter.currentCategory,
+        currentCategory => currentCategory
+    );
+    const getSortCategories = createSelector(
+        state => state.filter.categories,
+        categories => categories
+    );
+    const getFastCategories = createSelector(
+        state => state.catalog[slag],
+        product => product.fastCategories ?? [],
+    );
+    const getProductTitle = createSelector(
+        state => state.catalog[slag],
+        product => product.title ?? '',
+    );
+
+    const currentCategory = useSelector(getCurrentCategory);
+    const categories = useSelector(getSortCategories);
+    const fastCategories = useSelector(getFastCategories);
+    const productTitle = useSelector(getProductTitle);
+
 
     useEffect(() => {
         dispatch(requestSortCategories())
-    }, [])
+    }, []);
 
     return (
         <section className={
@@ -36,20 +51,26 @@ const ProductsFilter = ({ slag }) => {
             )
         }>
             <div className={style.products_filter_wrapper}>
-                <h1 className={style.products_filter_title}>Pizza</h1>
-                <FastCategories
-                    fastCategories={fastCategories}
-                    // callback={}
-                />
-                <div className={style.products_filter_catalog}>
-                    <span>Сортировать: </span>
-                    <FilterDropdown
-                        list={categories}
+                <h1 className={style.products_filter_title}>{productTitle}</h1>
+                <div className={style.fast_categories_wrapper}>
+                    <FastCategories
+                        fastCategories={fastCategories}
+                        callback={onClickFastCategory}
                     />
+                </div>
+                <div className={style.products_filter_catalog_wrapper}>
+                    <div className={style.products_filter_catalog}>
+                        <span>Сортировать: </span>
+                        <FilterDropdown
+                            list={categories}
+                            value={currentCategory}
+                            callback={onClickCategory}
+                        />
+                    </div>
                 </div>
             </div>
         </section>
     )
-}
+};
 
-export default ProductsFilter
+export default ProductsFilter;

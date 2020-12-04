@@ -1,8 +1,10 @@
 import { filterAPI } from './../api/api';
 
 const GET_SORT_CATEGORIES = 'GET_SORT_CATEGORIES';
+const CHANGE_CURRENT_CATEGORY = 'CHANGE_CURRENT_CATEGORY';
 
 const initialState = {
+    currentCategory: '',
     categories: [],
 }
 
@@ -11,15 +13,19 @@ const filterReducer = (state = initialState, action) => {
         case GET_SORT_CATEGORIES:
             return {
                 ...state,
-                categories: action.payload
+                categories: action.payload,
+                currentCategory: action.payload[0].content
             }
+        case CHANGE_CURRENT_CATEGORY:
+            return {...state, currentCategory: action.payload}
         default:
             return state;
     };
 };
 export default filterReducer;
 
-const requestSortCategoriesAC = categories => ({type: GET_SORT_CATEGORIES, payload: categories})
+const requestSortCategoriesAC = categories => ({type: GET_SORT_CATEGORIES, payload: categories});
+export const changeCurrentCategory = category => ({type: CHANGE_CURRENT_CATEGORY, payload: category})
 
 export const requestSortCategories = () => async dispatch => {
     let response = await filterAPI.getCategories();
