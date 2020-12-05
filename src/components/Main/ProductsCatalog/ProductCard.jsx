@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import GiftDropdown from './../../../libs-components/GiftDropdown/GiftDropdown';
 
 import './../Home/HomeSlider/HomeSlider.scss'
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({ cardData }) => {
@@ -98,17 +99,21 @@ const ProductCard = ({ cardData }) => {
                             </div>
                         )}
                         {state.tags && state.tags.map(({ id, type, name }) => (
-                            <div 
-                                key={id} 
+                            <div
+                                key={id}
                                 className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
                             >
                                 <span>{name}</span>
                             </div>
                         ))}
                     </div>
-                    <img src={state.imageUrl} alt='' />
+                    <Link to='/' className='item-homeSlider__link'>
+                        <img src={state.imageUrl} alt='' />
+                    </Link>
                     <div className="item-homeSlider__info">
-                        <h3>{state.title}</h3>
+                        <Link to='/'>
+                            <h3>{state.title}</h3>
+                        </Link>
                         <div className="item-homeSlider__weight-block">
                             <div className="item-homeSlider__weight">{state.selectedSize.weight}</div>
                             {state.hasTwoSizes ? (
