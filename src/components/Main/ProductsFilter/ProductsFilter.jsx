@@ -52,21 +52,17 @@ const ProductsFilter = ({ slag }) => {
         }>
             <div className={style.products_filter_wrapper}>
                 <h1 className={style.products_filter_title}>{productTitle}</h1>
-                <div className={style.fast_categories_wrapper}>
-                    <FastCategories
-                        fastCategories={fastCategories}
-                        callback={onClickFastCategory}
+                <FastCategories
+                    fastCategories={fastCategories}
+                    callback={onClickFastCategory}
+                />
+                <div className={style.products_filter_catalog}>
+                    <span>Сортировать: </span>
+                    <FilterDropdown
+                        list={categories}
+                        value={currentCategory}
+                        callback={onClickCategory}
                     />
-                </div>
-                <div className={style.products_filter_catalog_wrapper}>
-                    <div className={style.products_filter_catalog}>
-                        <span>Сортировать: </span>
-                        <FilterDropdown
-                            list={categories}
-                            value={currentCategory}
-                            callback={onClickCategory}
-                        />
-                    </div>
                 </div>
             </div>
         </section>

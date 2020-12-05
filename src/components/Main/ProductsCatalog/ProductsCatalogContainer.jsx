@@ -15,11 +15,31 @@ const ProductsCatalogContainer = () => {
     const filterSelector = createSelector(
         state => state.catalog[slag],
         state => state.catalog.fastSortCategory,
-        (catalog, fastSortrCategory) => {
-            if(fastSortrCategory === 'default') return catalog.list;
-            return catalog.list.filter(item => item.category === fastSortrCategory);
+        state => state.filter.currentCategory,
+        (catalog, fastSortrCategory, currentCategory) => {
+            const sortByFastCategory = fastSortrCategory === 'default' ? catalog.list ?? [] : catalog.list.filter(item => item.category === fastSortrCategory);
+            switch (currentCategory) {
+                case 'по популярности':
+                    return [...sortByFastCategory.sort((a,b) => new Date(b.added) - new Date(a.added))];      
+                case 'по новизне':
+                    return [...sortByFastCategory.sort((a,b) => b.rate - a.rate)];      
+                case 'по убыванию цен':
+                    return [...sortByFastCategory.sort((a,b) => b.sizes[0].price - a.sizes[0].price)];      
+                case 'по возростанию цен':
+                    return [...sortByFastCategory.sort((a,b) => a.sizes[0].price - b.sizes[0].price)];         
+                case 'по алфавиту':
+                    return [...sortByFastCategory.sort(function (a, b) {
+                        const nameA = a.title.toLowerCase();
+                        const nameB = b.title.toLowerCase()
+                        if (nameA < nameB) return -1;
+                        if (nameA > nameB) return 1;
+                        return 0;
+                    })];          
+                default:
+                    return sortByFastCategory;
+            }
         }
-    )
+    );
     const list = useSelector(filterSelector) ?? [];
 
     React.useEffect(() => {

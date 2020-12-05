@@ -13,15 +13,17 @@ const FastCategories = ({fastCategories, callback}) => {
     };
 
     return (
-        <ul className={style.fast_categories}>
+        <ul className={style.fast_categories} onScroll={() => console.log('scroll')}>
                 {fastCategories.map(({id, name, value}) => (
-                    <li>
+                    <li                    
+                        key={id}
+                    >
                         <button
-                            key={id}
                             data-category={value}
                             onClick={onClickButton}
                             className={activeCategory === value ? style.active : ''}
-                            >{name}
+                        >
+                            {name}
                         </button>
                         <span></span>
                     </li>
