@@ -414,7 +414,8 @@
                     ],
                     "category": "Круглая",
                     "rate": 8,
-                    "added": "04.30.2018"
+                    "added": "04.30.2018",
+                    "tags": []
                 },
                 {
                     "id": 2,
@@ -433,7 +434,8 @@
                     ],
                     "category": "Метровая",
                     "rate": 7,
-                    "added": "06.25.2019"
+                    "added": "06.25.2019",
+                    "tags": []
                     
                 },
                 {
@@ -453,7 +455,8 @@
                     ],
                     "category": "Метровая",
                     "rate": 7,
-                    "added": "02.18.2018"
+                    "added": "02.18.2018",
+                    "tags": []
                 },
                 {
                     "id": 4,
@@ -466,18 +469,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "570 г.",
-                            "price": 199
+                            "price": 199,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "850 г.",
-                            "price": 269
+                            "price": 269,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 5,
-                    "added": "02.01.2017"
+                    "added": "02.01.2017",
+                    "tags": []
                 },
                 {
                     "id": 5,
@@ -490,12 +496,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1340 г.",
-                            "price": 349
+                            "price": 349,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 10,
-                    "added": "03.11.2017"
+                    "added": "03.11.2017",
+                    "tags": []
                 },
                 {
                     "id": 6,
@@ -508,12 +516,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1320 г.",
-                            "price": 319
+                            "price": 319,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 8,
-                    "added": "08.21.2019"
+                    "added": "08.21.2019",
+                    "tags": []
                 },
                 {
                     "id": 7,
@@ -526,18 +536,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "500 г.",
-                            "price": 139
+                            "price": 139,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "750 г.",
-                            "price": 199
+                            "price": 199,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 7,
-                    "added": "09.12.2020"
+                    "added": "09.12.2020",
+                    "tags": []
                 },
                 {
                     "id": 8,
@@ -550,12 +563,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1200 г.",
-                            "price": 339
+                            "price": 339,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 8,
-                    "added": "04.22.2019"
+                    "added": "04.22.2019",
+                    "tags": []
                 },
                 {
                     "id": 9,
@@ -568,12 +583,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1335 г.",
-                            "price": 339
+                            "price": 339,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 5,
-                    "added": "12.09.2016"
+                    "added": "12.09.2016",
+                    "tags": []
                 },
                 {
                     "id": 10,
@@ -586,18 +603,27 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "460 г.",
-                            "price": 89
+                            "price": 89,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "690 г.",
-                            "price": 139
+                            "price": 139,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 8,
-                    "added": "10.16.2018"
+                    "added": "10.16.2018",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "name": "1+1 забери сам"
+                        }
+                    ]
                 },
                 {
                     "id": 11,
@@ -610,18 +636,27 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "500 г.",
-                            "price": 165
+                            "price": 165,
+                            "discount": null
                         },
                         {
                             "id": 1,
                             "value": "Большая",
                             "weight": "750 г.",
-                            "price": 229
+                            "price": 229,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 9,
-                    "added": "07.14.2019"
+                    "added": "07.14.2019",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "name": "1+1 забери сам"
+                        }
+                    ]
                 },
                 {
                     "id": 12,
@@ -634,18 +669,27 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "580 г.",
-                            "price": 165
+                            "price": 165,
+                            "discount": null
                         },
                         {
                             "id": 1,
                             "value": "Большая",
                             "weight": "870 г.",
-                            "price": 229
+                            "price": 229,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 7,
-                    "added": "04.18.2018"
+                    "added": "04.18.2018",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "secondary",
+                            "name": "Острая"
+                        }
+                    ]
                 },
                 {
                     "id": 13,
@@ -658,18 +702,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "430 г.",
-                            "price": 149
+                            "price": 149,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "780 г.",
-                            "price": 219
+                            "price": 219,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 10,
-                    "added": "05.28.2017"
+                    "added": "05.28.2017",
+                    "tags": []
                 },
                 {
                     "id": 14,
@@ -682,18 +729,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "580 г.",
-                            "price": 149
+                            "price": 149,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "870 г.",
-                            "price": 209
+                            "price": 209,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 6,
-                    "added": "02.22.2020"
+                    "added": "02.22.2020",
+                    "tags": []
                 },
                 {
                     "id": 15,
@@ -706,18 +756,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "580 г.",
-                            "price": 145
+                            "price": 145,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "870 г.",
-                            "price": 199
+                            "price": 199,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 6,
-                    "added": "08.21.2020"
+                    "added": "08.21.2020",
+                    "tags": []
                 },
                 {
                     "id": 16,
@@ -730,18 +783,32 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "530 г.",
-                            "price": 159
+                            "price": 159,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "800 г.",
-                            "price": 229
+                            "price": 229,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 8,
-                    "added": "06.15.2019"
+                    "added": "06.15.2019",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "name": "1+1 забери сам"
+                        },
+                        {
+                            "id": 1,
+                            "type": "secondary",
+                            "name": "Острая"
+                        }
+                    ]
                 },
                 {
                     "id": 17,
@@ -754,18 +821,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "520 г.",
-                            "price": 95
+                            "price": 95,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "780 г.",
-                            "price": 169
+                            "price": 169,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 4,
-                    "added": "18.21.2018"
+                    "added": "18.21.2018",
+                    "tags": []
                 },
                 {
                     "id": 18,
@@ -778,12 +848,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1360 г.",
-                            "price": 319
+                            "price": 319,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 8,
-                    "added": "08.13.2019"
+                    "added": "08.13.2019",
+                    "tags": []
                 },
                 {
                     "id": 19,
@@ -796,12 +868,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1200 г.",
-                            "price": 299
+                            "price": 299,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 6,
-                    "added": "08.26.2020"
+                    "added": "08.26.2020",
+                    "tags": []
                 },
                 {
                     "id": 20,
@@ -814,12 +888,20 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1300 г.",
-                            "price": 329
+                            "price": 329,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 6,
-                    "added": "08.11.2019"
+                    "added": "08.11.2019",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "secondary",
+                            "name": "Острая"
+                        }
+                    ]
                 },
                 {
                     "id": 21,
@@ -832,12 +914,20 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1200 г.",
-                            "price": 319
+                            "price": 319,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 8,
-                    "added": "08.21.2016"
+                    "added": "08.21.2016",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "secondary",
+                            "name": "Острая"
+                        }
+                    ]
                 },
                 {
                     "id": 22,
@@ -850,12 +940,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "1350 г.",
-                            "price": 289
+                            "price": 289,
+                            "discount": null
                         }
                     ],
                     "category": "Метровая",
                     "rate": 8,
-                    "added": "11.11.2018"
+                    "added": "11.11.2018",
+                    "tags": []
                 },
                 {
                     "id": 23,
@@ -868,18 +960,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "530 г.",
-                            "price": 149
+                            "price": 149,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "800 г.",
-                            "price": 199
+                            "price": 199,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 8,
-                    "added": "12.05.2019"
+                    "added": "12.05.2019",
+                    "tags": []
                 },
                 {
                     "id": 24,
@@ -892,12 +987,14 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "500 г.",
-                            "price": 119
+                            "price": 119,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 9,
-                    "added": "09.19.2020"
+                    "added": "09.19.2020",
+                    "tags": []
                 },
                 {
                     "id": 25,
@@ -910,18 +1007,27 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "550 г.",
-                            "price": 135
+                            "price": 135,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "825 г.",
-                            "price": 189
+                            "price": 189,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 5,
-                    "added": "08.21.2017"
+                    "added": "08.21.2017",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "name": "1+1 забери сам"
+                        }
+                    ]
                 },
                 {
                     "id": 26,
@@ -934,18 +1040,21 @@
                             "id": 1,
                             "value": "Средняя",
                             "weight": "470 г.",
-                            "price": 189
+                            "price": 189,
+                            "discount": null
                         },
                         {
                             "id": 2,
                             "value": "Большая",
                             "weight": "700 г.",
-                            "price": 259
+                            "price": 259,
+                            "discount": null
                         }
                     ],
                     "category": "Круглая",
                     "rate": 7,
-                    "added": "10.25.2020"
+                    "added": "10.25.2020",
+                    "tags": []
                 }
             ],
             "fastCategories": [ 

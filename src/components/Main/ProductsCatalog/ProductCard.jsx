@@ -18,9 +18,11 @@ const ProductCard = ({ cardData }) => {
         hasTwoSizes: cardData.sizes.length === 2,
         hasGifts: !!cardData.gifts.length,
         gifts: cardData.gifts,
+        tags: cardData.tags,
         selectedSize: {
             weight: cardData.sizes[0].weight,
             price: cardData.sizes[0].price,
+            discount: cardData.sizes[0].discount,
         },
         selectedGift: cardData.gifts[0],
         checkbox: false,
@@ -35,6 +37,7 @@ const ProductCard = ({ cardData }) => {
                     selectedSize: {
                         weight: action.payload.weight,
                         price: action.payload.price,
+                        discount: action.payload.discount,
                     },
                     checkbox: action.payload.checkbox,
                     prevState: action.payload.className,
@@ -48,12 +51,13 @@ const ProductCard = ({ cardData }) => {
 
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
-    const toggleSizeAC = (weight, price, checkbox, className) => {
+    const toggleSizeAC = (weight, price, discount, checkbox, className) => {
         return {
             type: TOGGLE_SIZE,
             payload: {
                 weight,
                 price,
+                discount,
                 checkbox,
                 className
             }
@@ -65,23 +69,43 @@ const ProductCard = ({ cardData }) => {
     const onClickButton = event => {
         const target = event.target;
         const className = target.className;
-        if(state.prevState === className) return;
+        if (state.prevState === className) return;
         if (target.dataset.default) {
-            dispatch(toggleSizeAC(cardData.sizes[0].weight, cardData.sizes[0].price, false, className));
+            dispatch(toggleSizeAC(cardData.sizes[0].weight, cardData.sizes[0].price, cardData.sizes[0].discount, false, className));
         } else {
-            dispatch(toggleSizeAC(cardData.sizes[1].weight, cardData.sizes[1].price, true, className));
+            dispatch(toggleSizeAC(cardData.sizes[1].weight, cardData.sizes[1].price, cardData.sizes[1].discount, true, className));
         }
     };
 
-    const onClickCheckbox = () => dispatch(toggleSizeAC(cardData.sizes[+(!state.checkbox)].weight, cardData.sizes[+(!state.checkbox)].price, !state.checkbox));
+    const onClickCheckbox = () => dispatch(toggleSizeAC(
+        cardData.sizes[+(!state.checkbox)].weight,
+        cardData.sizes[+(!state.checkbox)].price,
+        cardData.sizes[+(!state.checkbox)].discount,
+        !state.checkbox
+    ));
 
-    const onClickDropdown = value => value === state.selectedGift ? undefined : dispatch(setGiftAC(value));    
+    const onClickDropdown = value => value === state.selectedGift ? undefined : dispatch(setGiftAC(value));
 
 
     return (
         <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
                 <div className="item-homeSlider__content">
+                    <div className="product-tag__wrapper">
+                        {state.selectedSize.discount && (
+                            <div className="product-tag primary-product-tag">
+                                <span>Акция</span>
+                            </div>
+                        )}
+                        {state.tags && state.tags.map(({ id, type, name }) => (
+                            <div 
+                                key={id} 
+                                className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
+                            >
+                                <span>{name}</span>
+                            </div>
+                        ))}
+                    </div>
                     <img src={state.imageUrl} alt='' />
                     <div className="item-homeSlider__info">
                         <h3>{state.title}</h3>
@@ -113,7 +137,10 @@ const ProductCard = ({ cardData }) => {
                         </div>
                         <p className="item-homeSlider__descr">{state.description}</p>
                         <div className="item-homeSlider__price-gift">
-                            <div className="item-homeSlider__price">{`${state.selectedSize.price} грн.`}</div>
+                            <div className={`item-homeSlider__price ${state.selectedSize.discount ? 'with-discount' : ''}`}>
+                                {state.selectedSize.discount ? <span className="item-homeSlider__price-discount">{state.selectedSize.discount} грн</span> : null}
+                                <span className="item-homeSlider__price-ordinary">{`${state.selectedSize.price} грн`}</span>
+                            </div>
                             <div className="item-homeSlider__gift-block gift-block">
                                 {state.hasGifts ? (
                                     <GiftDropdown
