@@ -1,0 +1,10 @@
+.ant-breadcrumb-link a {
+    color: var(--gray-100);
+}
+.ant-breadcrumb a:hover {
+    color: var(--gray-100);
+    text-decoration: underline;
+}
+.ant-breadcrumb > span:last-child a {
+    color: var(--gray-100);
+}

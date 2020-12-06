@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
@@ -39,8 +39,8 @@ const ProductsFilter = ({ slag }) => {
     const productTitle = useSelector(getProductTitle);
 
 
-    useEffect(() => {
-        dispatch(requestSortCategories())
+    React.useEffect(() => {
+        dispatch(requestSortCategories());
     }, []);
 
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import { Route, useRouteMatch, Switch, Redirect } from 'react-router-dom';
 
 import CategoryMenu from './CategoryMenu/CategoryMenu';
 import ProductsFilter from './ProductsFilter/ProductsFilter';
@@ -10,19 +10,27 @@ import style from './Main.module.scss'
 
 const Main = () => {
 
-    const match = useRouteMatch("/:slag"); 
+    // match exists or null
+    const match = useRouteMatch("/:branch/:slag");
+    const slag = match && match.params.slag;
 
     return (
         <main className={style.main}>
             <CategoryMenu />
-            {match && <ProductsFilter slag={match.params.slag} />}
+            {slag && <ProductsFilter slag={slag} />}
             <Switch>
                 <Route exact path='/' >
                     <Home />
                 </Route>
-                <Route exact path={match && match.url} >
-                    <ProductsCatalogContainer/>
-                </Route>
+                {slag ? (
+                    <Route path='/menu-dostavki' >
+                        <ProductsCatalogContainer
+                            slag={slag}
+                        />
+                    </Route>
+                ) : (
+                    <Redirect to="/"/>
+                )}
             </Switch>
         </main>
     )
