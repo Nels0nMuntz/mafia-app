@@ -1,12 +1,13 @@
 import { catalogAPI } from './../api/api';
+import actionTypes from './actionTypes';
 
-const SET_PIZZA = 'SET_PIZZA';
-const CHANGE_FAST_CATEGORY = 'CHANGE_FAST_CATEGORY';
+const { SET_PIZZA, CHANGE_FAST_CATEGORY } = actionTypes;
 
 const initialState = {
     fastSortCategory: 'default',
     pizza: {},
     sushi: {},
+    isFetching: false,
 };
 
 const catalogReducer = (state = initialState, action) => {
@@ -22,7 +23,7 @@ const catalogReducer = (state = initialState, action) => {
 export default catalogReducer;
 
 const setPizzaAC = data => ({ type: SET_PIZZA, payload: data });
-export const changeFastCategory = category => ({type: CHANGE_FAST_CATEGORY, payload: category});
+export const changeFastCategory = category => ({ type: CHANGE_FAST_CATEGORY, payload: category });
 
 export const requestPizzaCatalog = () => async dispatch => {
     let response = await catalogAPI.getPizzaCatalog();

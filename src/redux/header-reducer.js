@@ -1,9 +1,7 @@
 import { headerAPI } from './../api/api';
+import actionTypes from './actionTypes'
 
-const SET_CATEGORIES = 'SET_CATEGORIES';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const TOGGLE_MENU_STATE = 'TOGGLE_MENU_STATE';
-const SET_MENU = 'SET_MENU';
+const { SET_CATEGORIES, TOGGLE_IS_FETCHING, TOGGLE_MENU_STATE, SET_MENU } = actionTypes;
 
 const initialState = {
     categories: [

@@ -1,7 +1,7 @@
 import { filterAPI } from './../api/api';
+import actionTypes from './actionTypes'
 
-const GET_SORT_CATEGORIES = 'GET_SORT_CATEGORIES';
-const CHANGE_CURRENT_CATEGORY = 'CHANGE_CURRENT_CATEGORY';
+const { GET_SORT_CATEGORIES, CHANGE_CURRENT_CATEGORY } = actionTypes;
 
 const initialState = {
     currentCategory: '',

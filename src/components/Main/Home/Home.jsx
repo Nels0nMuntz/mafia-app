@@ -2,57 +2,60 @@ import React from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setMainSlider, setHomeSlider } from '../../../redux/home-reducer';
+import { requireHomePage } from '../../../redux/home-reducer';
 import MainSlider from './MainSlider/MainSlider';
 import HomeSlider from './HomeSlider/HomeSlider';
 import DeliverySlider from './DeliverySlider/DeliverySlider';
+import Preloader from './../../Preloader/Preloader';
 
 import style from './Home.module.scss'
 
 
 const Home = () => {
 
+    const dispatch = useDispatch();
     const mainSlider = useSelector(state => state.home.mainSlider);
     const homeSlider = useSelector(state => state.home.homeSlider);
-    // const deliverySlider = useSelector(state => state.home.deliverySlider);
-    const dispatch = useDispatch();
+    const isFetching = useSelector(state => state.home.isFetching);
     React.useEffect(() => {
-        dispatch(setMainSlider());
-        dispatch(setHomeSlider());
+        if (mainSlider.length && homeSlider.length) return;
+        dispatch(requireHomePage());
     }, []);
 
-    return (
-        <div>
-            <section>
-                <MainSlider
-                    sliderData={mainSlider}
-                />
-            </section>
-            <section className={classnames(
-                style.recommended,
-                style.section__wrapper
-            )}>
-                <div className={style.titleBlock}>
-                    <h2>Мы рекомендуем</h2>
-                </div>
-                <div className={style.slider_container}>
-                    <HomeSlider 
-                        sliderData={homeSlider}
+    return (        
+        isFetching ? <Preloader/> : (
+            <div>
+                <section>
+                    <MainSlider
+                        sliderData={mainSlider}
                     />
-                </div>
-            </section>
-            <section className={classnames(
-                style.deliveryMenu,
-                style.section__wrapper
-            )}>
-                <div className={style.titleBlock}>
-                    <h2>Меню доставки</h2>
-                </div>
-                <div className={style.slider_container}>
-                    <DeliverySlider/>
-                </div>
-            </section>
-        </div>
+                </section>
+                <section className={classnames(
+                    style.recommended,
+                    style.section__wrapper
+                )}>
+                    <div className={style.titleBlock}>
+                        <h2>Мы рекомендуем</h2>
+                    </div>
+                    <div className={style.slider_container}>
+                        <HomeSlider
+                            sliderData={homeSlider}
+                        />
+                    </div>
+                </section>
+                <section className={classnames(
+                    style.deliveryMenu,
+                    style.section__wrapper
+                )}>
+                    <div className={style.titleBlock}>
+                        <h2>Меню доставки</h2>
+                    </div>
+                    <div className={style.slider_container}>
+                        <DeliverySlider />
+                    </div>
+                </section>
+            </div>
+        )
     )
 }
 

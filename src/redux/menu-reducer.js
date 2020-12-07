@@ -1,7 +1,7 @@
 import { menuAPI } from './../api/api';
+import actionTypes from './actionTypes';
 
-
-const REQUEST_MENU_CATEGORIES = 'REQUEST_MENU_CATEGORIES';
+const { REQUEST_MENU_CATEGORIES } = actionTypes;
 
 const initialState = {
     categories: [],

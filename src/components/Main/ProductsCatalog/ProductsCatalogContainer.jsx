@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route, useRouteMatch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from "reselect";
 
@@ -8,9 +7,7 @@ import { requestPizzaCatalog } from '../../../redux/catalog-reducer';
 
 
 const ProductsCatalogContainer = ({ slag }) => {
-
-    // const { url, params } = useRouteMatch("/:slag");
-    // const slag = params.slag;
+    
     const dispatch = useDispatch();
     const filterSelector = createSelector(
         state => state.catalog[slag],
@@ -43,6 +40,7 @@ const ProductsCatalogContainer = ({ slag }) => {
     const list = useSelector(filterSelector) ?? [];
 
     React.useEffect(() => {
+        if(list.length) return;
         dispatch(requestPizzaCatalog());
     }, []);
 
