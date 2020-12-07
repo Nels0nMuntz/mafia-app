@@ -1,5 +1,6 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
+import { isEqual } from 'lodash'
 
 import ProductCard from './ProductCard';
 
@@ -8,6 +9,8 @@ import withBreadcrumbs from '../../HOC/withBreadcrumbs';
 
 
 const ProductsCatalog = React.memo(({ breadcrumbItems, separator, list }) => {
+
+    console.log('ProductsCatalog');
 
     const children = () => (list.map(item => (<ProductCard key={`${item.id}_${item.title}`} cardData={item} />)));
 
@@ -27,6 +30,6 @@ const ProductsCatalog = React.memo(({ breadcrumbItems, separator, list }) => {
             </div>
         </section>
     );
-}, (prevProps, nextProps) => prevProps.list === nextProps.list);
+}, (prevProps, nextProps) => isEqual(prevProps.list, nextProps.list));
 
 export default withBreadcrumbs(ProductsCatalog);
