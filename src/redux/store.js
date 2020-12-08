@@ -1,7 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunkMiddleware from 'redux-thunk';
 import header from './header-reducer';
-import filter from './filter-reducer';
 import menu from './menu-reducer';
 import home from './home-reducer';
 import catalog from './catalog-reducer';
@@ -9,7 +8,6 @@ import catalog from './catalog-reducer';
 
 const rootReducer = combineReducers({
     header,
-    filter,
     menu,
     home,
     catalog,

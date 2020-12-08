@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import FilterDropdown from './../../../libs-components/FilterDropdown/FilterDropdown';
-import { changeCurrentCategory, requestSortCategories } from '../../../redux/filter-reducer';
+import { changeCurrentCategory, requestSortCategories } from '../../../redux/catalog-reducer';
 import FastCategories from './FastCategories/FastCategories';
 import { changeFastCategory } from '../../../redux/catalog-reducer';
 
@@ -15,11 +15,11 @@ const ProductsFilter = ({ slag }) => {
     const dispatch = useDispatch();
     
     const getSortCategories = createSelector(
-        state => state.filter.categories,
+        state => state.catalog.sortCategories,
         categories => categories
     );
-    const getCurrentCategory = createSelector(
-        state => state.filter.currentCategory,
+    const getCurrentSortCategory = createSelector(
+        state => state.catalog.currentSortCategory,
         currentCategory => currentCategory
     );
     const getFastCategories = createSelector(
@@ -37,7 +37,7 @@ const ProductsFilter = ({ slag }) => {
 
     const categories = useSelector(getSortCategories);
     const fastCategories = useSelector(getFastCategories);
-    const currentCategory = useSelector(getCurrentCategory);
+    const currentCategory = useSelector(getCurrentSortCategory);
     const currentFastCategory = useSelector(getCurrentFastCategory);
     const productTitle = useSelector(getProductTitle);
 

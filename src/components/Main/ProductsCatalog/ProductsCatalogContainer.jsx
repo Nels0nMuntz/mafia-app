@@ -13,10 +13,10 @@ const ProductsCatalogContainer = ({ slag }) => {
     const filterSelector = createSelector(
         state => state.catalog[slag],
         state => state.catalog.currentFastCategory,
-        state => state.filter.currentCategory,
-        (catalog, currentFastCategory, currentCategory) => {
+        state => state.catalog.currentSortCategory,
+        (catalog, currentFastCategory, currentSortCategory) => {
             const sortByFastCategory = currentFastCategory === 'default' ? catalog.list ?? [] : catalog.list.filter(item => item.category === currentFastCategory);
-            switch (currentCategory) {
+            switch (currentSortCategory) {
                 case 'по популярности':
                     return [...sortByFastCategory.sort((a, b) => new Date(b.added) - new Date(a.added))];
                 case 'по новизне':
