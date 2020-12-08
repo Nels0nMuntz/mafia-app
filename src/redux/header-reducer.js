@@ -1,7 +1,7 @@
 import { headerAPI } from './../api/api';
 import actionTypes from './actionTypes'
 
-const { SET_CATEGORIES, TOGGLE_IS_FETCHING, TOGGLE_MENU_STATE, SET_MENU } = actionTypes;
+const { SET_CATEGORIES, TOGGLE_MENU_STATE, SET_MENU } = actionTypes;
 
 const initialState = {
     categories: [
@@ -31,8 +31,6 @@ const headerReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CATEGORIES:
             return {...state, categories: action.payload}
-        case TOGGLE_IS_FETCHING: 
-            return {...state, isFetching: action.payload}
         case TOGGLE_MENU_STATE: 
             return {...state, isMenuOpen: action.payload}
         case SET_MENU: 
@@ -44,15 +42,12 @@ const headerReducer = (state = initialState, action) => {
 export default headerReducer;
 
 const setCategories = categories => ({type: SET_CATEGORIES, payload: categories});
-const toggleIsFetching = value => ({type: TOGGLE_IS_FETCHING, payload: value});
-const setMenuAC = menu => ({type: SET_MENU, payload: menu})
+const setMenuAC = menu => ({type: SET_MENU, payload: menu});
 export const toggleMenuState = (value = false) => ({ type: TOGGLE_MENU_STATE, payload: value });
 
 export const requestCategories = () =>  async dispatch => {
-    dispatch(toggleIsFetching(true));
     let response = await headerAPI.getCategories();
     dispatch(setCategories(response));
-    dispatch(toggleIsFetching(false));
 };
 
 export const requestMenu = () => async dispatch => {

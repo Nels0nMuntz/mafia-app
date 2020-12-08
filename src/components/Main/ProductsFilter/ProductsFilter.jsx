@@ -13,33 +13,39 @@ import style from './ProductsFilter.module.scss'
 const ProductsFilter = ({ slag }) => {
 
     const dispatch = useDispatch();
-    const onClickFastCategory = category => dispatch(changeFastCategory(category));
-    const onClickCategory = category => dispatch(changeCurrentCategory(category));
-
-    const getCurrentCategory = createSelector(
-        state => state.filter.currentCategory,
-        currentCategory => currentCategory
-    );
+    
     const getSortCategories = createSelector(
         state => state.filter.categories,
         categories => categories
     );
+    const getCurrentCategory = createSelector(
+        state => state.filter.currentCategory,
+        currentCategory => currentCategory
+    );
     const getFastCategories = createSelector(
         state => state.catalog[slag],
         product => product.fastCategories ?? [],
+    );
+    const getCurrentFastCategory = createSelector(
+        state => state.catalog.currentFastCategory,
+        currentFastCategory => currentFastCategory
     );
     const getProductTitle = createSelector(
         state => state.catalog[slag],
         product => product.title ?? '',
     );
 
-    const currentCategory = useSelector(getCurrentCategory);
     const categories = useSelector(getSortCategories);
     const fastCategories = useSelector(getFastCategories);
+    const currentCategory = useSelector(getCurrentCategory);
+    const currentFastCategory = useSelector(getCurrentFastCategory);
     const productTitle = useSelector(getProductTitle);
 
+    const onClickFastCategory = category => dispatch(changeFastCategory(category));
+    const onClickCategory = category => dispatch(changeCurrentCategory(category));
 
     React.useEffect(() => {
+        if(categories.length) return;
         dispatch(requestSortCategories());
     }, []);
 
@@ -54,6 +60,7 @@ const ProductsFilter = ({ slag }) => {
                 <h1 className={style.products_filter_title}>{productTitle}</h1>
                 <FastCategories
                     fastCategories={fastCategories}
+                    currentFastCategory={currentFastCategory}
                     callback={onClickFastCategory}
                 />
                 <div className={style.products_filter_catalog}>

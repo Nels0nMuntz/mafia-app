@@ -1,13 +1,13 @@
 import { catalogAPI } from './../api/api';
 import actionTypes from './actionTypes';
 
-const { SET_PIZZA, CHANGE_FAST_CATEGORY } = actionTypes;
+const { SET_PIZZA, CHANGE_FAST_CATEGORY, TOGGLE_IS_FETCHING } = actionTypes;
 
 const initialState = {
-    fastSortCategory: 'default',
+    currentFastCategory: 'default',
     pizza: {},
     sushi: {},
-    isFetching: false,
+    isFetchingCatalog: false,
 };
 
 const catalogReducer = (state = initialState, action) => {
@@ -15,7 +15,9 @@ const catalogReducer = (state = initialState, action) => {
         case SET_PIZZA:
             return { ...state, pizza: action.payload, }
         case CHANGE_FAST_CATEGORY:
-            return { ...state, fastSortCategory: action.payload, }
+            return { ...state, currentFastCategory: action.payload, }
+        case TOGGLE_IS_FETCHING:
+            return { ...state, isFetchingCatalog: action.payload, }
         default:
             return state;
     };
@@ -23,9 +25,18 @@ const catalogReducer = (state = initialState, action) => {
 export default catalogReducer;
 
 const setPizzaAC = data => ({ type: SET_PIZZA, payload: data });
-export const changeFastCategory = category => ({ type: CHANGE_FAST_CATEGORY, payload: category });
+const changeFastCategoryAC = category => ({ type: CHANGE_FAST_CATEGORY, payload: category });
+const toggleIsFetching = value => ({type: TOGGLE_IS_FETCHING, payload: value || false});
 
 export const requestPizzaCatalog = () => async dispatch => {
+    dispatch(toggleIsFetching(true));
     let response = await catalogAPI.getPizzaCatalog();
     dispatch(setPizzaAC(response));
-}
+    dispatch(toggleIsFetching(false));
+};
+
+export const changeFastCategory = category => dispatch => {
+    dispatch(toggleIsFetching(true));
+    dispatch(changeFastCategoryAC(category))
+    dispatch(toggleIsFetching(false));
+};

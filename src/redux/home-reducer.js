@@ -7,7 +7,7 @@ const initialState = {
     mainSlider: [],
     homeSlider: [],
     deliverySlider: [],
-    isFetching: false,
+    isFetchingHome: false,
 }
 
 const homeReducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const homeReducer = (state = initialState, action) => {
         case SET_HOME_SLIDER:
             return {...state, homeSlider: action.payload};
         case TOGGLE_IS_FETCHING:
-            return {...state, isFetching: action.payload};
+            return {...state, isFetchingHome: action.payload};
         default:
             return state;
     };
@@ -27,7 +27,7 @@ export default homeReducer;
 
 const setMainSliderAC = data => ({type: SET_MAIN_SLIDER, payload: data});
 const setHomeSliderAC = data => ({type: SET_HOME_SLIDER, payload: data});
-const toggleIsFetching = value => ({type: TOGGLE_IS_FETCHING, payload: value || false})
+const toggleIsFetching = value => ({type: TOGGLE_IS_FETCHING, payload: value || false});
 
 export const requireHomePage = () => async dispatch => {
     dispatch(toggleIsFetching(true));

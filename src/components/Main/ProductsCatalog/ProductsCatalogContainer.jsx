@@ -9,12 +9,13 @@ import { requestPizzaCatalog } from '../../../redux/catalog-reducer';
 const ProductsCatalogContainer = ({ slag }) => {
     
     const dispatch = useDispatch();
+    const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
     const filterSelector = createSelector(
         state => state.catalog[slag],
-        state => state.catalog.fastSortCategory,
+        state => state.catalog.currentFastCategory,
         state => state.filter.currentCategory,
-        (catalog, fastSortrCategory, currentCategory) => {
-            const sortByFastCategory = fastSortrCategory === 'default' ? catalog.list ?? [] : catalog.list.filter(item => item.category === fastSortrCategory);
+        (catalog, currentFastCategory, currentCategory) => {
+            const sortByFastCategory = currentFastCategory === 'default' ? catalog.list ?? [] : catalog.list.filter(item => item.category === currentFastCategory);
             switch (currentCategory) {
                 case 'по популярности':
                     return [...sortByFastCategory.sort((a, b) => new Date(b.added) - new Date(a.added))];
@@ -47,6 +48,7 @@ const ProductsCatalogContainer = ({ slag }) => {
     return (
         <ProductsCatalog
             list={list}
+            isFetching={isFetching}
         />
 
     )

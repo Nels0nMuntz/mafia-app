@@ -2,26 +2,23 @@ import React from 'react'
 
 import style from './FastCategories.module.scss'
 
-const FastCategories = ({fastCategories, callback}) => {
-
-    const [activeCategory, setActiveCategory] = React.useState('default')
+const FastCategories = ({fastCategories, currentFastCategory, callback}) => {
 
     const onClickButton = event => {
         const category = event.target.dataset.category;
         callback(category);
-        setActiveCategory(category);
     };
 
     return (
-        <ul className={style.fast_categories} onScroll={() => console.log('scroll')}>
-                {fastCategories.map(({id, name, value}) => (
+        <ul className={style.fast_categories}>
+                {fastCategories.map(({id, name, type}) => (
                     <li                    
                         key={id}
                     >
                         <button
-                            data-category={value}
+                            data-category={type}
                             onClick={onClickButton}
-                            className={activeCategory === value ? style.active : ''}
+                            className={currentFastCategory === type ? style.active : ''}
                         >
                             {name}
                         </button>

@@ -14,7 +14,6 @@ const filterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 categories: action.payload,
-                currentCategory: action.payload[0].content
             }
         case CHANGE_CURRENT_CATEGORY:
             return {...state, currentCategory: action.payload}
@@ -25,9 +24,14 @@ const filterReducer = (state = initialState, action) => {
 export default filterReducer;
 
 const requestSortCategoriesAC = categories => ({type: GET_SORT_CATEGORIES, payload: categories});
-export const changeCurrentCategory = category => ({type: CHANGE_CURRENT_CATEGORY, payload: category})
+export const changeCurrentCategoryAC = category => ({type: CHANGE_CURRENT_CATEGORY, payload: category})
 
 export const requestSortCategories = () => async dispatch => {
     let response = await filterAPI.getCategories();
     dispatch(requestSortCategoriesAC(response));
+    dispatch(changeCurrentCategory(response[0].content));
+};
+
+export const changeCurrentCategory = category => dispatch => {
+    dispatch(changeCurrentCategoryAC(category));
 };

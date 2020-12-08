@@ -16,7 +16,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const mainSlider = useSelector(state => state.home.mainSlider);
     const homeSlider = useSelector(state => state.home.homeSlider);
-    const isFetching = useSelector(state => state.home.isFetching);
+    const isFetching = useSelector(state => state.home.isFetchingHome);
     React.useEffect(() => {
         if (mainSlider.length && homeSlider.length) return;
         dispatch(requireHomePage());
