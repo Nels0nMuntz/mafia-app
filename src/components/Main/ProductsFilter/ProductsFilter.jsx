@@ -10,7 +10,7 @@ import { changeFastCategory } from '../../../redux/catalog-reducer';
 
 import style from './ProductsFilter.module.scss'
 
-const ProductsFilter = ({ slag }) => {
+const ProductsFilter = ({ menuItem }) => {
 
     const dispatch = useDispatch();
     
@@ -23,7 +23,7 @@ const ProductsFilter = ({ slag }) => {
         currentCategory => currentCategory
     );
     const getFastCategories = createSelector(
-        state => state.catalog[slag],
+        state => state.catalog[menuItem],
         product => product.fastCategories ?? [],
     );
     const getCurrentFastCategory = createSelector(
@@ -31,7 +31,7 @@ const ProductsFilter = ({ slag }) => {
         currentFastCategory => currentFastCategory
     );
     const getProductTitle = createSelector(
-        state => state.catalog[slag],
+        state => state.catalog[menuItem],
         product => product.title ?? '',
     );
 

@@ -7,12 +7,13 @@ import './../Home/HomeSlider/HomeSlider.scss'
 import { Link } from 'react-router-dom';
 
 
-const ProductCard = ({ cardData }) => {
+const ProductCard = ({ cardData, url }) => { 
 
     const TOGGLE_SIZE = 'TOGGLE_SIZE';
     const SET_GIFT = 'SET_GIFT';
 
     const initialState = {
+        id: cardData.id,
         title: cardData.title,
         description: cardData.description,
         imageUrl: cardData.imageUrl,
@@ -87,7 +88,6 @@ const ProductCard = ({ cardData }) => {
 
     const onClickDropdown = value => value === state.selectedGift ? undefined : dispatch(setGiftAC(value));
 
-
     return (
         <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
@@ -107,11 +107,11 @@ const ProductCard = ({ cardData }) => {
                             </div>
                         ))}
                     </div>
-                    <Link to='/' className='item-homeSlider__link'>
+                    <Link to={`${url}/product/${state.id}`} className='item-homeSlider__link'>
                         <img src={state.imageUrl} alt='' />
                     </Link>
                     <div className="item-homeSlider__info">
-                        <Link to='/'>
+                        <Link to={`${url}/product/${state.id}`}>
                             <h3>{state.title}</h3>
                         </Link>
                         <div className="item-homeSlider__weight-block">

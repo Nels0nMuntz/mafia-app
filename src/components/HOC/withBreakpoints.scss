@@ -8,3 +8,16 @@
 .ant-breadcrumb > span:last-child a {
     color: var(--gray-100);
 }
+.breadcrumbs_wrapper{
+    margin-bottom: 25px;
+    @media screen and (max-width: 991px) {
+        margin-bottom: 10px;
+    }
+
+    .breadcrumbs_container{
+        padding: 0 15px;
+        @media screen and (max-width: 575px) {
+            padding: 0;
+        }
+    }
+}

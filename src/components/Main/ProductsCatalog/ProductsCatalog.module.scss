@@ -11,18 +11,6 @@
         padding: 40px 20px 20px;
     }
 }
-.products_breadcrumbs{
-    margin-bottom: 25px;
-    @media screen and (max-width: 991px) {
-        margin-bottom: 10px;
-    }
-}
-.breadcrumbs_container{
-    padding: 0 15px;
-    @media screen and (max-width: 575px) {
-        padding: 0;
-    }
-}
 .products_container{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));

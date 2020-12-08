@@ -6,12 +6,12 @@ import ProductsCatalog from './ProductsCatalog';
 import { requestPizzaCatalog } from '../../../redux/catalog-reducer';
 
 
-const ProductsCatalogContainer = ({ slag }) => {
+const ProductsCatalogContainer = ({ menuItem, url }) => {
     
     const dispatch = useDispatch();
     const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
     const filterSelector = createSelector(
-        state => state.catalog[slag],
+        state => state.catalog[menuItem],
         state => state.catalog.currentFastCategory,
         state => state.catalog.currentSortCategory,
         (catalog, currentFastCategory, currentSortCategory) => {
@@ -41,7 +41,7 @@ const ProductsCatalogContainer = ({ slag }) => {
     const list = useSelector(filterSelector) ?? [];
 
     React.useEffect(() => {
-        if(list.length) return;
+        if (list.length) return;
         dispatch(requestPizzaCatalog());
     }, []);
 
@@ -49,8 +49,8 @@ const ProductsCatalogContainer = ({ slag }) => {
         <ProductsCatalog
             list={list}
             isFetching={isFetching}
+            url={url}
         />
-
     )
 }
 

@@ -21,6 +21,7 @@ const withBreadcrumbs = Component => {
         const breadcrumbNameMap = {
             '/menu-dostavki': 'Меню доставки',
             '/menu-dostavki/pizza': 'Пицца',
+            '/menu-dostavki/pizza/product': 'Kруглая пицца',
         };
 
         const pathSnippets = props.location.pathname.split('/').filter(i => i);
@@ -29,20 +30,31 @@ const withBreadcrumbs = Component => {
             return (
                 <Breadcrumb.Item key={url}>
                     <Link to={url}>{breadcrumbNameMap[url]}</Link>
-                </Breadcrumb.Item>                
+                </Breadcrumb.Item>
             );
         });
-        
+
         const breadcrumbItems = [
             <Breadcrumb.Item key="home">
                 <Link to="/">Главная</Link>
             </Breadcrumb.Item>,
         ].concat(extraBreadcrumbItems);
 
+        const BreadcrumbsComponent = () => (
+            <div className="breadcrumbs_wrapper">
+                <div className="breadcrumbs_container">
+                    <Breadcrumb
+                        separator={<Separator />}
+                    >
+                        {breadcrumbItems}
+                    </Breadcrumb>
+                </div>
+            </div>
+        );
+
         return (
             <Component
-                breadcrumbItems={breadcrumbItems}
-                separator={<Separator/>}
+                BreadcrumbsComponent={BreadcrumbsComponent}
                 {...props}
             />
         )
