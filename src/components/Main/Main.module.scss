@@ -1,17 +1,22 @@
 main{
     width: 100%;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px - 192px);
     margin-top: 80px;
     padding-left: 80px;
 
+    @media screen and (max-width: 1199px) {
+        min-height: calc(100vh - 80px - 354px);
+    }
     @media screen and (max-width: 1020px) {
-        min-height: calc(100vh - 140px);
+        min-height: calc(100vh - 140px  - 354px);
         margin-top: 140px;
         padding-left: 0;
     }
-
+    @media screen and (max-width: 768px) {
+        min-height: calc(100vh - 140px - 495px);
+    }
     @media screen and (max-width: 720px) {
-        min-height: calc(100vh - 120px);
+        min-height: calc(100vh - 120px - 495px);
         margin-top: 120px;
     }
 }

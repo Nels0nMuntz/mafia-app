@@ -11,12 +11,11 @@ import style from './Main.module.scss'
 
 const Main = () => {
 
-    // match exists or null
     const match = useRouteMatch("/:branch/:menuItem/:product?/:productId?");
     const menuItem = match && match.params.menuItem;
     const product = match && match.params.product;
     const url = match && match.url;
-    console.log(match);
+    // console.log(match);
 
     return (
         <main className={style.main}>

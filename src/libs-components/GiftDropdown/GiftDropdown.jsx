@@ -34,7 +34,7 @@ const GiftDropdown = ({ list, value, callback }) => {
             trigger={['hover']}
         >
             <a className="ant-dropdown-link">
-                <p>Подарок</p>
+                <p>Подарок:</p>
                 <p>{value}</p>
             </a>
         </Dropdown>
