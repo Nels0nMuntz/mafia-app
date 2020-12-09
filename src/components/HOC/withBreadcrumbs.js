@@ -28,9 +28,11 @@ const withBreadcrumbs = Component => {
         const extraBreadcrumbItems = pathSnippets.map((_, index) => {
             const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
             return (
-                <Breadcrumb.Item key={url}>
-                    <Link to={url}>{breadcrumbNameMap[url]}</Link>
-                </Breadcrumb.Item>
+                breadcrumbNameMap[url] && (
+                    <Breadcrumb.Item key={url}>
+                        <Link to={url}>{breadcrumbNameMap[url]}</Link>
+                    </Breadcrumb.Item>
+                )
             );
         });
 

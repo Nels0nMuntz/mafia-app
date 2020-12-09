@@ -1,0 +1,108 @@
+.productPage {
+    padding: 40px 40px 60px 80px;
+}
+
+.breadcrumbs_container {
+    padding-bottom: 15px;
+}
+
+.productPage__inner {
+    width  : 70%;
+    display: flex;
+}
+
+.productPage__img {
+    width       : 450px;
+    height      : 450px;
+    margin-right: 40px;
+
+    img {
+        display : block;
+        // width: 100%;
+    }
+}
+
+.productPage__info {
+    padding-top: 25px;
+
+    h2 {
+        font-size    : 36px;
+        font-weight  : 900;
+        margin-bottom: 20px;
+    }
+
+    .productPage__weight_block {
+        margin-bottom: 20px;
+
+        .productPage__weight {
+            font-size   : 16px;
+            margin-right: 40px;
+            color       : var(--gray-secondary);
+        }
+    }
+
+    .productPage__description {
+        padding      : 25px 0;
+        min-height   : 220px;
+        border-top   : 1px solid var(--gray-secondary);
+        border-bottom: 1px solid var(--gray-secondary);
+
+        p {
+            font-style   : 16px;
+            line-height  : 24px;
+            margin-bottom: 5px;
+            color        : rgb(110, 110, 110);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .productPage__price_block {
+        padding    : 20px 0;
+        display    : flex;
+        align-items: center;
+
+        .productPage__price {
+            display     : flex;
+            align-items : center;
+            font-size   : 30px;
+            margin-right: 25px;
+            line-height : 1;
+
+            .productPage__price_discount {
+                padding         : 10px;
+                color           : white;
+                background-color: var(--light-red);
+                border-radius   : 3px;
+                margin-right    : 25px;
+            }
+        }
+
+        .productPage__order_btn button {
+            height          : 100%;
+            padding         : 14px 25px;
+            border-radius   : 3px;
+            color           : white;
+            background-color: var(--green-100);
+        }
+    }
+}
+
+.width_discount {
+    position: relative;
+    padding-left: 3px;
+
+    &::after {
+        content         : "";
+        position        : absolute;
+        top             : 5px;
+        left            : -5px;
+        width           : 115%;
+        height          : 3px;
+        transform       : rotate(10deg);
+        transform-origin: left;
+        background-color: var(--light-red);
+    }
+}

@@ -11,8 +11,8 @@ import style from './ProductsCatalog.module.scss'
 const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, isFetching, url }) => {
 
     const children = () => (list.map(item => (
-        <ProductCard 
-            key={`${item.id}_${item.title}`} 
+        <ProductCard
+            key={`${item.id}_${item.title}`}
             cardData={item}
             url={url}
         />
@@ -21,7 +21,9 @@ const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, isFetching, ur
     return (
         isFetching ? <Preloader /> : (
             <section className={style.products_catalog}>
-                <BreadcrumbsComponent/>
+                <div className={style.breadcrumbs_container}>
+                    <BreadcrumbsComponent />
+                </div>
                 <div className={style.products_container}>
                     {list.length && children()}
                 </div>
