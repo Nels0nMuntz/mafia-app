@@ -18,9 +18,9 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
             const sortByFastCategory = currentFastCategory === 'default' ? catalog.list ?? [] : catalog.list.filter(item => item.category === currentFastCategory);
             switch (currentSortCategory) {
                 case 'по популярности':
-                    return [...sortByFastCategory.sort((a, b) => new Date(b.added) - new Date(a.added))];
-                case 'по новизне':
                     return [...sortByFastCategory.sort((a, b) => b.rate - a.rate)];
+                case 'по новизне':
+                    return [...sortByFastCategory.sort((a, b) => new Date(b.added) - new Date(a.added))];
                 case 'по убыванию цен':
                     return [...sortByFastCategory.sort((a, b) => b.sizes[0].price - a.sizes[0].price)];
                 case 'по возростанию цен':
@@ -38,6 +38,7 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
             }
         }
     );
+    
     const list = useSelector(filterSelector) ?? [];
 
     React.useEffect(() => {

@@ -16,7 +16,7 @@ const ProductCard = ({ cardData, url }) => {
         id: cardData.id,
         title: cardData.title,
         description: cardData.description,
-        imageUrl: cardData.imageUrl,
+        imageUrl: cardData.images.bigImageUrl,
         hasTwoSizes: cardData.sizes.length === 2,
         hasGifts: !!cardData.gifts.length,
         gifts: cardData.gifts,
@@ -93,17 +93,12 @@ const ProductCard = ({ cardData, url }) => {
             <div className="homeSlider__item item-homeSlider">
                 <div className="item-homeSlider__content">
                     <div className="product-tag__wrapper">
-                        {state.selectedSize.discount && (
-                            <div className="product-tag primary-product-tag">
-                                <span>Акция</span>
-                            </div>
-                        )}
-                        {state.tags && state.tags.map(({ id, type, name }) => (
+                        {state.tags && state.tags.map(({ id, type, content }) => (
                             <div
                                 key={id}
                                 className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
                             >
-                                <span>{name}</span>
+                                <span>{content}</span>
                             </div>
                         ))}
                     </div>
