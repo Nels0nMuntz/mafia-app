@@ -3,27 +3,31 @@ import classnames from 'classnames'
 
 import './Swicher.scss'
 
-const Swicher = () => {
+const Swicher = ({onClickButtonHandler, onClickCheckboxHandler, isChecked}) => {
+
+    const onClickButton = event => onClickButtonHandler(event);
+    const onClickCheckbox = () => onClickCheckboxHandler();
+
     return (
         <div className="item-homeSlider__swicher swicher-homeSlider">
             <span
                 className="size-btn-1"
                 data-default
-                // onClick={onClickButton}
+                onClick={onClickButton}
             >Средняя</span>
             <div
                 data-checkbox
                 className={classnames(
                     "swicher-homeSlider__checkbox",
-                    // state.checkbox && 'checked'
+                    isChecked && 'checked'
                 )}
-                // onClick={onClickCheckbox}
+                onClick={onClickCheckbox}
             >
                 <span />
             </div>
             <span
                 className="size-btn-2"
-                // onClick={onClickButton}
+                onClick={onClickButton}
             >Большая</span>
         </div>
     )

@@ -197,19 +197,26 @@
         .productPage__delivery {
             display: inline-block;
 
-            .productPage__delivery_inner {
+            .productPage__delivery_item {
                 display      : flex;
                 align-items  : center;
                 padding      : 10px;
                 border       : 1px solid var(--brown-light);
                 border-radius: 3px;
+                margin-bottom: 10px;
 
                 @media screen and (max-width: 575px) {
                     padding: 6px;
                 }
 
+                &:last-child{
+                    margin-bottom: 0;
+                }
+
                 & span:first-child {
+                    width: 60px;
                     margin-right: 25px;
+                    text-align: center;
 
                     @media screen and (max-width: 575px) {
                         display: none;

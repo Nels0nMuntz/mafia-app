@@ -5,7 +5,7 @@ import CategoryMenu from './CategoryMenu/CategoryMenu';
 import ProductsFilter from './ProductsFilter/ProductsFilter';
 import Home from './Home/Home';
 import ProductsCatalogContainer from './ProductsCatalog/ProductsCatalogContainer';
-import ProductPage from './ProductsCatalog/ProductPage/ProductPage';
+import ProductPageContainer from './ProductsCatalog/ProductPage/ProductPageContainer';
 
 import style from './Main.module.scss'
 
@@ -14,6 +14,7 @@ const Main = () => {
     const match = useRouteMatch("/:branch/:menuItem/:product?/:productId?");
     const menuItem = match && match.params.menuItem;
     const product = match && match.params.product;
+    const productId = match && match.params.productId;
     const url = match && match.url;
     // console.log(match);
 
@@ -25,19 +26,22 @@ const Main = () => {
                     <Home />
                 </Route>
                 <Route exact path='/menu-dostavki'>
-                    <Redirect to='/'/>
+                    <Redirect to='/' />
                 </Route>
                 <Route path='/menu-dostavki'>
                     {!product ? (
                         <React.Fragment>
                             <ProductsFilter menuItem={menuItem} />
-                            <ProductsCatalogContainer 
-                                menuItem={menuItem} 
-                                url={url} 
+                            <ProductsCatalogContainer
+                                menuItem={menuItem}
+                                url={url}
                             />
                         </React.Fragment>
                     ) : (
-                            <ProductPage />
+                            <ProductPageContainer
+                                menuItem={menuItem}
+                                productId={productId}
+                            />
                         )}
                 </Route>
             </Switch>
