@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from "reselect";
 
 import ProductsCatalog from './ProductsCatalog';
-import { requestPizzaCatalog } from '../../../redux/catalog-reducer';
+import { requestCatalogItem } from '../../../redux/catalog-reducer';
+import Preloader from '../../Preloader/Preloader';
 
 
 const ProductsCatalogContainer = ({ menuItem, url }) => {
-    
+
     const dispatch = useDispatch();
+    const isExists = !!useSelector(state => state.catalog[menuItem]);
     const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
     const filterSelector = createSelector(
-        state => state.catalog[menuItem],
+        state => state.catalog[menuItem] ?? {},
         state => state.catalog.currentFastCategory,
         state => state.catalog.currentSortCategory,
         (catalog, currentFastCategory, currentSortCategory) => {
@@ -38,21 +40,25 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
             }
         }
     );
-    
+
     const list = useSelector(filterSelector) ?? [];
 
     React.useEffect(() => {
-        if (list.length) return;
-        dispatch(requestPizzaCatalog());
-    }, []);
+        return isExists ? undefined : dispatch(requestCatalogItem(menuItem));
+    }, [menuItem]);
+
+    // console.log('ProductsCatalogContainer');
 
     return (
-        <ProductsCatalog
-            list={list}
-            isFetching={isFetching}
-            url={url}
-        />
+        isFetching ? (
+            <Preloader />
+        ) : (
+            <ProductsCatalog
+                list={list}
+                url={url}
+            />
+        )
     )
-}
+};
 
-export default ProductsCatalogContainer
+export default React.memo(ProductsCatalogContainer)

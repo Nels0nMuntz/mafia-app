@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import FilterDropdown from './../../../libs-components/FilterDropdown/FilterDropdown';
-import { changeCurrentCategory, requestSortCategories } from '../../../redux/catalog-reducer';
+import { requestSortCategories, requestFastCategories, changeCurrentSortCategory, changeCurrentFastCategory } from '../../../redux/catalog-reducer';
 import FastCategories from './FastCategories/FastCategories';
-import { changeFastCategory } from '../../../redux/catalog-reducer';
 
 import style from './ProductsFilter.module.scss'
 
 const ProductsFilter = ({ menuItem }) => {
 
+    console.log('ProductsFilter');
+
     const dispatch = useDispatch();
+    const product = useSelector(state => state.catalog[menuItem]) ?? {};
     
     const getSortCategories = createSelector(
         state => state.catalog.sortCategories,
@@ -23,8 +25,8 @@ const ProductsFilter = ({ menuItem }) => {
         currentCategory => currentCategory
     );
     const getFastCategories = createSelector(
-        state => state.catalog[menuItem],
-        product => product.fastCategories ?? [],
+        state => state.catalog.fastCategories,
+        fastCategories => fastCategories,
     );
     const getCurrentFastCategory = createSelector(
         state => state.catalog.currentFastCategory,
@@ -32,7 +34,7 @@ const ProductsFilter = ({ menuItem }) => {
     );
     const getProductTitle = createSelector(
         state => state.catalog[menuItem],
-        product => product.title ?? '',
+        product => product ? product.title : '',
     );
 
     const categories = useSelector(getSortCategories);
@@ -41,13 +43,13 @@ const ProductsFilter = ({ menuItem }) => {
     const currentFastCategory = useSelector(getCurrentFastCategory);
     const productTitle = useSelector(getProductTitle);
 
-    const onClickFastCategory = category => dispatch(changeFastCategory(category));
-    const onClickCategory = category => dispatch(changeCurrentCategory(category));
+    const onClickFastCategory = category => dispatch(changeCurrentFastCategory(category));
+    const onClickSortCategory = category => dispatch(changeCurrentSortCategory(category));
 
     React.useEffect(() => {
-        if(categories.length) return;
-        dispatch(requestSortCategories());
-    }, []);
+        if(!categories.length) dispatch(requestSortCategories());
+        dispatch(requestFastCategories(menuItem));
+    }, [menuItem]);
 
     return (
         <section className={
@@ -68,7 +70,7 @@ const ProductsFilter = ({ menuItem }) => {
                     <FilterDropdown
                         list={categories}
                         value={currentCategory}
-                        callback={onClickCategory}
+                        callback={onClickSortCategory}
                     />
                 </div>
             </div>
@@ -76,4 +78,4 @@ const ProductsFilter = ({ menuItem }) => {
     )
 };
 
-export default ProductsFilter;
+export default React.memo(ProductsFilter);

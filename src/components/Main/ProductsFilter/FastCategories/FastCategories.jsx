@@ -11,7 +11,7 @@ const FastCategories = ({fastCategories, currentFastCategory, callback}) => {
 
     return (
         <ul className={style.fast_categories}>
-                {fastCategories.map(({id, name, type}) => (
+                {fastCategories.map(({id, content, type}) => (
                     <li                    
                         key={id}
                     >
@@ -20,7 +20,7 @@ const FastCategories = ({fastCategories, currentFastCategory, callback}) => {
                             onClick={onClickButton}
                             className={currentFastCategory === type ? style.active : ''}
                         >
-                            {name}
+                            {content}
                         </button>
                         <span></span>
                     </li>

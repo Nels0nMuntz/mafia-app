@@ -124,7 +124,7 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                             )}
                         </div>
                         <div className={style.productPage__description}>
-                            {state.description.split('.').map((sentence, index) => <p key={index}>{sentence}</p>)}
+                            {state.description.map((sentence, index) => <p key={index}>{sentence}</p>)}
                         </div>
                         <div className={style.productPage__footer}>
                             {state.hasGifts && (

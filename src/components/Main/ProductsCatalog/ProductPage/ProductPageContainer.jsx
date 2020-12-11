@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 
 import ProductPage from './ProductPage'
-import { requestPizzaCatalog } from '../../../../redux/catalog-reducer';
+import { requestCatalogItem } from '../../../../redux/catalog-reducer';
 import Preloader from '../../../Preloader/Preloader';
 
 
@@ -19,7 +19,7 @@ const ProductPageContainer = ({ menuItem, productId }) => {
     const product = useSelector(productSelector);
     const isExists = !!Object.keys(product).length;
 
-    React.useEffect(() => isExists ? undefined : dispatch(requestPizzaCatalog()), [product]);
+    React.useEffect(() => isExists ? undefined : dispatch(requestCatalogItem()), [product]);
 
     return (
         isExists ? (

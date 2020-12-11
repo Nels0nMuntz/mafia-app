@@ -16,7 +16,6 @@ const Main = () => {
     const product = match && match.params.product;
     const productId = match && match.params.productId;
     const url = match && match.url;
-    // console.log(match);
 
     return (
         <main className={style.main}>

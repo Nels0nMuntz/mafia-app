@@ -1,27 +1,35 @@
 import { catalogAPI, filterAPI } from './../api/api';
 import actionTypes from './actionTypes';
 
-const { SET_PIZZA, CHANGE_FAST_CATEGORY, TOGGLE_IS_FETCHING, GET_SORT_CATEGORIES, CHANGE_CURRENT_CATEGORY } = actionTypes;
+const { 
+    SET_CATALOG_ITEM, 
+    SET_SORT_CATEGORIES, 
+    SET_FAST_CATEGORIES, 
+    CHANGE_SORT_CATEGORY,
+    CHANGE_FAST_CATEGORY, 
+    TOGGLE_IS_FETCHING
+} = actionTypes;
 
 const initialState = {
-    currentFastCategory: 'default',
-    currentSortCategory: '',
     sortCategories: [],
-    pizza: {},
-    sushi: {},
+    fastCategories: [],
+    currentSortCategory: '',
+    currentFastCategory: 'default',
     isFetchingCatalog: false,
 };
 
 const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PIZZA:
-            return { ...state, pizza: action.payload, };
+        case SET_CATALOG_ITEM:
+            return { ...state, [action.payload.menuItem]: action.payload.data, };
+        case SET_SORT_CATEGORIES:
+            return { ...state, sortCategories: action.payload, };
+        case SET_FAST_CATEGORIES:
+            return { ...state, fastCategories: action.payload, };
+        case CHANGE_SORT_CATEGORY:
+            return { ...state, currentSortCategory: action.payload };
         case CHANGE_FAST_CATEGORY:
             return { ...state, currentFastCategory: action.payload, };
-        case GET_SORT_CATEGORIES:
-            return { ...state, sortCategories: action.payload, };
-        case CHANGE_CURRENT_CATEGORY:
-            return { ...state, currentSortCategory: action.payload }
         case TOGGLE_IS_FETCHING:
             return { ...state, isFetchingCatalog: action.payload, };
         default:
@@ -30,30 +38,36 @@ const catalogReducer = (state = initialState, action) => {
 };
 export default catalogReducer;
 
-const setPizzaAC = data => ({ type: SET_PIZZA, payload: data });
-const changeFastCategoryAC = category => ({ type: CHANGE_FAST_CATEGORY, payload: category });
+const setCatalogItemaAC = (data, menuItem) => ({ type: SET_CATALOG_ITEM, payload: { data, menuItem } });
+const requestSortCategoriesAC = categories => ({ type: SET_SORT_CATEGORIES, payload: categories });
+const requestFastCategoriesAC = categories => ({ type: SET_FAST_CATEGORIES, payload: categories });
+const changeCurrentSortCategoryAC = category => ({ type: CHANGE_SORT_CATEGORY, payload: category });
+const changeCurrentFastCategoryAC = category => ({ type: CHANGE_FAST_CATEGORY, payload: category });
 const toggleIsFetchingAC = value => ({ type: TOGGLE_IS_FETCHING, payload: value || false });
-const requestSortCategoriesAC = categories => ({type: GET_SORT_CATEGORIES, payload: categories});
-const changeCurrentCategoryAC = category => ({type: CHANGE_CURRENT_CATEGORY, payload: category});
 
-export const requestPizzaCatalog = () => async dispatch => {
+export const requestCatalogItem = menuItem => async dispatch => { console.log('requestCatalogItem');
     dispatch(toggleIsFetchingAC(true));
-    let response = await catalogAPI.getPizzaCatalog();
-    dispatch(setPizzaAC(response));
+    let response = await catalogAPI.getCatalogItem(menuItem);
+    dispatch(setCatalogItemaAC(response, menuItem));
     dispatch(toggleIsFetchingAC(false));
 };
 export const requestSortCategories = () => async dispatch => {
-    let response = await filterAPI.getCategories();
+    let response = await filterAPI.getSortCategories();
     dispatch(requestSortCategoriesAC(response));
-    dispatch(changeCurrentCategory(response[0].content));
+    dispatch(changeCurrentSortCategoryAC(response[0].content));
 };
-export const changeCurrentCategory = category => dispatch => {
+export const requestFastCategories = (menuItem) => async dispatch => { console.log('requestFastCategories');
+    let response = await filterAPI.getFastCategories(menuItem);
+    dispatch(requestFastCategoriesAC(response));
+    dispatch(changeCurrentFastCategoryAC(response[0].type));
+};
+export const changeCurrentSortCategory = category => dispatch => {
     dispatch(toggleIsFetchingAC(true));
-    dispatch(changeCurrentCategoryAC(category));
+    dispatch(changeCurrentSortCategoryAC(category));
     dispatch(toggleIsFetchingAC(false));
 };
-export const changeFastCategory = category => dispatch => {
+export const changeCurrentFastCategory = category => dispatch => {
     dispatch(toggleIsFetchingAC(true));
-    dispatch(changeFastCategoryAC(category));
+    dispatch(changeCurrentFastCategoryAC(category));
     dispatch(toggleIsFetchingAC(false));
 };

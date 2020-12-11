@@ -8,7 +8,12 @@ export const headerAPI = {
     getMenu(){return getData('menu')},
 };
 export const filterAPI = {
-    getCategories(){return getData('sort-categories')}
+    getSortCategories(){return getData('sort-categories')},
+    getFastCategories(menuItem){
+        return fetch(`http://localhost:3080/catalog/`)
+        .then(response => response.json())
+        .then(data => data[menuItem].fastCategories)  
+    },
 };
 export const menuAPI = {
     getCategories(){return getData('menu-categories')}
@@ -18,9 +23,9 @@ export const homeAPI = {
     getHomeSlider(){return getData('recommend-slider')},
 };
 export const catalogAPI = {
-    getPizzaCatalog(){
+    getCatalogItem(menuItem){
         return fetch(`http://localhost:3080/catalog/`)
         .then(response => response.json())
-        .then(data => data.pizza)  
+        .then(data => data[menuItem])  
     },
 };
