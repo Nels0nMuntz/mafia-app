@@ -15,8 +15,6 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
     const SET_SIZE = 'SET_SIZE';
     const SET_GIFT = 'SET_GIFT';
 
-    // const [selectedGift, setSelectedGift] = React.useState(product.gifts[0])
-
     const initialState = {
         title: product.title,
         description: product.description,
@@ -37,7 +35,6 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
             weight: product.sizes[0].weight,
             price: product.sizes[0].price,
             discount: product.sizes[0].discount,
-            // gift: product.gifts[0],
         },
         selectedGift: product.gifts[0],
     };
@@ -101,8 +98,18 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
             </div>
             <div className={style.productPage__wrapper}>
                 <article className={style.productPage__content}>
-                    <div className={style.productPage__img}>
+                    <div className={`${style.productPage__img} productPage__img`}>
                         <img src={state.productImage} alt="" />
+                        <div className="product-tag__wrapper">
+                        {state.tags && state.tags.map(({ id, type, content }) => (
+                            <div
+                                key={id}
+                                className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
+                            >
+                                <span>{content}</span>
+                            </div>
+                        ))}
+                    </div>
                     </div>
                     <div className={style.productPage__info}>
                         <h2>{state.title}</h2>

@@ -21,7 +21,7 @@ const withBreadcrumbs = Component => {
         const breadcrumbNameMap = {
             '/menu-dostavki': 'Меню доставки',
             '/menu-dostavki/pizza': 'Пицца',
-            '/menu-dostavki/pizza/product': 'Kруглая пицца',
+            // '/menu-dostavki/pizza/product': 'Kруглая пицца',
         };
 
         const pathSnippets = props.location.pathname.split('/').filter(i => i);

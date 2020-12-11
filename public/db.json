@@ -354,36 +354,77 @@
             ]
         }
     ],
-    "menu":[
+    "menu": [
         {
             "id": 1,
             "item": "Меню",
-            "submenu": ["Пицца", "Суши и сеты", "Продукты", "Салаты и закуски", "Супы", "Горячие блюда", "Грузинские блюда", "Десерты", "Напитки", "Бизнес ланч"]
+            "submenu": [
+                "Пицца",
+                "Суши и сеты",
+                "Продукты",
+                "Салаты и закуски",
+                "Супы",
+                "Горячие блюда",
+                "Грузинские блюда",
+                "Десерты",
+                "Напитки",
+                "Бизнес ланч"
+            ]
         },
         {
             "id": 2,
             "item": "Рестораны Харькова",
-            "submenu": ["Меню ресторана", "Бизнес ланчи", "Звтраки", "Новости"]
+            "submenu": [
+                "Меню ресторана",
+                "Бизнес ланчи",
+                "Звтраки",
+                "Новости"
+            ]
         },
         {
             "id": 3,
             "item": "Караоке",
-            "submenu": ["Афиша", "Правила караоке", "Оставить отзыв", "Организация праздников"]
+            "submenu": [
+                "Афиша",
+                "Правила караоке",
+                "Оставить отзыв",
+                "Организация праздников"
+            ]
         },
         {
             "id": 4,
             "item": "Для детей",
-            "submenu": ["Клуб поварят", "Детская комната", "Детский день рождения", "Детское меню"]
+            "submenu": [
+                "Клуб поварят",
+                "Детская комната",
+                "Детский день рождения",
+                "Детское меню"
+            ]
         },
         {
             "id": 5,
             "item": "Информация",
-            "submenu": ["Условия доставки", "бонусная программа", "Услуга '1+1' Забери сам", "Подарочные карты", "Ваш праздик в MAFIA", "День рождения в MAFIA", "Организация праздников"]
+            "submenu": [
+                "Условия доставки",
+                "бонусная программа",
+                "Услуга '1+1' Забери сам",
+                "Подарочные карты",
+                "Ваш праздик в MAFIA",
+                "День рождения в MAFIA",
+                "Организация праздников"
+            ]
         },
         {
             "id": 6,
             "item": "Компания",
-            "submenu": ["Окомпании", "Франчайзинг", "Вакансии", "Партнерам", "Реклама в MAFIA", "Пользовательское соглашение"]
+            "submenu": [
+                "Окомпании",
+                "Франчайзинг",
+                "Вакансии",
+                "Партнерам",
+                "Реклама в MAFIA",
+                "Пользовательское соглашение"
+            ]
         }
     ],
     "catalog": {
@@ -396,7 +437,7 @@
                     "description": "Атлантика: креветки, филе лосося, сыр пармезан, шпинат, томаты, сливки, чеснок Американо: филе куриное sous-vide, колбаски охотничьи, пепперони, сыр моцарелла, кукуруза, болгарский перец, лук конфитюр, соус BBQ, соус маринара, горчица Поло: филе куриное sous-vide, сыр моцарелла, ананас, болгарский перец, чеснок, соус маринара, соус ВВQ",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/karibskaya-kruglaya_1592816076356.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karibskaya-kruglaya.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karibskaya-kruglaya.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -425,7 +466,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -440,7 +481,7 @@
                     "description": "Атлантика: креветки, філе лосося, сир пармезан, шпинат, томати, вершки, часник Американо: філе куряче sous-vide, ковбаски мисливські, пепероні, сир моцарела, кукурудза, болгарський перець, цибуля конфітюр, соус BBQ, соус маринара, гірчиця Поло: філе куряче sous-vide, сир моцарела, ананас, болгарський перець, часник, соус маринара, соус ВВQ",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/karibskaya-metrovaya_1592816036677.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karibskaya-metrovaya.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karibskaya-metrovaya.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -462,7 +503,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -470,7 +511,6 @@
                         }
                     ],
                     "additionals": []
-                    
                 },
                 {
                     "id": 3,
@@ -478,7 +518,7 @@
                     "description": "Cыр дор блю, сыр чеддер, сыр пармезан, сыр моцарелла, груша, грецкий орех, сливочный соус и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/chetyre-syra-metrovaya_1597818971868.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/chetyre-syra-metrovaya_1597818962157.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/chetyre-syra-metrovaya_1597818962157.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -500,7 +540,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -515,9 +555,12 @@
                     "description": "Карбонара: ветчина, грудинка, сыр пармезан, шампиньоны, томаты черри и сливки Мясная Гурмео: филе куриное sous-vide, ветчина, колбаски охотничьи, пепперони, шампиньоны, лук, петрушка и соус BBQ Четыре сыра: сыр дор блю, сыр чеддер, сыр пармезан, груша, грецкий орех и сливочный соус Сырный бортик: сыр Филадельфия, сыр моцарелла",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/mafiya_1581069452273.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/mafiya.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/mafiya.jpeg"
                     },
-                    "gifts": [ "Bud 0,75 л", "Без подарка" ],
+                    "gifts": [
+                        "Bud 0,75 л",
+                        "Без подарка"
+                    ],
                     "sizes": [
                         {
                             "id": 1,
@@ -544,7 +587,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -559,9 +602,12 @@
                     "description": "Карбонара: ветчина, грудинка, сыр пармезан, шампиньоны, томаты черри и сливки Мясная Гурмео: филе куриное sous-vide, ветчина, колбаски охотничьи, пепперони, шампиньоны, лук, петрушка и соус BBQ Четыре сыра: сыр дор блю, сыр чеддер, сыр пармезан, груша, грецкий орех и сливочный соус Сырный бортик: сыр Филадельфия, сыр моцарелла",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/mafiya-metrovaya_1581069694297.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/mafiya-metrovaya.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/mafiya-metrovaya.jpeg"
                     },
-                    "gifts": [ "Bud 0,75 л", "Без подарка" ],
+                    "gifts": [
+                        "Bud 0,75 л",
+                        "Без подарка"
+                    ],
                     "sizes": [
                         {
                             "id": 1,
@@ -581,7 +627,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -596,9 +642,12 @@
                     "description": "Охотничьи колбаски, молочные колбаски, сыр моцарелла, вешенки, шампиньоны, сладкий лук, перец болгарский, соус BBQ, соус маринара, петрушка и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/picca-ohotnichya-xxl_1542267870257.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/picca-ohotnichya-xxl.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/picca-ohotnichya-xxl.jpeg"
                     },
-                    "gifts": [ "Syaropramen Dark 0,5 л", "Без подарка" ],
+                    "gifts": [
+                        "Syaropramen Dark 0,5 л",
+                        "Без подарка"
+                    ],
                     "sizes": [
                         {
                             "id": 1,
@@ -618,7 +667,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -633,7 +682,7 @@
                     "description": "Охотничьи колбаски, молочные колбаски, сыр моцарелла, вешенки, шампиньоны, сладкий лук, перец болгарский, соус BBQ, соус маринара, петрушка и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/picca-ohotnichya_1542267892836.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/picca-ohotnichya.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/picca-ohotnichya.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -662,7 +711,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -677,9 +726,12 @@
                     "description": "Сыр моцарелла, ветчина, грудинка, шампиньоны, пармезан, томаты черри и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/karbonara-metrovaya_1566297127558.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karbonara-metrovaya_1566297116241.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karbonara-metrovaya_1566297116241.jpeg"
                     },
-                    "gifts": [ "Bud 0,75 л", "Без подарка" ],
+                    "gifts": [
+                        "Bud 0,75 л",
+                        "Без подарка"
+                    ],
                     "sizes": [
                         {
                             "id": 1,
@@ -699,7 +751,7 @@
                             "content": "Акция"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -729,7 +781,7 @@
                     "description": "Соус BBQ, соус маринара, сыр моцарелла, горчица, филе куриное sous-vide, колбаски охотничьи, пепперони, лук конфитюр, кукуруза, перец болгарский",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/amerikano-metrovaya_1566296641461.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/amerikano-metrovaya_1566296630986.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/amerikano-metrovaya_1566296630986.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -745,7 +797,7 @@
                     "rate": 7,
                     "added": "12.09.2016",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -780,7 +832,7 @@
                     "description": "Соус маринара, помидоры, сыр моцарелла, соус песто",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/margarita_156706066239.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/margarita_1567060656531.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/margarita_1567060656531.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -809,7 +861,7 @@
                             "content": "1+1 забери сам"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -837,7 +889,7 @@
                     "description": "Сыр моцарелла, ветчина, грудинка, шампиньоны, пармезан, томаты черри и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/karbonara_1567060589165.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karbonara_1567060586370.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karbonara_1567060586370.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -866,7 +918,7 @@
                             "content": "1+1 забери сам"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -894,7 +946,7 @@
                     "description": "Филе куриное sous-vide, ветчина, колбаски охотничьи, пеперони, сыр моцарелла, шампиньоны, лук репчатый, петрушка, соус BBQ и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/gurmeo_1567060279780.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/gurmeo_1567060276577.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/gurmeo_1567060276577.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -923,7 +975,7 @@
                             "content": "Острая"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -951,7 +1003,7 @@
                     "description": "Cыр дор блю, сыр чеддер, сыр пармезан, сыр моцарелла, груша, грецкий орех, сливочный соус и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/chetyre-syra_1567059967719.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/chetyre-syra_1567059962693.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/chetyre-syra_1567059962693.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -974,7 +1026,7 @@
                     "rate": 6,
                     "added": "05.28.2017",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -994,7 +1046,7 @@
                     "description": "Соус BBQ, соус маринара, сыр моцарелла, горчица, филе куриное sous-vide, колбаски охотничьи, пепперони, конфитюр из лука, кукуруза, перец болгарский",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/amerikano_1567060058936.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/amerikano_156706005058.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/amerikano_156706005058.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1017,7 +1069,7 @@
                     "rate": 6,
                     "added": "02.22.2020",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1045,7 +1097,7 @@
                     "description": "Сыр моцарелла, соус маринара, колбаски мюнхенские, колбаски охотничьи, огурец соленый, горчица, лук репчатый, лук зеленый",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/bavarskaya_1567060134436.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bavarskaya_1567060130156.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bavarskaya_1567060130156.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1068,7 +1120,7 @@
                     "rate": 6,
                     "added": "08.21.2020",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1088,7 +1140,7 @@
                     "description": "Сыр моцарелла, пепперони, перец чили, перец болгарский, лук репчатый, соус ВВQ,соус чили, петрушка",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/diablo_1567060435236.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/diablo_1567060431877.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/diablo_1567060431877.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1122,7 +1174,7 @@
                             "content": "Острая"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1142,7 +1194,7 @@
                     "description": "Баклажан, вешенки, перец болгарский, помидоры, соус песто, соус маринара",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/ovoshchnaya_1567060751874.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/ovoshchnaya_1567060748267.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/ovoshchnaya_1567060748267.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1165,7 +1217,7 @@
                     "rate": 5,
                     "added": "18.21.2018",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1185,7 +1237,7 @@
                     "description": "Сыр моцарелла, соус маринара, колбаски мюнхенские, колбаски охотничьи, огурец соленый, горчица, лук репчатый, лук зеленый",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/bavarskaya-metrovaya_156629673225.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bavarskaya-metrovaya_1566296727251.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bavarskaya-metrovaya_1566296727251.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1201,7 +1253,7 @@
                     "rate": 5,
                     "added": "08.13.2019",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1236,7 +1288,7 @@
                     "description": "Сливочный соус из белых грибов, сыр моцарелла, сыр дор-блю, пармезан, шампиньоны, вешенки, соус чесночный, масло трюфельное, петрушка",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/berluskoni-metrovaya_1566296807287.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/berluskoni-metrovaya_1566296801470.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/berluskoni-metrovaya_1566296801470.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1252,7 +1304,7 @@
                     "rate": 5,
                     "added": "08.26.2020",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1287,7 +1339,7 @@
                     "description": "Филе куриное sous-vide, ветчина, колбаски охотничьи, пеперони, сыр моцарелла, шампиньоны, лук репчатый, петрушка, соус BBQ и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/gurmeo-metrovaya_1566296981221.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/gurmeo-metrovaya_1566296967188.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/gurmeo-metrovaya_1566296967188.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1309,7 +1361,7 @@
                             "content": "Острая"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1344,7 +1396,7 @@
                     "description": "Сыр моцарелла, пепперони, перец чили, перец болгарский, лук репчатый, соус ВВQ, соус шрирачи, петрушка",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/diablo-metrovaya_1566297055552.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/diablo-metrovaya_156629704484.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/diablo-metrovaya_156629704484.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1366,7 +1418,7 @@
                             "content": "Острая"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1401,7 +1453,7 @@
                     "description": "Сыр моцарелла, соус маринара, соус BBQ, чеснок, ананас, филе куриное sous-vide, перец болгарский",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/polo-metrovaya_1566297194328.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/polo-metrovaya_156629718856.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/polo-metrovaya_156629718856.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1417,7 +1469,7 @@
                     "rate": 4,
                     "added": "11.11.2018",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1452,7 +1504,7 @@
                     "description": "Сливочный соус из белых грибов, сыр моцарелла, сыр дор-блю, пармезан, шампиньоны, вешенки, соус чесночный, масло трюфельное, петрушка",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/berluskoni_1567060209678.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/berluskoni_1567060206659.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/berluskoni_1567060206659.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1475,7 +1527,7 @@
                     "rate": 4,
                     "added": "12.05.2019",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1503,7 +1555,7 @@
                     "description": "Сыр моцарелла, шампиньоны, сыр дор блю, томаты, ветчина, соус песто, соус маринара и трюфельное масло",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kalcone_1567060522194.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kalcone_1567060519301.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kalcone_1567060519301.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1519,7 +1571,7 @@
                     "rate": 4,
                     "added": "09.19.2020",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1539,7 +1591,7 @@
                     "description": "Сыр моцарелла, соус маринара, соус ВВQ, чеснок, ананас, филе куриное sous-vide, перец болгарский",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/pollo_1567060914824.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/pollo_1567060911147.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/pollo_1567060911147.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1568,7 +1620,7 @@
                             "content": "1+1 забери сам"
                         }
                     ],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1596,7 +1648,7 @@
                     "description": "Креветки, филе лосося, пармезан, моцарелла, шпинат, томаты, сливки, чеснок",
                     "images": {
                         "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/atlantika_1597073908878.jpeg",
-                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/atlantika_1597073901810.jpeg" 
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/atlantika_1597073901810.jpeg"
                     },
                     "gifts": [],
                     "sizes": [
@@ -1619,7 +1671,7 @@
                     "rate": 3,
                     "added": "10.25.2020",
                     "tags": [],
-                    "bonuses":[
+                    "bonuses": [
                         {
                             "id": 1,
                             "type": "delivery",
@@ -1634,7 +1686,7 @@
                     "additionals": []
                 }
             ],
-            "fastCategories": [ 
+            "fast-categories": [
                 {
                     "id": 1,
                     "name": "Все",
@@ -1651,6 +1703,83 @@
                     "type": "Круглая"
                 }
             ]
+        },
+        "sushi": {
+            "title": "Суши и сеты",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Новогодний L",
+                    "description": [
+                        "Ролл №1",
+                        "Ролл с куриным филе панко, томатами, огурцом, салатом Ромен и соусом Цезарь в икре тобико",
+                        "Ролл №2",
+                        "Ролл с филе лосося, сыром Филадельфия, манго, Тамаго, салатом Ромен и икрой тобико",
+                        "Ролл №3",
+                        "Ролл с филе лосося, красной икрой, сыром Филадельфия, огурцом, Тамаго и икрой тобико",
+                        "Ролл №4",
+                        "Ролл с сурими кимчи, Тамаго, огурцом и кукурузой в белом и черном кунжуте, икре тобико",
+                        "Ролл №5",
+                        "Ролл с сурими кимчи, Тамаго и огурцом в икре тобико",
+                        "Гункан с креветками и авокадо - 2 шт.",
+                        "Гункан с лососем и авокадо - 2 шт.",
+                        "Гункан с сурими и кукурузой - 4 шт."
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/novogodnij-l_1607581424259.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/novogodnij-l_1607581419440.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "48 шт., 1300 г",
+                            "price": 459,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Сеты",
+                    "rate": 9,
+                    "added": "04.30.2018",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "content": "Акция"
+                        }
+                    ],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Безкоштовна доставка при замовленні від 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                }
+            ],
+            "fast-categories": [
+                {
+                    "id": 1,
+                    "name": "Все",
+                    "type": "default"
+                },
+                {
+                    "id": 2,
+                    "name": "Сеты",
+                    "type": "Сеты"
+                },
+                {
+                    "id": 3,
+                    "name": "Роллы",
+                    "type": "Роллы"
+                },
+                {
+                    "id": 4,
+                    "name": "Суши",
+                    "type": "Суши"
+                }
+            ]
         }
-    }    
+    }
 }
