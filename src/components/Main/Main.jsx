@@ -24,9 +24,7 @@ const Main = () => {
                 <Route exact path='/' >
                     <Home />
                 </Route>
-                <Route exact path='/menu-dostavki'>
-                    <Redirect to='/' />
-                </Route>
+                <Redirect exact from='/menu-dostavki' to='/' />
                 <Route path='/menu-dostavki'>
                     {!product ? (
                         <React.Fragment>

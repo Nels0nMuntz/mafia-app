@@ -17,6 +17,7 @@ const ProductCard = ({ cardData, url }) => {
         title: cardData.title,
         description: cardData.description,
         imageUrl: cardData.images.bigImageUrl,
+        category: cardData.category,
         hasTwoSizes: cardData.sizes.length === 2,
         hasGifts: !!cardData.gifts.length,
         gifts: cardData.gifts,
@@ -102,11 +103,11 @@ const ProductCard = ({ cardData, url }) => {
                             </div>
                         ))}
                     </div>
-                    <Link to={`${url}/product/${state.id}`} className='item-homeSlider__link'>
+                    <Link to={`${url}/product/${state.id}?fast=${state.category}&prod=pizza`} className='item-homeSlider__link'>
                         <img src={state.imageUrl} alt='' />
                     </Link>
                     <div className="item-homeSlider__info">
-                        <Link to={`${url}/product/${state.id}`}>
+                        <Link to={`${url}/product/${state.id}?fast=${state.category}&prod=pizza`}>
                             <h3>{state.title}</h3>
                         </Link>
                         <div className="item-homeSlider__weight-block">

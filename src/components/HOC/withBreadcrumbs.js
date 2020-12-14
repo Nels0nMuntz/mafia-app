@@ -17,11 +17,14 @@ const Separator = styled.span`
 const withBreadcrumbs = Component => {
 
     const HOC = withRouter(props => {
+        
+        
+        const fastCategory = new URL(window.location.href).searchParams.get('fast');
 
         const breadcrumbNameMap = {
             '/menu-dostavki': 'Меню доставки',
             '/menu-dostavki/pizza': 'Пицца',
-            // '/menu-dostavki/pizza/product': 'Kруглая пицца',
+            '/menu-dostavki/pizza/product': `${fastCategory} пицца`,
         };
 
         const pathSnippets = props.location.pathname.split('/').filter(i => i);

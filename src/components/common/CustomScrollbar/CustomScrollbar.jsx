@@ -50,7 +50,7 @@ const CustomScrollbar = props => {
             display: 'block',
             width: '280px',
             height: '100%',
-            transform: 'translateX(110.736px);',
+            transform: 'translateX(110.736px)',
             cursor: 'pointer',
             borderRadius: '0',
             backgroundColor: 'var(--green-100)',

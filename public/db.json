@@ -2155,6 +2155,452 @@
                     "type": "Суши"
                 }
             ]
+        },
+        "producty": {
+            "title": "Продукты",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Колбаски мюнхенские",
+                    "description": [
+                        "Состав: варено-копченые колбаски в натуральной оболочке со свинины и курицы"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kolbaski-myunhenskie_158684922995.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kolbaski-myunhenskie.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 400 г",
+                            "price": 69,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Для барбекю",
+                    "rate": 7,
+                    "added": "12.05.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 2,
+                    "title": "Крыло куриное маринованное",
+                    "description": [
+                        "Состав: крыло куриное, соус соевый, корень имбиря, соус устричный, лимон, соус соевый светлый, чеснок, кунжутное масло, соус шрирачи, сахар, приправа куриная, глюкомат"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/krylo-kurinoe-marinovannoe_1588248155826.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/krylo-kurinoe-marinovannoe_1588248148552.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 75,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Для барбекю",
+                    "rate": 7,
+                    "added": "25.08.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 3,
+                    "title": "Стейк из свинины сувид",
+                    "description": [
+                        "Состав: свиной ошеек, растительное масло, соус соевый, уксус мицукан, сахар, чеснок, соль, комбу, перец чили, корень имбиря, кунжутное масло, черный молотый перец"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/stejk-iz-svininy-suvid_1588248835476.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/stejk-iz-svininy-suvid_1588248824984.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1 шт*240 г",
+                            "price": 65,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Для барбекю",
+                    "rate": 7,
+                    "added": "15.09.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 4,
+                    "title": "Креветка б/г, калибр 21-25",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/krevetka-bg-kalibr-21-25_1588946956704.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/krevetka-bg-kalibr-21-25_1588946950962.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 299,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Рыба и морепродукты",
+                    "rate": 5,
+                    "added": "15.09.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 5,
+                    "title": "Лосось слабосоленый на коже",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/losos-file-na-kozhe_158841053682.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/losos-file-na-kozhe_1588410529648.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100 г",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Рыба и морепродукты",
+                    "rate": 5,
+                    "added": "15.06.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 6,
+                    "title": "Мякоть лосося",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/myakot-lososya_1588409246477.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/myakot-lososya_1588409240277.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 199,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Рыба и морепродукты",
+                    "rate": 5,
+                    "added": "15.06.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 7,
+                    "title": "Ассорти стейков (курица, свинина, говядина)",
+                    "description": [
+                        "Состав: свиной биток, говядина, куриное филе, растительное масло, соус соевый, уксус мицукан, сахар, чеснок, соль, комбу, перец чили, корень имбиря, кунжутное масло, черный молотый перец"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/assorti-stejkov-kurica-svinina-govyadina_1588946603813.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/assorti-stejkov-kurica-svinina-govyadina.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1 шт*240 г",
+                            "price": 65,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Мясные изделия",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 8,
+                    "title": "Ассорти стейков (курица, свинина, говядина)",
+                    "description": [
+                        "Состав: свиной биток, говядина, куриное филе, растительное масло, соус соевый, уксус мицукан, сахар, чеснок, соль, комбу, перец чили, корень имбиря, кунжутное масло, черный молотый перец"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/bedro-kurinoe-bez-kozhi-i-kosti_1588248895955.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bedro-kurinoe-bez-kozhi-i-kosti_1588248884258.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 2000 г",
+                            "price": 199,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Мясные изделия",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 9,
+                    "title": "Котлета для бургера из телятины",
+                    "description": [
+                        "Состав: говядина, томатный сок, репчатый лук, говяжий жир, соль, кориандр, черный молотый перец"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kotleta-dlya-burgera-iz-telyatiny_158824825988.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kotleta-dlya-burgera-iz-telyatiny_1588248252868.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 5шт*200 г",
+                            "price": 149,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Мясные изделия",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 10,
+                    "title": "Бекон нарезка",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/bekon-narezka_1586531264639.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bekon-narezka_1586531258391.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 500 г",
+                            "price": 149,
+                            "discount": null
+                        }
+                    ],
+                    "category": " Гастрономия",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 11,
+                    "title": "Ветчина нарезка",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/vetchina-narezka_1588411287959.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/vetchina-narezka_1588411279170.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 159,
+                            "discount": null
+                        }
+                    ],
+                    "category": " Гастрономия",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 12,
+                    "title": "Колбаски охотничьи нарезка",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kolbaski-ohotnichi-narezka_1588411141189.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kolbaski-ohotnichi-narezka_1588411134315.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 169,
+                            "discount": null
+                        }
+                    ],
+                    "category": " Гастрономия",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                }
+            ],
+            "fastCategories": [
+                {
+                    "id": 1,
+                    "content": "Все",
+                    "type": "default"
+                },
+                {
+                    "id": 2,
+                    "content": "Для барбекю",
+                    "type": "Для барбекю"
+                },
+                {
+                    "id": 3,
+                    "content": "Рыба и морепродукты",
+                    "type": "Рыба и морепродукты"
+                },
+                {
+                    "id": 4,
+                    "content": "Мясные изделия",
+                    "type": "Мясные изделия"
+                },
+                {
+                    "id": 5,
+                    "content": "Гастрономия",
+                    "type": "Гастрономия"
+                },
+                {
+                    "id": 6,
+                    "content": "Соусы",
+                    "type": "Соусы"
+                },
+                {
+                    "id": 7,
+                    "content": "Десерты",
+                    "type": "Десерты"
+                },
+                {
+                    "id": 8,
+                    "content": "Балаклея",
+                    "type": "Балаклея"
+                },
+                {
+                    "id": 9,
+                    "content": "Молочные",
+                    "type": "Молочные"
+                },
+                {
+                    "id": 10,
+                    "content": "Овощи и фрукты",
+                    "type": "Овощи и фрукты"
+                },
+                {
+                    "id": 11,
+                    "content": "Прочее",
+                    "type": "Прочее"
+                }
+            ]
         }
     }
 }

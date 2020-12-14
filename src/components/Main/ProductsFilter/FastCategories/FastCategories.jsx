@@ -22,7 +22,6 @@ const FastCategories = ({fastCategories, currentFastCategory, callback}) => {
                         >
                             {content}
                         </button>
-                        <span></span>
                     </li>
                 ))}
         </ul>

@@ -45,7 +45,7 @@ const changeCurrentSortCategoryAC = category => ({ type: CHANGE_SORT_CATEGORY, p
 const changeCurrentFastCategoryAC = category => ({ type: CHANGE_FAST_CATEGORY, payload: category });
 const toggleIsFetchingAC = value => ({ type: TOGGLE_IS_FETCHING, payload: value || false });
 
-export const requestCatalogItem = menuItem => async dispatch => { console.log('requestCatalogItem');
+export const requestCatalogItem = menuItem => async dispatch => {
     dispatch(toggleIsFetchingAC(true));
     let response = await catalogAPI.getCatalogItem(menuItem);
     dispatch(setCatalogItemaAC(response, menuItem));
@@ -56,7 +56,7 @@ export const requestSortCategories = () => async dispatch => {
     dispatch(requestSortCategoriesAC(response));
     dispatch(changeCurrentSortCategoryAC(response[0].content));
 };
-export const requestFastCategories = (menuItem) => async dispatch => { console.log('requestFastCategories');
+export const requestFastCategories = (menuItem) => async dispatch => {
     let response = await filterAPI.getFastCategories(menuItem);
     dispatch(requestFastCategoriesAC(response));
     dispatch(changeCurrentFastCategoryAC(response[0].type));

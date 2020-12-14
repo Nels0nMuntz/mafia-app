@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
+import detectElementOverflow from 'detect-element-overflow'
 
 import FilterDropdown from './../../common/FilterDropdown/FilterDropdown';
 import { requestSortCategories, requestFastCategories, changeCurrentSortCategory, changeCurrentFastCategory } from '../../../redux/catalog-reducer';
@@ -11,11 +12,8 @@ import style from './ProductsFilter.module.scss'
 
 const ProductsFilter = ({ menuItem }) => {
 
-    console.log('ProductsFilter');
-
     const dispatch = useDispatch();
-    const product = useSelector(state => state.catalog[menuItem]) ?? {};
-    
+
     const getSortCategories = createSelector(
         state => state.catalog.sortCategories,
         categories => categories
@@ -47,24 +45,28 @@ const ProductsFilter = ({ menuItem }) => {
     const onClickSortCategory = category => dispatch(changeCurrentSortCategory(category));
 
     React.useEffect(() => {
-        if(!categories.length) dispatch(requestSortCategories());
+        if (!categories.length) dispatch(requestSortCategories());
         dispatch(requestFastCategories(menuItem));
     }, [menuItem]);
 
     return (
-        <section className={
-            classnames(
-                'products_filter',
-                style.products_filter
-            )
-        }>
+        <section
+            className={
+                classnames(
+                    'products_filter',
+                    style.products_filter
+                )
+            }
+        >
             <div className={style.products_filter_wrapper}>
                 <h1 className={style.products_filter_title}>{productTitle}</h1>
-                <FastCategories
-                    fastCategories={fastCategories}
-                    currentFastCategory={currentFastCategory}
-                    callback={onClickFastCategory}
-                />
+                <div className={style.products_filter_fast_wrapper}>
+                    <FastCategories
+                        fastCategories={fastCategories}
+                        currentFastCategory={currentFastCategory}
+                        callback={onClickFastCategory}
+                    />
+                </div>
                 <div className={style.products_filter_catalog}>
                     <span>Сортировать: </span>
                     <FilterDropdown

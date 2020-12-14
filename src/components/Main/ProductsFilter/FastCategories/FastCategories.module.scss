@@ -1,22 +1,16 @@
 .fast_categories{
-    padding: 0 20px 0 180px;
-    height: 100%;
+    width: 100%;
+    min-height: 75px;
     display: flex;
-
-    @media screen and (max-width: 1750px) {
-        padding: 0 20px 0 150px;
-    }
-    @media screen and (max-width: 1600px) {
-        padding: 0;
-        width: 80%;
-        margin: 0 auto;
-        overflow-x: auto;
+    flex-wrap: wrap;
+    @media screen and (max-width: 1020px) {
+        min-height: initial;
     }
 
     li{
         button{
             height: 100%;
-            padding: 0 25px;
+            padding: 10px 20px;
             position: relative;
             white-space: nowrap;
 
@@ -28,6 +22,11 @@
                 width: 100%;
                 height: 4px;
                 background-color: white;
+            }
+
+            @media screen and (max-width: 1020px) {
+                padding: 3px 2px;
+                margin: 0 10px;
             }
         }
     }
