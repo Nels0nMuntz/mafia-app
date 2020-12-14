@@ -1,0 +1,7 @@
+.menu__custom_scrollbar{
+    div{
+        @media screen and (max-width: 1020px) {
+            display: flex;
+        }
+    }
+}

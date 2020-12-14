@@ -2,8 +2,8 @@ import React from 'react'
 import { PropTypes } from 'prop-types';
 
 import withBreadcrumbs from './../../../HOC/withBreadcrumbs';
-import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdown';
-import Swicher from './../../../../libs-components/Swicher/Swicher';
+import GiftDropdown from './../../../common/GiftDropdown/GiftDropdown';
+import Swicher from './../../../common/Swicher/Swicher';
 
 import style from './ProductPage.module.scss'
 import deliveyImgUrl_1 from './../../../../assets/images/delivery-icon1.png'

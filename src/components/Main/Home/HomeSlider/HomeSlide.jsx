@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import GiftDropdown from './../../../../libs-components/GiftDropdown/GiftDropdown';
+import GiftDropdown from './../../../common/GiftDropdown/GiftDropdown';
 
 import './HomeSlider.scss'
 

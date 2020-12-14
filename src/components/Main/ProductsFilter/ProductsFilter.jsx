@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import FilterDropdown from './../../../libs-components/FilterDropdown/FilterDropdown';
+import FilterDropdown from './../../common/FilterDropdown/FilterDropdown';
 import { requestSortCategories, requestFastCategories, changeCurrentSortCategory, changeCurrentFastCategory } from '../../../redux/catalog-reducer';
 import FastCategories from './FastCategories/FastCategories';
 

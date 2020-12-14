@@ -6,7 +6,7 @@ import style from './HeaderLeft.module.scss'
 import pinImgUrl from '../../../assets/images/pin.svg'
 import phoneImgUrl from '../../../assets/images/phone.svg'
 
-import HeaderDropdown from './../../../libs-components/HeaderDropdown/HeaderDropdown';
+import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 
 
 const HeaderLeft = () => {

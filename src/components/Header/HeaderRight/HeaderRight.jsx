@@ -6,7 +6,7 @@ import style from './HeaderRight.module.scss'
 import cartImg from '../../../assets/images/shopping-cart.svg'
 import avatar from './../../../assets/images/avatar.svg'
 
-import HeaderDropdown from './../../../libs-components/HeaderDropdown/HeaderDropdown';
+import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 import withBreakpoints from './../../HOC/withBreakpoints';
 
 

@@ -4,7 +4,7 @@ import { Dropdown, Menu } from 'antd';
 import './HeaderDropdown.scss'
 
 import { Link } from 'react-router-dom';
-import withBreakpoints from './../../components/HOC/withBreakpoints';
+import withBreakpoints from './../../HOC/withBreakpoints';
 
 const HeaderDropdown = ({ type, title, list, iconUrl, queryMatches }) => {
 
