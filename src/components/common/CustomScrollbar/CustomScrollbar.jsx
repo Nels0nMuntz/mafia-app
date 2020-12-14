@@ -6,7 +6,7 @@ import './CustomScrollbar.scss'
 
 const CustomScrollbar = props => {
 
-    const renderThumb = props => {
+    const renderThumbVertical = props => {
         const style = {
             position: 'relative',
             display: 'block',
@@ -25,7 +25,7 @@ const CustomScrollbar = props => {
             />
         )
     };
-    const renderTrack = props => {
+    const renderTrackVertical = props => {
 
         const style = {
             position: 'absolute',
@@ -44,15 +44,53 @@ const CustomScrollbar = props => {
             />
         )
     }
+    const renderThumbHorizontal = props => {
+        const style = {
+            position: 'relative',
+            display: 'block',
+            width: '280px',
+            height: '100%',
+            transform: 'translateX(110.736px);',
+            cursor: 'pointer',
+            borderRadius: '0',
+            backgroundColor: 'var(--green-100)',
+        };
+        return (
+            <div
+                {...props}
+                className="thumb-vertical"
+                style={style}
+            />
+        )
+    };
+    const renderTrackHorizontal = props => {
+
+        const style = {
+            position: 'absolute',
+            height: '6px',
+            right: '0px',
+            bottom: '0px',
+            left: '0px',
+            borderRadius: '0px',
+            backgroundColor: 'var(--gray-100)',
+        }
+
+        return (
+            <div
+                {...props}
+                style={style}
+            />
+        )
+    }
 
     return (
         <Scrollbars
             className="menu__custom_scrollbar"
-            // renderTrackHorizontal={props => <div {...props} className="track-horizontal"/>}
-            renderTrackVertical={renderTrack}
-            // renderThumbHorizontal={props => <div {...props} className="thumb-horizontal"/>}
-            renderThumbVertical={renderThumb}
-        // renderView={props => <div {...props} className="view"/>}
+            renderTrackHorizontal={renderTrackHorizontal}
+            renderTrackVertical={renderTrackVertical}
+            renderThumbHorizontal={renderThumbHorizontal}
+            renderThumbVertical={renderThumbVertical}
+            hideTracksWhenNotNeeded={true}
         >
             {props.children}
         </Scrollbars>

@@ -1,7 +1,19 @@
 .menu__custom_scrollbar{
     div{
+
+        &:nth-child(2){
+            display: none;
+        }
+
         @media screen and (max-width: 1020px) {
             display: flex;
+
+            &:nth-child(2){
+                display: block;
+            }
+            &:nth-child(3){
+                display: none;
+            }
         }
-    }
+    }    
 }

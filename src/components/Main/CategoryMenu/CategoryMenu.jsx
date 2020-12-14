@@ -50,7 +50,7 @@ const CategoryMenu = ({ queryMatches }) => {
                             </li>
                         ))
                     )}
-                    {categories.length && (
+                    {/* {categories.length && (
                         categories.map(({ id, content, imageUrl, link }) => (
                             <li
                                 key={id}
@@ -64,7 +64,7 @@ const CategoryMenu = ({ queryMatches }) => {
                                 />
                             </li>
                         ))
-                    )}
+                    )} */}
                 </CustomScrollbar>
             </ul>
         </aside>
