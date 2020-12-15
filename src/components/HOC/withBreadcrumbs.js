@@ -1,9 +1,10 @@
 import React from 'react'
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, useRouteMatch } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 import styled from 'styled-components'
 
 import './withBreakpoints.scss'
+import { useSelector } from 'react-redux';
 
 
 const Separator = styled.span`
@@ -17,14 +18,20 @@ const Separator = styled.span`
 const withBreadcrumbs = Component => {
 
     const HOC = withRouter(props => {
+
+        const match = useRouteMatch('/menu-dostavki/:menuItem/:product?/:id?');
+        const menuItem = useSelector(state => state.catalog[match.params.menuItem]);
         
+        console.log(match);
         
         const fastCategory = new URL(window.location.href).searchParams.get('fast');
 
         const breadcrumbNameMap = {
             '/menu-dostavki': 'Меню доставки',
-            '/menu-dostavki/pizza': 'Пицца',
-            '/menu-dostavki/pizza/product': `${fastCategory} пицца`,
+            [`/menu-dostavki/${match.params.menuItem}`]: menuItem ? menuItem.title : '',
+            [`/menu-dostavki/${match.params.menuItem}/product/${match.params.id}`]: `${fastCategory}`,
+            // [match.url]: menuItem ? menuItem.title : '',
+            // [match.url]: `${fastCategory}`,
         };
 
         const pathSnippets = props.location.pathname.split('/').filter(i => i);
