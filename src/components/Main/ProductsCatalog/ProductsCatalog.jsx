@@ -9,8 +9,6 @@ import style from './ProductsCatalog.module.scss'
 
 const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, url }) => {
 
-    // console.log('ProductsCatalog');
-
     const children = () => (list.map(item => (
         <ProductCard
             key={`${item.id}_${item.title}`}

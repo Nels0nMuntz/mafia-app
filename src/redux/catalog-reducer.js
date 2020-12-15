@@ -25,7 +25,7 @@ const catalogReducer = (state = initialState, action) => {
         case SET_SORT_CATEGORIES:
             return { ...state, sortCategories: action.payload, };
         case SET_FAST_CATEGORIES:
-            return { ...state, fastCategories: action.payload, };
+            return { ...state, fastCategories: action.payload };
         case CHANGE_SORT_CATEGORY:
             return { ...state, currentSortCategory: action.payload };
         case CHANGE_FAST_CATEGORY:
@@ -48,7 +48,7 @@ const toggleIsFetchingAC = value => ({ type: TOGGLE_IS_FETCHING, payload: value 
 export const requestCatalogItem = menuItem => async dispatch => {
     dispatch(toggleIsFetchingAC(true));
     let response = await catalogAPI.getCatalogItem(menuItem);
-    dispatch(setCatalogItemaAC(response, menuItem));
+    dispatch(setCatalogItemaAC(response, menuItem));    
     dispatch(toggleIsFetchingAC(false));
 };
 export const requestSortCategories = () => async dispatch => {
@@ -59,7 +59,7 @@ export const requestSortCategories = () => async dispatch => {
 export const requestFastCategories = (menuItem) => async dispatch => {
     let response = await filterAPI.getFastCategories(menuItem);
     dispatch(requestFastCategoriesAC(response));
-    dispatch(changeCurrentFastCategoryAC(response[0].type));
+    // dispatch(changeCurrentFastCategoryAC(response[0].type));
 };
 export const changeCurrentSortCategory = category => dispatch => {
     dispatch(toggleIsFetchingAC(true));

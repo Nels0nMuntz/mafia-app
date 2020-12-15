@@ -10,13 +10,15 @@ import Preloader from '../../Preloader/Preloader';
 const ProductsCatalogContainer = ({ menuItem, url }) => {
 
     const dispatch = useDispatch();
+    
     const isExists = !!useSelector(state => state.catalog[menuItem]);
     const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
     const filterSelector = createSelector(
-        state => state.catalog[menuItem] ?? {},
+        state => state.catalog[menuItem],
         state => state.catalog.currentFastCategory,
         state => state.catalog.currentSortCategory,
         (catalog, currentFastCategory, currentSortCategory) => {
+            if(!catalog) return [];
             const sortByFastCategory = currentFastCategory === 'default' ? catalog.list ?? [] : catalog.list.filter(item => item.category === currentFastCategory);
             switch (currentSortCategory) {
                 case 'по популярности':
@@ -41,13 +43,14 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
         }
     );
 
-    const list = useSelector(filterSelector) ?? [];
+    const list = useSelector(filterSelector);
 
     React.useEffect(() => {
-        return isExists ? undefined : dispatch(requestCatalogItem(menuItem));
+        if(isExists) return
+        
+        dispatch(requestCatalogItem(menuItem))
+            
     }, [menuItem]);
-
-    // console.log('ProductsCatalogContainer');
 
     return (
         isFetching ? (

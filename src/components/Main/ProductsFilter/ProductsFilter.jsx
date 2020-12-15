@@ -2,7 +2,6 @@ import React from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
-import detectElementOverflow from 'detect-element-overflow'
 
 import FilterDropdown from './../../common/FilterDropdown/FilterDropdown';
 import { requestSortCategories, requestFastCategories, changeCurrentSortCategory, changeCurrentFastCategory } from '../../../redux/catalog-reducer';

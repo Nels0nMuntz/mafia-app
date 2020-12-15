@@ -103,11 +103,11 @@ const ProductCard = ({ cardData, url }) => {
                             </div>
                         ))}
                     </div>
-                    <Link to={`${url}/product/${state.id}?fast=${state.category}&prod=pizza`} className='item-homeSlider__link'>
+                    <Link to={`${url}/product/${state.id}?fast=${state.category}`} className='item-homeSlider__link'>
                         <img src={state.imageUrl} alt='' />
                     </Link>
                     <div className="item-homeSlider__info">
-                        <Link to={`${url}/product/${state.id}?fast=${state.category}&prod=pizza`}>
+                        <Link to={`${url}/product/${state.id}?fast=${state.category}`}>
                             <h3>{state.title}</h3>
                         </Link>
                         <div className="item-homeSlider__weight-block">

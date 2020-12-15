@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^12.2.2",
     "antd": "^4.8.2",
     "classnames": "^2.2.6",
-    "detect-element-overflow": "^1.2.0",
     "json-server": "^0.16.2",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",

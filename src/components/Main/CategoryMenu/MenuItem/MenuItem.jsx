@@ -2,15 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import classnames from 'classnames'
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+
+import { changeCurrentFastCategory } from '../../../../redux/catalog-reducer';
 
 import style from './MenuItem.module.scss'
-// import imgUrl from '../../../../assets/images/menu-icon.svg'
 
 
 const MenuItem = ({ visibled, title, imageUrl, link }) => {
+
+    const dispatch = useDispatch()
+    const setDefaultFilter = () => dispatch(changeCurrentFastCategory('default'));
+
     return (
         <Link to={`/menu-dostavki/${link}`}
             className={style.link}
+            onClick={setDefaultFilter}
         >
             <div className={
                 classnames(

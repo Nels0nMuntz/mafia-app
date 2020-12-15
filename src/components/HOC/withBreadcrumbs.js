@@ -1,10 +1,12 @@
 import React from 'react'
 import { withRouter, Link, useRouteMatch } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { Breadcrumb } from 'antd';
 import styled from 'styled-components'
 
+import {changeCurrentFastCategory} from './../../redux/catalog-reducer'
+
 import './withBreakpoints.scss'
-import { useSelector } from 'react-redux';
 
 
 const Separator = styled.span`
@@ -19,12 +21,14 @@ const withBreadcrumbs = Component => {
 
     const HOC = withRouter(props => {
 
+        const dispatch = useDispatch()
         const match = useRouteMatch('/menu-dostavki/:menuItem/:product?/:id?');
         const menuItem = useSelector(state => state.catalog[match.params.menuItem]);
-        
-        console.log(match);
-        
-        const fastCategory = new URL(window.location.href).searchParams.get('fast');
+
+        // console.log(props);
+
+        const fastCategory = new URL(window.location.href).searchParams.get('fast') ?? '';
+        const onClickCartegory = () => dispatch(changeCurrentFastCategory(fastCategory));
 
         const breadcrumbNameMap = {
             '/menu-dostavki': 'Меню доставки',
@@ -40,7 +44,11 @@ const withBreadcrumbs = Component => {
             return (
                 breadcrumbNameMap[url] && (
                     <Breadcrumb.Item key={url}>
-                        <Link to={url}>{breadcrumbNameMap[url]}</Link>
+                        {props.location.search ? (
+                            <Link to={`/menu-dostavki/${match.params.menuItem}`} onClick={onClickCartegory}>{breadcrumbNameMap[url]}</Link>
+                        ) : (
+                                <Link to={url}>{breadcrumbNameMap[url]}</Link>
+                            )}
                     </Breadcrumb.Item>
                 )
             );
