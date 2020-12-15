@@ -2542,6 +2542,614 @@
                         }
                     ],
                     "additionals": []
+                },
+                {
+                    "id": 13,
+                    "title": "Соус соевый",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/sous-soevyj_1586428938989.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/sous-soevyj_1586428932958.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "500 мл",
+                            "price": 25,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соусы",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 14,
+                    "title": "Луковый конфи",
+                    "description": [
+                        "Ялтинский лук, уваренный с красным вином , сахаром, бадьяном"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/lukovyj-konfi_1589274852886.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/lukovyj-konfi_1589274846414.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "250 г",
+                            "price": 39,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соусы",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 15,
+                    "title": "Соус томатный для пиццы",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/sous-tomatnyj-dlya-piccy_1588331219368.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/sous-tomatnyj-dlya-piccy.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100 г",
+                            "price": 19,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соусы",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 16,
+                    "title": "Мини-безе",
+                    "description": [
+                        "Яичный белок, сахарная пудра, сахар, кислота лимонная"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/mini-beze_1588410982975.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/mini-beze_1588410975676.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100шт. 150 г",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 8,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 17,
+                    "title": "Сырники",
+                    "description": [
+                        "Состав: творог, мука, яйца, изюм, сахар, ванильный сахар"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/syrniki_1585215994555.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/syrniki_1585215987256.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 12 шт, 440 г",
+                            "price": 125,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 7,
+                    "added": "11.10.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 18,
+                    "title": "Торт Наполеон",
+                    "description": [
+                        "Тесто слоеное, молоко, сливки, сахар, масло сливочное, яйца, мука, соль"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/tort-napoleon_1588410213789.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/tort-napoleon_1588410207658.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1 торт; 1100 г",
+                            "price": 245,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 8,
+                    "added": "15.08.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 19,
+                    "title": "Торт Чизкейк ягодный",
+                    "description": [
+                        "Состав: песочное тесто, творог, сливки, сахарная пудра, сахар, ягоды малины, смородины, клюквы, вишневый сок, желатин, ванильный сахар, лимон"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/tort-chizkejk-yagodnyj_1588409977843.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/tort-chizkejk-yagodnyj_1588409967389.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1 торт; 1100 г",
+                            "price": 195,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 8,
+                    "added": "23.08.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 20,
+                    "title": "Маслины без косточки",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/masliny-bez-kostochki_1589274905555.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/masliny-bez-kostochki_1589274898756.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "150 г",
+                            "price": 34,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Бакалея",
+                    "rate": 6,
+                    "added": "13.05.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 21,
+                    "title": "Масло оливковое Luglio",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/maslo-olivkovoe-luglio_158521738829.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/maslo-olivkovoe-luglio.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 199,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Бакалея",
+                    "rate": 6,
+                    "added": "13.05.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 22,
+                    "title": "Спагетти Барилла",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/talyatelle-barilla_1585217173579.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/talyatelle-barilla.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "500 г",
+                            "price": 35,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Бакалея",
+                    "rate": 7,
+                    "added": "13.05.2020",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 23,
+                    "title": "Крем-Сыр Раса сливочный",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/krem-syr-rasa-slivochnyj_158841032096.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/krem-syr-rasa-slivochnyj_1588410313332.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100 г",
+                            "price": 19,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Молочные",
+                    "rate": 7,
+                    "added": "13.05.2020",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 24,
+                    "title": "Сыр бри",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/syr-bri_1588411208113.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/syr-bri_1588411198773.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100 г",
+                            "price": 35,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Молочные",
+                    "rate": 8,
+                    "added": "13.05.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 25,
+                    "title": "Сыр грана падано 18 месяцев",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/syr-grana-padano-18-mesyacev_1585218378483.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/syr-grana-padano-18-mesyacev.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "500 г",
+                            "price": 195,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Молочные",
+                    "rate": 8,
+                    "added": "02.05.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 26,
+                    "title": "Картофель фри",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kartofel-fri_1585219024833.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kartofel-fri_1585219006607.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 2500 г",
+                            "price": 145,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Овощи и фрукты",
+                    "rate": 8,
+                    "added": "02.05.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 27,
+                    "title": "Компотная смесь",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kompotnaya-smes_1585219784789.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kompotnaya-smes.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 49,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Овощи и фрукты",
+                    "rate": 8,
+                    "added": "02.05.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 28,
+                    "title": "Кукуруза зерно",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kukuruza-zerno_1588410403692.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kukuruza-zerno_1588410394557.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 64,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Овощи и фрукты",
+                    "rate": 8,
+                    "added": "02.05.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 29,
+                    "title": "Булочка для гамбургера",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/bulochka-dlya-gamburgera_1585647728606.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bulochka-dlya-gamburgera_1585647719173.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "5 шт.",
+                            "price": 49,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Прочее",
+                    "rate": 7,
+                    "added": "12.11.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 30,
+                    "title": "Тесто для пиццы на закваске",
+                    "description": [
+                        "Мука, масло растительное, соль, закваска"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/testo-dlya-piccy-na-zakvaske_1588410054548.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/testo-dlya-piccy-na-zakvaske_1588410048539.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "270 г",
+                            "price": 15,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Прочее",
+                    "rate": 7,
+                    "added": "12.11.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 30,
+                    "title": "Чука",
+                    "description": [
+                        ""
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/chuka_1585220425816.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/chuka.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "заморож. продукт, 1000 г",
+                            "price": 95,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Прочее",
+                    "rate": 6,
+                    "added": "12.11.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
                 }
             ],
             "fastCategories": [
@@ -2601,6 +3209,622 @@
                     "type": "Прочее"
                 }
             ]
+        },
+        "salaty": {
+            "title": "Салаты и закуски",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Цезарь",
+                    "description": [
+                        "Куриное филе на гриле, бекон, яйцо, томаты, салат ромэн, пармезан, чесночные крутоны, соус Caesar"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/cezar_1562837041186.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/cezar_1562837029570.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "275 г",
+                            "price": 135,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 9,
+                    "added": "04.30.2017",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "content": "1+1 ЗАБЕРИ САМ"
+                        }
+                    ],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 2,
+                    "title": "Греческий",
+                    "description": [
+                        "Томаты, сладкий перец, огурцы, микс салатов, сыр фета, красный лук, орегано, оливковое масло, соус Balsamic"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/grecheskij_156284830710.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/grecheskij.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "245 г",
+                            "price": 109,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 9,
+                    "added": "04.30.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 3,
+                    "title": "Кайсо",
+                    "description": [
+                        "Морские водоросли, огурец, сельдерей, салат ромен, ореховый соус"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kajso_1562840394513.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kajso_1562840391275.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "125/30 г",
+                            "price": 65,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 8,
+                    "added": "07.21.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 4,
+                    "title": "Теплый салат с печенью",
+                    "description": [
+                        "С карамелизированной печенью и яблоком, салатом ромэн, томатами и орехами под малиновым соусом"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/teplyj-salat-s-pechenyu_1585663655532.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/teplyj-salat-s-pechenyu_1585663649483.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "245 г",
+                            "price": 119 ,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 8,
+                    "added": "07.21.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 5,
+                    "title": "Сухарики к пиву",
+                    "description": [
+                        "Сухарики к пиву"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/suhariki-k-pivu_1550757657811.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/suhariki-k-pivu.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "200 г",
+                            "price": 39 ,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 8,
+                    "added": "07.21.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 6,
+                    "title": "Фестиваль сыра",
+                    "description": [
+                        "Сыры: бри, мимолет, пармезан, козий, конфитюр из сладкого лука, грецкие орехи, мед"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/festival-syra_1598426677318.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/festival-syra_1598426668338.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "140/20 г",
+                            "price": 89 ,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 8,
+                    "added": "07.21.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 7,
+                    "title": "Оливки с грецкими орехами и пряностями",
+                    "description": [
+                        "Оливки с грецкими орехами в гранатовом соусе, зерна граната, мята и кинза"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/olivki-s-greckimi-orehami-i-pryanostyami_1598606115606.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/olivki-s-greckimi-orehami-i-pryanostyami.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "205 г",
+                            "price": 115  ,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 8,
+                    "added": "07.21.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 8,
+                    "title": "Салат Веронезе",
+                    "description": [
+                        "Ветчина - прошутто котто, томаты черри, каперсы, микс салатов, оливки Каламата и красный лук, соус веронезе, трюфельное масло"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/salat-veroneze_1598605940148.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/salat-veroneze.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "365 г",
+                            "price": 159,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 9,
+                    "added": "07.21.2020",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 9,
+                    "title": "Тайский салат с лососем гриль",
+                    "description": [
+                        "Филе лосося на гриле, микс салатов, огурцы, красный лук, зеленый лук, мята, кинза и арахис под тайским соусом нан-пла"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/tajskij-salat-s-lososem-gril_1598605372848.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/tajskij-salat-s-lososem-gril.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "270 г",
+                            "price": 149,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 6,
+                    "added": "07.21.2020",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 10,
+                    "title": "Цезарь с креветками",
+                    "description": [
+                        "Креветки, авокадо, томаты, микс салатов, яйцо, сыр пармезан, крутоны с зеленым маслом и чесноком, соус цезарь"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/cezar-s-krevetkami_1592719183327.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/cezar-s-krevetkami.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "275 г",
+                            "price": 169,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Салаты и закуски",
+                    "rate": 8,
+                    "added": "04.15.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                }
+            ],
+            "fastCategories": []
+        },
+        "supy": {
+            "title": "Супы",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Куриный бульон",
+                    "description": [
+                        "Куриный бульон, куриное филе, яйцо, лапша и душистые травы"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/brodo-di-galina_1550737753449.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/brodo-di-galina.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "365  г",
+                            "price": 65,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Супы",
+                    "rate": 9,
+                    "added": "04.30.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 2,
+                    "title": "Рамен",
+                    "description": [
+                        "Классический суп рамэн с яичной лапшой, пряной свинной грудинкой, маринованным яйцом и жареным кунжутом"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/ramen_1562848474265.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/ramen_1562848470169.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "350 г",
+                            "price": 99,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Супы",
+                    "rate": 9,
+                    "added": "04.21.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },                
+                {
+                    "id": 3,
+                    "title": "Скандинавский суп с лососем",
+                    "description": [
+                        "Сливочный суп с лососем, картофелем, луком, укропом и белым перцем. Подается с сырными брускетами с лососем"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/skandinavskij-sup-s-lososem_1550764138543.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/skandinavskij-sup-s-lososem.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "270/70 г",
+                            "price": 99,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Супы",
+                    "rate": 9,
+                    "added": "04.21.2016",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "content": "1+1 ЗАБЕРИ САМ"
+                        }
+                    ],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },                
+                {
+                    "id": 4,
+                    "title": "Суп Том-кха с креветками",
+                    "description": [
+                        "Пряный острый азиатский суп с баклажаном, грибами, креветками, лемонграссом, подается с рисом и кинзой"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/sup-tom-kha-s-krevetkami_1590765780369.jpeg",
+                        "smallImageUrl": "hhttps://mafia.ua/storage/editor/fotos/450x450/sup-tom-kha-s-krevetkami.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "330/90 г",
+                            "price": 129,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Супы",
+                    "rate": 9,
+                    "added": "04.21.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },                
+                {
+                    "id": 5,
+                    "title": "Суп Том-кха с курицей",
+                    "description": [
+                        "Пряный острый азиатский суп с баклажаном, грибами, курицей, лемонграссом, подается с рисом и кинзой"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/sup-tom-kha-s-baklazhanami-i-kuricej_1572426830992.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/sup-tom-kha-s-baklazhanami-i-kuricej.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "330/90 г",
+                            "price": 109,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Супы",
+                    "rate": 7,
+                    "added": "04.21.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },                
+                {
+                    "id": 6,
+                    "title": "Сырный суп",
+                    "description": [
+                        "Cырный крем-суп с дор блю, чеддером, сливочным сыром, беконом. Брускетта с сырным кремом"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/syrnyj-sup_1572423763702.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/syrnyj-sup.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "300/60 г",
+                            "price": 99,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Супы",
+                    "rate": 6,
+                    "added": "11.11.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                }               
+            ],
+            "fastCategories": []
         }
     }
 }
