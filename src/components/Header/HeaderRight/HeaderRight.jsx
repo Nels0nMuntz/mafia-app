@@ -8,7 +8,8 @@ import avatar from './../../../assets/images/avatar.svg'
 
 import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 import withBreakpoints from './../../HOC/withBreakpoints';
-import { togglePopupCart } from '../../../redux/cart-reducer';
+import { changePopupCartState } from '../../../redux/cart-reducer';
+import { getScrollbar } from './../../../scrollbar/scrollbar';
 
 
 const HeaderRight = ({ queryMatches }) => {
@@ -16,7 +17,14 @@ const HeaderRight = ({ queryMatches }) => {
     const dispatch = useDispatch();
     const { md, lg } = { ...queryMatches };
     const categories = useSelector(state => state.header.categories);
-    const onClickCartIcon = () => dispatch(togglePopupCart());
+    const isOpen = useSelector(state => state.cart.isPopupCartOpen);
+    const onClickCartIcon = () => {
+        if(!isOpen){
+            dispatch(changePopupCartState(true));
+            getScrollbar(document.body);
+            document.body.style.overflow = 'hidden';
+        }        
+    };
 
     return (
         <div className={style.header_right_wrapper}>
@@ -44,7 +52,7 @@ const HeaderRight = ({ queryMatches }) => {
                     )
                 }
                 <li>
-                    <div 
+                    <div
                         className={style.cart_wrapper}
                         onClick={onClickCartIcon}
                     >

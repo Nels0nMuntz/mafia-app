@@ -25,7 +25,7 @@ const actionTypes =  {
     SET_CATALOG_ITEM: "SET_CATALOG_ITEM",
 
     // cart
-    TOGGLE_POPUP_CART: 'TOGGLE_POPUP_CART',
+    CHANGE_POPUP_CART_STATE: 'CHANGE_POPUP_CART_STATE',
 }
 
 export default actionTypes

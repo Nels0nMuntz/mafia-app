@@ -84,3 +84,35 @@
         }
     }
 }
+
+.item-homeSlider__btn {
+    width: 100%;
+    padding: 14px 0;
+    text-align: center;
+    font-size: 16px;
+    color: var(--green-main);
+    border: 1px solid var(--green-main);
+    border-radius: 3px;
+    transition: color 0.1s linear, background-color 0.1s linear;
+
+    &.popup_cart__btn{
+        background-color: var(--green-100);
+        color: white;
+    }
+
+    &:hover {
+        color: white;
+        background-color: var(--green-main);
+    }
+
+    @media screen and (max-width: 575px) {
+        padding: 12px 0;
+        font-size: 15px;
+    }
+}
+
+.ant-carousel .slick-prev:hover, .ant-carousel .slick-next:hover, .ant-carousel .slick-prev:focus, .ant-carousel .slick-next:focus {
+    color: initial;
+    background-color: rgba(0, 0, 0, 0.3);
+    outline: none;
+}

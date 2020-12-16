@@ -21,7 +21,6 @@ const Main = () => {
     return (
         <main className={style.main}>
             <CategoryMenu />
-            <PopupCart />
             <Switch>
                 <Route exact path='/' >
                     <Home />

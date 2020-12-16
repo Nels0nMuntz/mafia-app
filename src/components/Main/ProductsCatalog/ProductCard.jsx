@@ -5,9 +5,10 @@ import GiftDropdown from './../../common/GiftDropdown/GiftDropdown';
 
 import './../Home/HomeSlider/HomeSlider.scss'
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 
-const ProductCard = ({ cardData, url }) => { 
+const ProductCard = ({ cardData, url }) => {
 
     const TOGGLE_SIZE = 'TOGGLE_SIZE';
     const SET_GIFT = 'SET_GIFT';
@@ -89,6 +90,12 @@ const ProductCard = ({ cardData, url }) => {
 
     const onClickDropdown = value => value === state.selectedGift ? undefined : dispatch(setGiftAC(value));
 
+    // const onClickOrder = () => {
+    //     const order = {
+    //         id: state.id + 
+    //     }
+    // }
+
     return (
         <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
@@ -155,7 +162,7 @@ const ProductCard = ({ cardData, url }) => {
                         <div className="item-homeSlider__order">
                             <button
                                 className="item-homeSlider__btn"
-                            // onClick={() => console.log(slideData)}
+                                // onClick={onClickOrder}
                             >Заказать</button>
                         </div>
                     </div>
@@ -163,6 +170,11 @@ const ProductCard = ({ cardData, url }) => {
             </div>
         </article>
     )
-}
+};
 
-export default ProductCard
+ProductCard.propTypes = {
+    cardData: PropTypes.object.isRequired,
+    url: PropTypes.string.isRequired,
+};
+
+export default ProductCard;

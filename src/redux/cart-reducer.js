@@ -1,17 +1,18 @@
 import actionTypes from './actionTypes';
 
 const { 
-    TOGGLE_POPUP_CART, 
+    CHANGE_POPUP_CART_STATE, 
 } = actionTypes;
 
 const initialState = {
+    selected: [],
     isPopupCartOpen: false
 };
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case TOGGLE_POPUP_CART:
-            return {...state, isPopupCartOpen: !state.isPopupCartOpen}    
+        case CHANGE_POPUP_CART_STATE:
+            return {...state, isPopupCartOpen: action.payload}    
         default:
             return state;
     }
@@ -19,4 +20,4 @@ const cartReducer = (state = initialState, action) => {
 
 export default cartReducer;
 
-export const togglePopupCart = () => ({type: TOGGLE_POPUP_CART});
+export const changePopupCartState = value => ({type: CHANGE_POPUP_CART_STATE, payload: value});

@@ -11,7 +11,7 @@ import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 
 const HeaderLeft = () => {
 
-    const categories = useSelector(state => state.header.categories)
+    const categories = useSelector(state => state.header.categories);
     
     return (
         <div className={style.header_left_wrapper}>
