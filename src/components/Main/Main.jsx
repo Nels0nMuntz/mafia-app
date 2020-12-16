@@ -6,6 +6,7 @@ import ProductsFilter from './ProductsFilter/ProductsFilter';
 import Home from './Home/Home';
 import ProductsCatalogContainer from './ProductsCatalog/ProductsCatalogContainer';
 import ProductPageContainer from './ProductsCatalog/ProductPage/ProductPageContainer';
+import PopupCart from './PopupCart/PopupCart';
 
 import style from './Main.module.scss'
 
@@ -20,6 +21,7 @@ const Main = () => {
     return (
         <main className={style.main}>
             <CategoryMenu />
+            <PopupCart />
             <Switch>
                 <Route exact path='/' >
                     <Home />

@@ -23,6 +23,9 @@ const actionTypes =  {
 
     // catalog
     SET_CATALOG_ITEM: "SET_CATALOG_ITEM",
+
+    // cart
+    TOGGLE_POPUP_CART: 'TOGGLE_POPUP_CART',
 }
 
 export default actionTypes

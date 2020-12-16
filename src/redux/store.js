@@ -4,6 +4,7 @@ import header from './header-reducer';
 import menu from './menu-reducer';
 import home from './home-reducer';
 import catalog from './catalog-reducer';
+import cart from './cart-reducer';
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     menu,
     home,
     catalog,
+    cart
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

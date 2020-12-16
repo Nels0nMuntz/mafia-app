@@ -54,41 +54,6 @@ const Menu = () => {
                             </ul>
                         </li>
                     ))}
-                    {/* <li>
-                        <div className={style.menu_item}>
-                            <span>Меню</span>
-                        </div>
-                        <ul className={style.submenu_item}>
-                            <li>
-                                <span>Пицца</span>
-                            </li>
-                            <li>
-                                <span>Суши и сеты</span>
-                            </li>
-                            <li>
-                                <span>Продукты</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div className={style.menu_item}>
-                            <span>Рестораны Харькова</span>
-                        </div>
-                        <ul className={style.submenu_item}>
-                            <li>
-                                <span>Меню ресторана</span>
-                            </li>
-                            <li>
-                                <span>Бизнес ланчи</span>
-                            </li>
-                            <li>
-                                <span>Звтраки</span>
-                            </li>
-                            <li>
-                                <span>Новости</span>
-                            </li>
-                        </ul>
-                    </li> */}
                 </ul>
             </nav>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import style from './HeaderRight.module.scss'
 import cartImg from '../../../assets/images/shopping-cart.svg'
@@ -8,17 +8,20 @@ import avatar from './../../../assets/images/avatar.svg'
 
 import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 import withBreakpoints from './../../HOC/withBreakpoints';
+import { togglePopupCart } from '../../../redux/cart-reducer';
 
 
 const HeaderRight = ({ queryMatches }) => {
-    const { md, lg } = { ...queryMatches }
 
-    const categories = useSelector(state => state.header.categories)
+    const dispatch = useDispatch();
+    const { md, lg } = { ...queryMatches };
+    const categories = useSelector(state => state.header.categories);
+    const onClickCartIcon = () => dispatch(togglePopupCart());
 
     return (
         <div className={style.header_right_wrapper}>
             <ul className={style.header_right_list}>
-                
+
                 {
                     !md && (
                         <React.Fragment>
@@ -41,13 +44,14 @@ const HeaderRight = ({ queryMatches }) => {
                     )
                 }
                 <li>
-                    <Link>
-                        <div>
-                            <img className={style.cart_icon} src={cartImg} alt="cart" />
-                            <span>0</span>
-                            {md ? '' : 'Корзина'}
-                        </div>
-                    </Link>
+                    <div 
+                        className={style.cart_wrapper}
+                        onClick={onClickCartIcon}
+                    >
+                        <img className={style.cart_icon} src={cartImg} alt="cart" />
+                        <span>0</span>
+                        {md ? '' : 'Корзина'}
+                    </div>
                 </li>
             </ul>
         </div>
