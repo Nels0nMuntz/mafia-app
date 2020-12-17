@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 
 import style from './HeaderRight.module.scss'
 import cartImg from '../../../assets/images/shopping-cart.svg'
@@ -8,23 +7,11 @@ import avatar from './../../../assets/images/avatar.svg'
 
 import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 import withBreakpoints from './../../HOC/withBreakpoints';
-import { changePopupCartState } from '../../../redux/cart-reducer';
-import { getScrollbar } from './../../../scrollbar/scrollbar';
 
 
-const HeaderRight = ({ queryMatches }) => {
-
-    const dispatch = useDispatch();
+const HeaderRight = React.memo(({ categories, onClickCartIcon, queryMatches }) => {
+    
     const { md, lg } = { ...queryMatches };
-    const categories = useSelector(state => state.header.categories);
-    const isOpen = useSelector(state => state.cart.isPopupCartOpen);
-    const onClickCartIcon = () => {
-        if(!isOpen){
-            dispatch(changePopupCartState(true));
-            getScrollbar(document.body);
-            document.body.style.overflow = 'hidden';
-        }        
-    };
 
     return (
         <div className={style.header_right_wrapper}>
@@ -64,7 +51,7 @@ const HeaderRight = ({ queryMatches }) => {
             </ul>
         </div>
     )
-};
+});
 
 export default withBreakpoints(HeaderRight, {
     md: '(max-width: 720px)',

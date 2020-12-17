@@ -8,24 +8,17 @@ import Hamburger from './Hamburger/Hamburger'
 import style from './Header.module.scss'
 import HeaderLeft from './HeaderLeft/HeaderLeft';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
-import HeaderRight from './HeaderRight/HeaderRight';
-import { getScrollbar } from './../../scrollbar/scrollbar';
+import HeaderRightContainer from './HeaderRight/HeaderRightContainer';
 
 
 const Header = () => {
 
     const dispatch = useDispatch();
-    const isMenuOpen = useSelector(state => state.header.isMenuOpen);
-    const node = React.useRef();
-
-    //s width scrollbar
-    if(node && node.current){
-        isMenuOpen ? getScrollbar(node.current) : node.current.style.paddingRight = '0'
-    }
+    const categories = useSelector(state => state.header.categories);
 
     useEffect(() => {
         dispatch(requestCategories());
-    }, [isMenuOpen, node]);
+    }, []);
 
     return (
         <header
@@ -33,14 +26,17 @@ const Header = () => {
                 'header',
                 style.header,
             )}
-            ref={node}
         >
             <div className={style.header_wrapper}>
                 <Hamburger />
                 <div className={style.header_inner}>
-                    <HeaderLeft />
+                    <HeaderLeft
+                        categories={categories}
+                    />
                     <HeaderLogo />
-                    <HeaderRight />
+                    <HeaderRightContainer
+                        categories={categories}
+                    />
                 </div>
             </div>
         </header>

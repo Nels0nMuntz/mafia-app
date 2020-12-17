@@ -1,6 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import style from './HeaderLeft.module.scss'
 import pinImgUrl from '../../../assets/images/pin.svg'
@@ -9,10 +7,8 @@ import phoneImgUrl from '../../../assets/images/phone.svg'
 import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 
 
-const HeaderLeft = () => {
+const HeaderLeft = ({ categories }) => {
 
-    const categories = useSelector(state => state.header.categories);
-    
     return (
         <div className={style.header_left_wrapper}>
             <ul className={style.header_left_list}>
@@ -38,11 +34,9 @@ const HeaderLeft = () => {
                     />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <div className={style.one_plus_one}>
-                            Заберу сам 1+1
-                        </div>
-                    </Link>
+                    <div className={style.one_plus_one}>
+                        Заберу сам 1+1
+                    </div>
                 </li>
             </ul>
         </div>

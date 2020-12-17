@@ -22,6 +22,8 @@ const Home = () => {
         dispatch(requireHomePage());
     }, []);
 
+    console.log(isFetching);
+
     return (        
         isFetching ? <Preloader/> : (
             <div>
