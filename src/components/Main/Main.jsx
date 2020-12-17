@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, useRouteMatch, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import CategoryMenuContainer from './CategoryMenu/CategoryMenuContainer';
 import ProductsFilter from './ProductsFilter/ProductsFilter';
@@ -9,15 +9,7 @@ import ProductPageContainer from './ProductsCatalog/ProductPage/ProductPageConta
 
 import style from './Main.module.scss'
 
-const Main = () => {
-
-    const match = useRouteMatch("/:branch/:menuItem/:product?/:productId?");
-    const menuItem = match && match.params.menuItem;
-    const product = match && match.params.product;
-    const productId = match && match.params.productId;
-    const url = match && match.url;
-
-    console.log('Main');
+const Main = React.memo(({ menuItem, product, productId, url }) => {
 
     return (
         <main className={style.main}>
@@ -46,6 +38,6 @@ const Main = () => {
             </Switch>
         </main>
     )
-};
+});
 
 export default Main

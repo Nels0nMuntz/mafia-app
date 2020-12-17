@@ -1,9 +1,9 @@
 import './App.scss';
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import Menu from './components/Menu/Menu';
 import PopupCartContainer from './components/Main/PopupCart/PopupCartContainer';
+import MainContainer from './components/Main/MainContainer';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Menu />
       <PopupCartContainer />
-      <Main />
+      <MainContainer />
       <Footer />
     </div>
   );

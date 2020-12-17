@@ -9,7 +9,7 @@ import CustomScrollbar from './../../common/CustomScrollbar/CustomScrollbar';
 
 const CategoryMenu = ({ categories, increaseMode, changeIncreaseMode, queryMatches }) => {
 
-    const isVisibiled = increaseMode || (queryMatches && queryMatches.lg);  
+    const isVisibiled = increaseMode || (queryMatches && queryMatches.lg); 
 
     return (
         <aside

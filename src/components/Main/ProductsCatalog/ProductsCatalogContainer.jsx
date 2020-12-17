@@ -46,10 +46,8 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
     const list = useSelector(filterSelector);
 
     React.useEffect(() => {
-        if(isExists) return
-        
-        dispatch(requestCatalogItem(menuItem))
-            
+        if(isExists) return;        
+        dispatch(requestCatalogItem(menuItem));            
     }, [menuItem]);
 
     return (
@@ -64,4 +62,4 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
     )
 };
 
-export default React.memo(ProductsCatalogContainer)
+export default React.memo(ProductsCatalogContainer);
