@@ -9,7 +9,7 @@ import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
 import withBreakpoints from './../../HOC/withBreakpoints';
 
 
-const HeaderRight = React.memo(({ categories, onClickCartIcon, queryMatches }) => {
+const HeaderRight = React.memo(({ categories, onClickCartIcon, totalCount, totalPrice, queryMatches }) => {
     
     const { md, lg } = { ...queryMatches };
 
@@ -44,8 +44,8 @@ const HeaderRight = React.memo(({ categories, onClickCartIcon, queryMatches }) =
                         onClick={onClickCartIcon}
                     >
                         <img className={style.cart_icon} src={cartImg} alt="cart" />
-                        <span>0</span>
-                        {md ? '' : 'Корзина'}
+                        <span>{totalCount}</span>
+                        {md ? '' : (totalPrice ? `${totalPrice} грн` :'Корзина')}
                     </div>
                 </li>
             </ul>

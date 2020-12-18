@@ -26,6 +26,8 @@ const actionTypes =  {
 
     // cart
     CHANGE_POPUP_CART_STATE: 'CHANGE_POPUP_CART_STATE',
+    ADD_PRODUCT: 'ADD_PRODUCT',
+    REMOVE_PRODUCT: 'REMOVE_PRODUCT',
 }
 
 export default actionTypes
