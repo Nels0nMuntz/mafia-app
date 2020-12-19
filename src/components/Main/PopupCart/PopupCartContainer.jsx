@@ -7,7 +7,7 @@ import PopupCart from './PopupCart';
 
 const PopupCartContainer = () => {
 
-    console.log('PopupCartContainer');
+    // console.log('PopupCartContainer');
 
     const dispatch = useDispatch()
     const isOpen = useSelector(state => state.cart.isPopupCartOpen);

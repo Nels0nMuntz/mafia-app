@@ -1,7 +1,7 @@
 import React from 'react';
 import { isEqual } from 'lodash'
 
-import ProductCard from './ProductCard';
+import ProductCardContainer from './ProductCardContainer';
 import withBreadcrumbs from '../../HOC/withBreadcrumbs';
 
 import style from './ProductsCatalog.module.scss'
@@ -10,7 +10,7 @@ import style from './ProductsCatalog.module.scss'
 const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, url }) => {
 
     const children = () => (list.map(item => (
-        <ProductCard
+        <ProductCardContainer
             key={`${item.id}_${item.title}`}
             cardData={item}
             url={url}

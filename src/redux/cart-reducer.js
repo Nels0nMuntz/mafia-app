@@ -6,6 +6,7 @@ const {
     REMOVE_PRODUCT,
     INCREASE_COUNT,
     DECREASE_COUNT,
+    RECALCULATE_TOTAL,
 } = actionTypes;
 
 const initialState = {
@@ -34,16 +35,16 @@ const cartReducer = (state = initialState, action) => {
                         addition: action.payload.selectedAddition,
                     }
                 ],
-                totalCount: ++state.totalCount,
-                totalPrice: state.totalPrice + (action.payload.selectedSize.discount ?? action.payload.selectedSize.price),
+                // totalCount: ++state.totalCount,
+                // totalPrice: state.totalPrice + (action.payload.selectedSize.discount ?? action.payload.selectedSize.price),
             };
         case REMOVE_PRODUCT:
-            const element = state.selected.find(elem => elem.id === action.payload);
+            // const element = state.selected.find(elem => elem.id === action.payload);
             const newState = {
                 ...state,
-                selected: [...state.selected.filter(elem => elem.id !== action.payload)],
-                totalCount: state.totalCount - element.count,
-                totalPrice: state.totalPrice - element.count * element.price,
+                selected: state.selected.filter(elem => elem.id !== action.payload),
+                // totalCount: state.totalCount - element.count,
+                // totalPrice: state.totalPrice - element.count * element.price,
             };
             if (!newState.selected.length) {
                 newState.isPopupCartOpen = false;
@@ -64,7 +65,8 @@ const cartReducer = (state = initialState, action) => {
                         }
                         return { ...item }
                     })
-                ]
+                ],
+                // totalCount: ++state.totalCount,
             };
         case DECREASE_COUNT:
             return {
@@ -80,6 +82,20 @@ const cartReducer = (state = initialState, action) => {
                         return { ...item }
                     })
                 ]
+            };
+        case RECALCULATE_TOTAL:
+            const recalculated = state.selected.reduce((prev, curr) => {
+                prev.totalCount += curr.count;
+                prev.totlaprice += curr.price;
+                return prev
+            }, {
+                totalCount: 0,
+                totlaprice: 0,
+            })
+            return {
+                ...state,
+                totalCount: recalculated.totalCount,
+                totalPrice: recalculated.totalPrice,
             }
         default:
             return state;
@@ -88,8 +104,26 @@ const cartReducer = (state = initialState, action) => {
 
 export default cartReducer;
 
+const addProductAC = product => ({ type: ADD_PRODUCT, payload: product });
+const removeProductAC = id => ({ type: REMOVE_PRODUCT, payload: id });
+const increaseCountAC = id => ({ type: INCREASE_COUNT, payload: id });
+const decreaseCountAC = id => ({ type: DECREASE_COUNT, payload: id });
+const recalculateTotalAC = () => ({type: RECALCULATE_TOTAL});
+
 export const changePopupCartState = value => ({ type: CHANGE_POPUP_CART_STATE, payload: value });
-export const addProduct = product => ({ type: ADD_PRODUCT, payload: product });
-export const removeProduct = id => ({ type: REMOVE_PRODUCT, payload: id });
-export const increaseCount = id => ({ type: INCREASE_COUNT, payload: id });
-export const decreaseCount = id => ({ type: DECREASE_COUNT, payload: id });
+export const addProduct = product => dispatch => {
+    dispatch(addProductAC(product));
+    dispatch(recalculateTotalAC());
+};
+export const removeProduct = id => dispatch => {
+    dispatch(removeProductAC(id));
+    dispatch(recalculateTotalAC());
+};
+export const increaseCount = id => dispatch => {
+    dispatch(increaseCountAC(id));
+    dispatch(recalculateTotalAC());
+};
+export const decreaseCount = id => dispatch => {
+    dispatch(decreaseCountAC(id));
+    dispatch(recalculateTotalAC());
+};

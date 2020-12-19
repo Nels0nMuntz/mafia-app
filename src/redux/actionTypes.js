@@ -30,6 +30,7 @@ const actionTypes =  {
     REMOVE_PRODUCT: 'REMOVE_PRODUCT',
     INCREASE_COUNT: 'INCREASE_COUNT',
     DECREASE_COUNT: 'DECREASE_COUNT',
+    RECALCULATE_TOTAL: 'RECALCULATE_TOTAL',
 }
 
 export default actionTypes
