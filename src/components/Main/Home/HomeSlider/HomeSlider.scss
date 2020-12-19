@@ -1,27 +1,33 @@
 .homeSlider {
-    margin: 0 -12px;
+    margin      : 0 -12px;
     touch-action: none;
 }
 
 .homeSlider,
 .products_catalog_item_wrapper {
+    height: 100%;
+
     .homeSlider__item {
+        height : 100%;
         padding: 15px;
 
         @media screen and (max-width: 650px) {
-            width: 100%;
+            width  : 100%;
             padding: 0;
         }
 
         .item-homeSlider__content {
-            position: relative;
-            z-index: 1;
-            transition: all 0.12s linear;
+            position      : relative;
+            display       : flex;
+            flex-direction: column;
+            height        : 100%;
+            z-index       : 1;
+            transition    : all 0.12s linear;
 
             &:hover {
                 box-shadow: 0 0 10px 4px #ccc;
 
-                .item-homeSlider__info h3{
+                .item-homeSlider__info h3 {
                     color: var(--green-main);
                 }
             }
@@ -29,49 +35,52 @@
 
         img {
             display: block;
-            width: 100%;
-            margin: 0 auto;
-            height: auto;
-            cursor: pointer;
+            width  : 100%;
+            margin : 0 auto;
+            height : auto;
+            cursor : pointer;
         }
 
         .item-homeSlider__info {
-            padding: 20px;
+            padding       : 20px;
+            flex-grow     : 1;
+            display       : flex;
+            flex-direction: column;
 
             h3 {
-                font-size: 24px;
+                font-size    : 24px;
                 margin-bottom: 30px;
             }
 
             .item-homeSlider__weight-block {
-                display: flex;
+                display        : flex;
                 justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-                font-size: 14px;
-                margin-bottom: 10px;
+                align-items    : center;
+                flex-wrap      : wrap;
+                font-size      : 14px;
+                margin-bottom  : 10px;
 
                 .item-homeSlider__weight {
-                    flex-grow: 1;
-                    min-width: 50px;
-                    line-height: 35px;
+                    flex-grow   : 1;
+                    min-width   : 50px;
+                    line-height : 35px;
                     margin-right: 10px;
-                    color: var(--gray-secondary);
+                    color       : var(--gray-secondary);
                 }
 
                 .item-homeSlider__swicher {
-                    display: flex;
+                    display    : flex;
                     align-items: center;
 
-                    & > span {
-                        display: inline-block;
-                        padding: 0 6px;
-                        line-height: 28px;
-                        border: 1px solid transparent;
+                    &>span {
+                        display      : inline-block;
+                        padding      : 0 6px;
+                        line-height  : 28px;
+                        border       : 1px solid transparent;
                         border-radius: 14px;
-                        cursor: pointer;
-                        user-select: none;
-                        transition: border-color 0.1s linear;
+                        cursor       : pointer;
+                        user-select  : none;
+                        transition   : border-color 0.1s linear;
 
                         &:hover {
                             border-color: var(--green-main);
@@ -79,26 +88,26 @@
                     }
 
                     .swicher-homeSlider__checkbox {
-                        margin: 0 7px;
-                        position: relative;
-                        display: block;
-                        width: 50px;
-                        height: 28px;
-                        border-radius: 14px;
+                        margin          : 0 7px;
+                        position        : relative;
+                        display         : block;
+                        width           : 50px;
+                        height          : 28px;
+                        border-radius   : 14px;
                         background-color: var(--green-main);
-                        cursor: pointer;
+                        cursor          : pointer;
 
                         span {
-                            position: absolute;
-                            display: block;
-                            top: 3px;
-                            left: 3px;
-                            right: auto;
-                            width: 22px;
-                            height: 22px;
-                            border-radius: 50%;
+                            position        : absolute;
+                            display         : block;
+                            top             : 3px;
+                            left            : 3px;
+                            right           : auto;
+                            width           : 22px;
+                            height          : 22px;
+                            border-radius   : 50%;
                             background-color: white;
-                            transition: transform 0.3s ease;
+                            transition      : transform 0.3s ease;
                         }
 
                         &.checked span {
@@ -109,22 +118,22 @@
             }
 
             .item-homeSlider__descr {
-                position: relative;
-                font-size: 14px;
-                font-weight: 300;
-                line-height: 18px;
-                height: 54px;
+                position     : relative;
+                font-size    : 14px;
+                font-weight  : 300;
+                line-height  : 18px;
+                height       : 54px;
                 margin-bottom: 10px;
-                overflow: hidden;
-                color: var(--gray);
+                overflow     : hidden;
+                color        : var(--gray);
 
                 &:after {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    width: 100%;
-                    height: 25px;
+                    content   : "";
+                    position  : absolute;
+                    left      : 0;
+                    bottom    : 0;
+                    width     : 100%;
+                    height    : 25px;
                     background: linear-gradient(0deg, white 0%, transparent 80%, transparent 100%);
                 }
 
@@ -134,30 +143,32 @@
             }
 
             .item-homeSlider__price-gift {
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
+                display      : flex;
+                align-items  : center;
+                flex-wrap    : wrap;
+                flex-grow: 1;
                 margin-bottom: 10px;
 
                 .item-homeSlider__price {
-                    width: 40%;
-                    font-size: 24px;
+                    width      : 40%;
+                    font-size  : 24px;
                     font-weight: 500;
                     line-height: 50px;
-                    color: black;
-                    flex-grow: 1;
+                    color      : black;
+                    flex-grow  : 1;
 
                     &.with-discount {
                         .item-homeSlider__price-ordinary {
                             position: relative;
+
                             &::before {
-                                content: "";
-                                position: absolute;
-                                top: 6px;
-                                left: -5px;
-                                width: 115%;
-                                height: 3px;
-                                transform: rotate(10deg);
+                                content         : "";
+                                position        : absolute;
+                                top             : 6px;
+                                left            : -5px;
+                                width           : 115%;
+                                height          : 3px;
+                                transform       : rotate(10deg);
                                 transform-origin: left;
                                 background-color: var(--light-red);
                             }
@@ -165,19 +176,19 @@
                     }
 
                     .item-homeSlider__price-discount {
-                        padding: 5px 10px;
-                        margin-right: 15px;
+                        padding         : 5px 10px;
+                        margin-right    : 15px;
                         background-color: var(--light-red);
-                        color: white;
-                        border-radius: 5px;
+                        color           : white;
+                        border-radius   : 5px;
                     }
                 }
 
                 .item-homeSlider__gift-block {
-                    width: 60%;
+                    width     : 60%;
                     min-height: 50px;
-                    min-width: 205px;
-                    flex-grow: 1;
+                    min-width : 205px;
+                    flex-grow : 1;
 
                     @media screen and (max-width: 421px) {
                         min-height: initial;
@@ -209,30 +220,30 @@
     }
 
     .slick-arrow {
-        width: 30px;
-        height: 30px;
-        margin-top: -15px;
+        width        : 30px;
+        height       : 30px;
+        margin-top   : -15px;
         border-radius: 50%;
-        z-index: 1;
+        z-index      : 1;
 
         &::before {
-            content: "";
-            position: absolute;
-            top: 57%;
-            left: 57%;
-            margin: -13px 0 0 -13px;
-            width: 26px;
-            height: 26px;
-            border-radius: 2px;
-            border: 2.5px solid transparent;
-            border-top-color: black;
+            content          : "";
+            position         : absolute;
+            top              : 57%;
+            left             : 57%;
+            margin           : -13px 0 0 -13px;
+            width            : 26px;
+            height           : 26px;
+            border-radius    : 2px;
+            border           : 2.5px solid transparent;
+            border-top-color : black;
             border-left-color: black;
 
             font-family: initial;
-            font-size: 0;
+            font-size  : 0;
             line-height: 0;
-            opacity: 1;
-            color: none;
+            opacity    : 1;
+            color      : none;
         }
 
         @media screen and (max-width: 650px) {
@@ -241,7 +252,7 @@
     }
 
     .ant-carousel button.slick-prev {
-        left: -25px;
+        left     : -25px;
         transform: rotate(-45deg);
 
         @media screen and (max-width: 1099px) {
@@ -254,7 +265,7 @@
     }
 
     .ant-carousel button.slick-next {
-        right: -25px;
+        right    : -25px;
         transform: rotate(135deg);
 
         @media screen and (max-width: 1099px) {

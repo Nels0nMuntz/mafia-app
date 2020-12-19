@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 
-import { changePopupCartState } from '../../../redux/cart-reducer';
+import { changePopupCartState, removeProduct } from '../../../redux/cart-reducer';
 import PopupCart from './PopupCart';
 
 
 const PopupCartContainer = () => {
+
+    console.log('PopupCartContainer');
 
     const dispatch = useDispatch()
     const isOpen = useSelector(state => state.cart.isPopupCartOpen);
@@ -13,26 +15,32 @@ const PopupCartContainer = () => {
     const totalPrice = useSelector(state => state.cart.totalPrice);
     let node = null;
     const setNodeRef = nodeRef => node = nodeRef;
+    const removeItem = id => dispatch(removeProduct(id));
 
     React.useEffect(() => {
         const onClickHandler = event => {
-            console.log(!!event.target.closest(`.${node.current.className}`));
-            if (isOpen && !event.target.closest(`.${node.current.className}`)){
-                dispatch(changePopupCartState(false));
-                document.body.style.overflow = 'auto';
-                document.body.style.paddingRight = '0';
+            const target = event.target;
+            if (isOpen) {
+                if (node.current.contains(target)) {
+                    return;
+                } else if (target.closest('.popup-cart-item__remove')) {
+                    return;
+                } else {
+                    dispatch(changePopupCartState(false));
+                    document.body.style.overflow = 'auto';
+                    document.body.style.paddingRight = '0';
+                }
             }
         };
-        if(isOpen){
-            console.log('addEventListener');
+
+        if (isOpen) {
             document.body.addEventListener('click', onClickHandler);
-        }else{
-            console.log('removeEventListener');
+        }
+
+        return () => {
             document.body.removeEventListener('click', onClickHandler);
         }
-        
-        // return () => document.body.removeEventListener('click', onClickHandler);
-    }, [isOpen]);
+    }, [isOpen, list]);
 
     return (
         <PopupCart
@@ -40,6 +48,7 @@ const PopupCartContainer = () => {
             totalPrice={totalPrice}
             isOpen={isOpen}
             setNodeRef={setNodeRef}
+            removeItem={removeItem}
         />
     )
 }

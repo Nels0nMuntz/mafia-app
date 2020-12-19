@@ -3,19 +3,13 @@ import classnames from 'classnames'
 import { PropTypes } from 'prop-types';
 
 import PopupCartItem from './PopupCartItem';
-import { removeProduct } from '../../../redux/cart-reducer';
 
 import style from './PopupCart.module.scss'
-import { useDispatch } from 'react-redux';
 
 
-const PopupCart = ({ list, totalPrice, isOpen, setNodeRef }) => {
-
-    console.log('PopupCart');
-
-    const dispatch = useDispatch();
+const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem }) => {
+    
     const node = React.useRef();
-    const removeProductHandler = id => dispatch(removeProduct(id));
 
     React.useEffect(() => setNodeRef(node));
 
@@ -43,7 +37,7 @@ const PopupCart = ({ list, totalPrice, isOpen, setNodeRef }) => {
                             price={price}
                             gift={gift}
                             imageUrl={imageUrl}
-                            removeProduct={removeProductHandler}
+                            removeItem={removeItem}
                         />
                     ))}
                 </div>

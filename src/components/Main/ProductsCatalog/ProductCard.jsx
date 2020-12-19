@@ -7,10 +7,15 @@ import './../Home/HomeSlider/HomeSlider.scss'
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { addProduct } from '../../../redux/cart-reducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { increaseCount, decreaseCount, removeProduct } from './../../../redux/cart-reducer';
 
 
 const ProductCard = ({ cardData, url }) => {
+
+    console.log('ProductCard');
+
+
 
     const TOGGLE_SIZE = 'TOGGLE_SIZE';
     const SET_GIFT = 'SET_GIFT';
@@ -19,7 +24,7 @@ const ProductCard = ({ cardData, url }) => {
 
     const initialState = {
         id: cardData.id,
-        idUnique: getUniqueId(),
+        uniqueId: getUniqueId(),
         title: cardData.title,
         description: cardData.description,
         bigImageUrl: cardData.images.bigImageUrl,
@@ -96,13 +101,24 @@ const ProductCard = ({ cardData, url }) => {
         !state.checkbox
     ));
 
-    const onClickDropdown = value => value === state.selectedGift ? undefined : localDispatch(setGiftAC(value));
+    const cartList = useSelector(
+        state => state.cart.selected,
+        // (curr, prev) => !curr.find(elem => elem.id === state.uniqueId)
+        (curr, prev) => {
+            if(curr.find(elem => elem.id === state.uniqueId)) console.log(curr);
+            return !curr.find(elem => elem.id === state.uniqueId)
+        }
+    );
+    const product = cartList.find(elem => elem.id === state.uniqueId);
+    const isInCart = !!product;
 
-    const onClickOrder = () => dispatch(addProduct(state));
-    // const onClickOrder = () => {
-    //     console.log(state);
-    //     dispatch(addProduct(state))
-    // };
+    const onClickOrder = () => {
+        return isInCart ? undefined : dispatch(addProduct(state));
+    }
+    const onClickDropdown = value => value === state.selectedGift ? undefined : localDispatch(setGiftAC(value));
+    const onClickPlusCount = () => dispatch(increaseCount(state.uniqueId));
+    const onClickMinusCount = () => product.count > 1 ? dispatch(decreaseCount(state.uniqueId)) : dispatch(removeProduct(state.uniqueId));
+
 
     return (
         <article className="products_catalog_item_wrapper">
@@ -169,9 +185,37 @@ const ProductCard = ({ cardData, url }) => {
                         </div>
                         <div className="item-homeSlider__order">
                             <button
-                                className="item-homeSlider__btn"
+                                className={classnames(
+                                    'item-homeSlider__btn',
+                                    isInCart && 'in-cart'
+                                )}
                                 onClick={onClickOrder}
-                            >Заказать</button>
+                            >{isInCart ? (
+                                <div className="item-homeSlider__btn_ordered">
+                                    <div
+                                        className={classnames(
+                                            "order-manage",
+                                            "order-minus",
+                                            product.count === 1 && "disabled"
+                                        )}
+                                        onClick={onClickMinusCount}
+                                    >
+                                        <svg width="16" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <line y1="2" x2="20" y2="2" stroke="#E1B787" strokeWidth="4" />
+                                        </svg>
+                                    </div>
+                                    <div className="order_count">{product.count}</div>
+                                    <div
+                                        className="order-manage order-plus"
+                                        onClick={onClickPlusCount}
+                                    >
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="8" x2="8" y2="16" stroke="#E1B787" strokeWidth="3" />
+                                            <line y1="8" x2="16" y2="8" stroke="#E1B787" strokeWidth="3" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            ) : 'Заказать'}</button>
                         </div>
                     </div>
                 </div>

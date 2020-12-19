@@ -3,12 +3,15 @@ import React from 'react'
 import style from './PopupCart.module.scss'
 
 
-const PopupCartItem = ({ id, title, count, price, gift, imageUrl, removeProduct }) => {
+const PopupCartItem = ({ id, title, count, price, gift, imageUrl, removeItem }) => {
 
-    const onRemoveProduct = () => removeProduct(id);
-    
+    const onClickRemove = () => removeItem(id);
+
     return (
-        <div className={style.popup_cart__item}>
+        <div
+            className={`${style.popup_cart__item} popup_cart__item`}
+            data-product-id={id}
+        >
             <div className={style.item__img}>
                 <img src={imageUrl} alt="" />
             </div>
@@ -28,13 +31,15 @@ const PopupCartItem = ({ id, title, count, price, gift, imageUrl, removeProduct 
                 <div className={style.item__price}>{price} грн</div>
             </div>
             <div
-                className={style.item__remove}
-                // onClick={onRemoveProduct}
+                className={`${style.item__remove} popup-cart-item__remove`}
+                onClick={onClickRemove}
             >
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="20" cy="20" r="13.5" transform="rotate(-45 20 20)" fill="#E9DAB7" stroke="#E9DAB7" />
-                    <line x1="12.9289" y1="27.0711" x2="27.0711" y2="12.9289" stroke="white" strokeWidth="2" />
-                    <line x1="12.9289" y1="12.9289" x2="27.0711" y2="27.0711" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <g id="close">
+                        <circle id="Ellipse 1" cx="14" cy="14" r="13.5" fill="#E9DAB7" stroke="#E9DAB7" />
+                        <line id="Line 2" x1="6.92893" y1="21.0711" x2="21.0711" y2="6.92893" stroke="white" strokeWidth="2" />
+                        <line id="Line 1" x1="6.92893" y1="6.92893" x2="21.0711" y2="21.0711" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+                    </g>
                 </svg>
             </div>
         </div>
