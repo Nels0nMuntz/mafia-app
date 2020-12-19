@@ -108,9 +108,10 @@ const ProductCardContainer = ({ cardData, url }) => {
     // );
     const cartList = useSelector(createSelector(
         state => state.cart.selected,
-        
+        selected => selected.find(elem => elem.id === state.uniqueId)
     ))
-    const cartProduct = cartList.find(elem => elem.id === state.uniqueId);
+    const cartProduct = cartList;
+    // const cartProduct = cartList.find(elem => elem.id === state.uniqueId);
 
     const onClickOrder = () => {
         return cartProduct ? undefined : dispatch(addProduct(state));
