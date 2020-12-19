@@ -86,12 +86,12 @@ const cartReducer = (state = initialState, action) => {
         case RECALCULATE_TOTAL:
             const recalculated = state.selected.reduce((prev, curr) => {
                 prev.totalCount += curr.count;
-                prev.totlaprice += curr.price;
+                prev.totalPrice += curr.price * curr.count;
                 return prev
             }, {
                 totalCount: 0,
-                totlaprice: 0,
-            })
+                totalPrice: 0,
+            });
             return {
                 ...state,
                 totalCount: recalculated.totalCount,

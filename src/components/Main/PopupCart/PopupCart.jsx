@@ -7,7 +7,7 @@ import PopupCartItem from './PopupCartItem';
 import style from './PopupCart.module.scss'
 
 
-const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem }) => {
+const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseCountItem, decreaseCountItem }) => {
     
     const node = React.useRef();
 
@@ -38,6 +38,8 @@ const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem }) => {
                             gift={gift}
                             imageUrl={imageUrl}
                             removeItem={removeItem}
+                            increaseCountItem={increaseCountItem}
+                            decreaseCountItem={decreaseCountItem}
                         />
                     ))}
                 </div>

@@ -3,9 +3,13 @@ import React from 'react'
 import style from './PopupCart.module.scss'
 
 
-const PopupCartItem = ({ id, title, count, price, gift, imageUrl, removeItem }) => {
+const PopupCartItem = ({ id, title, count, price, gift, imageUrl, removeItem, increaseCountItem, decreaseCountItem }) => {
+
+    console.log('PopupCartItem');
 
     const onClickRemove = () => removeItem(id);
+    const onClickDecreaseCount = () => count > 1 ? decreaseCountItem(id) : removeItem(id);
+    const onClickIncreaseCount = () => increaseCountItem(id);
 
     return (
         <div
@@ -19,14 +23,24 @@ const PopupCartItem = ({ id, title, count, price, gift, imageUrl, removeItem }) 
                 <h3>{title}</h3>
                 <p>{gift}</p>
                 <div className={style.item__counter}>
-                    <svg width="16" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line y1="2" x2="20" y2="2" stroke="#E1B787" strokeWidth="4" />
-                    </svg>
+                    <div
+                        className="order-manage order-minus"
+                        onClick={onClickDecreaseCount}
+                    >
+                        <svg width="16" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line y1="2" x2="20" y2="2" stroke="#E1B787" strokeWidth="4" />
+                        </svg>
+                    </div>
                     <div className={style.counter_count}>{count}</div>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="8" x2="8" y2="16" stroke="#E1B787" strokeWidth="3" />
-                        <line y1="8" x2="16" y2="8" stroke="#E1B787" strokeWidth="3" />
-                    </svg>
+                    <div
+                        className="order-manage order-plus"
+                        onClick={onClickIncreaseCount}
+                    >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="8" x2="8" y2="16" stroke="#E1B787" strokeWidth="3" />
+                            <line y1="8" x2="16" y2="8" stroke="#E1B787" strokeWidth="3" />
+                        </svg>
+                    </div>
                 </div>
                 <div className={style.item__price}>{price} грн</div>
             </div>

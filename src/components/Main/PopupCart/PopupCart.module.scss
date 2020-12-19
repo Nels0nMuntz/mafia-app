@@ -107,6 +107,7 @@
                 font-weight  : 400;
                 line-height: 1.5;
                 color        : black;
+                user-select: none;
             }
 
             .item__counter {
@@ -118,6 +119,7 @@
                 .counter_count {
                     font-size: 14px;
                     margin   : 0 16px;
+                    user-select: none;
                 }
 
                 svg {
@@ -139,6 +141,7 @@
                 font-size  : 24px;
                 font-weight: 400;
                 line-height: 1;
+                user-select: none;
             }
         }
 
@@ -165,6 +168,7 @@
 .popup_cart__footer {
     padding-top   : 25px;
     padding-bottom: 20px;
+    user-select: none;
 
     .popup_cart__footer_price {
         display        : flex;

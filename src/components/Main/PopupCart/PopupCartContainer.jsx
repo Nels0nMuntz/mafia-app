@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 
-import { changePopupCartState, removeProduct } from '../../../redux/cart-reducer';
+import { changePopupCartState, removeProduct, increaseCount, decreaseCount } from '../../../redux/cart-reducer';
 import PopupCart from './PopupCart';
 
 
@@ -16,6 +16,8 @@ const PopupCartContainer = () => {
     let node = null;
     const setNodeRef = nodeRef => node = nodeRef;
     const removeItem = id => dispatch(removeProduct(id));
+    const increaseCountItem = id => dispatch(increaseCount(id));
+    const decreaseCountItem = id => dispatch(decreaseCount(id));
 
     React.useEffect(() => {
         const onClickHandler = event => {
@@ -49,6 +51,8 @@ const PopupCartContainer = () => {
             isOpen={isOpen}
             setNodeRef={setNodeRef}
             removeItem={removeItem}
+            increaseCountItem={increaseCountItem}
+            decreaseCountItem={decreaseCountItem}
         />
     )
 }

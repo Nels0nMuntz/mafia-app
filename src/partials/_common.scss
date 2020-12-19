@@ -132,7 +132,6 @@
         justify-content: center;
 
         svg {
-            cursor: pointer;
 
             line {
                 stroke: white;
@@ -145,19 +144,22 @@
             }
         }
 
-        .order-manage {
-            display        : flex;
-            align-items    : center;
-            justify-content: center;
+        // .order-manage {
+        //     display        : flex;
+        //     align-items    : center;
+        //     justify-content: center;
+        //     width: 16px;
+        //     height: 16px;
+        //     cursor: pointer;
 
-            &.disabled {
-                svg {
-                    line {
-                        stroke: rgba(255, 255, 255, .75);
-                    }
-                }
-            }
-        }
+        //     &.disabled {
+        //         svg {
+        //             line {
+        //                 stroke: rgba(255, 255, 255, .75);
+        //             }
+        //         }
+        //     }
+        // }
 
         .order_count {
             font-size   : 18px;
@@ -166,6 +168,23 @@
             margin      : 0 15px;
             border-left : 1px solid rgba(white, 0.5);
             border-right: 1px solid rgba(white, 0.5);
+        }
+    }
+}
+
+.order-manage {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &.disabled {
+        svg {
+            line {
+                stroke: rgba(255, 255, 255, .75);
+            }
         }
     }
 }

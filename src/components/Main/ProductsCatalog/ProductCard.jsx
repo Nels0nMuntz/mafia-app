@@ -9,8 +9,6 @@ import './../Home/HomeSlider/HomeSlider.scss'
 
 const ProductCard = ({state, url, cartProduct, onClickDropdown, onClickButton, onClickCheckbox, onClickOrder, onClickPlusCount, onClickMinusCount }) => {
 
-    console.log(cartProduct);
-
     return (
         <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
@@ -87,7 +85,7 @@ const ProductCard = ({state, url, cartProduct, onClickDropdown, onClickButton, o
                                         className={classnames(
                                             "order-manage",
                                             "order-minus",
-                                            cartProduct.count === 1 && "disabled"
+                                            // cartProduct.count === 1 && "disabled"
                                         )}
                                         onClick={onClickMinusCount}
                                     >
