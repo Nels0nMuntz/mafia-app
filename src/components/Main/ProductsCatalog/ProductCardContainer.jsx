@@ -106,16 +106,14 @@ const ProductCardContainer = ({ cardData, url }) => {
     //         return !curr.find(elem => elem.id === state.uniqueId);
     //     }
     // );
-    const cartList = useSelector(createSelector(
+    const cartProduct = useSelector(createSelector(
         state => state.cart.selected,
         selected => selected.find(elem => elem.id === state.uniqueId)
-    ))
-    const cartProduct = cartList;
+    ));
+    // const cartProduct = cartList;
     // const cartProduct = cartList.find(elem => elem.id === state.uniqueId);
 
-    const onClickOrder = () => {
-        return cartProduct ? undefined : dispatch(addProduct(state));
-    }
+    const onClickOrder = () => cartProduct ? undefined : dispatch(addProduct(state));
     const onClickDropdown = value => value === state.selectedGift ? undefined : localDispatch(setGiftAC(value));
     const onClickPlusCount = () => dispatch(increaseCount(state.uniqueId));
     const onClickMinusCount = () => cartProduct.count > 1 ? dispatch(decreaseCount(state.uniqueId)) : dispatch(removeProduct(state.uniqueId));

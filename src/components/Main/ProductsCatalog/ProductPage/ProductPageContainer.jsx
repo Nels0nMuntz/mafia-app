@@ -12,14 +12,13 @@ import Preloader from '../../../Preloader/Preloader';
 const ProductPageContainer = ({ menuItem, productId }) => {
 
     const dispatch = useDispatch();
-    const productSelector = createSelector(
-        state => state.catalog[menuItem].list,
-        productsList => productsList ? productsList.find(({ id }) => +productId === id) : {}
-    );
-    const product = useSelector(productSelector);
-    const isExists = !!Object.keys(product).length;
+    const product = useSelector(createSelector(
+        state => state.catalog[menuItem],
+        product => product ? product.list.find(({ id }) => +productId === id) : {}
+    ));
+    const isExists = !!Object.keys(product).length;    
 
-    React.useEffect(() => isExists ? undefined : dispatch(requestCatalogItem()), [product]);
+    React.useEffect(() => isExists ? undefined : dispatch(requestCatalogItem(menuItem)), [isExists]);
 
     return (
         isExists ? (
@@ -27,8 +26,8 @@ const ProductPageContainer = ({ menuItem, productId }) => {
                 product={product}
             />
         ) : (
-            <Preloader/>
-        )
+                <Preloader />
+            )
     );
 }
 

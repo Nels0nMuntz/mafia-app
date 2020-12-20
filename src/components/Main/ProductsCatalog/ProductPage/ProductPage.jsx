@@ -1,9 +1,13 @@
 import React from 'react'
 import { PropTypes } from 'prop-types';
+import classnames from 'classnames'
+import { useDispatch, useSelector } from 'react-redux';
+import { createSelector } from 'reselect';
 
 import withBreadcrumbs from './../../../HOC/withBreadcrumbs';
 import GiftDropdown from './../../../common/GiftDropdown/GiftDropdown';
 import Swicher from './../../../common/Swicher/Swicher';
+import { addProduct, decreaseCount, increaseCount, removeProduct } from '../../../../redux/cart-reducer';
 
 import style from './ProductPage.module.scss'
 import deliveyImgUrl_1 from './../../../../assets/images/delivery-icon1.png'
@@ -12,10 +16,14 @@ import deliveyImgUrl_2 from './../../../../assets/images/delivery-icon2.png'
 
 const ProductPage = ({ BreadcrumbsComponent, product }) => {
 
+    const getUniqueId = cardData => cardData.title.replace(" ", "").split("").reduce((acc, char) => char.charCodeAt(0) + acc, '');
+
     const SET_SIZE = 'SET_SIZE';
     const SET_GIFT = 'SET_GIFT';
 
     const initialState = {
+        id: product.id,
+        uniqueId: getUniqueId(product),
         title: product.title,
         description: product.description,
         productImage: product.images.smallImageUrl,
@@ -31,7 +39,7 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
         hasAdditionals: !!product.additionals.length,
         checkbox: false,
         prevButton: null,
-        selected: {
+        selectedSize: {
             weight: product.sizes[0].weight,
             price: product.sizes[0].price,
             discount: product.sizes[0].discount,
@@ -44,7 +52,7 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
             case SET_SIZE:
                 return {
                     ...state,
-                    selected: {
+                    selectedSize: {
                         weight: action.payload.weight,
                         price: action.payload.price,
                         discount: action.payload.discount,
@@ -90,6 +98,15 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
         state.sizes[+(!state.checkbox)].discount,
         !state.checkbox
     ));
+    const cartProduct = useSelector(createSelector(
+        state => state.cart.selected,
+        selected => selected.find(elem => elem.id === state.uniqueId)
+    ));
+    const dispatchRedux = useDispatch()
+    const onClickOrder = () => cartProduct ? undefined : dispatchRedux(addProduct(state));
+    const onClickPlusCount = () => dispatchRedux(increaseCount(state.uniqueId));
+    const onClickMinusCount = () => cartProduct.count > 1 ? dispatchRedux(decreaseCount(state.uniqueId)) : dispatchRedux(removeProduct(state.uniqueId));
+
 
     return (
         <section className={style.productPage}>
@@ -101,20 +118,20 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                     <div className={`${style.productPage__img} productPage__img`}>
                         <img src={state.productImage} alt="" />
                         <div className="product-tag__wrapper">
-                        {state.tags && state.tags.map(({ id, type, content }) => (
-                            <div
-                                key={id}
-                                className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
-                            >
-                                <span>{content}</span>
-                            </div>
-                        ))}
-                    </div>
+                            {state.tags && state.tags.map(({ id, type, content }) => (
+                                <div
+                                    key={id}
+                                    className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
+                                >
+                                    <span>{content}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className={style.productPage__info}>
                         <h2>{state.title}</h2>
                         <div className={style.productPage__weight_block}>
-                            <div className={style.productPage__weight}>{state.selected.weight}</div>
+                            <div className={style.productPage__weight}>{state.selectedSize.weight}</div>
                             {state.hasTwoSizes && (
                                 <Swicher
                                     onClickButtonHandler={onClickButton}
@@ -138,11 +155,41 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                             )}
                             <div className={style.productPage__price_block}>
                                 <div className={style.productPage__price}>
-                                    {state.hasDiscount && <span className={style.productPage__price_discount}>{state.selected.discount} грн</span>}
-                                    <span className={`${style.productPage__price_ordinary} ${state.hasDiscount ? style.width_discount : ''}`}>{state.selected.price} грн</span>
+                                    {state.hasDiscount && <span className={style.productPage__price_discount}>{state.selectedSize.discount} грн</span>}
+                                    <span className={`${style.productPage__price_ordinary} ${state.hasDiscount ? style.width_discount : ''}`}>{state.selectedSize.price} грн</span>
                                 </div>
                                 <div className={style.productPage__order_btn}>
-                                    <button>В корзину</button>
+                                    <button
+                                        className={classnames(
+                                            'item-homeSlider__btn',
+                                            'item-homeSlider__btn-mini',
+                                        )}
+                                        onClick={onClickOrder}
+                                    >{cartProduct ? (
+                                        <div className="item-homeSlider__btn_ordered">
+                                            <div
+                                                className={classnames(
+                                                    "order-manage",
+                                                    "order-minus",
+                                                )}
+                                                onClick={onClickMinusCount}
+                                            >
+                                                <svg width="16" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <line y1="2" x2="20" y2="2" stroke="#E1B787" strokeWidth="4" />
+                                                </svg>
+                                            </div>
+                                            <div className="order_count">{cartProduct.count}</div>
+                                            <div
+                                                className="order-manage order-plus"
+                                                onClick={onClickPlusCount}
+                                            >
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <line x1="8" x2="8" y2="16" stroke="#E1B787" strokeWidth="3" />
+                                                    <line y1="8" x2="16" y2="8" stroke="#E1B787" strokeWidth="3" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    ) : 'Заказать'}</button>
                                 </div>
                             </div>
                             {state.hasBonuses && (
