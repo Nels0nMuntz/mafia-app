@@ -112,7 +112,6 @@ const recalculateTotalAC = () => ({type: RECALCULATE_TOTAL});
 
 export const changePopupCartState = value => ({ type: CHANGE_POPUP_CART_STATE, payload: value });
 export const addProduct = product => dispatch => {
-    console.log(product);
     dispatch(addProductAC(product));
     dispatch(recalculateTotalAC());
 };

@@ -15,6 +15,11 @@ const PopupCartContainer = () => {
     const totalPrice = useSelector(state => state.cart.totalPrice);
     let node = null;
     const setNodeRef = nodeRef => node = nodeRef;
+    const closePopupCart = () => {
+        dispatch(changePopupCartState(false));
+        document.body.style.overflow = 'auto';
+        document.body.style.paddingRight = '0';
+    };
     const removeItem = id => dispatch(removeProduct(id));
     const increaseCountItem = id => dispatch(increaseCount(id));
     const decreaseCountItem = id => dispatch(decreaseCount(id));
@@ -28,9 +33,7 @@ const PopupCartContainer = () => {
                 } else if (target.closest('.popup-cart-item__remove')) {
                     return;
                 } else {
-                    dispatch(changePopupCartState(false));
-                    document.body.style.overflow = 'auto';
-                    document.body.style.paddingRight = '0';
+                    closePopupCart();
                 }
             }
         };
@@ -53,6 +56,7 @@ const PopupCartContainer = () => {
             removeItem={removeItem}
             increaseCountItem={increaseCountItem}
             decreaseCountItem={decreaseCountItem}
+            closePopupCart={closePopupCart}
         />
     )
 }

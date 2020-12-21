@@ -5,11 +5,13 @@ import { PropTypes } from 'prop-types';
 import PopupCartItem from './PopupCartItem';
 
 import style from './PopupCart.module.scss'
+import { Link } from 'react-router-dom';
 
 
-const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseCountItem, decreaseCountItem }) => {
-    
+const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseCountItem, decreaseCountItem, closePopupCart }) => {
+
     const node = React.useRef();
+    const onClosePopupCart = () => closePopupCart();
 
     React.useEffect(() => setNodeRef(node));
 
@@ -48,9 +50,14 @@ const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseC
                         <span>Сумма:</span>
                         <span>{totalPrice} грн</span>
                     </div>
-                    <button
-                        className="item-homeSlider__btn popup_cart__btn"
-                    >Оформить</button>
+                    <Link to='/checkout'>
+                        <button
+                            className="item-homeSlider__btn popup_cart__btn"
+                            onClick={onClosePopupCart}
+                        >
+                            Оформить
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

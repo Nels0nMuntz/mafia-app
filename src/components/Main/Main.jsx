@@ -6,7 +6,7 @@ import ProductsFilter from './ProductsFilter/ProductsFilter';
 import Home from './Home/Home';
 import ProductsCatalogContainer from './ProductsCatalog/ProductsCatalogContainer';
 import ProductPageContainer from './ProductsCatalog/ProductPage/ProductPageContainer';
-import Checkout from './Checkout/Checkout';
+import CheckoutContainer from './Checkout/CheckoutContainer';
 
 import style from './Main.module.scss'
 
@@ -37,7 +37,7 @@ const Main = React.memo(({ menuItem, product, productId, url }) => {
                         )}
                 </Route>
                 <Route path='/checkout'>
-                    <Checkout/>
+                    <CheckoutContainer/>
                 </Route>
             </Switch>
         </main>
