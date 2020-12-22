@@ -2,9 +2,12 @@ import React from 'react'
 import { Redirect } from 'react-router-dom';
 
 import CheckoutItem from './CheckoutItem';
+import CheckoutForm from './CheckoutForm/CheckoutForm';
 
 import style from './Checkout.module.scss'
-import imgUrl from './../../../assets/images/pizza-product.jpeg'
+import benefits1Img from './../../../assets/images/checkout/benefits1.svg'
+import benefits2Img from './../../../assets/images/checkout/benefits2.svg'
+import benefits3Img from './../../../assets/images/checkout/benefits3.svg'
 
 
 const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
@@ -32,6 +35,7 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                     <div className={style.checkout_list__body}>
                         {list.map(({ id, title, imageUrl, gift, count, price }) => (
                             <CheckoutItem
+                                key={id}
                                 id={id}
                                 title={title}
                                 imageUrl={imageUrl}
@@ -55,16 +59,32 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                     </div>
                 </section>
                 <section className={style.checkout__section}>
-                    <div className={style.checkout_confirm__header}>
-                        <p>Номер телефона</p>
-                        <form>
-                            <input type="number"/>
-                            <button type="submit">Продолжить с СМС-кодом для авторизации</button>
-                        </form>
-                        <p>и получить бонусы на карту</p>
-                    </div>
-                    <div className={style.checkout_confirm__footer}>
-
+                    <div className={style.checkout_confirm}>
+                        <div className={style.checkout_confirm__header}>
+                            <div className={style.checkout_confirm__row}>
+                                {<CheckoutForm/>}
+                                <ul className={style.checkout_benefits}>
+                                    <li>
+                                        <img src={benefits1Img} alt="" />
+                                        <p><span>Сразу в ресторан</span>, без подтверждения оператора</p>
+                                    </li>
+                                    <li>
+                                        <img src={benefits2Img} alt="" />
+                                        <p><span>Не нужно вводить адрес</span>, Если вы уже ранее заказывали </p>
+                                    </li>
+                                    <li>
+                                        <img src={benefits3Img} alt="" />
+                                        <p>Если вы уже ранее заказывали - <span>на 78% быстрее</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className={style.checkout_confirm__footer}>
+                            <div className={style.checkout_confirm__row}>
+                                <button>Продолжить без СМС авторизации</button>
+                                <span>Бонусы не будут начислены</span>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
