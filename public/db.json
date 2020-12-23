@@ -3825,6 +3825,1492 @@
                 }               
             ],
             "fastCategories": []
+        },
+        "goryachie-bluda": {
+            "title": "Горячие блюда",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Картофель по-средиземноморски",
+                    "description": [
+                        "Запеченный картофель с грибами, зеленым маслом и травами"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kartofel-po-sredizemnomorski_1562848361506.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kartofel-po-sredizemnomorski_1562848350211.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "270  г",
+                            "price": 55,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 9,
+                    "added": "04.30.2015",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "content": "1+1 ЗАБЕРИ САМ"
+                        }
+                    ],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 2,
+                    "title": "Паста Болоньезе",
+                    "description": [
+                        "Спагетти с фирменным соусом болоньезе и сыром пармезан"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/pasta-boloneze_1551079599608.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/pasta-boloneze_15510795922.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "320  г",
+                            "price": 99,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 9,
+                    "added": "04.30.2015",
+                    "tags": [
+                        {
+                            "id": 1,
+                            "type": "primary",
+                            "content": "1+1 ЗАБЕРИ САМ"
+                        }
+                    ],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 3,
+                    "title": "Паста тальятелле 4 сыра",
+                    "description": [
+                        "Тальятелле со сливочно-сырным соусом, пармезаном, чеддером, радомером и голубым сыром"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/pasta-talyatelle-4-syra_1588938929522.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/pasta-talyatelle-4-syra.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "280  г",
+                            "price": 99,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 8,
+                    "added": "05.15.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 4,
+                    "title": "Ассорти эскалопов",
+                    "description": [
+                        "Микс эскалопов из телятины, свинины и куриного филе на гриле с запеченным картофелем, шампиньонами и пикантным салатом"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/assorti-eskalopov_156284816749.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/assorti-eskalopov_1562848162402.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "200/200/30 г",
+                            "price": 209,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 8,
+                    "added": "05.15.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 5,
+                    "title": "Картофель фри",
+                    "description": [
+                        "Картофель фри"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kartofel-fri_1550770474765.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kartofel-fri_1550770471902.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "140 г",
+                            "price": 39,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 7,
+                    "added": "10.01.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 6,
+                    "title": "Овощи гриль",
+                    "description": [
+                        "Баклажан, цукини, шампиньоны, перец болгарский, сливочный соус с пармезаном"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/ovoshchi-gril_1550771039104.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/ovoshchi-gril.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "310 г",
+                            "price": 99,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 7,
+                    "added": "08.01.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 7,
+                    "title": "Стейк со cвинины гриль",
+                    "description": [
+                        "Cтейк из свинины, спаржевая фасоль и конфитюр с лука под крем-соусом карбонара, соус BBQ"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/stejk-so-cvininy-gril_1598427865792.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/stejk-so-cvininy-gril_1598427858948.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "180/150/55 г",
+                            "price": 179,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 7,
+                    "added": "08.01.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 8,
+                    "title": "Равиоли с лососем и маскарпоне",
+                    "description": [
+                        "Домашние равиоли с лососем и крем-сыром маскарпоне в сливочном соусе, пармезан, томаты черри и руккола"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/ravioli-s-lososem-i-maskarpone_1598606373392.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/ravioli-s-lososem-i-maskarpone.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "340 г",
+                            "price": 129,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 7,
+                    "added": "05.01.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 9,
+                    "title": "Шашлык из куриного бедра L",
+                    "description": [
+                        "Сочный шашлык из куриного бедра с соусом BBQ, маринованным луком и фокаччей"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/shashlyk-iz-kurinogo-bedra-l_1587048027375.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/shashlyk-iz-kurinogo-bedra-l.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "350/70/160 г",
+                            "price": 189,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 7,
+                    "added": "04.11.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 10,
+                    "title": "Дорадо с тайским соусом",
+                    "description": [
+                        "Филе дорадо, тайский кокосовый соус самуи, паровой рис, базилик, зеленый лук и кинза"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/dorado-s-tajskim-sousom_1598942116308.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/dorado-s-tajskim-sousom.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "120/100/120 г",
+                            "price": 225,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Горячие блюда",
+                    "rate": 6,
+                    "added": "04.05.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                }
+            ],
+            "fastCategories": []
+        },
+        "gruzinskie-bluda": {
+            "title": "Грузинские блюда",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Хинкали со свининой, говядиной и кинзой",
+                    "description": [
+                        "Рубленая говядина и свинина с луком и кинзой",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hinkali-so-svininoj-govyadinoj-i-kinzoj_1588668184454.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hinkali-so-svininoj-govyadinoj-i-kinzoj.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "4 шт",
+                            "price": 65,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Хинкали",
+                    "rate": 9,
+                    "added": "04.30.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 2,
+                    "title": "Хинкали с бараниной",
+                    "description": [
+                        "Рубленая баранина с луком, кинзой и специями",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hinkali-so-svininoj-govyadinoj-i-kinzoj_1588668184454.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hinkali-so-svininoj-govyadinoj-i-kinzoj.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "4 шт",
+                            "price": 79,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Хинкали",
+                    "rate": 9,
+                    "added": "05.30.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 3,
+                    "title": "Шаурма с курицей гриль",
+                    "description": [
+                        "Пита с курицей гриль, маринованными огурцами и свежими овощами",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/shaurma-s-kuricej-gril_1588667457314.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/shaurma-s-kuricej-gril.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "400г",
+                            "price": 69,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Шаурма",
+                    "rate": 8,
+                    "added": "05.30.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 4,
+                    "title": "Картошка фри",
+                    "description": [
+                        "Картофель фри со сванской солью",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kartoshka-fri_158866900946.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kartoshka-fri.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "150 г",
+                            "price": 27,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Грузинские блюда",
+                    "rate": 8,
+                    "added": "05.25.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 5,
+                    "title": "Хачапури с сыром",
+                    "description": [
+                        "Хачапури с имеретинским сыром и сулугуни",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hachapuri-s-syrom_1588668277227.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hachapuri-s-syrom.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "200 г",
+                            "price": 29,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Хачапури",
+                    "rate": 8,
+                    "added": "07.25.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 6,
+                    "title": "Хачапури по-аджарски с сыром",
+                    "description": [
+                        "Открытый хрустящий хачапури с сыром, яичным желтком и сливочным маслом",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hachapuri-po-adzharski-s-syrom_1588668649812.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hachapuri-po-adzharski-s-syrom.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "380 г",
+                            "price": 125,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Хачапури",
+                    "rate": 8,
+                    "added": "07.25.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 7,
+                    "title": "Хачапури по-аджарски с мясом",
+                    "description": [
+                        "Открытый хрустящий хачапури с рубленой свининой и курятиной, томатами, перцем цицаки и сливочным маслом",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hachapuri-po-adzharski-s-myasom_1588668711145.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hachapuri-po-adzharski-s-myasom.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "395 г",
+                            "price": 135,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Хачапури",
+                    "rate": 8,
+                    "added": "07.25.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 8,
+                    "title": "Хачапури по-мегрельски",
+                    "description": [
+                        "С имеретинским сыром внутри и сулугуни сверху",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hachapuri-po-megrelski_1588668591732.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hachapuri-po-megrelski.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "495 г",
+                            "price": 145,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Хачапури",
+                    "rate": 6,
+                    "added": "07.25.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 9,
+                    "title": "Хачапури с бараниной и перцем чили",
+                    "description": [
+                        "С рубленой бараниной и специями",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hachapuri-s-baraninoj-i-percem-chili_1588668532224.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hachapuri-s-baraninoj-i-percem-chili.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "460 г",
+                            "price": 149,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Хачапури",
+                    "rate": 6,
+                    "added": "07.13.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 10,
+                    "title": "Шашлик из телятины",
+                    "description": [
+                        "Маринованная телятина обжаренная на мангале. Сервируем на лаваше со свежим луком с зеленью и зернами граната, соус сацебели",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/shashlik-iz-telyatiny_1588667213718.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/shashlik-iz-telyatiny_1588667208882.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100/20 г",
+                            "price": 99,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Гриль",
+                    "rate": 7,
+                    "added": "07.13.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 11,
+                    "title": "Шашлик из свинного ошейка",
+                    "description": [
+                        "Свиной ошеек обжаренный на мангале. Сервируем на лаваше со свежим луком с зеленью и зернами граната, соус сацебели",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/shashlik-iz-svinnogo-oshejka_1588667387811.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/shashlik-iz-svinnogo-oshejka_1588667379902.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100/20 г",
+                            "price": 95,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Гриль",
+                    "rate": 7,
+                    "added": "07.13.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 12,
+                    "title": "Шашлык из куриного бедра",
+                    "description": [
+                        "Мясо курицы обжаренное на мангале.  Сервируем на лаваше со свежим луком с зеленью и зернами граната, соус сацебели",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/shashlyk-iz-kurinogo-bedra_158866636198.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/shashlyk-iz-kurinogo-bedra_1588666354488.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "100/20 г",
+                            "price": 65,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Гриль",
+                    "rate": 7,
+                    "added": "07.13.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 13,
+                    "title": "Люля-кебаб куриный",
+                    "description": [
+                        "Люля-кебаб из курицы. Сервируем на лаваше со свежим луком с зеленью и зернами граната, соус сацебели",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/lyulya-kebab-kurinyj_1588668842678.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/lyulya-kebab-kurinyj_1588668836576.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "210/30 г",
+                            "price": 135,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Гриль",
+                    "rate": 7,
+                    "added": "12.23.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 14,
+                    "title": "Ассорти из шашлыков",
+                    "description": [
+                        "Шашлыки из свиного ошейка, телятины и курицы, кебаб из свинины с телятиной и кебаб из курицы. Сервируем на лаваше со свежим луком с зеленью и зернами граната, соус сацебели",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/assorti-iz-shashlykov_1588669068752.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/assorti-iz-shashlykov.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "500 /100 г",
+                            "price": 489,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Гриль",
+                    "rate": 7,
+                    "added": "12.23.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 15,
+                    "title": "Аджика",
+                    "description": [
+                        "Красная острая аджика из томатов, сладкого перца и специй",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/adzhika_1588669193780.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/adzhika_1588669188308.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "30 г",
+                            "price": 18,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Гриль",
+                    "rate": 7,
+                    "added": "10.23.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 16,
+                    "title": "Сацебели",
+                    "description": [
+                        "Острый соус из томатов и кинзы",
+                        "* из меню ресторана Georgia"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/sacebeli_1588668770705.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/adzhika_1588669188308.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "30 г",
+                            "price": 18,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Гриль",
+                    "rate": 7,
+                    "added": "10.23.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                }
+            ],
+            "fastCategories": [
+                {
+                    "id": 1,
+                    "content": "Все",
+                    "type": "default"
+                },
+                {
+                    "id": 2,
+                    "content": "Хинкали",
+                    "type": "Хинкали"
+                },
+                {
+                    "id": 3,
+                    "content": "Шаурма",
+                    "type": "Шаурма"
+                },
+                {
+                    "id": 4,
+                    "content": "Хачапури",
+                    "type": "Хачапури"
+                },
+                {
+                    "id": 5,
+                    "content": "Гриль",
+                    "type": "Гриль"
+                }
+            ]
+        },
+        "deserty": {
+            "title": "Десерты",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Ягодный чизкейк",
+                    "description": [
+                        "Классический десерт с маскарпоне и ягодным соусом"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/ne-ofomlyat-chizkejk-yagodnyj_1550735812718.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/ne-ofomlyat-chizkejk-yagodnyj.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "125 г",
+                            "price": 79,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 9,
+                    "added": "04.23.2020",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 2,
+                    "title": "Наполеон с соленой карамелью",
+                    "description": [
+                        "Нежные слоеные коржи с карамельным соусом"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/napoleon-s-solenoj-karamelyu_155074759091.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/napoleon-s-solenoj-karamelyu.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "120 г",
+                            "price": 89,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 8,
+                    "added": "04.23.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 3,
+                    "title": "Классический чизкейк",
+                    "description": [
+                        "Классический десерт из сливочного сыра на песочной основе"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/klassicheskij-chizkejk_1550734256473.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/klassicheskij-chizkejk.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "140 г",
+                            "price": 79,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 6,
+                    "added": "01.11.2020",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 4,
+                    "title": "Кэррот кейк",
+                    "description": [
+                        "Классический морковный торт с орехами"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kerrot-kejk_157242513644.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kerrot-kejk.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "125 г",
+                            "price": 79,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Десерты",
+                    "rate": 6,
+                    "added": "01.11.2020",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 2,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additionals": []
+                }
+            ],
+            "fastCategories": []
+        },
+        "napitki": {
+            "title": "Напитки",
+            "list": [
+                {
+                    "id": 1,
+                    "title": "Hoegaarden",
+                    "description": [
+                        "Пиво",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/hugarden-05-l-zhb-d_1583842182750.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/hugarden-05-l-zhb-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,5 л",
+                            "price": 69,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Пиво",
+                    "rate": 8,
+                    "added": "04.23.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 2,
+                    "title": "Bud",
+                    "description": [
+                        "Пиво",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/bad-steklo-075l-d_1583847152686.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bad-steklo-075l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Пиво",
+                    "rate": 8,
+                    "added": "04.23.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id":3,
+                    "title": "Corona Extra",
+                    "description": [
+                        "Пиво",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/korona-steklo-0335l-d_1583846945714.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/korona-steklo-0335l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,33 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Пиво",
+                    "rate": 9,
+                    "added": "04.23.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 4,
+                    "title": "Staropramen Dark",
+                    "description": [
+                        "Пиво",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/staropramen-dark-steklo-05l-d_1583847045866.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/staropramen-dark-steklo-05l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,5 л",
+                            "price": 35,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Пиво",
+                    "rate": 7,
+                    "added": "04.23.2014",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 5,
+                    "title": "Сидр яблочный Де Сад",
+                    "description": [
+                        "Пиво",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/sidr-yablochnyj-de-sad_1588062846435.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/sidr-yablochnyj-de-sad.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,5 л",
+                            "price": 35,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Пиво",
+                    "rate": 7,
+                    "added": "04.23.2014",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 6,
+                    "title": "Stella Artois, б/а",
+                    "description": [
+                        "Пиво",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/stella-artois-b_1599114566762.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/stella-artois-b.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,5 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Пиво",
+                    "rate": 8,
+                    "added": "04.23.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 7,
+                    "title": "Алазанская долина Duruji Valley",
+                    "description": [
+                        "Белое, полусладкое, Грузия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/alazanskaya-dolina-duruji-valley_1597322593853.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/alazanskaya-dolina-duruji-valley_1597322581956.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 189,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 9,
+                    "added": "08.20.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                },
+                {
+                    "id": 8,
+                    "title": "Цинандали Agmarti",
+                    "description": [
+                        "Белое, сухое, Грузия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/cinandali-agmarti_1597322869537.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/cinandali-agmarti.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 179,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 9,
+                    "added": "08.20.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additionals": []
+                }
+            ],
+            "fastCategories": [
+                {
+                    "id": 1,
+                    "content": "Все",
+                    "type": "default"
+                },
+                {
+                    "id": 2,
+                    "content": "Пиво",
+                    "type": "Пиво"
+                },
+                {
+                    "id": 3,
+                    "content": "Вина и игристые",
+                    "type": "Вина и игристые"
+                },
+                {
+                    "id": 4,
+                    "content": "Крепкие напитки",
+                    "type": "Крепкие напитки"
+                },
+                {
+                    "id": 5,
+                    "content": "Соки и вода",
+                    "type": "Соки и вода"
+                }
+            ]
         }
     }
 }
