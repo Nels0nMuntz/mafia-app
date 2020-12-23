@@ -16,6 +16,59 @@
     overflow: hidden;
 }
 
+.custom-checkbox {
+    label {
+        position   : relative;
+        display    : inline-flex;
+        align-items: center;
+        user-select: none;
+        font-size  : 14px;
+        color      : black;
+
+        &::before {
+            content      : '';
+            display      : inline-block;
+            width        : 20px;
+            height       : 20px;
+            flex-shrink  : 0;
+            flex-grow    : 0;
+            margin-right : 10px;
+            border       : 2px solid var(--green-100);
+            border-radius: 2px;
+            transition   : box-shadow .2s ease;
+        }
+
+        &::after {
+            content   : '\2714';
+            position  : absolute;
+            top       : 50%;
+            left      : 4px;
+            transform: translateY(-50%);
+            font-size : 16px;
+            color     : #8c9f3f;
+            opacity   : 0;
+            transition: opacity .2s ease;
+            z-index   : 2;
+        }
+    }
+
+    & input:not(:disabled):active+label::before {
+        background-color: var(--green-200);
+    }
+
+    & input:checked+label::after {
+        opacity: 1;
+    }
+
+    & input:focus+label::before {
+        box-shadow: 0px 0px 5px 3px var(--green-200);
+    }
+
+    & input:focus:checked+label::before {
+        box-shadow: none;
+    }
+}
+
 .product-tag__wrapper {
     position   : absolute;
     top        : 0;
@@ -100,10 +153,10 @@
     border-radius: 3px;
     transition   : color 0.1s linear, background-color 0.1s linear;
 
-    &.item-homeSlider__btn-mini{
-        padding: 12px 28px;
-        font-size: 15px;
-        color: white;
+    &.item-homeSlider__btn-mini {
+        padding         : 12px 28px;
+        font-size       : 15px;
+        color           : white;
         background-color: var(--green-100);
     }
 
@@ -183,9 +236,9 @@
     display        : flex;
     align-items    : center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+    width          : 16px;
+    height         : 16px;
+    cursor         : pointer;
 
     &.disabled {
         svg {

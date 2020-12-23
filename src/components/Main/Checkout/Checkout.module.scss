@@ -1,6 +1,10 @@
 .checkout__wrapper {
     padding         : 50px 15px;
     background-color: rgb(244, 244, 244);
+
+    @media screen and (max-width: 575px){
+        padding: 30px 10px;
+    }
 }
 
 .checkout__container {
@@ -14,6 +18,11 @@
     font-weight  : 900;
     text-align   : center;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 575px){
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
 }
 
 .checkout__section {
@@ -403,6 +412,7 @@
 
     .tab__pane {
         display                : flex;
+        flex-wrap: wrap;
         align-items            : center;
         width                  : calc(50% - 4px);
         padding                : 20px 30px;
@@ -414,17 +424,38 @@
         border-top-right-radius: 4px;
         cursor                 : pointer;
 
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+            padding: 10px 10px 5px;
+            min-height: 145px;
+        }
+
         .pane__text {
-            flex        : 1 1 0;
+            flex-grow: 1;
+            padding-right: 10px;
             border-right: 1px solid #AFB696;
 
+            @media screen and (max-width: 767px) {
+                width: 100%;
+                padding: 0;
+                border: none;
+            }
+
             .pane__title {
-                font-size: 18px;
+                font-size: 17px;
+
+                @media screen and (max-width: 767px) {
+                    font-size: 15px;
+                }
             }
 
             .pane__subtitle {
                 font-size: 14px;
                 color    : var(--green-100);
+
+                @media screen and (max-width: 767px) {
+                    font-size: 13px;
+                }
             }
         }
 
@@ -436,6 +467,16 @@
             height         : 100%;
             padding        : 10px;
             color          : var(--green-100);
+
+            @media screen and (max-width: 767px) {
+                width: 100%;
+                height: auto;
+                justify-content: flex-start;
+                padding: 10px 0 0 0;
+                margin-top: 10px;
+                font-size: 14px;
+                border-top: 1px solid #AFB696;
+            }
         }
     }
 
@@ -454,6 +495,10 @@
         }
         .pane__price{
             color: white;
+
+            @media screen and (max-width: 767px) {
+                border-color: #707F32;
+            }
         }
     }
 }
@@ -469,6 +514,10 @@
         padding: 0 30px;
         background-color: white;
 
+        @media screen and (max-width: 575px) {
+            padding: 0 15px;
+        }
+
         .form__section{
             padding: 30px 0;
             border-bottom: 1px solid var(--brown-light);
@@ -477,9 +526,14 @@
             grid-column-gap: 50px;
             grid-row-gap: 25px;
 
+            @media screen and (max-width: 575px) {
+                grid-template-columns: 1fr;
+            }
+
             .form__section_item{
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 
                 label{
                     font-size: 14px;
@@ -515,10 +569,37 @@
                     grid-template-columns: 1fr;
                 }
             }
+            &:nth-child(3){
+                border-bottom: none;
+            }
         }
 
         .form__footer{
-            padding: 50px 0 30px;
+            padding: 40px 0 30px;
+
+            .footer__comment{
+                margin-bottom: 30px;
+                button{
+                    display: block;
+                    font-size: 15px;
+                    line-height: 1.2;
+                    margin-bottom: 10px;
+                    border-bottom: 1px dashed black;
+                    transition: border-color 0.1s linear;
+                    &:hover{
+                        border-color: white;
+                    }
+                }
+                textarea{
+                    width: 100%;
+                    height: 70px;
+                    padding: 5px 15px;
+                    outline: none;
+                    border: 1px solid var(--brown-light);
+                    border-radius: 3px;
+                    resize: none;
+                }
+            }
         }
     }
 }

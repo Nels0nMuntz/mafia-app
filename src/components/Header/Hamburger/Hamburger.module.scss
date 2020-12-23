@@ -10,6 +10,9 @@
     @media screen and (max-width: 1100px){
         margin-right: 12px;
     }
+    @media screen and (max-width: 575px){
+        margin-right: 8px;
+    }
 }
 .burger{
     display: none;
@@ -20,7 +23,7 @@
     width: 30px;
     height: 20px;
     cursor: pointer;    
-	transition: all .5s;
+    transition: all .5s;
 }
 .burger_wrapper div{
     position: absolute;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom';
+import classnames from 'classnames'
 
 import CheckoutItem from './CheckoutItem';
 import CheckoutSMSAuth from './CheckoutForm/CheckoutForm';
@@ -127,6 +128,15 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                                         <label htmlFor="checkout-user-email">E-mail:</label>
                                         <input id="checkout-user-email" name="checkout-user-email" type="email" />
                                     </div>
+                                    <div className={classnames(
+                                        style.form__section_item,
+                                        'custom-checkbox'
+                                    )}>
+                                        <input type="checkbox" name="checkout-user-mailing" id="checkout-user-mailing"
+                                            className="visually-hidden"
+                                        />
+                                        <label htmlFor="checkout-user-mailing">Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%</label>
+                                    </div>
                                 </div>
                                 <div className={style.form__section}>
                                     <div className={style.form__section_item}>
@@ -171,19 +181,16 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                                 <div className={style.form__footer}>
                                     <div className={style.footer__comment}>
                                         <button>Добавить коментарий к заказу</button>
-                                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                                        <textarea name="checkout-user-comment" id="checkout-user-comment"></textarea>
                                     </div>
-                                    <div className={style.footer__checkbox}>
-
-                                    </div>
-                                </div>
-                                <div className={style.form__footer}>
-                                    <div className={style.footer__comment}>
-                                        <button>Добавить коментарий к заказу</button>
-                                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                                    </div>
-                                    <div className={style.footer__checkbox}>
-
+                                    <div className={classnames(
+                                        style.footer__checkbox,
+                                        'custom-checkbox'
+                                    )}>
+                                        <input type="checkbox" name="checkout-user-callback" id="checkout-user-callback"
+                                            className="visually-hidden"
+                                        />
+                                        <label htmlFor="checkout-user-callback">Перезвоните мне для уточнения деталей заказа</label>
                                     </div>
                                 </div>
                             </div>
