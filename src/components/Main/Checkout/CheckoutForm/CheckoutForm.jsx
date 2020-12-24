@@ -6,10 +6,22 @@ import { Field, Form } from 'react-final-form'
 
 const CheckoutForm = () => {
 
+
+    const patterns = {
+        name: new RegExp('^[А-Я]{1}([а-я]+)$'),
+    };
+
     const onSubmit = values => console.log(values);
-    const validate = values => {
+    const validate = values => { 
+
         const errors = {};
-        if(!values["checkout-user-name"]) errors.name = ''
+
+        if(!values["checkout-user-name"]) errors["checkout-user-name"] = 'Поле обязательное для заполнения';
+        if(!values["checkout-user-phone"]) errors["checkout-user-phone"] = 'Поле обязательное для заполнения';
+        if(!values["checkout-user-email"]) errors["checkout-user-email"] = 'Поле обязательное для заполнения';
+        if(values["checkout-user-name"] && !patterns.name.test(values["checkout-user-name"])) errors["checkout-user-name"] = 'Напиши как в паспорте';
+
+        return errors;
     };
 
     return (
@@ -27,12 +39,13 @@ const CheckoutForm = () => {
                                 <Field
                                     name="checkout-user-name"
                                 >
-                                    {({ input, meta }) => (
+                                    {({ input, meta }) => (                                        
                                         <React.Fragment>
+                                            {/* {console.log(meta)} */}
                                             <label htmlFor="checkout-user-name">Имя:</label>
                                             <div className={classnames(
                                                 style.input_wrapper,
-                                                meta.error && meta.touched && style.input_with_error
+                                                meta.error && meta.touched && !meta.active && style.input_with_error
                                             )}>
                                                 <input
                                                     id="checkout-user-name"
@@ -42,7 +55,7 @@ const CheckoutForm = () => {
                                                 />
                                                 <div className={style.input_warning_icon}>!</div>
                                                 <div className={style.input_warning_message}>
-                                                    <div>Поле обязательное для заполнения</div>
+                                                    <div>{meta.error}</div>
                                                 </div>
                                             </div>
                                         </React.Fragment>

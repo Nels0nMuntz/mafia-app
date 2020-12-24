@@ -36,21 +36,22 @@
 
                     .input_warning_icon {
                         position        : absolute;
-                        right           : 5px;
+                        right           : 4px;
                         top             : 50%;
                         transform       : translateY(-50%);
                         width           : 20px;
                         height          : 20px;
                         color           : white;
-                        font-size       : 17px;
+                        font-size       : 0.9em;
                         font-weight     : 700;
-                        line-height     : 20px;
+                        line-height     : 18px;
                         text-align      : center;
                         border-radius   : 3px;
                         background-color: var(--red-error);
                         transition      : opacity 0.15s linear;
                         z-index         : 0;
                         opacity         : 0;
+                        user-select: none;
                     }
 
                     .input_warning_message {
@@ -61,7 +62,7 @@
                         padding-left: 20px;
                         opacity: 0;
                         z-index     : 0;
-                        transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+                        // transition: opacity 0.18s ease-out, transform 0.18s ease-out;
 
                         div {
                             position        : relative;
@@ -72,6 +73,7 @@
                             color           : white;
                             background-color: var(--red-error);
                             border-radius   : 2px;
+                            box-shadow: 3px 4px 13px 0px rgb(134, 134, 134);
 
                             &::before {
                                 content     : '';
@@ -85,6 +87,12 @@
                                 border-right: 25px solid var(--red-error);
                             }
                         }
+
+                        &.message_shown{
+                            transform   : translate(105%, -50%);
+                            opacity: 1;
+                            z-index: 1;
+                        }
                     }
 
                     &.input_with_error {
@@ -94,9 +102,10 @@
                         }
 
                         .input_warning_message{
-                            transform   : translate(105%, -50%);
-                            opacity: 1;
-                            z-index: 1;
+                            animation: showAndHideMessage 3s ease-out;
+                            // transform   : translate(105%, -50%);
+                            // opacity: 1;
+                            // z-index: 1;
                         }
 
                         input {
@@ -213,5 +222,34 @@
                 }
             }
         }
+    }
+}
+
+@keyframes showAndHideMessage{
+    0%{
+        transform   : translate(103%, -50%);
+        opacity: 0;
+        z-index: 0;
+    }
+    1%{
+        z-index: 1;
+    }
+    15%{
+        transform   : translate(105%, -50%);
+        opacity: 1;
+        z-index: 1;
+    }
+    85%{
+        transform   : translate(105%, -50%);
+        opacity: 1;
+        z-index: 1;
+    }
+    99%{
+        z-index: 1;
+    }
+    100%{
+        transform   : translate(103%, -50%);
+        opacity: 0;
+        z-index: 0;
     }
 }
