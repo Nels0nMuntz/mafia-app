@@ -1,78 +1,206 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import classnames from 'classnames'
 
+import style from './CheckoutForm.module.scss'
+import { Field, Form } from 'react-final-form'
 
-const CheckoutSMSAuth = () => {
+const CheckoutForm = () => {
 
-    const [currentValue, setCurrentValue] = React.useState('');
-    const [disabled, setDisabled] = React.useState(true);
-    let space = true;
-    const onChangeInput = event => {
-        const value = event.target.value;
-        const clearValue = +(value.slice(1).replace(/\s/g, ""))
-        if (Number.isInteger(clearValue)) {
-            setCurrentValue(value);
-        } else if (/\s\s/.test(value)) {
-            setCurrentValue(currentValue);
-        } else {
-            console.log('else');
-            setCurrentValue(currentValue);
-        }
-        if (value.length > 16) {
-            setCurrentValue(currentValue)
-        };
-        if (value.length === 7 && space) setCurrentValue(value + " ");
-        if (value.length === 11 && space) setCurrentValue(value + " ");
-        if (value.length < 16) {
-            if (disabled === false) setDisabled(true);
-        } else {
-            setDisabled(false);
-        }
+    const onSubmit = values => console.log(values);
+    const validate = values => {
+        const errors = {};
+        if(!values["checkout-user-name"]) errors.name = ''
     };
-    const onFocusInput = () => {
-        if (!currentValue) setCurrentValue('+38 ');
-    };
-    const onBlurInput = () => {
-        if (currentValue === '+38 ') setCurrentValue('');
-    };
-    const onKeyDownInput = event => {
-        const value = event.target.value;
-        if (event.code === "Backspace") {
-            space = false
-            setCurrentValue(value.slice(0, value.length))
-        }
-    };
-
-    const button = React.useRef();
-
-    React.useEffect(() => {
-        if (disabled) {
-            button.current.setAttribute("disabled", "")
-        } else {
-            button.current.removeAttribute("disabled")
-        }
-    }, [disabled])
 
     return (
-        <form>
-            <label htmlFor="checkout-input">Номер телефона:</label>
-            <input
-                id="checkout-input"
-                type="text"
-                name="userPhone"
-                autocomplet="false"
-                value={currentValue}
-                onChange={onChangeInput}
-                onFocus={onFocusInput}
-                onBlur={onBlurInput}
-                onKeyDown={onKeyDownInput}
-            />
-            <Link to='/checkout/without-auth'>
-                <button ref={button}>Продолжить с СМС-кодом для авторизации</button>
-            </Link>
-            <span>и получить бонусы на карту</span>
-        </form>
-    )
-};
+        <Form
+            onSubmit={onSubmit}
+            validate={validate}
+            render={({ handleSubmit }) => (
+                <form
+                    className={style.tab__form}
+                    onSubmit={handleSubmit}
+                >
+                    <div className={style.form__wrapper}>
+                        <div className={style.form__section}>
+                            <div className={style.form__section_item}>
+                                <Field
+                                    name="checkout-user-name"
+                                >
+                                    {({ input, meta }) => (
+                                        <React.Fragment>
+                                            <label htmlFor="checkout-user-name">Имя:</label>
+                                            <div className={classnames(
+                                                style.input_wrapper,
+                                                meta.error && meta.touched && style.input_with_error
+                                            )}>
+                                                <input
+                                                    id="checkout-user-name"
+                                                    type="text"
+                                                    autoComplete="off"
+                                                    {...input}
+                                                />
+                                                <div className={style.input_warning_icon}>!</div>
+                                                <div className={style.input_warning_message}>
+                                                    <div>Поле обязательное для заполнения</div>
+                                                </div>
+                                            </div>
+                                        </React.Fragment>
+                                    )}
+                                </Field>
+                            </div>
+                            <div className={style.form__section_item}>
+                                <Field
+                                    name="checkout-user-phone"
+                                >
+                                    {({ input, meta }) => (
+                                        <React.Fragment>
+                                            <label htmlFor="checkout-user-phone">Телефон:</label>
+                                            <div className={classnames(
+                                                style.input_wrapper,
+                                                meta.error && meta.touched && style.input_with_error
+                                            )}>
+                                                <input
+                                                    id="checkout-user-phone"
+                                                    type="text"
+                                                    autoComplete="off"
+                                                    {...input}
+                                                />
+                                                <div className={style.input_warning_icon}>!</div>
+                                                <div className={style.input_warning_message}>
+                                                    <div>Поле обязательное для заполнения</div>
+                                                </div>
+                                            </div>
+                                        </React.Fragment>
+                                    )}
+                                </Field>
+                            </div>
+                            <div className={style.form__section_item}>
+                                <Field
+                                    name="checkout-user-email"
+                                >
+                                    {({ input, meta }) => (
+                                        <React.Fragment>
+                                            <label htmlFor="checkout-user-email">E-mail:</label>
+                                            <div className={classnames(
+                                                style.input_wrapper,
+                                                meta.error && meta.touched && style.input_with_error
+                                            )}>
+                                                <input
+                                                    id="checkout-user-email"
+                                                    type="text"
+                                                    autoComplete="off"
+                                                    {...input}
+                                                />
+                                                <div className={style.input_warning_icon}>!</div>
+                                                <div className={style.input_warning_message}>
+                                                    <div>Поле обязательное для заполнения</div>
+                                                </div>
+                                            </div>
+                                        </React.Fragment>
+                                    )}
+                                </Field>
+                            </div>
+                            <div className={classnames(
+                                style.form__section_item,
+                                'custom-checkbox'
+                            )}>
+                                <input type="checkbox" name="checkout-user-mailing" id="checkout-user-mailing"
+                                    className="visually-hidden"
+                                />
+                                <label htmlFor="checkout-user-mailing">Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%</label>
+                            </div>
+                        </div>
+                        <div className={style.form__section}>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-city">Город:</label>
+                                <input id="checkout-user-city" name="checkout-user-city" type="text" />
+                            </div>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-street">Улица:</label>
+                                <input id="checkout-user-street" name="checkout-user-street" type="text" />
+                            </div>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-house">Дом:</label>
+                                <input id="checkout-user-house" name="checkout-user-house" type="text" />
+                            </div>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-entrance">Подьезд:</label>
+                                <input id="checkout-user-entrance" name="checkout-user-entrance" type="text" />
+                            </div>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-flat">Квартира:</label>
+                                <input id="checkout-user-flat" name="checkout-user-flat" type="text" />
+                            </div>
+                        </div>
+                        <div className={style.form__section}>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-date">Дата:</label>
+                                <input id="checkout-user-date" name="checkout-user-date" type="text" />
+                            </div>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-time">Время:</label>
+                                <input id="checkout-user-time" name="checkout-user-time" type="text" />
+                            </div>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-payment">Форма оплаты:</label>
+                                <input id="checkout-user-payment" name="checkout-user-payment" type="text" />
+                            </div>
+                            <div className={style.form__section_item}>
+                                <label htmlFor="checkout-user-rest">Подготовить сдачу с:</label>
+                                <input id="checkout-user-rest" name="checkout-user-rest" type="text" />
+                            </div>
+                        </div>
+                        <div className={style.form__footer}>
+                            <div className={style.footer__comment}>
+                                <button>Добавить коментарий к заказу</button>
+                                <textarea name="checkout-user-comment" id="checkout-user-comment"></textarea>
+                            </div>
+                            <div className={classnames(
+                                style.footer__checkbox,
+                                'custom-checkbox'
+                            )}>
+                                <input type="checkbox" name="checkout-user-callback" id="checkout-user-callback"
+                                    className="visually-hidden"
+                                />
+                                <label htmlFor="checkout-user-callback">Перезвоните мне для уточнения деталей заказа</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={style.form__finalize}>
+                        <div className={style.finalize__container}>
+                            <div className={style.finalize__inner}>
+                                <div className={style.finalize__row}>
+                                    <div>Сумма:</div>
+                                    <div>524 грн</div>
+                                </div>
+                                <div className={style.finalize__row}>
+                                    <div>Доставка:</div>
+                                    <div>Бесплатно</div>
+                                </div>
+                                <div className={style.finalize__row}>
+                                    <div>Упаковка:</div>
+                                    <div>19 грн</div>
+                                </div>
+                                <div className={`${style.finalize__row} ${style.finalize__row_total}`}>
+                                    <div>К оплате:</div>
+                                    <div>543 грн</div>
+                                </div>
+                                <button className="item-homeSlider__btn item-homeSlider__btn-mini">
+                                    Оформить заказ
+                                </button>
+                                <small className={style.finalize__agreement}>
+                                    <p>Нажимая кнопку "Оформить заказ" я принимаю</p>
+                                    <p>пользовательское соглашение</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            )}
+        />
 
-export default CheckoutSMSAuth;
+    )
+}
+
+export default CheckoutForm

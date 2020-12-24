@@ -412,7 +412,6 @@
 
     .tab__pane {
         display                : flex;
-        flex-wrap: wrap;
         align-items            : center;
         width                  : calc(50% - 4px);
         padding                : 20px 30px;
@@ -463,6 +462,7 @@
             display        : flex;
             align-items    : center;
             justify-content: center;
+            flex-shrink: 0;
             width          : 35%;
             height         : 100%;
             padding        : 10px;
@@ -507,99 +507,4 @@
     width: 100%;
     height: 5px;
     background-color: var(--green-100);
-}
-
-.tab__form{
-    .form__wrapper{
-        padding: 0 30px;
-        background-color: white;
-
-        @media screen and (max-width: 575px) {
-            padding: 0 15px;
-        }
-
-        .form__section{
-            padding: 30px 0;
-            border-bottom: 1px solid var(--brown-light);
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            grid-column-gap: 50px;
-            grid-row-gap: 25px;
-
-            @media screen and (max-width: 575px) {
-                grid-template-columns: 1fr;
-            }
-
-            .form__section_item{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                
-                label{
-                    font-size: 14px;
-                    color: black;
-                    margin-bottom: 4px;
-                }
-
-                input{
-                    padding: 12px 20px;
-                    border: 1px solid var(--brown-light);
-                    border-radius: 3px;
-                }
-            }
-
-            &:first-child{
-                position: relative;
-                &::after{
-                    content: '*Не обязательно';
-                    position: absolute;
-                    bottom: 5px;
-                    left: 50%;
-                    font-size: 12px;
-                    color: gray;
-                    transform: translateX(-127%);
-                }
-            }
-            &:nth-child(2){
-                grid-template-columns: 23% 23% 11% 11% 11%;
-                grid-column-gap: 0px;
-                justify-content: space-between;
-
-                @media screen and (max-width: 767px)  {
-                    grid-template-columns: 1fr;
-                }
-            }
-            &:nth-child(3){
-                border-bottom: none;
-            }
-        }
-
-        .form__footer{
-            padding: 40px 0 30px;
-
-            .footer__comment{
-                margin-bottom: 30px;
-                button{
-                    display: block;
-                    font-size: 15px;
-                    line-height: 1.2;
-                    margin-bottom: 10px;
-                    border-bottom: 1px dashed black;
-                    transition: border-color 0.1s linear;
-                    &:hover{
-                        border-color: white;
-                    }
-                }
-                textarea{
-                    width: 100%;
-                    height: 70px;
-                    padding: 5px 15px;
-                    outline: none;
-                    border: 1px solid var(--brown-light);
-                    border-radius: 3px;
-                    resize: none;
-                }
-            }
-        }
-    }
 }

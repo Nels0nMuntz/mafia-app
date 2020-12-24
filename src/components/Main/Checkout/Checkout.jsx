@@ -1,14 +1,14 @@
 import React from 'react'
-import { Redirect, Route } from 'react-router-dom';
-import classnames from 'classnames'
+import { Redirect, Route, Link } from 'react-router-dom';
 
 import CheckoutItem from './CheckoutItem';
-import CheckoutSMSAuth from './CheckoutForm/CheckoutForm';
+import CheckoutSMSAuth from './CheckoutSMSAuth/CheckoutSMSAuth';
 
 import style from './Checkout.module.scss'
 import benefits1Img from './../../../assets/images/checkout/benefits1.svg'
 import benefits2Img from './../../../assets/images/checkout/benefits2.svg'
 import benefits3Img from './../../../assets/images/checkout/benefits3.svg'
+import CheckoutForm from './CheckoutForm/CheckoutForm';
 
 
 const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
@@ -83,7 +83,9 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                             </div>
                             <div className={style.checkout_confirm__footer}>
                                 <div className={style.checkout_confirm__row}>
-                                    <button>Продолжить без СМС авторизации</button>
+                                    <Link to='/checkout/without-auth'>
+                                        <button>Продолжить без СМС авторизации</button>
+                                    </Link>
                                     <span>Бонусы не будут начислены</span>
                                 </div>
                             </div>
@@ -113,88 +115,7 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                             </div>
                         </div>
                         <div className={style.line}></div>
-                        <div className={style.tab__form}>
-                            <div className={style.form__wrapper}>
-                                <div className={style.form__section}>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-name">Имя:</label>
-                                        <input id="checkout-user-name" name="checkout-user-name" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-phone">Телефон:</label>
-                                        <input id="checkout-user-phone" name="checkout-user-phone" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-email">E-mail:</label>
-                                        <input id="checkout-user-email" name="checkout-user-email" type="email" />
-                                    </div>
-                                    <div className={classnames(
-                                        style.form__section_item,
-                                        'custom-checkbox'
-                                    )}>
-                                        <input type="checkbox" name="checkout-user-mailing" id="checkout-user-mailing"
-                                            className="visually-hidden"
-                                        />
-                                        <label htmlFor="checkout-user-mailing">Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%</label>
-                                    </div>
-                                </div>
-                                <div className={style.form__section}>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-city">Город:</label>
-                                        <input id="checkout-user-city" name="checkout-user-city" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-street">Улица:</label>
-                                        <input id="checkout-user-street" name="checkout-user-street" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-house">Дом:</label>
-                                        <input id="checkout-user-house" name="checkout-user-house" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-entrance">Подьезд:</label>
-                                        <input id="checkout-user-entrance" name="checkout-user-entrance" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-flat">Квартира:</label>
-                                        <input id="checkout-user-flat" name="checkout-user-flat" type="text" />
-                                    </div>
-                                </div>
-                                <div className={style.form__section}>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-date">Дата:</label>
-                                        <input id="checkout-user-date" name="checkout-user-date" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-time">Время:</label>
-                                        <input id="checkout-user-time" name="checkout-user-time" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-payment">Форма оплаты:</label>
-                                        <input id="checkout-user-payment" name="checkout-user-payment" type="text" />
-                                    </div>
-                                    <div className={style.form__section_item}>
-                                        <label htmlFor="checkout-user-rest">Подготовить сдачу с:</label>
-                                        <input id="checkout-user-rest" name="checkout-user-rest" type="text" />
-                                    </div>
-                                </div>
-                                <div className={style.form__footer}>
-                                    <div className={style.footer__comment}>
-                                        <button>Добавить коментарий к заказу</button>
-                                        <textarea name="checkout-user-comment" id="checkout-user-comment"></textarea>
-                                    </div>
-                                    <div className={classnames(
-                                        style.footer__checkbox,
-                                        'custom-checkbox'
-                                    )}>
-                                        <input type="checkbox" name="checkout-user-callback" id="checkout-user-callback"
-                                            className="visually-hidden"
-                                        />
-                                        <label htmlFor="checkout-user-callback">Перезвоните мне для уточнения деталей заказа</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CheckoutForm />
                     </div>
                 </Route>
             </div>

@@ -158,6 +158,9 @@
         font-size       : 15px;
         color           : white;
         background-color: var(--green-100);
+        &:hover {
+            background-color: var(--green-main);
+        }
     }
 
     &.popup_cart__btn {
