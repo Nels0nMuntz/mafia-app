@@ -6,20 +6,63 @@ import { Field, Form } from 'react-final-form'
 
 const CheckoutForm = () => {
 
+    const inputs = [
+        {
+            id: 1,
+            name: "checkout-user-name",
+            label: "Имя"
+        },
+        {
+            id: 2,
+            name: "checkout-user-phone",
+            label: "Телефон"
+        },
+        {
+            id: 3,
+            name: "checkout-user-email",
+            label: "Email"
+        },
+        {
+            id: 4,
+            name: "checkout-user-city",
+            label: "Город"
+        },
+        {
+            id: 5,
+            name: "checkout-user-street",
+            label: "Улица"
+        },
+        {
+            id: 6,
+            name: "checkout-user-house",
+            label: "Дом"
+        },
+        {
+            id: 7,
+            name: "checkout-user-entrance",
+            label: "Подьезд"
+        },
+        {
+            id: 8,
+            name: "checkout-user-flat",
+            label: "Квартира"
+        }
+    ]
 
     const patterns = {
         name: new RegExp('^[А-Я]{1}([а-я]+)$'),
+        email: /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/
     };
 
     const onSubmit = values => console.log(values);
-    const validate = values => { 
+    const validate = values => {
 
         const errors = {};
 
-        if(!values["checkout-user-name"]) errors["checkout-user-name"] = 'Поле обязательное для заполнения';
-        if(!values["checkout-user-phone"]) errors["checkout-user-phone"] = 'Поле обязательное для заполнения';
-        if(!values["checkout-user-email"]) errors["checkout-user-email"] = 'Поле обязательное для заполнения';
-        if(values["checkout-user-name"] && !patterns.name.test(values["checkout-user-name"])) errors["checkout-user-name"] = 'Напиши как в паспорте';
+        inputs.forEach(({ name }) => { if (!values[name]) errors[name] = 'Поле обязательное для заполнения'; })
+
+        if (values["checkout-user-name"] && !patterns.name.test(values["checkout-user-name"])) errors["checkout-user-name"] = 'Напиши как в паспорте';
+        if (values["checkout-user-email"] && !patterns.email.test(values["checkout-user-email"])) errors["checkout-user-email"] = 'Неверный формат E-mail';
 
         return errors;
     };
@@ -35,85 +78,62 @@ const CheckoutForm = () => {
                 >
                     <div className={style.form__wrapper}>
                         <div className={style.form__section}>
-                            <div className={style.form__section_item}>
-                                <Field
-                                    name="checkout-user-name"
-                                >
-                                    {({ input, meta }) => (                                        
-                                        <React.Fragment>
-                                            {/* {console.log(meta)} */}
-                                            <label htmlFor="checkout-user-name">Имя:</label>
-                                            <div className={classnames(
-                                                style.input_wrapper,
-                                                meta.error && meta.touched && !meta.active && style.input_with_error
-                                            )}>
-                                                <input
-                                                    id="checkout-user-name"
-                                                    type="text"
-                                                    autoComplete="off"
-                                                    {...input}
-                                                />
-                                                <div className={style.input_warning_icon}>!</div>
-                                                <div className={style.input_warning_message}>
-                                                    <div>{meta.error}</div>
+                            {inputs.slice(0, 2).map(({ id, name, label }) => (
+                                <div className={style.form__section_item} key={id}>
+                                    <Field
+                                        name={name}
+                                    >
+                                        {({ input, meta }) => (
+                                            <React.Fragment>
+                                                {/* {console.log(meta)} */}
+                                                <label htmlFor={name}>{label}:</label>
+                                                <div className={classnames(
+                                                    style.input_wrapper,
+                                                    meta.error && meta.touched && !meta.active && style.input_with_error
+                                                )}>
+                                                    <input
+                                                        id={name}
+                                                        type="text"
+                                                        autoComplete="off"
+                                                        {...input}
+                                                    />
+                                                    <div className={style.input_warning_icon}>!</div>
+                                                    <div className={style.input_warning_message}>
+                                                        <div>{meta.error}</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </React.Fragment>
-                                    )}
-                                </Field>
-                            </div>
+                                            </React.Fragment>
+                                        )}
+                                    </Field>
+                                </div>
+                            ))}
                             <div className={style.form__section_item}>
-                                <Field
-                                    name="checkout-user-phone"
-                                >
-                                    {({ input, meta }) => (
-                                        <React.Fragment>
-                                            <label htmlFor="checkout-user-phone">Телефон:</label>
-                                            <div className={classnames(
-                                                style.input_wrapper,
-                                                meta.error && meta.touched && style.input_with_error
-                                            )}>
-                                                <input
-                                                    id="checkout-user-phone"
-                                                    type="text"
-                                                    autoComplete="off"
-                                                    {...input}
-                                                />
-                                                <div className={style.input_warning_icon}>!</div>
-                                                <div className={style.input_warning_message}>
-                                                    <div>Поле обязательное для заполнения</div>
+                                    <Field
+                                        name={name}
+                                    >
+                                        {({ input, meta }) => (
+                                            <React.Fragment>
+                                                {/* {console.log(meta)} */}
+                                                <label htmlFor={name}>{label}:</label>
+                                                <div className={classnames(
+                                                    style.input_wrapper,
+                                                    meta.error && meta.touched && !meta.active && style.input_with_error
+                                                )}>
+                                                    <input
+                                                        id={name}
+                                                        type="text"
+                                                        autoComplete="off"
+                                                        {...input}
+                                                    />
+                                                    <div className={style.input_warning_icon}>!</div>
+                                                    <div className={style.input_warning_message}>
+                                                        <div>{meta.error}</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </React.Fragment>
-                                    )}
-                                </Field>
-                            </div>
-                            <div className={style.form__section_item}>
-                                <Field
-                                    name="checkout-user-email"
-                                >
-                                    {({ input, meta }) => (
-                                        <React.Fragment>
-                                            <label htmlFor="checkout-user-email">E-mail:</label>
-                                            <div className={classnames(
-                                                style.input_wrapper,
-                                                meta.error && meta.touched && style.input_with_error
-                                            )}>
-                                                <input
-                                                    id="checkout-user-email"
-                                                    type="text"
-                                                    autoComplete="off"
-                                                    {...input}
-                                                />
-                                                <div className={style.input_warning_icon}>!</div>
-                                                <div className={style.input_warning_message}>
-                                                    <div>Поле обязательное для заполнения</div>
-                                                </div>
-                                            </div>
-                                        </React.Fragment>
-                                    )}
-                                </Field>
-                            </div>
+                                            </React.Fragment>
+                                        )}
+                                    </Field>
+                                </div>
                             <div className={classnames(
                                 style.form__section_item,
                                 'custom-checkbox'
@@ -125,26 +145,35 @@ const CheckoutForm = () => {
                             </div>
                         </div>
                         <div className={style.form__section}>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-city">Город:</label>
-                                <input id="checkout-user-city" name="checkout-user-city" type="text" />
-                            </div>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-street">Улица:</label>
-                                <input id="checkout-user-street" name="checkout-user-street" type="text" />
-                            </div>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-house">Дом:</label>
-                                <input id="checkout-user-house" name="checkout-user-house" type="text" />
-                            </div>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-entrance">Подьезд:</label>
-                                <input id="checkout-user-entrance" name="checkout-user-entrance" type="text" />
-                            </div>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-flat">Квартира:</label>
-                                <input id="checkout-user-flat" name="checkout-user-flat" type="text" />
-                            </div>
+                            {inputs.slice(3, 8).map(({ id, name, label }) => (
+                                <div className={style.form__section_item} key={id}>
+                                    <Field
+                                        name={name}
+                                    >
+                                        {({ input, meta }) => (
+                                            <React.Fragment>
+                                                {/* {console.log(meta)} */}
+                                                <label htmlFor={name}>{label}:</label>
+                                                <div className={classnames(
+                                                    style.input_wrapper,
+                                                    meta.error && meta.touched && !meta.active && style.input_with_error
+                                                )}>
+                                                    <input
+                                                        id={name}
+                                                        type="text"
+                                                        autoComplete="off"
+                                                        {...input}
+                                                    />
+                                                    <div className={style.input_warning_icon}>!</div>
+                                                    <div className={style.input_warning_message}>
+                                                        <div>{meta.error}</div>
+                                                    </div>
+                                                </div>
+                                            </React.Fragment>
+                                        )}
+                                    </Field>
+                                </div>
+                            ))}
                         </div>
                         <div className={style.form__section}>
                             <div className={style.form__section_item}>
@@ -212,7 +241,6 @@ const CheckoutForm = () => {
                 </form>
             )}
         />
-
     )
 }
 
