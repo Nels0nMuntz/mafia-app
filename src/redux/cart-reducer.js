@@ -10,7 +10,16 @@ const {
 } = actionTypes;
 
 const initialState = {
-    selected: [],
+    selected: [
+        {
+            id: "10851077108410721056",
+            count: 1,
+            price: 99,
+            title: "Рамен",
+            imageUrl: "https://mafia.ua/storage/editor/fotos/450x450/ramen_1562848470169.jpeg",
+            addition: null,
+        }
+    ],
     totalCount: 0,
     totalPrice: 0,
     isPopupCartOpen: false
@@ -108,7 +117,7 @@ const addProductAC = product => ({ type: ADD_PRODUCT, payload: product });
 const removeProductAC = id => ({ type: REMOVE_PRODUCT, payload: id });
 const increaseCountAC = id => ({ type: INCREASE_COUNT, payload: id });
 const decreaseCountAC = id => ({ type: DECREASE_COUNT, payload: id });
-const recalculateTotalAC = () => ({type: RECALCULATE_TOTAL});
+const recalculateTotalAC = () => ({ type: RECALCULATE_TOTAL });
 
 export const changePopupCartState = value => ({ type: CHANGE_POPUP_CART_STATE, payload: value });
 export const addProduct = product => dispatch => {

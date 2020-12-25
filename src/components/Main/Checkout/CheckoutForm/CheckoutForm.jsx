@@ -3,6 +3,7 @@ import classnames from 'classnames'
 
 import style from './CheckoutForm.module.scss'
 import { Field, Form } from 'react-final-form'
+import PhoneInput from '../../../common/PhoneInput/PhoneInput'
 
 const CheckoutForm = () => {
 
@@ -78,25 +79,33 @@ const CheckoutForm = () => {
                 >
                     <div className={style.form__wrapper}>
                         <div className={style.form__section}>
-                            {inputs.slice(0, 2).map(({ id, name, label }) => (
+                            {inputs.slice(0, 3).map(({ id, name, label }) => (
                                 <div className={style.form__section_item} key={id}>
                                     <Field
                                         name={name}
                                     >
                                         {({ input, meta }) => (
                                             <React.Fragment>
-                                                {/* {console.log(meta)} */}
+                                                {/* {console.log(input)} */}
+                                                {console.log(meta)}
                                                 <label htmlFor={name}>{label}:</label>
                                                 <div className={classnames(
                                                     style.input_wrapper,
                                                     meta.error && meta.touched && !meta.active && style.input_with_error
                                                 )}>
-                                                    <input
-                                                        id={name}
-                                                        type="text"
-                                                        autoComplete="off"
-                                                        {...input}
-                                                    />
+                                                    {name === "checkout-user-phone" ? (
+                                                        <PhoneInput
+                                                            id={name}
+                                                            {...input}
+                                                        />
+                                                    ) : (
+                                                            <input
+                                                                id={name}
+                                                                type="text"
+                                                                autoComplete="off"
+                                                                {...input}
+                                                            />
+                                                        )}
                                                     <div className={style.input_warning_icon}>!</div>
                                                     <div className={style.input_warning_message}>
                                                         <div>{meta.error}</div>
@@ -107,33 +116,6 @@ const CheckoutForm = () => {
                                     </Field>
                                 </div>
                             ))}
-                            <div className={style.form__section_item}>
-                                    <Field
-                                        name={name}
-                                    >
-                                        {({ input, meta }) => (
-                                            <React.Fragment>
-                                                {/* {console.log(meta)} */}
-                                                <label htmlFor={name}>{label}:</label>
-                                                <div className={classnames(
-                                                    style.input_wrapper,
-                                                    meta.error && meta.touched && !meta.active && style.input_with_error
-                                                )}>
-                                                    <input
-                                                        id={name}
-                                                        type="text"
-                                                        autoComplete="off"
-                                                        {...input}
-                                                    />
-                                                    <div className={style.input_warning_icon}>!</div>
-                                                    <div className={style.input_warning_message}>
-                                                        <div>{meta.error}</div>
-                                                    </div>
-                                                </div>
-                                            </React.Fragment>
-                                        )}
-                                    </Field>
-                                </div>
                             <div className={classnames(
                                 style.form__section_item,
                                 'custom-checkbox'

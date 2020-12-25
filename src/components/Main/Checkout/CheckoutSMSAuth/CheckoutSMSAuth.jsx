@@ -5,24 +5,34 @@ import PhoneInput from '../../../common/PhoneInput/PhoneInput';
 
 const CheckoutSMSAuth = () => {
 
-    const [disabled, setDisabled] = React.useState(true);
+    // const [isDisabled, setIsDisabled] = React.useState(true);
+    let isDisabled = true;
+    // const changeDisabled = value => setIsDisabled(false)
+    // const [current, setCurrent] = React.useState('');
+
+    // if (current.length < 16) {
+    //     if (disabled === false) setDisabled(true);
+    // } else {
+    //     setDisabled(false);
+    // }
 
     const button = React.useRef();
 
     React.useEffect(() => {
-        if (disabled) {
+        // isDisabled = changeDisabled
+        if (isDisabled) {
             button.current.setAttribute("disabled", "")
         } else {
             button.current.removeAttribute("disabled")
         }
-    }, [disabled])
+    }, [isDisabled])
 
     return (
         <form>
             <label htmlFor="checkout-input">Номер телефона:</label>
             <PhoneInput
-                disabled={disabled}
-                setDisabled={setDisabled}
+                id="checkout-input"
+                // callback={changeDisabled}
             />
             <Link to='/checkout/without-auth'>
                 <button ref={button}>Продолжить с СМС-кодом для авторизации</button>
