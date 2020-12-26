@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classnames from 'classnames'
 
 import style from './CheckoutForm.module.scss'
 import { Field, Form } from 'react-final-form'
-import PhoneInput from '../../../common/PhoneInput/PhoneInput'
+import { CheckoutFormField, CheckoutFormFieldPhone } from './CheckoutFormField';
 
 const CheckoutForm = () => {
-
+    const [form, setForm] = useState({
+        city: '',
+        build: ''
+    })
     const inputs = [
         {
             id: 1,
@@ -25,7 +28,7 @@ const CheckoutForm = () => {
         },
         {
             id: 4,
-            name: "checkout-user-city",
+            name: "city",
             label: "Город"
         },
         {
@@ -35,7 +38,7 @@ const CheckoutForm = () => {
         },
         {
             id: 6,
-            name: "checkout-user-house",
+            name: "build",
             label: "Дом"
         },
         {
@@ -48,7 +51,7 @@ const CheckoutForm = () => {
             name: "checkout-user-flat",
             label: "Квартира"
         }
-    ]
+    ];
 
     const patterns = {
         name: new RegExp('^[А-Я]{1}([а-я]+)$'),
@@ -78,43 +81,27 @@ const CheckoutForm = () => {
                     onSubmit={handleSubmit}
                 >
                     <div className={style.form__wrapper}>
-                        <div className={style.form__section}>
-                            {inputs.slice(0, 3).map(({ id, name, label }) => (
-                                <div className={style.form__section_item} key={id}>
-                                    <Field
-                                        name={name}
-                                    >
-                                        {({ input, meta }) => (
-                                            <React.Fragment>
-                                                {/* {console.log(input)} */}
-                                                {console.log(meta)}
-                                                <label htmlFor={name}>{label}:</label>
-                                                <div className={classnames(
-                                                    style.input_wrapper,
-                                                    meta.error && meta.touched && !meta.active && style.input_with_error
-                                                )}>
-                                                    {name === "checkout-user-phone" ? (
-                                                        <PhoneInput
-                                                            id={name}
-                                                            {...input}
-                                                        />
-                                                    ) : (
-                                                            <input
-                                                                id={name}
-                                                                type="text"
-                                                                autoComplete="off"
-                                                                {...input}
-                                                            />
-                                                        )}
-                                                    <div className={style.input_warning_icon}>!</div>
-                                                    <div className={style.input_warning_message}>
-                                                        <div>{meta.error}</div>
-                                                    </div>
-                                                </div>
-                                            </React.Fragment>
-                                        )}
-                                    </Field>
-                                </div>
+                        {/* <div className={style.form__section}>
+                            {inputs.slice(0,3).map(({ id, name, label }) => (
+                                name === "checkout-user-phone" ? (
+                                    null
+                                    // <CheckoutFormFieldPhone
+                                    //     key={id}
+                                    //     id={id}
+                                    //     name={name}
+                                    //     label={label}
+                                    // />
+                                )
+                                    :
+                                    (
+                                        <CheckoutFormField
+                                            key={id}
+                                            id={id}
+                                            name={name}
+                                            label={label}
+                                        />
+                                    )
+
                             ))}
                             <div className={classnames(
                                 style.form__section_item,
@@ -125,7 +112,7 @@ const CheckoutForm = () => {
                                 />
                                 <label htmlFor="checkout-user-mailing">Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%</label>
                             </div>
-                        </div>
+                        </div> */}
                         <div className={style.form__section}>
                             {inputs.slice(3, 8).map(({ id, name, label }) => (
                                 <div className={style.form__section_item} key={id}>
@@ -134,7 +121,6 @@ const CheckoutForm = () => {
                                     >
                                         {({ input, meta }) => (
                                             <React.Fragment>
-                                                {/* {console.log(meta)} */}
                                                 <label htmlFor={name}>{label}:</label>
                                                 <div className={classnames(
                                                     style.input_wrapper,
@@ -157,7 +143,7 @@ const CheckoutForm = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className={style.form__section}>
+                        {/* <div className={style.form__section}>
                             <div className={style.form__section_item}>
                                 <label htmlFor="checkout-user-date">Дата:</label>
                                 <input id="checkout-user-date" name="checkout-user-date" type="text" />
@@ -189,7 +175,7 @@ const CheckoutForm = () => {
                                 />
                                 <label htmlFor="checkout-user-callback">Перезвоните мне для уточнения деталей заказа</label>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={style.form__finalize}>
                         <div className={style.finalize__container}>
@@ -210,7 +196,7 @@ const CheckoutForm = () => {
                                     <div>К оплате:</div>
                                     <div>543 грн</div>
                                 </div>
-                                <button className="item-homeSlider__btn item-homeSlider__btn-mini">
+                                <button type="submit" className="item-homeSlider__btn item-homeSlider__btn-mini">
                                     Оформить заказ
                                 </button>
                                 <small className={style.finalize__agreement}>

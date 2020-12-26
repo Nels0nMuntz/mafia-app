@@ -1,10 +1,12 @@
 import React from 'react'
 
-const PhoneInput = props => {
+const PhoneInput = ({ id, callback = null, ...rest }) => {
 
-    const { id, callback, ...rest } = props;
+    const pattern = '+XX XXX XXXX XXX'
+    const matchAll = [...pattern.matchAll(/\W/g)];
 
-    const SET_VALUE = 'SET_VALUE';
+    const SET_INIT_VALUE = 'SET_INIT_VALUE';
+    const SET_EMPTY_VALUE = 'SET_EMPTY_VALUE';
     const CHANGE_VALUE = 'CHANGE_VALUE';
 
     const initialState = {
@@ -14,76 +16,70 @@ const PhoneInput = props => {
 
     const reducer = (state, action) => {
         switch (action.type) {
-            case SET_VALUE:
-                return { ...state, value: action.payload}
+            case SET_INIT_VALUE:
+                return { ...state, value: state.initialValue }
+            case SET_EMPTY_VALUE:
+                return { ...state, value: '' }
             case CHANGE_VALUE:
-                const newValue = 
-                return { ...state, value: action.payload}
+                const value = action.payload.toString().split('');
+                let i = 0;
+                const newValue = value.reduce((prev, curr) => {
+                    const found = matchAll.find(item => item.index === i)
+                    if(found){
+                        prev.push(found[0], curr);
+                        i += 1
+                    }else{
+                        prev.push(curr);
+                    }
+                    i += 1;
+                    return prev;
+                }, []);
+                callback && callback(newValue.length);
+                return { ...state, value: newValue.join('')}
             default:
                 return state;
         }
     };
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
-    const setValue = value => ({type: SET_VALUE, payload: value});
-    const changeValue = value => ({type: CHANGE_VALUE, payload: value});
+    const setInitValueAC = () => ({type: SET_INIT_VALUE});
+    const setEmptyValueAC = () => ({type: SET_EMPTY_VALUE});
+    const changeValueAC = value => ({type: CHANGE_VALUE, payload: value});
 
-    // const [currentValue, setCurrentValue] = React.useState('');
-    // let space = true;
-    // const onChangeInput = event => {
-    //     const value = event.target.value;
-    //     const clearValue = +(value.slice(1).replace(/\s/g, ""))
-    //     if (Number.isInteger(clearValue)) {
-    //         setCurrentValue(value);
-    //     } else if (/\s\s/.test(value)) {
-    //         setCurrentValue(currentValue);
-    //     } else {
-    //         console.log('else');
-    //         setCurrentValue(currentValue);
-    //     }
-    //     if (value.length > 16) {
-    //         setCurrentValue(currentValue)
-    //     };
-    //     if (value.length === 7 && space) setCurrentValue(value + " ");
-    //     if (value.length === 11 && space) setCurrentValue(value + " ");
-    //     if(value.length < 16) {
-    //         callback(true);
-    //     }else{
-    //         callback(false);
-    //     }
-        
-    // };
+    // const setInitValue = () => ({type: SET_INIT_VALUE});
+    // const setEmptyValue = () => ({type: SET_EMPTY_VALUE});
+    // const changeValue = value => ({type: CHANGE_VALUE, payload: value});
+
+    const getClearValue = string => +(string.slice(1).replace(/\s/g, ""));
+
     const onFocusInput = () => {
-        if (!state.value) dispatch(setValue(state.initialValue));
+        if (!state.value) dispatch(setInitValueAC());
     };
     const onBlurInput = () => {
-        if (state.value === state.initialValue) dispatch(setValue(''));
+        if (state.value === state.initialValue) dispatch(setEmptyValueAC());
     };
     const onChangeInput = event => {
         const value = event.target.value;
-        const clearValue = +(value.slice(1).replace(/\s/g, ""));
-        if(Number.isInteger(clearValue)) dispatch(changeValue(clearValue))
+        if(Number.isInteger(getClearValue(value))){
+            if(getClearValue(value) === getClearValue(state.initialValue)){
+                dispatch(setInitValueAC());
+            }else{
+                dispatch(changeValueAC(getClearValue(value)));
+            }
+        }
     };
-    // const onKeyDownInput = event => {
-    //     const value = event.target.value;
-    //     if (event.code === "Backspace") {
-    //         space = false
-    //         setCurrentValue(value.slice(0, value.length))
-    //     }
-    // };
 
     return (
         <input
+            {...rest}
             id={id}
             type="text"
             autoComplete="off"
             value={state.value}
-            // {...rest}
-            // value={currentValue}
-            // onChange={onChangeInput}
+            maxLength={pattern.length}
+            onChange={onChangeInput}
             onFocus={onFocusInput}
-            onBlur={onBlurInput}
-            // onKeyDown={onKeyDownInput}            
+            onBlur={onBlurInput} 
         />
     )
 }
