@@ -2,15 +2,20 @@
     padding: 20px 0;
     .deliverySlider__item {
         text-align: center;
+        
+        .item-deliverySlider__image_wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            cursor: pointer;
+            @media screen and (max-width: 1199px) {
+                width: 80px;
+                height: 80px;
+            }
 
-        .item-deliverySlider__image {
-            svg {
-                width: 100px;
-                height: 100px;
-                @media screen and (max-width: 1199px) {
-                    width: 80px;
-                    height: 80px;
-                }
+            svg g{
+                animation-duration: 1200ms;
+                animation-timing-function: ease-in-out
             }
         }
         .item-deliverySlider__title {
@@ -85,5 +90,66 @@
         @media screen and (max-width: 767px) {
             right: -5px;
         }
+    }
+}
+
+/* animation */
+.item-deliverySlider__image_wrapper.active{
+    svg{       
+
+        #pizza_1{
+            animation-name: pizza-animation;
+        } 
+
+        #sushi_2{
+            transform-origin: center;
+            animation-name: sushi_2-animation;
+        } 
+        #sushi_3{
+            transform-origin: center;
+            animation-name: sushi_3-animation;
+        } 
+    }       
+}
+
+
+/* key-frames */
+@keyframes pizza-animation{
+    from{
+        transform: translate(0px, 0px);
+    }
+    50%{
+        transform: translate(5px, 8px);
+    }
+    to{
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes sushi_2-animation{
+    0%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(10deg);
+    }
+    95%{
+        transform: rotate(-4deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes sushi_3-animation{
+    from{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(-10deg);
+    }
+    95%{
+        transform: rotate(4deg);
+    }
+    100%{
+        transform: rotate(0deg);
     }
 }
