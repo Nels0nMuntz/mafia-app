@@ -1,0 +1,17 @@
+.checkout-form__select {
+    width: 100%;
+
+    .ant-select-selector {
+        width        : 100%;
+        height       : auto !important;
+        padding      : 10px 15px !important;
+        outline      : none !important;
+        border       : 1px solid var(--brown-light) !important;
+        border-radius: 3px !important;
+
+        .ant-select-selection-item {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}

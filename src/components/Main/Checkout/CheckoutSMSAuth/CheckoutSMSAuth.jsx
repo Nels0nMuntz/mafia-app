@@ -7,9 +7,9 @@ const CheckoutSMSAuth = () => {
 
     const [isDisabled, setIsDisabled] = React.useState(true);
     const changeIsDisabled = value => {
-        if(isDisabled && value < 16) return
-        if(!isDisabled && value < 16) setIsDisabled(true)
-        if(isDisabled && value === 16) setIsDisabled(false)
+        if(isDisabled && value.length < 16) return
+        if(!isDisabled && value.length < 16) setIsDisabled(true)
+        if(isDisabled && value.length === 16) setIsDisabled(false)
     }
 
     const button = React.useRef();
@@ -27,7 +27,7 @@ const CheckoutSMSAuth = () => {
             <label htmlFor="checkout-input">Номер телефона:</label>
             <PhoneInput
                 id="checkout-input"
-                callback={changeIsDisabled}
+                onChange={changeIsDisabled}
             />
             <Link to='/checkout/without-auth'>
                 <button ref={button}>Продолжить с СМС-кодом для авторизации</button>
