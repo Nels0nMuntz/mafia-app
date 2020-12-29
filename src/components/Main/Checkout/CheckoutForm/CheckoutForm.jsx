@@ -1,56 +1,114 @@
-import React, {useState} from 'react'
-import classnames from 'classnames'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
 import style from './CheckoutForm.module.scss'
-import { Field, Form } from 'react-final-form'
+import { Form } from 'react-final-form'
 import { CheckoutFormField, CheckoutFormFieldPhone } from './CheckoutFormField';
+import { setErrors, changeErrorVisibility } from '../../../../redux/checkout-reducer';
+
 
 const CheckoutForm = () => {
-    const [form, setForm] = useState({
-        city: '',
-        build: ''
-    })
+
+    const dispatch = useDispatch();
+    const isVisible = useSelector(state => state.checkout.isVisible)
+
     const inputs = [
         {
             id: 1,
             name: "checkout-user-name",
-            label: "Имя"
+            type: "text",
+            label: "Имя",
+            required: true,
+            disabled: false
         },
-        {
-            id: 2,
-            name: "checkout-user-phone",
-            label: "Телефон"
-        },
+        // {
+        //     id: 2,
+        //     name: "checkout-user-phone",
+        //     type: "text",
+        //     label: "Телефон",
+        //     required: true,
+        //     disabled: false
+        // },
         {
             id: 3,
             name: "checkout-user-email",
-            label: "Email"
+            type: "text",
+            label: "Email",
+            required: false,
+            disabled: false
         },
         {
             id: 4,
             name: "city",
-            label: "Город"
+            type: "text",
+            label: "Город",
+            required: true,
+            disabled: false
         },
         {
             id: 5,
             name: "checkout-user-street",
-            label: "Улица"
+            type: "text",
+            label: "Улица",
+            required: true,
+            disabled: false
         },
         {
             id: 6,
             name: "build",
-            label: "Дом"
+            type: "text",
+            label: "Дом",
+            required: true,
+            disabled: false
         },
         {
             id: 7,
             name: "checkout-user-entrance",
-            label: "Подьезд"
+            type: "text",
+            label: "Подьезд",
+            required: false,
+            disabled: false
         },
         {
             id: 8,
             name: "checkout-user-flat",
-            label: "Квартира"
-        }
+            type: "text",
+            label: "Квартира",
+            required: false,
+            disabled: false
+        },
+        {
+            id: 9,
+            name: "checkout-user-date",
+            type: "select",
+            label: "Дата",
+            required: true,
+            disabled: false
+        },
+        {
+            id: 10,
+            name: "checkout-user-time",
+            type: "select",
+            label: "Время",
+            required: true,
+            disabled: true
+        },
+        {
+            id: 11,
+            name: "checkout-user-payment",
+            type: "select",
+            label: "Форма оплати",
+            required: true,
+            disabled: false
+        },
+        {
+            id: 12,
+            name: "checkout-user-rest",
+            type: "text",
+            label: "Подготовить сдачу с",
+            required: true,
+            disabled: false
+        },
     ];
 
     const patterns = {
@@ -63,13 +121,17 @@ const CheckoutForm = () => {
 
         const errors = {};
 
-        inputs.forEach(({ name }) => { if (!values[name]) errors[name] = 'Поле обязательное для заполнения'; })
+        inputs.forEach(({ name, required }) => { if (!values[name] && required) errors[name] = 'Поле обязательное для заполнения'; })
 
-        if (values["checkout-user-name"] && !patterns.name.test(values["checkout-user-name"])) errors["checkout-user-name"] = 'Напиши как в паспорте';
+        if (values["checkout-user-name"] && !patterns.name.test(values["checkout-user-name"])) errors["checkout-user-name"] = 'Укажите свое имя';
         if (values["checkout-user-email"] && !patterns.email.test(values["checkout-user-email"])) errors["checkout-user-email"] = 'Неверный формат E-mail';
+
+        dispatch(setErrors(Object.values(errors)));
 
         return errors;
     };
+
+    const onClickSubmit = () => !isVisible ? dispatch(changeErrorVisibility(true)) : undefined;
 
     return (
         <Form
@@ -81,39 +143,38 @@ const CheckoutForm = () => {
                     onSubmit={handleSubmit}
                 >
                     <div className={style.form__wrapper}>
-                        {/* <div className={style.form__section}>
-                            {inputs.slice(0,3).map(({ id, name, label }) => (
-                                name === "checkout-user-phone" ? (
-                                    null
-                                    // <CheckoutFormFieldPhone
-                                    //     key={id}
-                                    //     id={id}
-                                    //     name={name}
-                                    //     label={label}
-                                    // />
-                                )
-                                    :
-                                    (
-                                        <CheckoutFormField
-                                            key={id}
-                                            id={id}
-                                            name={name}
-                                            label={label}
-                                        />
-                                    )
-
-                            ))}
-                            <div className={classnames(
-                                style.form__section_item,
-                                'custom-checkbox'
-                            )}>
-                                <input type="checkbox" name="checkout-user-mailing" id="checkout-user-mailing"
-                                    className="visually-hidden"
-                                />
-                                <label htmlFor="checkout-user-mailing">Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%</label>
-                            </div>
-                        </div> */}
                         <div className={style.form__section}>
+                            {inputs.slice(0, 2).map(({ id, name, type, label }) => (
+                                <CheckoutFormField
+                                    id={id}
+                                    name={name}
+                                    type={type}
+                                    label={label}
+                                />
+                            ))}
+                        </div>
+                        <div className={style.form__section}>
+                            {inputs.slice(2,7).map(({ id, name, type, label }) => (
+                                <CheckoutFormField
+                                    id={id}
+                                    name={name}
+                                    type={type}
+                                    label={label}
+                                />
+                            ))}
+                        </div>
+                        <div className={style.form__section}>
+                            {inputs.slice(7).map(({ id, name, type, label, disabled }) => (
+                                <CheckoutFormField
+                                    id={id}
+                                    name={name}
+                                    type={type}
+                                    label={label}
+                                    disabled={disabled}
+                                />
+                            ))}
+                        </div>
+                        {/* <div className={style.form__section}>
                             {inputs.slice(3, 8).map(({ id, name, label }) => (
                                 <div className={style.form__section_item} key={id}>
                                     <Field
@@ -142,7 +203,7 @@ const CheckoutForm = () => {
                                     </Field>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                         {/* <div className={style.form__section}>
                             <div className={style.form__section_item}>
                                 <label htmlFor="checkout-user-date">Дата:</label>
@@ -196,9 +257,11 @@ const CheckoutForm = () => {
                                     <div>К оплате:</div>
                                     <div>543 грн</div>
                                 </div>
-                                <button type="submit" className="item-homeSlider__btn item-homeSlider__btn-mini">
-                                    Оформить заказ
-                                </button>
+                                <div onClick={onClickSubmit}>
+                                    <button type="submit" className="item-homeSlider__btn item-homeSlider__btn-mini">
+                                        Оформить заказ
+                                    </button>
+                                </div>
                                 <small className={style.finalize__agreement}>
                                     <p>Нажимая кнопку "Оформить заказ" я принимаю</p>
                                     <p>пользовательское соглашение</p>
@@ -210,6 +273,6 @@ const CheckoutForm = () => {
             )}
         />
     )
-}
+};
 
-export default CheckoutForm
+export default CheckoutForm;

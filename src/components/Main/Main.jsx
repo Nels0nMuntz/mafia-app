@@ -7,6 +7,7 @@ import Home from './Home/Home';
 import ProductsCatalogContainer from './ProductsCatalog/ProductsCatalogContainer';
 import ProductPageContainer from './ProductsCatalog/ProductPage/ProductPageContainer';
 import CheckoutContainer from './Checkout/CheckoutContainer';
+import CheckoutWarningsContainer from './CheckoutWarnings/CheckoutWarningsContainer';
 
 import style from './Main.module.scss'
 
@@ -15,6 +16,7 @@ const Main = React.memo(({ menuItem, product, productId, url }) => {
     return (
         <main className={style.main}>
             <CategoryMenuContainer />
+            <CheckoutWarningsContainer/>
             <Switch>
                 <Route exact path='/' >
                     <Home />

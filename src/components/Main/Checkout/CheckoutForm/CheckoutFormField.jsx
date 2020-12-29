@@ -1,12 +1,15 @@
 import React from 'react'
 import { Field } from 'react-final-form';
 import classnames from 'classnames'
+import { Select } from 'antd';
 
 import PhoneInput from '../../../common/PhoneInput/PhoneInput';
 
 import style from './CheckoutForm.module.scss'
 
-export const CheckoutFormField = React.memo(({ id, name, label }) => {
+export const CheckoutFormField = React.memo(({ id, name, type, label }) => {
+
+    const { Option } = Select;
 
     return (
         <div className={style.form__section_item} key={id}>
@@ -22,8 +25,8 @@ export const CheckoutFormField = React.memo(({ id, name, label }) => {
                         )}>
                             <input
                                 id={name}
-                                type="text"
-                                // autoComplete="off"
+                                type={type}
+                                autoComplete="off"
                                 {...input}
                             />
                             <div className={style.input_warning_icon}>!</div>

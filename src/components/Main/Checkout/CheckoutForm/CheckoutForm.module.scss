@@ -23,7 +23,7 @@
                 display        : flex;
                 flex-direction : column;
                 justify-content: center;
-                position       : relative;
+                // position       : relative;
 
                 label {
                     font-size    : 14px;
@@ -62,7 +62,11 @@
                         padding-left: 20px;
                         opacity: 0;
                         z-index     : 0;
-                        // transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+                        transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+
+                        @media screen and  (max-width: 1399px) {
+                            display: none;
+                        }
 
                         div {
                             position        : relative;
@@ -102,10 +106,7 @@
                         }
 
                         .input_warning_message{
-                            animation: showAndHideMessage 3s ease-out;
-                            // transform   : translate(105%, -50%);
-                            // opacity: 1;
-                            // z-index: 1;
+                            animation: showAndHideMessage 2500ms ease-out;
                         }
 
                         input {
@@ -120,6 +121,7 @@
                     border       : 1px solid var(--brown-light);
                     border-radius: 3px;
                     transition   : border-color 0.15s linear;
+                    outline: none;
                 }
             }
 
