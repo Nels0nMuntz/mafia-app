@@ -3,10 +3,10 @@ import { Field } from 'react-final-form';
 import classnames from 'classnames'
 import { Select } from 'antd';
 
-import PhoneInput from '../../../common/PhoneInput/PhoneInput';
+import PhoneInput from '../../../../common/PhoneInput/PhoneInput';
 
-import style from './CheckoutForm.module.scss'
-import "./CheckoutFormField.scss";
+import style from './CheckoutFormFields.module.scss'
+import "./CheckoutFormFields.scss";
 
 export const CheckoutFormField = React.memo(({ name, HTMLElement, type, label, disabled, options, placeholder }) => {
 

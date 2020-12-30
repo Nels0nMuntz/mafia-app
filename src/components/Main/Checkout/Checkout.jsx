@@ -8,7 +8,7 @@ import style from './Checkout.module.scss'
 import benefits1Img from './../../../assets/images/checkout/benefits1.svg'
 import benefits2Img from './../../../assets/images/checkout/benefits2.svg'
 import benefits3Img from './../../../assets/images/checkout/benefits3.svg'
-import CheckoutForm from './CheckoutForm/CheckoutForm';
+import CheckoutFormContainer from './CheckoutForm/CheckoutFormContainer';
 
 
 const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
@@ -115,7 +115,7 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                             </div>
                         </div>
                         <div className={style.line}></div>
-                        <CheckoutForm />
+                        <CheckoutFormContainer />
                     </div>
                 </Route>
             </div>

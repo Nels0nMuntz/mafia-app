@@ -1,0 +1,105 @@
+.form__section_item {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    position       : relative;
+
+    label {
+        font-size    : 14px;
+        color        : black;
+        margin-bottom: 4px;
+    }
+
+    .input_wrapper {
+        position: relative;
+
+        .input_warning_icon {
+            position        : absolute;
+            right           : 4px;
+            top             : 50%;
+            transform       : translateY(-50%);
+            width           : 20px;
+            height          : 20px;
+            color           : white;
+            font-size       : 0.9em;
+            font-weight     : 700;
+            line-height     : 18px;
+            text-align      : center;
+            border-radius   : 3px;
+            background-color: var(--red-error);
+            transition      : opacity 0.15s linear;
+            z-index         : 0;
+            opacity         : 0;
+            user-select: none;
+        }
+
+        .input_warning_message {
+            position    : absolute;
+            right       : 3px;
+            top         : 50%;
+            transform   : translate(102%, -50%);
+            padding-left: 20px;
+            opacity: 0;
+            z-index     : 0;
+            transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+
+            @media screen and  (max-width: 1399px) {
+                display: none;
+            }
+
+            div {
+                position        : relative;
+                width       : 200px;
+                padding         : 8px;
+                font-size       : 14px;
+                line-height     : 1.2;
+                color           : white;
+                background-color: var(--red-error);
+                border-radius   : 2px;
+                box-shadow: 3px 4px 13px 0px rgb(134, 134, 134);
+
+                &::before {
+                    content     : '';
+                    position    : absolute;
+                    left        : 1px;
+                    top         : 50%;
+                    transform   : translate(-100%, -50%);
+                    width       : 15px;
+                    height      : 15px;
+                    border      : 10px solid transparent;
+                    border-right: 25px solid var(--red-error);
+                }
+            }
+
+            &.message_shown{
+                transform   : translate(105%, -50%);
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+
+        &.input_with_error {
+            .input_warning_icon {
+                opacity: 1;
+                z-index: 1;
+            }
+
+            .input_warning_message{
+                animation: showAndHideMessage 2500ms ease-out;
+            }
+
+            input {
+                border-color: var(--red-error);
+            }
+        }
+    }
+
+    input {
+        width        : 100%;
+        padding      : 12px 30px 12px 20px;
+        border       : 1px solid var(--brown-light);
+        border-radius: 3px;
+        transition   : border-color 0.15s linear;
+        outline: none;
+    }
+}

@@ -1,0 +1,40 @@
+.form__footer {
+    padding: 40px 0 30px;
+
+    .footer__comment {
+        margin-bottom: 30px;
+
+        button {
+            display      : block;
+            font-size    : 15px;
+            line-height  : 1.2;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed black;
+            transition   : border-color 0.1s linear;
+
+            &:hover {
+                border-color: white;
+            }
+        }
+
+        .comment__wrapper{
+            height: 70px;
+            overflow: hidden;
+            transition: height 0.3s linear;
+
+            &.comment__wrapper_close{
+                height: 0;
+            }
+
+            textarea {
+                width        : 100%;
+                height       : 70px;
+                padding      : 5px 15px;
+                outline      : none;
+                border       : 1px solid var(--brown-light);
+                border-radius: 3px;
+                resize       : none;
+            }
+        } 
+    }
+}
