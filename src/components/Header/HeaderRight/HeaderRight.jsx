@@ -27,7 +27,7 @@ const HeaderRight = React.memo(({ categories, onClickCartIcon, totalCount, total
                                 />
                             </li>
                             <li>
-                                <Link>
+                                <Link to='/'>
                                     {lg ? (
                                         <img className={style.avatar_icon} src={avatar} alt="avatar" />
                                     ) : (

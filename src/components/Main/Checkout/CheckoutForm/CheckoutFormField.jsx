@@ -8,14 +8,15 @@ import PhoneInput from '../../../common/PhoneInput/PhoneInput';
 import style from './CheckoutForm.module.scss'
 import "./CheckoutFormField.scss";
 
-export const CheckoutFormField = React.memo(({ id, name, HTMLElement, type, label, disabled, options, placeholder }) => {
+export const CheckoutFormField = React.memo(({ name, HTMLElement, type, label, disabled, options, placeholder }) => {
 
     const { Option } = Select;
 
     return (
-        <div className={style.form__section_item} key={id}>
+        <div className={style.form__section_item}>
             <Field
                 name={name}
+                type={type}
                 component={HTMLElement}
                 initialValue={(name === "checkout-user-city" && "Харьков") || (options && options[0])}
             >
@@ -30,7 +31,6 @@ export const CheckoutFormField = React.memo(({ id, name, HTMLElement, type, labe
                                 {HTMLElement === "input" && (
                                     <input
                                         id={name}
-                                        type={type}
                                         autoComplete="on"
                                         disabled={disabled}
                                         placeholder={placeholder}
@@ -46,7 +46,6 @@ export const CheckoutFormField = React.memo(({ id, name, HTMLElement, type, labe
                                         onChange={input.onChange}
                                         placeholder={placeholder}
                                         {...input}
-
                                     >
                                         {options.map((option, i) => <Option value={option} key={i}>{option}</Option>)}
                                     </Select>
@@ -64,16 +63,17 @@ export const CheckoutFormField = React.memo(({ id, name, HTMLElement, type, labe
     )
 });
 
-export const CheckoutFormFieldPhone = (({ id, name, label }) => {
+export const CheckoutFormFieldPhone = (({ name, HTMLElement, type, label, disabled }) => {
 
     return (
-        <div className={style.form__section_item} key={id}>
+        <div className={style.form__section_item}>
             <Field
                 name={name}
+                component={HTMLElement}
+                type={type}
             >
                 {({ input, meta }) => (
                     <React.Fragment>
-                        {console.log(input.value)}
                         <label htmlFor={name}>{label}:</label>
                         <div className={classnames(
                             style.input_wrapper,
@@ -82,11 +82,11 @@ export const CheckoutFormFieldPhone = (({ id, name, label }) => {
                             <PhoneInput
                                 {...input}
                                 id={name}
+                                value={input.value}
+                                disabled={disabled}
                                 onChange={input.onChange}
                                 onFocus={input.onFocus}
                                 onBlur={input.onBlur}
-                                value={input.value}
-
                             />
                             <div className={style.input_warning_icon}>!</div>
                             <div className={style.input_warning_message}>
@@ -99,3 +99,50 @@ export const CheckoutFormFieldPhone = (({ id, name, label }) => {
         </div>
     )
 });
+
+export const CheckoutFormFieldCheckbox = ({ name, type, HTMLElement, label, disabled }) => {
+
+    return (
+        <div className={classnames(
+            style.form__section_item,
+            'custom-checkbox'
+        )}>
+            <Field
+                name={name}
+                component={HTMLElement}
+                type={type}
+            >
+                {({ input }) => (
+                    <React.Fragment>
+                        <input
+                            id={name}
+                            className="visually-hidden"
+                            disabled={disabled}
+                            {...input}
+                        />
+                        <label htmlFor={name}>{label}</label>
+                    </React.Fragment>
+                )}
+            </Field>
+        </div>
+    )
+};
+
+export const CheckoutFormFieldTextarea = ({ name, HTMLElement, disabled }) => {
+
+    return (
+        <Field
+            name={name}
+            component={HTMLElement}
+        >
+            {({ input }) => (
+                <textarea
+                    id={name}
+                    disabled={disabled}
+                    {...input}
+                ></textarea>
+            )}
+        </Field>
+    )
+};
+

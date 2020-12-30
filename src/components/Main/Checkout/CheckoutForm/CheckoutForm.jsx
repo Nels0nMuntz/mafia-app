@@ -4,14 +4,21 @@ import classnames from 'classnames';
 
 import style from './CheckoutForm.module.scss'
 import { Form } from 'react-final-form'
-import { CheckoutFormField, CheckoutFormFieldPhone } from './CheckoutFormField';
+import {
+    CheckoutFormField,
+    CheckoutFormFieldPhone,
+    CheckoutFormFieldCheckbox,
+    CheckoutFormFieldTextarea
+} from './CheckoutFormField';
 import { setErrors, changeErrorVisibility } from '../../../../redux/checkout-reducer';
 
 
 const CheckoutForm = () => {
 
     const dispatch = useDispatch();
-    const isVisible = useSelector(state => state.checkout.isVisible)
+    const isVisible = useSelector(state => state.checkout.isVisible);
+    const [commentMode, setCommentMode] = React.useState(false);
+    const toggleCommentMode = () => setCommentMode(!commentMode)
 
     const fields = [
         {
@@ -46,6 +53,16 @@ const CheckoutForm = () => {
         },
         {
             id: 4,
+            name: "checkout-user-mailing",
+            HTMLElement: "input",
+            type: "checkbox",
+            label: "Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 5,
             name: "checkout-user-city",
             HTMLElement: "input",
             type: "text",
@@ -55,7 +72,7 @@ const CheckoutForm = () => {
             placeholder: ""
         },
         {
-            id: 5,
+            id: 6,
             name: "checkout-user-street",
             HTMLElement: "input",
             type: "text",
@@ -65,7 +82,7 @@ const CheckoutForm = () => {
             placeholder: ""
         },
         {
-            id: 6,
+            id: 7,
             name: "checkout-user-build",
             HTMLElement: "input",
             type: "text",
@@ -75,7 +92,7 @@ const CheckoutForm = () => {
             placeholder: ""
         },
         {
-            id: 7,
+            id: 8,
             name: "checkout-user-entrance",
             HTMLElement: "input",
             type: "text",
@@ -85,7 +102,7 @@ const CheckoutForm = () => {
             placeholder: ""
         },
         {
-            id: 8,
+            id: 9,
             name: "checkout-user-flat",
             HTMLElement: "input",
             type: "text",
@@ -95,7 +112,7 @@ const CheckoutForm = () => {
             placeholder: ""
         },
         {
-            id: 9,
+            id: 10,
             name: "checkout-user-date",
             HTMLElement: "select",
             type: "select",
@@ -115,7 +132,7 @@ const CheckoutForm = () => {
             placeholder: ""
         },
         {
-            id: 10,
+            id: 11,
             name: "checkout-user-time",
             HTMLElement: "select",
             type: "select",
@@ -126,7 +143,7 @@ const CheckoutForm = () => {
             placeholder: "Выберите время"
         },
         {
-            id: 11,
+            id: 12,
             name: "checkout-user-payment",
             HTMLElement: "select",
             type: "select",
@@ -140,7 +157,7 @@ const CheckoutForm = () => {
             placeholder: ""
         },
         {
-            id: 12,
+            id: 13,
             name: "checkout-user-rest",
             HTMLElement: "input",
             type: "text",
@@ -148,6 +165,26 @@ const CheckoutForm = () => {
             required: false,
             disabled: false,
             placeholder: "У меня будет без сдачи"
+        },
+        {
+            id: 14,
+            name: "checkout-user-comment",
+            HTMLElement: "textarea",
+            type: "textarea",
+            label: "",
+            required: false,
+            disabled: false,
+            placeholder: "У меня будет без сдачи"
+        },
+        {
+            id: 15,
+            name: "checkout-user-callback",
+            HTMLElement: "input",
+            type: "checkbox",
+            label: "Перезвоните мне для уточнения деталей заказа",
+            required: false,
+            disabled: false,
+            placeholder: ""
         },
     ];
 
@@ -186,42 +223,48 @@ const CheckoutForm = () => {
                 >
                     <div className={style.form__wrapper}>
                         <div className={style.form__section}>
-                            {fields.slice(0, 3).map(({ id, name, HTMLElement, type, label, disabled }) => (
-                                name === "checkout-user-phone" ? (
-                                    <CheckoutFormFieldPhone
-                                        key={id}
-                                        id={id}
-                                        name={name}
-                                        type={type}
-                                        label={label}
-                                        disabled={disabled}
-                                        HTMLElement={HTMLElement}
-                                    />
-                                ) : (
-                                        <CheckoutFormField
-                                            key={id}
-                                            id={id}
-                                            name={name}
-                                            type={type}
-                                            label={label}
-                                            disabled={disabled}
-                                            HTMLElement={HTMLElement}
-                                        />
-                                    )
-
-                            ))}
-                            <div className={classnames(
-                                style.form__section_item,
-                                'custom-checkbox'
-                            )}>
-                                <input type="checkbox" name="checkout-user-mailing" id="checkout-user-mailing"
-                                    className="visually-hidden"
-                                />
-                                <label htmlFor="checkout-user-mailing">Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%</label>
-                            </div>
+                            {fields.slice(0, 4).map(({ id, name, HTMLElement, type, label, disabled }) => {
+                                switch (name) {
+                                    case "checkout-user-phone":
+                                        return (
+                                            <CheckoutFormFieldPhone
+                                                key={id}
+                                                id={id}
+                                                name={name}
+                                                type={type}
+                                                label={label}
+                                                disabled={disabled}
+                                                HTMLElement={HTMLElement}
+                                            />
+                                        );
+                                    case "checkout-user-mailing":
+                                        return (
+                                            <CheckoutFormFieldCheckbox
+                                                key={id}
+                                                name={name}
+                                                type={type}
+                                                label={label}
+                                                disabled={disabled}
+                                                HTMLElement={HTMLElement}
+                                            />
+                                        )
+                                    default:
+                                        return (
+                                            <CheckoutFormField
+                                                key={id}
+                                                id={id}
+                                                name={name}
+                                                type={type}
+                                                label={label}
+                                                disabled={disabled}
+                                                HTMLElement={HTMLElement}
+                                            />
+                                        )
+                                }
+                            })}
                         </div>
                         <div className={style.form__section}>
-                            {fields.slice(3, 8).map(({ id, name, HTMLElement, type, label, disabled }) => (
+                            {fields.slice(4, 9).map(({ id, name, HTMLElement, type, label, disabled }) => (
                                 <CheckoutFormField
                                     key={id}
                                     id={id}
@@ -234,7 +277,7 @@ const CheckoutForm = () => {
                             ))}
                         </div>
                         <div className={style.form__section}>
-                            {fields.slice(8).map(({ id, name, HTMLElement, type, label, disabled, options, placeholder }) => (
+                            {fields.slice(9, 13).map(({ id, name, HTMLElement, type, label, disabled, options, placeholder }) => (
                                 <CheckoutFormField
                                     key={id}
                                     id={id}
@@ -247,96 +290,42 @@ const CheckoutForm = () => {
                                     placeholder={placeholder}
                                 />
                             ))}
-                            {/* <div className={style.form__section_item} key={32232}>
-                                <Field
-                                    name="checkout-user-date"
-                                >
-                                    {({ input, meta }) => (
-                                        <React.Fragment>
-                                            <label htmlFor="checkout-user-date">Date:</label>
-                                            <div className={classnames(
-                                                style.input_wrapper,
-                                                meta.error && meta.touched && !meta.active && style.input_with_error
-                                            )}>
-                                                <input
-                                                    id="checkout-user-date"
-                                                    type="se"
-                                                    autoComplete="off"
-                                                    {...input}
-                                                />
-                                                <div className={style.input_warning_icon}>!</div>
-                                                <div className={style.input_warning_message}>
-                                                    <div>{meta.error}</div>
-                                                </div>
-                                            </div>
-                                        </React.Fragment>
-                                    )}
-                                </Field>
-                            </div> */}
-                        </div>
-                        {/* <div className={style.form__section}>
-                            {inputs.slice(3, 8).map(({ id, name, label }) => (
-                                <div className={style.form__section_item} key={id}>
-                                    <Field
-                                        name={name}
-                                    >
-                                        {({ input, meta }) => (
-                                            <React.Fragment>
-                                                <label htmlFor={name}>{label}:</label>
-                                                <div className={classnames(
-                                                    style.input_wrapper,
-                                                    meta.error && meta.touched && !meta.active && style.input_with_error
-                                                )}>
-                                                    <input
-                                                        id={name}
-                                                        type="text"
-                                                        autoComplete="off"
-                                                        {...input}
-                                                    />
-                                                    <div className={style.input_warning_icon}>!</div>
-                                                    <div className={style.input_warning_message}>
-                                                        <div>{meta.error}</div>
-                                                    </div>
-                                                </div>
-                                            </React.Fragment>
-                                        )}
-                                    </Field>
-                                </div>
-                            ))}
-                        </div> */}
-                        {/* <div className={style.form__section}>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-date">Дата:</label>
-                                <input id="checkout-user-date" name="checkout-user-date" type="text" />
-                            </div>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-time">Время:</label>
-                                <input id="checkout-user-time" name="checkout-user-time" type="text" />
-                            </div>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-payment">Форма оплаты:</label>
-                                <input id="checkout-user-payment" name="checkout-user-payment" type="text" />
-                            </div>
-                            <div className={style.form__section_item}>
-                                <label htmlFor="checkout-user-rest">Подготовить сдачу с:</label>
-                                <input id="checkout-user-rest" name="checkout-user-rest" type="text" />
-                            </div>
                         </div>
                         <div className={style.form__footer}>
-                            <div className={style.footer__comment}>
-                                <button>Добавить коментарий к заказу</button>
-                                <textarea name="checkout-user-comment" id="checkout-user-comment"></textarea>
-                            </div>
                             <div className={classnames(
-                                style.footer__checkbox,
-                                'custom-checkbox'
+                                style.footer__comment,
+                                commentMode && style.footer__comment_close
                             )}>
-                                <input type="checkbox" name="checkout-user-callback" id="checkout-user-callback"
-                                    className="visually-hidden"
-                                />
-                                <label htmlFor="checkout-user-callback">Перезвоните мне для уточнения деталей заказа</label>
+                                <button
+                                    onClick={toggleCommentMode}
+                                >
+                                    Добавить коментарий к заказу
+                                </button>
+                                <div className={classnames(
+                                    style.comment__wrapper,
+                                    commentMode && style.comment__wrapper_close
+                                )}>
+                                    {fields.map(({ id, name, HTMLElement, disabled }) => name === "checkout-user-comment" && (
+                                        <CheckoutFormFieldTextarea
+                                            key={id}
+                                            name={name}
+                                            HTMLElement={HTMLElement}
+                                            disabled={disabled}
+                                        />
+                                    ))}
+                                </div>
                             </div>
-                        </div> */}
+                            {fields.map(({ id, name, HTMLElement, type, label, disabled }) => name === "checkout-user-callback" && (
+                                <CheckoutFormFieldCheckbox
+                                    key={id}
+                                    name={name}
+                                    type={type}
+                                    label={label}
+                                    disabled={disabled}
+                                    HTMLElement={HTMLElement}
+                                />
+                            ))}
+                        </div>
                     </div>
                     <div className={style.form__finalize}>
                         <div className={style.finalize__container}>

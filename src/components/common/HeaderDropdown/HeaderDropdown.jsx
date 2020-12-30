@@ -29,14 +29,14 @@ const HeaderDropdown = ({ type, title, list, iconUrl, queryMatches }) => {
                             </a>
                         )}
                         {!type && (
-                            <Link>{content}</Link>
+                            <Link to='/'>{content}</Link>
                         )}
                     </Menu.Item>
                 ))
             )}
             {type && (
                 <p className="ant-dropdown-menu-section" >
-                    <Link>
+                    <Link to='/'>
                         <button>
                             Написать отзыв
                         </button>
