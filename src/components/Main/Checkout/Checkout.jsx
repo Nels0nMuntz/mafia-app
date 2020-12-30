@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import { Redirect, Route, Link } from 'react-router-dom';
 
 import CheckoutItem from './CheckoutItem';
@@ -12,6 +13,8 @@ import CheckoutFormContainer from './CheckoutForm/CheckoutFormContainer';
 
 
 const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
+
+    console.log('Checkout');
 
     const sumPrice = list.reduce((prev, { count, price }) => prev + count * price, 0);
     const sumCount = list.reduce((prev, curr) => prev + curr.count, 0);
@@ -93,34 +96,249 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                     </section>
                 </Route>
                 <Route path="/checkout/without-auth">
-                    <div className={style.checkout__tab}>
-                        <div className={style.tab__panes}>
-                            <div className={`${style.tab__pane} ${style.active}`}>
-                                <div className={style.pane__text}>
-                                    <p className={style.pane__title}>Доставка курьером</p>
-                                    <p className={style.pane__subtitle}>Бесплатно</p>
-                                </div>
-                                <div className={style.pane__price}>
-                                    359 грн
-                                </div>
-                            </div>
-                            <div className={style.tab__pane}>
-                                <div className={style.pane__text}>
-                                    <p className={style.pane__title}>Забрать самому. Внимание !!! Нужно ставить отметку Перезвоните мне ...</p>
-                                    <p className={style.pane__subtitle}>Со скидкой 20%, кроме (*)</p>
-                                </div>
-                                <div className={style.pane__price}>
-                                    359 грн
-                                </div>
-                            </div>
-                        </div>
-                        <div className={style.line}></div>
-                        <CheckoutFormContainer />
-                    </div>
+                    <CheckoutTabs />
                 </Route>
             </div>
         </div>
     )
 };
-
 export default Checkout;
+
+
+export const CheckoutTabs = () => {
+
+    const [deliveryType, setDeliveryType] = React.useState('courier');
+
+    const changeDeliveryType = event => {
+        const target = event.target.closest('.tab__pane');
+        setDeliveryType(target.dataset.deliveryType)
+    };
+
+    return (
+        <div className={style.checkout__tab}>
+            <div className={style.tab__panes}>
+                <div
+                    className={classnames(
+                        "tab__pane",
+                        style.tab__pane,
+                        deliveryType === 'courier' && style.active
+                    )}
+                    onClick={changeDeliveryType}
+                    data-delivery-type="courier"
+                >
+                    <div className={style.pane__text}>
+                        <p className={style.pane__title}>Доставка курьером</p>
+                        <p className={style.pane__subtitle}>Бесплатно</p>
+                    </div>
+                    <div className={style.pane__price}>359 грн</div>
+                </div>
+                <div
+                    className={classnames(
+                        "tab__pane",
+                        style.tab__pane,
+                        deliveryType === 'personally' && style.active
+                    )}
+                    onClick={changeDeliveryType}
+                    data-delivery-type="personally"
+                >
+                    <div className={style.pane__text}>
+                        <p className={style.pane__title}>Забрать самому. Внимание !!! Нужно ставить отметку Перезвоните мне ...</p>
+                        <p className={style.pane__subtitle}>Со скидкой 20%, кроме (*)</p>
+                    </div>
+                    <div className={style.pane__price}>359 грн</div>
+                </div>
+            </div>
+            <div className={style.line}></div>
+            {deliveryType === 'courier' && (
+                <CheckoutFormContainer
+                    // type={deliveryType}
+                />
+            )}
+            {deliveryType === 'personally' && (
+                <CheckoutFormContainer
+                    // type={deliveryType}
+                />
+            )}
+        </div>
+    )
+};
+
+export const CheckoutFormTypeA = () => {
+
+    const fields = [
+        {
+            id: 1,
+            name: "checkout-user-name",
+            HTMLElement: "input",
+            type: "text",
+            label: "Имя",
+            required: true,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 2,
+            name: "checkout-user-phone",
+            HTMLElement: "input",
+            type: "text",
+            label: "Телефон",
+            required: true,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 3,
+            name: "checkout-user-email",
+            HTMLElement: "input",
+            type: "text",
+            label: "Email",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 4,
+            name: "checkout-user-mailing",
+            HTMLElement: "input",
+            type: "checkbox",
+            label: "Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 5,
+            name: "checkout-user-city",
+            HTMLElement: "input",
+            type: "text",
+            label: "Город",
+            required: true,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 6,
+            name: "checkout-user-street",
+            HTMLElement: "input",
+            type: "text",
+            label: "Улица",
+            required: true,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 7,
+            name: "checkout-user-build",
+            HTMLElement: "input",
+            type: "text",
+            label: "Дом",
+            required: true,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 8,
+            name: "checkout-user-entrance",
+            HTMLElement: "input",
+            type: "text",
+            label: "Подьезд",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 9,
+            name: "checkout-user-flat",
+            HTMLElement: "input",
+            type: "text",
+            label: "Квартира",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 10,
+            name: "checkout-user-date",
+            HTMLElement: "select",
+            type: "select",
+            label: "Дата",
+            required: false,
+            disabled: false,
+            options: [
+                "Сегодня",
+                "Завтра",
+                "31 декабря",
+                "1 января",
+                "2 января",
+                "3 января",
+                "4 января",
+                "5 января"
+            ],
+            placeholder: ""
+        },
+        {
+            id: 11,
+            name: "checkout-user-time",
+            HTMLElement: "select",
+            type: "select",
+            label: "Время",
+            required: false,
+            disabled: true,
+            options: [],
+            placeholder: "Выберите время"
+        },
+        {
+            id: 12,
+            name: "checkout-user-payment",
+            HTMLElement: "select",
+            type: "select",
+            label: "Форма оплати",
+            required: false,
+            disabled: false,
+            options: [
+                "Наличными",
+                "Картой онлайн"
+            ],
+            placeholder: ""
+        },
+        {
+            id: 13,
+            name: "checkout-user-rest",
+            HTMLElement: "input",
+            type: "text",
+            label: "Подготовить сдачу с",
+            required: false,
+            disabled: false,
+            placeholder: "У меня будет без сдачи"
+        },
+        {
+            id: 14,
+            name: "checkout-user-comment",
+            HTMLElement: "textarea",
+            type: "textarea",
+            label: "",
+            required: false,
+            disabled: false,
+            placeholder: "У меня будет без сдачи"
+        },
+        {
+            id: 15,
+            name: "checkout-user-callback",
+            HTMLElement: "input",
+            type: "checkbox",
+            label: "Перезвоните мне для уточнения деталей заказа",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+    ];
+
+    return (
+        <CheckoutFormContainer
+            formName="courier"
+            fields={fields}
+        />
+    )
+};
+
+

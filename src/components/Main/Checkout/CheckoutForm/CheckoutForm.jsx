@@ -2,16 +2,61 @@ import React from 'react'
 import { Form } from 'react-final-form'
 
 import {
-    CheckoutFormField,
+    CheckoutFormFieldInput,
+    CheckoutFormFieldSelect,
     CheckoutFormFieldPhone,
     CheckoutFormFieldCheckbox
 } from './CheckoutFormFields/CheckoutFormFields';
 import CheckoutFormFooter from './CheckoutFormFooter/CheckoutFormFooter';
 
 import style from './CheckoutForm.module.scss'
+import { PropTypes } from 'prop-types';
 
 
 const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
+
+    console.log('CheckoutForm');
+
+    const groupFields = (fields, start, end) => {
+        const startIndex = start;
+        const endIndex = ++end;
+        return fields.slice(startIndex, endIndex).map(item => {
+            const { id, name, HTMLElement } = item
+            switch (name) {
+                case "checkout-user-phone":
+                    return (
+                        <CheckoutFormFieldPhone
+                            key={id}
+                            {...item}
+                        />
+                    );
+                case "checkout-user-mailing":
+                    return ( 
+                        <CheckoutFormFieldCheckbox
+                            key={id}
+                            {...item}
+                        />
+                    )
+                default:
+                    return (
+                        (
+                            HTMLElement === "input" && (
+                                <CheckoutFormFieldInput
+                                    key={id}
+                                    {...item}
+                                />
+                            )) || (
+                            HTMLElement === "select" && (
+                                <CheckoutFormFieldSelect
+                                    key={id}
+                                    {...item}
+                                />
+                            ))
+                    )
+            }
+        })
+    }
+
     return (
         <Form
             onSubmit={onSubmit}
@@ -23,73 +68,13 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
                 >
                     <div className={style.form__wrapper}>
                         <div className={style.form__section}>
-                            {fields.slice(0, 4).map(({ id, name, HTMLElement, type, label, disabled }) => {
-                                switch (name) {
-                                    case "checkout-user-phone":
-                                        return (
-                                            <CheckoutFormFieldPhone
-                                                key={id}
-                                                id={id}
-                                                name={name}
-                                                type={type}
-                                                label={label}
-                                                disabled={disabled}
-                                                HTMLElement={HTMLElement}
-                                            />
-                                        );
-                                    case "checkout-user-mailing":
-                                        return (
-                                            <CheckoutFormFieldCheckbox
-                                                key={id}
-                                                name={name}
-                                                type={type}
-                                                label={label}
-                                                disabled={disabled}
-                                                HTMLElement={HTMLElement}
-                                            />
-                                        )
-                                    default:
-                                        return (
-                                            <CheckoutFormField
-                                                key={id}
-                                                id={id}
-                                                name={name}
-                                                type={type}
-                                                label={label}
-                                                disabled={disabled}
-                                                HTMLElement={HTMLElement}
-                                            />
-                                        )
-                                }
-                            })}
+                            {groupFields(fields, 0, 3)}
                         </div>
                         <div className={style.form__section}>
-                            {fields.slice(4, 9).map(({ id, name, HTMLElement, type, label, disabled }) => (
-                                <CheckoutFormField
-                                    key={id}
-                                    id={id}
-                                    name={name}
-                                    type={type}
-                                    label={label}
-                                    disabled={disabled}
-                                    HTMLElement={HTMLElement}
-                                />
-                            ))}
+                            {groupFields(fields, 4, 8)}
                         </div>
                         <div className={style.form__section}>
-                            {fields.slice(9, 13).map(({ id, name, HTMLElement, type, label, disabled, options, placeholder }) => (
-                                <CheckoutFormField
-                                    key={id}
-                                    id={id}
-                                    name={name}
-                                    type={type}
-                                    label={label}
-                                    disabled={disabled}
-                                    HTMLElement={HTMLElement}
-                                    options={options}
-                                    placeholder={placeholder}
-                                />
-                            ))}
+                            {groupFields(fields, 9, 12)}
                         </div>
                         <CheckoutFormFooter
                             fields={fields}
@@ -114,7 +99,9 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
                                     <div>К оплате:</div>
                                     <div>543 грн</div>
                                 </div>
-                                <div onClick={onClickSubmit}>
+                                <div 
+                                    onClick={onClickSubmit}
+                                >
                                     <button type="submit" className="item-homeSlider__btn item-homeSlider__btn-mini">
                                         Оформить заказ
                                     </button>
@@ -130,6 +117,13 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
             )}
         />
     )
-}
+};
+
+CheckoutForm.propTypes = {
+    fields: PropTypes.array.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    validate: PropTypes.func.isRequired,
+    onClickSubmit: PropTypes.func.isRequired
+};
 
 export default CheckoutForm

@@ -103,3 +103,32 @@
         outline: none;
     }
 }
+
+@keyframes showAndHideMessage{
+    0%{
+        transform   : translate(103%, -50%);
+        opacity: 0;
+        z-index: 0;
+    }
+    1%{
+        z-index: 2;
+    }
+    15%{
+        transform   : translate(105%, -50%);
+        opacity: 1;
+        z-index: 2;
+    }
+    85%{
+        transform   : translate(105%, -50%);
+        opacity: 1;
+        z-index: 2;
+    }
+    99%{
+        z-index: 2;
+    }
+    100%{
+        transform   : translate(103%, -50%);
+        opacity: 0;
+        z-index: 0;
+    }
+}

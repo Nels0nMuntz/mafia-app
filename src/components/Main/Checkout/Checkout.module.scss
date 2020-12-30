@@ -422,6 +422,7 @@
         border-top-left-radius : 4px;
         border-top-right-radius: 4px;
         cursor                 : pointer;
+        transition: background-color 0.15s linear;
 
         @media screen and (max-width: 767px) {
             flex-direction: column;
@@ -442,6 +443,7 @@
 
             .pane__title {
                 font-size: 17px;
+                transition: color 0.15s linear;
 
                 @media screen and (max-width: 767px) {
                     font-size: 15px;
@@ -451,6 +453,7 @@
             .pane__subtitle {
                 font-size: 14px;
                 color    : var(--green-100);
+                transition: color 0.15s linear;
 
                 @media screen and (max-width: 767px) {
                     font-size: 13px;
@@ -467,6 +470,7 @@
             height         : 100%;
             padding        : 10px;
             color          : var(--green-100);
+            transition: color 0.150s linear;
 
             @media screen and (max-width: 767px) {
                 width: 100%;
@@ -478,26 +482,27 @@
                 border-top: 1px solid #AFB696;
             }
         }
-    }
 
-    .active {
-        background-color: var(--green-100) !important;
-
-        .pane__text {
-            border-right-color: #A3B265;
-            .pane__title {
+        &.active,
+        &:hover {
+            background-color: var(--green-100) !important;
+    
+            .pane__text {
+                border-right-color: #A3B265;
+                .pane__title {
+                    color: white;
+                }
+    
+                .pane__subtitle {
+                    color: #C5ED82;
+                }
+            }
+            .pane__price{
                 color: white;
-            }
-
-            .pane__subtitle {
-                color: #C5ED82;
-            }
-        }
-        .pane__price{
-            color: white;
-
-            @media screen and (max-width: 767px) {
-                border-color: #707F32;
+    
+                @media screen and (max-width: 767px) {
+                    border-color: #707F32;
+                }
             }
         }
     }

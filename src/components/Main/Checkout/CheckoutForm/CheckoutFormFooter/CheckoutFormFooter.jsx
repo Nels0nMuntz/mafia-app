@@ -26,26 +26,30 @@ const CheckoutFormFooter = ({ fields }) => {
                     style.comment__wrapper,
                     commentMode && style.comment__wrapper_close
                 )}>
-                    {fields.map(({ id, name, HTMLElement, disabled }) => name === "checkout-user-comment" && (
-                        <CheckoutFormFieldTextarea
-                            key={id}
-                            name={name}
-                            HTMLElement={HTMLElement}
-                            disabled={disabled}
-                        />
-                    ))}
+                    {React.useMemo(() => (
+                        fields.map(({ id, name, HTMLElement, disabled }) => name === "checkout-user-comment" && (
+                            <CheckoutFormFieldTextarea
+                                key={id}
+                                name={name}
+                                HTMLElement={HTMLElement}
+                                disabled={disabled}
+                            />
+                        ))
+                    ), [fields])}
                 </div>
             </div>
-            {fields.map(({ id, name, HTMLElement, type, label, disabled }) => name === "checkout-user-callback" && (
-                <CheckoutFormFieldCheckbox
-                    key={id}
-                    name={name}
-                    type={type}
-                    label={label}
-                    disabled={disabled}
-                    HTMLElement={HTMLElement}
-                />
-            ))}
+            {React.useMemo(() => (
+                fields.map(({ id, name, HTMLElement, type, label, disabled }) => name === "checkout-user-callback" && (
+                    <CheckoutFormFieldCheckbox
+                        key={id}
+                        name={name}
+                        type={type}
+                        label={label}
+                        disabled={disabled}
+                        HTMLElement={HTMLElement}
+                    />
+                ))
+            ), [fields])}
         </div>
     )
 }

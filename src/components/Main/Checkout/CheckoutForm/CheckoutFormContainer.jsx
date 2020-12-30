@@ -7,6 +7,8 @@ import CheckoutForm from './CheckoutForm';
 
 const CheckoutFormContainer = () => {
 
+    console.log('CheckoutFormContainer');
+
     const dispatch = useDispatch();
     const isVisible = useSelector(state => state.checkout.isVisible);   
 
@@ -185,7 +187,7 @@ const CheckoutFormContainer = () => {
         build: new RegExp('^[1-9]+([а-я]*)$'),
         email: /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/
     };
-
+    
     const onSubmit = values => console.log(values);
     const validate = values => {
         const errors = {};
@@ -200,7 +202,7 @@ const CheckoutFormContainer = () => {
         return errors;
     };
 
-    const onClickSubmit = () => !isVisible ? dispatch(changeErrorVisibility(true)) : undefined;
+    const onClickSubmit = () => !isVisible ? dispatch(changeErrorVisibility(true)) : undefined; // it works for portrait screen and lower
 
     return (
         <CheckoutForm

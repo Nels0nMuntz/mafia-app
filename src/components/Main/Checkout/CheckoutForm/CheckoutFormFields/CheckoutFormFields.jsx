@@ -8,9 +8,7 @@ import PhoneInput from '../../../../common/PhoneInput/PhoneInput';
 import style from './CheckoutFormFields.module.scss'
 import "./CheckoutFormFields.scss";
 
-export const CheckoutFormField = React.memo(({ name, HTMLElement, type, label, disabled, options, placeholder }) => {
-
-    const { Option } = Select;
+export const CheckoutFormFieldInput = React.memo(({ name, HTMLElement, type, label, disabled, placeholder }) => {
 
     return (
         <div className={style.form__section_item}>
@@ -18,7 +16,7 @@ export const CheckoutFormField = React.memo(({ name, HTMLElement, type, label, d
                 name={name}
                 type={type}
                 component={HTMLElement}
-                initialValue={(name === "checkout-user-city" && "Харьков") || (options && options[0])}
+                initialValue={name === "checkout-user-city" ? "Харьков" : ""}
             >
                 {({ input, meta }) => {
                     return (
@@ -28,28 +26,13 @@ export const CheckoutFormField = React.memo(({ name, HTMLElement, type, label, d
                                 style.input_wrapper,
                                 meta.error && meta.touched && !meta.active && style.input_with_error
                             )}>
-                                {HTMLElement === "input" && (
-                                    <input
-                                        id={name}
-                                        autoComplete="on"
-                                        disabled={disabled}
-                                        placeholder={placeholder}
-                                        {...input}
-                                    />
-                                )}
-                                {HTMLElement === "select" && (
-                                    <Select
-                                        className="checkout-form__select"
-                                        dropdownClassName="checkout-form__select_option"
-                                        disabled={disabled}
-                                        value={input.value}
-                                        onChange={input.onChange}
-                                        placeholder={placeholder}
-                                        {...input}
-                                    >
-                                        {options.map((option, i) => <Option value={option} key={i}>{option}</Option>)}
-                                    </Select>
-                                )}
+                                <input
+                                    id={name}
+                                    autoComplete="on"
+                                    disabled={disabled}
+                                    placeholder={placeholder}
+                                    {...input}
+                                />
                                 <div className={style.input_warning_icon}>!</div>
                                 <div className={style.input_warning_message}>
                                     <div>{meta.error}</div>
@@ -63,7 +46,50 @@ export const CheckoutFormField = React.memo(({ name, HTMLElement, type, label, d
     )
 });
 
-export const CheckoutFormFieldPhone = (({ name, HTMLElement, type, label, disabled }) => {
+export const CheckoutFormFieldSelect = React.memo(({ name, HTMLElement, type, label, disabled, options }) => {
+
+    const { Option } = Select;
+
+    return (
+        <div className={style.form__section_item}>
+            <Field
+                name={name}
+                type={type}
+                component={HTMLElement}
+                initialValue={options.length ? options[0] : null}
+            >
+                {({ input, meta }) => {
+                    return (
+                        <React.Fragment>
+                            <label htmlFor={name}>{label}:</label>
+                            <div className={classnames(
+                                style.input_wrapper,
+                                meta.error && meta.touched && !meta.active && style.input_with_error
+                            )}>
+                                <Select
+                                    className="checkout-form__select"
+                                    dropdownClassName="checkout-form__select_option"
+                                    disabled={disabled}
+                                    value={input.value}
+                                    onChange={input.onChange}
+                                    {...input}
+                                >
+                                    {options.map((option, i) => <Option value={option} key={i}>{option}</Option>)}
+                                </Select>
+                                <div className={style.input_warning_icon}>!</div>
+                                <div className={style.input_warning_message}>
+                                    <div>{meta.error}</div>
+                                </div>
+                            </div>
+                        </React.Fragment>
+                    )
+                }}
+            </Field>
+        </div>
+    )
+});
+
+export const CheckoutFormFieldPhone = React.memo(({ name, HTMLElement, type, label, disabled }) => {
 
     return (
         <div className={style.form__section_item}>
@@ -100,7 +126,7 @@ export const CheckoutFormFieldPhone = (({ name, HTMLElement, type, label, disabl
     )
 });
 
-export const CheckoutFormFieldCheckbox = ({ name, type, HTMLElement, label, disabled }) => {
+export const CheckoutFormFieldCheckbox = React.memo(({ name, type, HTMLElement, label, disabled, placeholder }) => {
 
     return (
         <div className={classnames(
@@ -118,6 +144,7 @@ export const CheckoutFormFieldCheckbox = ({ name, type, HTMLElement, label, disa
                             id={name}
                             className="visually-hidden"
                             disabled={disabled}
+                            placeholder={placeholder}
                             {...input}
                         />
                         <label htmlFor={name}>{label}</label>
@@ -126,9 +153,9 @@ export const CheckoutFormFieldCheckbox = ({ name, type, HTMLElement, label, disa
             </Field>
         </div>
     )
-};
+});
 
-export const CheckoutFormFieldTextarea = ({ name, HTMLElement, disabled }) => {
+export const CheckoutFormFieldTextarea = React.memo(({ name, HTMLElement, disabled, placeholder }) => {
 
     return (
         <Field
@@ -139,10 +166,10 @@ export const CheckoutFormFieldTextarea = ({ name, HTMLElement, disabled }) => {
                 <textarea
                     id={name}
                     disabled={disabled}
+                    placeholder={placeholder}
                     {...input}
                 ></textarea>
             )}
         </Field>
     )
-};
-
+});
