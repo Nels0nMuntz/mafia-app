@@ -14,8 +14,6 @@ import CheckoutFormContainer from './CheckoutForm/CheckoutFormContainer';
 
 const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
 
-    console.log('Checkout');
-
     const sumPrice = list.reduce((prev, { count, price }) => prev + count * price, 0);
     const sumCount = list.reduce((prev, curr) => prev + curr.count, 0);
 

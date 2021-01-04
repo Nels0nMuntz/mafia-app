@@ -1,11 +1,11 @@
 import actionTypes from './actionTypes'
 
-const { SET_ERRORS, CHANGE_ERRORS_VISIBILITY } = actionTypes
+const { SET_ERRORS, CHANGE_ERRORS_VISIBILITY, CHANGE_READY_TO_RENDER_ERRORS } = actionTypes
 
 const initialState = {
     errors: [],
     isVisible: false,
-    readyToRender: false
+    readyToRenderErrors: false
 }
 
 const checkoutReducer = (state = initialState, action) => {
@@ -24,10 +24,10 @@ const checkoutReducer = (state = initialState, action) => {
                 ...state,
                 isVisible: action.payload
             }
-        case 'CHANGE_READY':
+        case CHANGE_READY_TO_RENDER_ERRORS:
             return {
                 ...state,
-                readyToRender: action.payload
+                readyToRenderErrors: action.payload
             }
         default:
             return state;
@@ -42,4 +42,4 @@ export const changeErrorVisibility = value => async dispatch => {
     dispatch(changeErrorVisibilityAC(value));
     setTimeout(() => dispatch(changeErrorVisibilityAC(false)), 5000);
 };
-export const changeReadyToRender = value => ({type: 'CHANGE_READY', payload: value})
+export const changeReadyToRenderErrors = value => ({type: CHANGE_READY_TO_RENDER_ERRORS, payload: value})

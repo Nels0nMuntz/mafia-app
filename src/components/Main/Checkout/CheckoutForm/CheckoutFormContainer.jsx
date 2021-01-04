@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import { setErrors, changeErrorVisibility, changeReadyToRender } from '../../../../redux/checkout-reducer';
+import { setErrors, changeErrorVisibility, changeReadyToRenderErrors } from '../../../../redux/checkout-reducer';
 import CheckoutForm from './CheckoutForm';
 import { useHistory  } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const CheckoutFormContainer = ({ fields, footer }) => {
     let history = useHistory()
     const dispatch = useDispatch();
     const isVisible = useSelector(state => state.checkout.isVisible);   
-    React.useEffect(() => dispatch(changeReadyToRender(true)));
+    React.useEffect(() => dispatch(changeReadyToRenderErrors(true)), []);
 
     const patterns = {
         name: new RegExp('^[А-Я]{1}([а-я]+)$'),
