@@ -4,7 +4,8 @@ const { SET_ERRORS, CHANGE_ERRORS_VISIBILITY } = actionTypes
 
 const initialState = {
     errors: [],
-    isVisible: false
+    isVisible: false,
+    readyToRender: false
 }
 
 const checkoutReducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ const checkoutReducer = (state = initialState, action) => {
                 ...state,
                 isVisible: action.payload
             }
+        case 'CHANGE_READY':
+            return {
+                ...state,
+                readyToRender: action.payload
+            }
         default:
             return state;
     }
@@ -36,3 +42,4 @@ export const changeErrorVisibility = value => async dispatch => {
     dispatch(changeErrorVisibilityAC(value));
     setTimeout(() => dispatch(changeErrorVisibilityAC(false)), 5000);
 };
+export const changeReadyToRender = value => ({type: 'CHANGE_READY', payload: value})

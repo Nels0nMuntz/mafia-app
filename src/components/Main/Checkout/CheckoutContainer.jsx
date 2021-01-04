@@ -9,6 +9,14 @@ import Checkout from './Checkout';
 const CheckoutContainer = () => {
 
     const dispatch = useDispatch();
+    const totalPrice = useSelector(createSelector(
+        state => state.cart.totalPrice,
+        totalPrice => totalPrice
+    ));
+    const deliveryPrice = useSelector(createSelector(
+        state => state.cart.deliveryPrice,
+        deliveryPrice => deliveryPrice
+    ));
     const cartList = useSelector(createSelector(
         state => state.cart.selected,
         selected => selected
@@ -20,6 +28,8 @@ const CheckoutContainer = () => {
     return (
         <Checkout 
             list={cartList}
+            totalPrice={totalPrice}
+            deliveryPrice={deliveryPrice}
             onDecreaseCount={onDecreaseCount}
             onIncreaseCount={onIncreaseCount}
             onRemoveProduct={onRemoveProduct}

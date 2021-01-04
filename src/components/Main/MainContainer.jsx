@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom';
 
 import Main from './Main';
+import { useSelector } from 'react-redux';
 
 
 const MainContainer = () => {
@@ -11,6 +12,7 @@ const MainContainer = () => {
     const product = match && match.params.product;
     const productId = match && match.params.productId;
     const url = match && match.url;
+    const readyToRender = useSelector(state => state.checkout.readyToRender);
 
     return (
         <Main
@@ -18,6 +20,7 @@ const MainContainer = () => {
             product={product}
             productId={productId}
             url={url}
+            readyToRender={readyToRender}
         />
     )
 }

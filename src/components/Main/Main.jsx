@@ -11,12 +11,12 @@ import CheckoutWarningsContainer from './CheckoutWarnings/CheckoutWarningsContai
 
 import style from './Main.module.scss'
 
-const Main = React.memo(({ menuItem, product, productId, url }) => {
+const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) => {
 
     return (
         <main className={style.main}>
             <CategoryMenuContainer />
-            <CheckoutWarningsContainer/>
+            {readyToRender && <CheckoutWarningsContainer/>}
             <Switch>
                 <Route exact path='/' >
                     <Home />

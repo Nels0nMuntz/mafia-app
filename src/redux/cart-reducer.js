@@ -10,16 +10,8 @@ const {
 } = actionTypes;
 
 const initialState = {
-    selected: [
-        {
-            id: "10851077108410721056",
-            count: 1,
-            price: 99,
-            title: "Рамен",
-            imageUrl: "https://mafia.ua/storage/editor/fotos/450x450/ramen_1562848470169.jpeg",
-            addition: null,
-        }
-    ],
+    selected: [],
+    deliveryPrice: 50,
     totalCount: 0,
     totalPrice: 0,
     isPopupCartOpen: false
@@ -38,22 +30,18 @@ const cartReducer = (state = initialState, action) => {
                         id: action.payload.uniqueId,
                         count: 1,
                         price: action.payload.selectedSize.discount ?? action.payload.selectedSize.price,
+                        weight: action.payload.selectedSize.weight,
                         title: action.payload.title,
                         imageUrl: action.payload.smallImageUrl,
                         gift: action.payload.selectedGift === 'Без подарка' ? null : action.payload.selectedGift,
                         addition: action.payload.selectedAddition,
                     }
                 ],
-                // totalCount: ++state.totalCount,
-                // totalPrice: state.totalPrice + (action.payload.selectedSize.discount ?? action.payload.selectedSize.price),
             };
         case REMOVE_PRODUCT:
-            // const element = state.selected.find(elem => elem.id === action.payload);
             const newState = {
                 ...state,
                 selected: state.selected.filter(elem => elem.id !== action.payload),
-                // totalCount: state.totalCount - element.count,
-                // totalPrice: state.totalPrice - element.count * element.price,
             };
             if (!newState.selected.length) {
                 newState.isPopupCartOpen = false;
@@ -75,7 +63,6 @@ const cartReducer = (state = initialState, action) => {
                         return { ...item }
                     })
                 ],
-                // totalCount: ++state.totalCount,
             };
         case DECREASE_COUNT:
             return {

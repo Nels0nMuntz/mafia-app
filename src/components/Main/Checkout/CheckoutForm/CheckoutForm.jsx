@@ -13,14 +13,10 @@ import style from './CheckoutForm.module.scss'
 import { PropTypes } from 'prop-types';
 
 
-const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
+const CheckoutForm = ({ fields, footer, totalPrice, deliveryPrice, onSubmit, validate, onClickSubmit }) => {
 
-    console.log('CheckoutForm');
-
-    const groupFields = (fields, start, end) => {
-        const startIndex = start;
-        const endIndex = ++end;
-        return fields.slice(startIndex, endIndex).map(item => {
+    const getFields = fields => {
+        return fields.map(item => {
             const { id, name, HTMLElement } = item
             switch (name) {
                 case "checkout-user-phone":
@@ -31,7 +27,7 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
                         />
                     );
                 case "checkout-user-mailing":
-                    return ( 
+                    return (
                         <CheckoutFormFieldCheckbox
                             key={id}
                             {...item}
@@ -55,7 +51,7 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
                     )
             }
         })
-    }
+    };
 
     return (
         <Form
@@ -67,17 +63,13 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
                     onSubmit={handleSubmit}
                 >
                     <div className={style.form__wrapper}>
-                        <div className={style.form__section}>
-                            {groupFields(fields, 0, 3)}
-                        </div>
-                        <div className={style.form__section}>
-                            {groupFields(fields, 4, 8)}
-                        </div>
-                        <div className={style.form__section}>
-                            {groupFields(fields, 9, 12)}
-                        </div>
+                        {fields.map((fieldsGrup, index) => (
+                            <div className={style.form__section} key={index}>
+                                {getFields(fieldsGrup)}
+                            </div>
+                        ))}
                         <CheckoutFormFooter
-                            fields={fields}
+                            fields={footer}
                         />
                     </div>
                     <div className={style.form__finalize}>
@@ -85,11 +77,11 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
                             <div className={style.finalize__inner}>
                                 <div className={style.finalize__row}>
                                     <div>Сумма:</div>
-                                    <div>524 грн</div>
+                                    <div>{totalPrice} грн</div>
                                 </div>
                                 <div className={style.finalize__row}>
                                     <div>Доставка:</div>
-                                    <div>Бесплатно</div>
+                                    <div>{deliveryPrice ? `${deliveryPrice} грн` : 'Бесплатно'}</div>
                                 </div>
                                 <div className={style.finalize__row}>
                                     <div>Упаковка:</div>
@@ -97,9 +89,9 @@ const CheckoutForm = ({ fields, onSubmit, validate, onClickSubmit }) => {
                                 </div>
                                 <div className={`${style.finalize__row} ${style.finalize__row_total}`}>
                                     <div>К оплате:</div>
-                                    <div>543 грн</div>
+                                    <div>{totalPrice + deliveryPrice + 19} грн</div>
                                 </div>
-                                <div 
+                                <div
                                     onClick={onClickSubmit}
                                 >
                                     <button type="submit" className="item-homeSlider__btn item-homeSlider__btn-mini">

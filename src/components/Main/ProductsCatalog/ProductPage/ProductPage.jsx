@@ -26,7 +26,7 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
         uniqueId: getUniqueId(product),
         title: product.title,
         description: product.description,
-        productImage: product.images.smallImageUrl,
+        smallImageUrl: product.images.smallImageUrl,
         sizes: product.sizes,
         gifts: product.gifts,
         tags: product.tags,
@@ -116,7 +116,7 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
             <div className={style.productPage__wrapper}>
                 <article className={style.productPage__content}>
                     <div className={`${style.productPage__img} productPage__img`}>
-                        <img src={state.productImage} alt="" />
+                        <img src={state.smallImageUrl} alt="" />
                         <div className="product-tag__wrapper">
                             {state.tags && state.tags.map(({ id, type, content }) => (
                                 <div

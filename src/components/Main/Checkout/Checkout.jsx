@@ -12,7 +12,7 @@ import benefits3Img from './../../../assets/images/checkout/benefits3.svg'
 import CheckoutFormContainer from './CheckoutForm/CheckoutFormContainer';
 
 
-const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
+const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
 
     console.log('Checkout');
 
@@ -96,7 +96,10 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
                     </section>
                 </Route>
                 <Route path="/checkout/without-auth">
-                    <CheckoutTabs />
+                    <CheckoutTabs
+                        totalPrice={totalPrice}
+                        deliveryPrice={deliveryPrice}
+                    />
                 </Route>
             </div>
         </div>
@@ -105,7 +108,7 @@ const Checkout = ({ list, onDecreaseCount, onIncreaseCount, onRemoveProduct }) =
 export default Checkout;
 
 
-export const CheckoutTabs = () => {
+export const CheckoutTabs = ({ totalPrice, deliveryPrice }) => {
 
     const [deliveryType, setDeliveryType] = React.useState('courier');
 
@@ -128,9 +131,9 @@ export const CheckoutTabs = () => {
                 >
                     <div className={style.pane__text}>
                         <p className={style.pane__title}>Доставка курьером</p>
-                        <p className={style.pane__subtitle}>Бесплатно</p>
+                        <p className={style.pane__subtitle}>{deliveryPrice ? `${deliveryPrice} грн` : 'Бесплатно'}</p>
                     </div>
-                    <div className={style.pane__price}>359 грн</div>
+                    <div className={style.pane__price}>{totalPrice + deliveryPrice} грн</div>
                 </div>
                 <div
                     className={classnames(
@@ -145,172 +148,180 @@ export const CheckoutTabs = () => {
                         <p className={style.pane__title}>Забрать самому. Внимание !!! Нужно ставить отметку Перезвоните мне ...</p>
                         <p className={style.pane__subtitle}>Со скидкой 20%, кроме (*)</p>
                     </div>
-                    <div className={style.pane__price}>359 грн</div>
+                    <div className={style.pane__price}>{totalPrice} грн</div>
                 </div>
             </div>
             <div className={style.line}></div>
             {deliveryType === 'courier' && (
-                <CheckoutFormContainer
-                    // type={deliveryType}
+                <CheckoutFormTypeA
+                    type={deliveryType}
                 />
             )}
             {deliveryType === 'personally' && (
-                <CheckoutFormContainer
-                    // type={deliveryType}
+                <CheckoutFormTypeB
+                    type={deliveryType}
                 />
             )}
         </div>
     )
 };
 
-export const CheckoutFormTypeA = () => {
+export const CheckoutFormTypeA = ({ type }) => {
 
     const fields = [
-        {
-            id: 1,
-            name: "checkout-user-name",
-            HTMLElement: "input",
-            type: "text",
-            label: "Имя",
-            required: true,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 2,
-            name: "checkout-user-phone",
-            HTMLElement: "input",
-            type: "text",
-            label: "Телефон",
-            required: true,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 3,
-            name: "checkout-user-email",
-            HTMLElement: "input",
-            type: "text",
-            label: "Email",
-            required: false,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 4,
-            name: "checkout-user-mailing",
-            HTMLElement: "input",
-            type: "checkbox",
-            label: "Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%",
-            required: false,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 5,
-            name: "checkout-user-city",
-            HTMLElement: "input",
-            type: "text",
-            label: "Город",
-            required: true,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 6,
-            name: "checkout-user-street",
-            HTMLElement: "input",
-            type: "text",
-            label: "Улица",
-            required: true,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 7,
-            name: "checkout-user-build",
-            HTMLElement: "input",
-            type: "text",
-            label: "Дом",
-            required: true,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 8,
-            name: "checkout-user-entrance",
-            HTMLElement: "input",
-            type: "text",
-            label: "Подьезд",
-            required: false,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 9,
-            name: "checkout-user-flat",
-            HTMLElement: "input",
-            type: "text",
-            label: "Квартира",
-            required: false,
-            disabled: false,
-            placeholder: ""
-        },
-        {
-            id: 10,
-            name: "checkout-user-date",
-            HTMLElement: "select",
-            type: "select",
-            label: "Дата",
-            required: false,
-            disabled: false,
-            options: [
-                "Сегодня",
-                "Завтра",
-                "31 декабря",
-                "1 января",
-                "2 января",
-                "3 января",
-                "4 января",
-                "5 января"
-            ],
-            placeholder: ""
-        },
-        {
-            id: 11,
-            name: "checkout-user-time",
-            HTMLElement: "select",
-            type: "select",
-            label: "Время",
-            required: false,
-            disabled: true,
-            options: [],
-            placeholder: "Выберите время"
-        },
-        {
-            id: 12,
-            name: "checkout-user-payment",
-            HTMLElement: "select",
-            type: "select",
-            label: "Форма оплати",
-            required: false,
-            disabled: false,
-            options: [
-                "Наличными",
-                "Картой онлайн"
-            ],
-            placeholder: ""
-        },
-        {
-            id: 13,
-            name: "checkout-user-rest",
-            HTMLElement: "input",
-            type: "text",
-            label: "Подготовить сдачу с",
-            required: false,
-            disabled: false,
-            placeholder: "У меня будет без сдачи"
-        },
+        [
+            {
+                id: 1,
+                name: "checkout-user-name",
+                HTMLElement: "input",
+                type: "text",
+                label: "Имя",
+                required: true,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 2,
+                name: "checkout-user-phone",
+                HTMLElement: "input",
+                type: "text",
+                label: "Телефон",
+                required: true,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 3,
+                name: "checkout-user-email",
+                HTMLElement: "input",
+                type: "text",
+                label: "Email",
+                required: false,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 4,
+                name: "checkout-user-mailing",
+                HTMLElement: "input",
+                type: "checkbox",
+                label: "Оставляя свой Email я согласен получать еженедельную рассылку от MAFIA со скидками до 50%",
+                required: false,
+                disabled: false,
+                placeholder: ""
+            },
+        ],
+        [
+            {
+                id: 5,
+                name: "checkout-user-city",
+                HTMLElement: "input",
+                type: "text",
+                label: "Город",
+                required: true,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 6,
+                name: "checkout-user-street",
+                HTMLElement: "input",
+                type: "text",
+                label: "Улица",
+                required: true,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 7,
+                name: "checkout-user-build",
+                HTMLElement: "input",
+                type: "text",
+                label: "Дом",
+                required: true,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 8,
+                name: "checkout-user-entrance",
+                HTMLElement: "input",
+                type: "text",
+                label: "Подьезд",
+                required: false,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 9,
+                name: "checkout-user-flat",
+                HTMLElement: "input",
+                type: "text",
+                label: "Квартира",
+                required: false,
+                disabled: false,
+                placeholder: ""
+            },
+        ],
+        [
+            {
+                id: 10,
+                name: "checkout-user-date",
+                HTMLElement: "select",
+                type: "select",
+                label: "Дата",
+                required: false,
+                disabled: false,
+                options: [
+                    "Сегодня",
+                    "Завтра",
+                    "31 декабря",
+                    "1 января",
+                    "2 января",
+                    "3 января",
+                    "4 января",
+                    "5 января"
+                ],
+                placeholder: ""
+            },
+            {
+                id: 11,
+                name: "checkout-user-time",
+                HTMLElement: "select",
+                type: "select",
+                label: "Время",
+                required: false,
+                disabled: true,
+                options: [],
+                placeholder: "Выберите время"
+            },
+            {
+                id: 12,
+                name: "checkout-user-payment",
+                HTMLElement: "select",
+                type: "select",
+                label: "Форма оплати",
+                required: false,
+                disabled: false,
+                options: [
+                    "Наличными",
+                    "Картой онлайн"
+                ],
+                placeholder: ""
+            },
+            {
+                id: 13,
+                name: "checkout-user-rest",
+                HTMLElement: "input",
+                type: "text",
+                label: "Подготовить сдачу с",
+                required: false,
+                disabled: false,
+                placeholder: "У меня будет без сдачи"
+            },
+        ]
+    ];
+    const footerFields = [
         {
             id: 14,
             name: "checkout-user-comment",
@@ -319,7 +330,7 @@ export const CheckoutFormTypeA = () => {
             label: "",
             required: false,
             disabled: false,
-            placeholder: "У меня будет без сдачи"
+            placeholder: ""
         },
         {
             id: 15,
@@ -335,8 +346,133 @@ export const CheckoutFormTypeA = () => {
 
     return (
         <CheckoutFormContainer
-            formName="courier"
+            // formName={type}
             fields={fields}
+            footer={footerFields}
+        />
+    )
+};
+
+export const CheckoutFormTypeB = ({ type }) => {
+
+    const fields = [
+        [
+            {
+                id: 1,
+                name: "checkout-user-name",
+                HTMLElement: "input",
+                type: "text",
+                label: "Имя",
+                required: true,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 2,
+                name: "checkout-user-phone",
+                HTMLElement: "input",
+                type: "text",
+                label: "Телефон",
+                required: true,
+                disabled: false,
+                placeholder: ""
+            },
+            {
+                id: 3,
+                name: "checkout-user-restaurant",
+                HTMLElement: "select",
+                type: "select",
+                label: "Ресторан",
+                required: true,
+                disabled: false,
+                options: [
+                    "Ресторан на Оболони (ул. Маршала Тимошенко 21, корпус 3)",
+                    "Ресторан на Подоле (ул. Верхний Вал, 24)",
+                    "Ресторан на Виноградаре (ул. Луговая 12, ТРК 'Караван')",
+                    "Ресторан на Лукьяновке (ул. Сечевых Стрельцов, 77)",
+                    "Ресторан на Олимпийской (ул. Большая Васильковская, 76)",
+                    "Ресторан на Харьковском массиве (ул. Харьковское шоссе, 144а)",
+                    "Ресторан на Золотых Воротах (ул. Богдана Хмельницкого, 27/1)",
+                    "Ресторан на Левобережной (пр. Броварской, 17)",
+                    "Ресторан на Воскресенке (б-р Перова, 36, ТЦ 'Квадрат')"
+                ],
+                placeholder: ""
+            },
+            {
+                id: 4,
+                name: "checkout-user-date",
+                HTMLElement: "select",
+                type: "select",
+                label: "Дата",
+                required: false,
+                disabled: false,
+                options: [
+                    "Сегодня",
+                    "Завтра",
+                    "31 декабря",
+                    "1 января",
+                    "2 января",
+                    "3 января",
+                    "4 января",
+                    "5 января"
+                ],
+                placeholder: ""
+            },
+            {
+                id: 5,
+                name: "checkout-user-time",
+                HTMLElement: "select",
+                type: "select",
+                label: "Время",
+                required: false,
+                disabled: true,
+                options: [],
+                placeholder: "Выберите время"
+            },
+            {
+                id: 6,
+                name: "checkout-user-payment",
+                HTMLElement: "select",
+                type: "select",
+                label: "Форма оплати",
+                required: false,
+                disabled: false,
+                options: [
+                    "Наличными",
+                    "Картой онлайн"
+                ],
+                placeholder: ""
+            },
+        ]
+    ];
+    const footerFields = [
+        {
+            id: 7,
+            name: "checkout-user-comment",
+            HTMLElement: "textarea",
+            type: "textarea",
+            label: "",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+        {
+            id: 8,
+            name: "checkout-user-callback",
+            HTMLElement: "input",
+            type: "checkbox",
+            label: "Перезвоните мне для уточнения деталей заказа",
+            required: false,
+            disabled: false,
+            placeholder: ""
+        },
+    ];
+
+    return (
+        <CheckoutFormContainer
+            // formName={type}
+            fields={fields}
+            footer={footerFields}
         />
     )
 };

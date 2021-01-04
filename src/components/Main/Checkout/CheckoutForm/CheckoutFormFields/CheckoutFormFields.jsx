@@ -103,7 +103,7 @@ export const CheckoutFormFieldPhone = React.memo(({ name, HTMLElement, type, lab
                         <label htmlFor={name}>{label}:</label>
                         <div className={classnames(
                             style.input_wrapper,
-                            meta.error && meta.visited && !meta.active && style.input_with_error
+                            meta.error && meta.touched &&  !meta.active && style.input_with_error
                         )}>
                             <PhoneInput
                                 {...input}
