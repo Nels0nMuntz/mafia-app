@@ -8,6 +8,7 @@ import ProductsCatalogContainer from './ProductsCatalog/ProductsCatalogContainer
 import ProductPageContainer from './ProductsCatalog/ProductPage/ProductPageContainer';
 import CheckoutContainer from './Checkout/CheckoutContainer';
 import CheckoutWarningsContainer from './CheckoutWarnings/CheckoutWarningsContainer';
+import CheckoutFinish from './Checkout/CheckoutFinish/CheckoutFinish';
 
 import style from './Main.module.scss'
 
@@ -16,7 +17,7 @@ const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) =
     return (
         <main className={style.main}>
             <CategoryMenuContainer />
-            {readyToRender && <CheckoutWarningsContainer/>}
+            {readyToRender && <CheckoutWarningsContainer />}
             <Switch>
                 <Route exact path='/' >
                     <Home />
@@ -39,7 +40,10 @@ const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) =
                         )}
                 </Route>
                 <Route path='/checkout'>
-                    <CheckoutContainer/>
+                    <CheckoutContainer />
+                </Route>
+                <Route path="/checkout-finish">
+                    <CheckoutFinish />
                 </Route>
             </Switch>
         </main>

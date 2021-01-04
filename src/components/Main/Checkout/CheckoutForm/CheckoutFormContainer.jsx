@@ -5,6 +5,7 @@ import { createSelector } from 'reselect';
 import { setErrors, changeErrorVisibility, changeReadyToRenderErrors } from '../../../../redux/checkout-reducer';
 import CheckoutForm from './CheckoutForm';
 import { useHistory  } from 'react-router-dom';
+import { clearCart } from './../../../../redux/cart-reducer';
 
 
 const CheckoutFormContainer = ({ fields, footer }) => {
@@ -31,9 +32,12 @@ const CheckoutFormContainer = ({ fields, footer }) => {
     };
     
     const onSubmit = props => {
-        console.log(props);
         console.log(props.values);
-        history.push("/checkout/finish")
+        // select data from store
+        // ...
+        // clear cart
+        dispatch(clearCart());
+        history.push("/checkout-finish");
     };
     const validate = values => {
         const errors = {};

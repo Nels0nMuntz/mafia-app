@@ -7,6 +7,7 @@ const {
     INCREASE_COUNT,
     DECREASE_COUNT,
     RECALCULATE_TOTAL,
+    CLEAR_CART,
 } = actionTypes;
 
 const initialState = {
@@ -93,6 +94,13 @@ const cartReducer = (state = initialState, action) => {
                 totalCount: recalculated.totalCount,
                 totalPrice: recalculated.totalPrice,
             }
+        case CLEAR_CART:
+            return {
+                ...state,
+                selected: [],
+                totalCount: 0,
+                totalPrice: 0,
+            };
         default:
             return state;
     }
@@ -123,3 +131,4 @@ export const decreaseCount = id => dispatch => {
     dispatch(decreaseCountAC(id));
     dispatch(recalculateTotalAC());
 };
+export const clearCart = () => ({ type: CLEAR_CART });
