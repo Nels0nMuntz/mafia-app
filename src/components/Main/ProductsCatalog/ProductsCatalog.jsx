@@ -7,13 +7,14 @@ import withBreadcrumbs from '../../HOC/withBreadcrumbs';
 import style from './ProductsCatalog.module.scss'
 
 
-const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, url }) => {
+const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, url, fastCategories }) => {
 
     const children = () => (list.map(item => (
         <ProductCardContainer
             key={`${item.id}_${item.title}`}
             cardData={item}
             url={url}
+            fastCategories={fastCategories}
         />
     )));
 
@@ -27,6 +28,6 @@ const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, url }) => {
             </div>
         </section>
     );
-}, (prevProps, nextProps) => isEqual(prevProps.list, nextProps.list) && prevProps.isFetching === nextProps.isFetching);
+}, (prevProps, nextProps) => isEqual(prevProps.list, nextProps.list) && prevProps.isFetching === nextProps.isFetching && isEqual(prevProps.fastCategories, nextProps.fastCategories));
 
 export default withBreadcrumbs(ProductsCatalog);

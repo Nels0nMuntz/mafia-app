@@ -8,7 +8,7 @@ import ProductCard from './ProductCard';
 import { createSelector } from 'reselect';
 
 
-const ProductCardContainer = ({ cardData, url }) => {
+const ProductCardContainer = ({ cardData, url, fastCategories }) => {
 
     // console.log('ProductCardContainer');
 
@@ -96,22 +96,10 @@ const ProductCardContainer = ({ cardData, url }) => {
         !state.checkbox
     ));
 
-    // const cartList = useSelector(
-    //     state => state.cart.selected,
-    //     (curr, prev) => {
-    //         /** It'l be work when by decreasing count of some item, this item was deleted. */
-    //         // if(!curr.length && prev.length) return false;
-    //         if(!curr.length) return false;
-    //         /** I have to return "true" to avoid rerender of elements which aren't in the Cart. This will be work by default. */
-    //         return !curr.find(elem => elem.id === state.uniqueId);
-    //     }
-    // );
     const cartProduct = useSelector(createSelector(
         state => state.cart.selected,
         selected => selected.find(elem => elem.id === state.uniqueId)
     ));
-    // const cartProduct = cartList;
-    // const cartProduct = cartList.find(elem => elem.id === state.uniqueId);
 
     const onClickOrder = () => cartProduct ? undefined : dispatch(addProduct(state));
     const onClickDropdown = value => value === state.selectedGift ? undefined : localDispatch(setGiftAC(value));
@@ -123,6 +111,7 @@ const ProductCardContainer = ({ cardData, url }) => {
         <ProductCard
             state={state}
             url={url}
+            fastCategories={fastCategories}
             cartProduct={cartProduct}
             onClickButton={onClickButton}
             onClickCheckbox={onClickCheckbox}

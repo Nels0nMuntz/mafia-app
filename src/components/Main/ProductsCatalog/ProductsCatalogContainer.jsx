@@ -13,6 +13,7 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
     
     const isExists = !!useSelector(state => state.catalog[menuItem]);
     const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
+    const fastCategories = useSelector(state => state.catalog.fastCategories);
     const filterSelector = createSelector(
         state => state.catalog[menuItem],
         state => state.catalog.currentFastCategory,
@@ -57,6 +58,7 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
             <ProductsCatalog
                 list={list}
                 url={url}
+                fastCategories={fastCategories}
             />
         )
     )
