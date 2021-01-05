@@ -25,17 +25,16 @@ const withBreadcrumbs = Component => {
         const match = useRouteMatch('/menu-dostavki/:menuItem/:product?/:id?');
         const menuItem = useSelector(state => state.catalog[match.params.menuItem]);
 
-        // console.log(props);
-
         const fastCategory = new URL(window.location.href).searchParams.get('fast') ?? '';
-        const onClickCartegory = () => dispatch(changeCurrentFastCategory(fastCategory));
+        const onClickCartegory = event => {
+            const newFastCategory = event.target.textContent === fastCategory ? fastCategory : 'default'
+            dispatch(changeCurrentFastCategory(newFastCategory));
+        };
 
         const breadcrumbNameMap = {
             '/menu-dostavki': 'Меню доставки',
             [`/menu-dostavki/${match.params.menuItem}`]: menuItem ? menuItem.title : '',
             [`/menu-dostavki/${match.params.menuItem}/product/${match.params.id}`]: `${fastCategory}`,
-            // [match.url]: menuItem ? menuItem.title : '',
-            // [match.url]: `${fastCategory}`,
         };
 
         const pathSnippets = props.location.pathname.split('/').filter(i => i);
