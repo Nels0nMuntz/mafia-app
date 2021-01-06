@@ -16,7 +16,7 @@ const ProductPageContainer = ({ menuItem, productId }) => {
         state => state.catalog[menuItem],
         product => product ? product.list.find(({ id }) => +productId === id) : {}
     ));
-    const isExists = !!Object.keys(product).length;    
+    const isExists = !!Object.keys(product).length; 
 
     React.useEffect(() => isExists ? undefined : dispatch(requestCatalogItem(menuItem)), [isExists]);
 
@@ -34,6 +34,6 @@ const ProductPageContainer = ({ menuItem, productId }) => {
 ProductPageContainer.propTypes = {
     menuItem: PropTypes.string.isRequired,
     productId: PropTypes.string.isRequired,
-}
+};
 
 export default ProductPageContainer

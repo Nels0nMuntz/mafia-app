@@ -8,6 +8,7 @@ const {
     DECREASE_COUNT,
     RECALCULATE_TOTAL,
     CLEAR_CART,
+    SET_ADDITIONS,
 } = actionTypes;
 
 const initialState = {
@@ -35,7 +36,7 @@ const cartReducer = (state = initialState, action) => {
                         title: action.payload.title,
                         imageUrl: action.payload.smallImageUrl,
                         gift: action.payload.selectedGift === 'Без подарка' ? null : action.payload.selectedGift,
-                        addition: action.payload.selectedAddition,
+                        additions: action.payload.additions,
                     }
                 ],
             };
@@ -83,7 +84,7 @@ const cartReducer = (state = initialState, action) => {
         case RECALCULATE_TOTAL:
             const recalculated = state.selected.reduce((prev, curr) => {
                 prev.totalCount += curr.count;
-                prev.totalPrice += curr.price * curr.count;
+                prev.totalPrice += curr.price * curr.count + curr.additions.reduce((sum, next) => next.selected ? sum + next.price : sum, 0);
                 return prev
             }, {
                 totalCount: 0,
@@ -93,7 +94,14 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 totalCount: recalculated.totalCount,
                 totalPrice: recalculated.totalPrice,
-            }
+            };
+        case SET_ADDITIONS:
+            return {
+                ...state,
+                selected: [
+                    ...state.selected.map(item => item.id === action.payload.id ? { ...item, additions: action.payload.additions } : { ...item })
+                ]
+            };
         case CLEAR_CART:
             return {
                 ...state,
@@ -112,6 +120,7 @@ const addProductAC = product => ({ type: ADD_PRODUCT, payload: product });
 const removeProductAC = id => ({ type: REMOVE_PRODUCT, payload: id });
 const increaseCountAC = id => ({ type: INCREASE_COUNT, payload: id });
 const decreaseCountAC = id => ({ type: DECREASE_COUNT, payload: id });
+const setAdditionsAC = (id, additions) => ({ type: SET_ADDITIONS, payload: { id, additions } });
 const recalculateTotalAC = () => ({ type: RECALCULATE_TOTAL });
 
 export const changePopupCartState = value => ({ type: CHANGE_POPUP_CART_STATE, payload: value });
@@ -129,6 +138,11 @@ export const increaseCount = id => dispatch => {
 };
 export const decreaseCount = id => dispatch => {
     dispatch(decreaseCountAC(id));
+    dispatch(recalculateTotalAC());
+};
+export const setAdditions = (id, additions) => dispatch => {
+    console.log(additions);
+    dispatch(setAdditionsAC(id, additions));
     dispatch(recalculateTotalAC());
 };
 export const clearCart = () => ({ type: CLEAR_CART });

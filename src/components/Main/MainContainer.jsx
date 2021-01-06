@@ -12,7 +12,7 @@ const MainContainer = () => {
     const product = match && match.params.product;
     const productId = match && match.params.productId;
     const url = match && match.url;
-    const readyToRender = useSelector(state => state.checkout.readyToRender);
+    const readyToRender = useSelector(state => state.checkout.readyToRenderErrors);
 
     return (
         <Main

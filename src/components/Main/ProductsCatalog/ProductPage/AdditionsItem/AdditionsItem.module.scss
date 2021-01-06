@@ -1,0 +1,96 @@
+.productPage__additional_item {
+    position: relative;
+    display         : flex;
+    width           : 100%;
+    background-color: white;
+    border          : 1px solid var(--brown-light);
+    margin-bottom   : 15px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media screen and (max-width: 1650px) {
+        margin-bottom: 0px;
+    }
+
+    @media screen and (max-width: 767px) {
+        width    : 100%;
+        max-width: 480px;
+        margin   : 0 auto;
+    }
+
+    .item_additional__info {
+        display    : flex;
+        align-items: center;
+        padding    : 15px 0;
+        flex       : 1 1 0;
+
+        .item_additional__image {
+            margin-right: 20px;
+            width       : 80px;
+            height      : 80px;
+            
+            @media screen and (max-width: 767px) {
+                width: 60px;
+                height: 60px;
+            }
+
+            img {
+                display: block;
+                width  : 100%;
+            }
+        }
+
+        .item_additional__descr {
+            flex: 1 1 0;
+            padding-right: 5px;
+
+            h4 {
+                font-size    : 18px;
+                font-weight  : 700;
+                line-height  : 1;
+                margin-bottom: 10px;
+                color        : black;
+            }
+
+            .item_additional__weight {
+                margin-bottom: 10px;
+                color        : var(--gray-secondary);
+            }
+
+            .item_additional__price {
+                font-size  : 16px;
+                font-weight: 400;
+
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .item_additional__btn {
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        width           : 48px;
+        border-left     : 1px solid var(--brown-light);
+        background-color: var(--green-100);
+        transition      : all 0.1s linear;
+
+        &:hover {
+            background-color: var(--green-main);
+        }
+
+        svg {
+            width : 22px;
+            height: 22px;
+        }        
+    }
+}
+
+.disabled{
+    cursor: not-allowed;
+    background-color: transparent !important;
+}

@@ -71,9 +71,7 @@
     border-bottom : 1px solid var(--brown-light);
     overflow-y    : auto;
 
-    .popup_cart__item {
-        display    : flex;
-        align-items: center;
+    .popup_cart__item {        
 
         &+.popup_cart__item {
             padding-top: 30px;
@@ -81,86 +79,95 @@
             border-top : 1px solid var(--brown-light);
         }
 
-        .item__img {
-            width : 100px;
-            height: 100px;
+        .item__raw{
+            display    : flex;
+            align-items: center;
 
-            @media screen and (max-width: 650px) {
-                display: none;
+            .item__img {
+                width : 100px;
+                height: 100px;
+    
+                @media screen and (max-width: 650px) {
+                    display: none;
+                }
+    
+                img {
+                    width                  : 100%;
+                    display                : block;
+                    border-top-left-radius : 3px;
+                    border-top-right-radius: 3px;
+                }
             }
-
-            img {
-                width                  : 100%;
-                display                : block;
-                border-top-left-radius : 3px;
-                border-top-right-radius: 3px;
-            }
-        }
-
-        .item__info {
-            flex   : 1 1 0;
-            padding: 0 20px;
-
-            & > h3,
-            & > p {
-                font-size    : 18px;
-                font-weight  : 400;
-                line-height: 1.5;
-                color        : black;
-                user-select: none;
-            }
-
-            .item__counter {
-                display      : flex;
-                align-items  : center;
-                margin-top: 10px;
-                margin-bottom: 10px;
-
-                .counter_count {
-                    font-size: 14px;
-                    margin   : 0 16px;
+    
+            .item__info {
+                flex   : 1 1 0;
+                padding: 0 20px;
+    
+                & > h3,
+                & > p {
+                    font-size    : 18px;
+                    font-weight  : 400;
+                    line-height: 1.5;
+                    color        : black;
                     user-select: none;
                 }
-
-                svg {
-                    cursor: pointer;
-
-                    line {
-                        transition: stroke 0.1s linear;
+    
+                .item__counter {
+                    display      : flex;
+                    align-items  : center;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+    
+                    .counter_count {
+                        font-size: 14px;
+                        margin   : 0 16px;
+                        user-select: none;
                     }
-
-                    &:hover {
+    
+                    svg {
+                        cursor: pointer;
+    
                         line {
-                            stroke: #e4d1a6;
+                            transition: stroke 0.1s linear;
+                        }
+    
+                        &:hover {
+                            line {
+                                stroke: #e4d1a6;
+                            }
+                        }
+                    }
+                }
+    
+                .item__price {
+                    font-size  : 24px;
+                    font-weight: 400;
+                    line-height: 1;
+                    user-select: none;
+                }
+            }
+    
+            .item__remove {
+                svg {
+                    width : 28px;
+                    height: 28px;
+                    cursor: pointer;
+    
+                    circle {
+                        transition: fill 0.1s linear;
+                    }
+    
+                    &:hover {
+                        circle {
+                            fill: var(--brown-500)
                         }
                     }
                 }
             }
+        }        
 
-            .item__price {
-                font-size  : 24px;
-                font-weight: 400;
-                line-height: 1;
-                user-select: none;
-            }
-        }
-
-        .item__remove {
-            svg {
-                width : 28px;
-                height: 28px;
-                cursor: pointer;
-
-                circle {
-                    transition: fill 0.1s linear;
-                }
-
-                &:hover {
-                    circle {
-                        fill: var(--brown-500)
-                    }
-                }
-            }
+        .item__raw_addition{
+            padding-top: 20px;
         }
     }
 }

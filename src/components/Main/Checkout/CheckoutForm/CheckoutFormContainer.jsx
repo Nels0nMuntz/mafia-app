@@ -10,6 +10,8 @@ import { clearCart } from './../../../../redux/cart-reducer';
 
 const CheckoutFormContainer = ({ fields, footer }) => {
 
+    console.log('CheckoutFormContainer');
+
     const totalPrice = useSelector(createSelector(
         state => state.cart.totalPrice,
         totalPrice => totalPrice
@@ -21,7 +23,12 @@ const CheckoutFormContainer = ({ fields, footer }) => {
     let history = useHistory()
     const dispatch = useDispatch();
     const isVisible = useSelector(state => state.checkout.isVisible);   
-    React.useEffect(() => dispatch(changeReadyToRenderErrors(true)), []);
+    React.useEffect(() => {
+        dispatch(changeReadyToRenderErrors(true));
+        return () => {
+            dispatch(changeReadyToRenderErrors(false));
+        }
+    }, []);
 
     const patterns = {
         name: new RegExp('^[А-Я]{1}([а-я]+)$'),

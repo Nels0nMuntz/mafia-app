@@ -5,7 +5,7 @@ const { SET_ERRORS, CHANGE_ERRORS_VISIBILITY, CHANGE_READY_TO_RENDER_ERRORS } = 
 const initialState = {
     errors: [],
     isVisible: false,
-    readyToRenderErrors: false
+    readyToRenderErrors: false,
 }
 
 const checkoutReducer = (state = initialState, action) => {

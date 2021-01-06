@@ -6,6 +6,8 @@ import CheckoutWarnings from './CheckoutWarnings';
 
 const CheckoutWarningsContainer = () => {
 
+    // console.log('CheckoutWarningsContainer');
+
     const errors = useSelector(state => state.checkout.errors);
     const isVisible = useSelector(state => state.checkout.isVisible);
 

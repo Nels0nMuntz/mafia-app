@@ -10,8 +10,6 @@ import { createSelector } from 'reselect';
 
 const ProductCardContainer = ({ cardData, url, fastCategories }) => {
 
-    // console.log('ProductCardContainer');
-
     const TOGGLE_SIZE = 'TOGGLE_SIZE';
     const SET_GIFT = 'SET_GIFT';
 
@@ -25,6 +23,9 @@ const ProductCardContainer = ({ cardData, url, fastCategories }) => {
         bigImageUrl: cardData.images.bigImageUrl,
         smallImageUrl: cardData.images.smallImageUrl,
         category: cardData.category,
+        additions: [
+            ...cardData.additionals.map(item => ({ ...item, selected: false }))
+        ],
         hasTwoSizes: cardData.sizes.length === 2,
         hasGifts: !!cardData.gifts.length,
         gifts: cardData.gifts,
@@ -35,7 +36,6 @@ const ProductCardContainer = ({ cardData, url, fastCategories }) => {
             discount: cardData.sizes[0].discount,
         },
         selectedGift: cardData.gifts[0],
-        selectedAddition: null,
         checkbox: false,
         prevState: null,
     };

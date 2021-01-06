@@ -9,8 +9,6 @@ import './../Home/HomeSlider/HomeSlider.scss'
 
 const ProductCard = ({state, url, fastCategories, cartProduct, onClickDropdown, onClickButton, onClickCheckbox, onClickOrder, onClickPlusCount, onClickMinusCount }) => {
 
-    console.log(fastCategories);
-
     return (
         <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
@@ -26,12 +24,10 @@ const ProductCard = ({state, url, fastCategories, cartProduct, onClickDropdown, 
                         ))}
                     </div>
                     <Link to={`${fastCategories.length ? `${url}/product/${state.id}?fast=${state.category}` : `${url}/product/${state.id}`}`} className='item-homeSlider__link'>
-                    {/* <Link to={`${url}/product/${state.id}?fast=${state.category}`} className='item-homeSlider__link'> */}
                         <img src={state.bigImageUrl} alt='' />
                     </Link>
                     <div className="item-homeSlider__info">
                         <Link to={`${fastCategories.length ? `${url}/product/${state.id}?fast=${state.category}` : `${url}/product/${state.id}`}`}>
-                        {/* <Link to={`${url}/product/${state.id}?fast=${state.category}`}> */}
                             <h3>{state.title}</h3>
                         </Link>
                         <div className="item-homeSlider__weight-block">

@@ -7,7 +7,9 @@ import { createSelector } from 'reselect';
 import withBreadcrumbs from './../../../HOC/withBreadcrumbs';
 import GiftDropdown from './../../../common/GiftDropdown/GiftDropdown';
 import Swicher from './../../../common/Swicher/Swicher';
-import { addProduct, decreaseCount, increaseCount, removeProduct } from '../../../../redux/cart-reducer';
+import { addProduct, decreaseCount, increaseCount, removeProduct, setAdditions } from '../../../../redux/cart-reducer';
+import { changeReadyToRenderErrors, changeErrorVisibility } from './../../../../redux/checkout-reducer'
+import AdditionItem from './AdditionsItem/AdditionsItem';
 
 import style from './ProductPage.module.scss'
 import deliveyImgUrl_1 from './../../../../assets/images/delivery-icon1.png'
@@ -20,6 +22,7 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
 
     const SET_SIZE = 'SET_SIZE';
     const SET_GIFT = 'SET_GIFT';
+    const SET_ADDITIONS = 'SET_ADDITIONS';
 
     const initialState = {
         id: product.id,
@@ -31,12 +34,14 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
         gifts: product.gifts,
         tags: product.tags,
         bonuses: product.bonuses,
-        additionals: product.additionals,
+        additions: [
+            ...product.additionals.map(item => ({ ...item, selected: false }))
+        ],
         hasTwoSizes: product.sizes.length === 2,
         hasDiscount: !!product.sizes[0].discount,
         hasGifts: !!product.gifts.length,
         hasBonuses: !!product.bonuses.length,
-        hasAdditionals: !!product.additionals.length,
+        hasAdditions: !!product.additionals.length,
         checkbox: false,
         prevButton: null,
         selectedSize: {
@@ -62,12 +67,14 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                 };
             case SET_GIFT:
                 return { ...state, selectedGift: action.payload };
+            case SET_ADDITIONS:
+                return { ...state, additions: action.payload };
             default:
                 return state;
         }
     };
 
-    const [state, dispatch] = React.useReducer(reducer, initialState);
+    const [state, dispatchLocal] = React.useReducer(reducer, initialState);
     const setGiftAC = value => ({ type: SET_GIFT, payload: value });
     const setSizeAC = (weight, price, discount, checkbox, button) => {
         return {
@@ -81,18 +88,19 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
             }
         }
     };
-    const onClickDropdown = value => value === state.selectedGift ? undefined : dispatch(setGiftAC(value));
+    const changeAdditionsAC = data => ({ type: SET_ADDITIONS, payload: data })
+    const onClickDropdown = value => value === state.selectedGift ? undefined : dispatchLocal(setGiftAC(value));
     const onClickButton = event => {
         const target = event.target;
         const button = target.className;
         if (state.prevButton === button) return;
         if (target.dataset.default) {
-            dispatch(setSizeAC(state.sizes[0].weight, state.sizes[0].price, state.sizes[0].discount, false, button));
+            dispatchLocal(setSizeAC(state.sizes[0].weight, state.sizes[0].price, state.sizes[0].discount, false, button));
         } else {
-            dispatch(setSizeAC(state.sizes[1].weight, state.sizes[1].price, state.sizes[1].discount, true, button));
+            dispatchLocal(setSizeAC(state.sizes[1].weight, state.sizes[1].price, state.sizes[1].discount, true, button));
         }
     };
-    const onClickCheckbox = () => dispatch(setSizeAC(
+    const onClickCheckbox = () => dispatchLocal(setSizeAC(
         state.sizes[+(!state.checkbox)].weight,
         state.sizes[+(!state.checkbox)].price,
         state.sizes[+(!state.checkbox)].discount,
@@ -102,10 +110,17 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
         state => state.cart.selected,
         selected => selected.find(elem => elem.id === state.uniqueId)
     ));
-    const dispatchRedux = useDispatch()
-    const onClickOrder = () => cartProduct ? undefined : dispatchRedux(addProduct(state));
-    const onClickPlusCount = () => dispatchRedux(increaseCount(state.uniqueId));
-    const onClickMinusCount = () => cartProduct.count > 1 ? dispatchRedux(decreaseCount(state.uniqueId)) : dispatchRedux(removeProduct(state.uniqueId));
+    const dispatchGlobal = useDispatch()
+    const onClickOrder = () => cartProduct ? undefined : dispatchGlobal(addProduct(state));
+    const onClickPlusCount = () => dispatchGlobal(increaseCount(state.uniqueId));
+    const onClickMinusCount = () => cartProduct.count > 1 ? dispatchGlobal(decreaseCount(state.uniqueId)) : dispatchGlobal(removeProduct(state.uniqueId));
+    const changeAdditions = id => {
+        if(cartProduct){
+            const data = state.additions.map(item => item.id === id ? {...item, selected: !item.selected} : item);
+            dispatchLocal(changeAdditionsAC(data))
+            dispatchGlobal(setAdditions(state.uniqueId, data))
+        }
+    };
 
 
     return (
@@ -206,30 +221,17 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                     </div>
                 </article>
                 <aside className={style.productPage__additional}>
-                    {state.hasAdditionals && (
+                    {state.hasAdditions && (
                         <div className={style.productPage__additional_inner}>
                             <h3>Дополнения</h3>
                             <div className={style.productPage__additional_container}>
-                                {state.additionals.map(({ id, title, weight, price, imgUrl }) => (
-                                    <div className={`${style.productPage__additional_item} ${style.item_additional}`} key={id}>
-                                        <div className={style.item_additional__info}>
-                                            <div className={style.item_additional__image}>
-                                                <img src={imgUrl} alt="" />
-                                            </div>
-                                            <div className={style.item_additional__descr}>
-                                                <h4>{title}</h4>
-                                                <div className={style.item_additional__weight}>{weight}</div>
-                                                <div className={style.item_additional__price}>{price} <span>грн</span></div>
-                                            </div>
-                                        </div>
-                                        <button className={style.item_additional__btn}>
-                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="9.5" cy="9.5" r="9" stroke="#EEE9E3" />
-                                                <line x1="9.5" y1="4" x2="9.5" y2="15" stroke="#EEE9E3" />
-                                                <line x1="4" y1="9.5" x2="15" y2="9.5" stroke="#EEE9E3" />
-                                            </svg>
-                                        </button>
-                                    </div>
+                                {state.additions.map((item, index) => (
+                                    <AdditionItem
+                                        key={index}
+                                        additionData={item}
+                                        disabled={!cartProduct}
+                                        changeAdditions={changeAdditions}
+                                    />
                                 ))}
                             </div>
                         </div>
