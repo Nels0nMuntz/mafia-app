@@ -4,10 +4,11 @@ import classnames from 'classnames'
 import style from './AdditionsItem.module.scss'
 
 
-const AdditionItem = ({ additionData, disabled, changeAdditions }) => {
+const AdditionItem = ({ additionData, productId, changeAddition, disabled }) => {
 
     const { id, title, weight, price, imgUrl, selected } = additionData;
-    const onClickButton = () => changeAdditions(id)
+
+    const onClickButton = () => disabled ? undefined : changeAddition(productId, id);
 
     return (
         <div className={`${style.productPage__additional_item} ${style.item_additional}`} key={id}>

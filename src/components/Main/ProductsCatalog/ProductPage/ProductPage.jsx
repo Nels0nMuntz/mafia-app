@@ -1,14 +1,12 @@
 import React from 'react'
 import { PropTypes } from 'prop-types';
 import classnames from 'classnames'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import withBreadcrumbs from './../../../HOC/withBreadcrumbs';
 import GiftDropdown from './../../../common/GiftDropdown/GiftDropdown';
 import Swicher from './../../../common/Swicher/Swicher';
-import { addProduct, decreaseCount, increaseCount, removeProduct, setAdditions } from '../../../../redux/cart-reducer';
-import { changeReadyToRenderErrors, changeErrorVisibility } from './../../../../redux/checkout-reducer'
 import AdditionItem from './AdditionsItem/AdditionsItem';
 
 import style from './ProductPage.module.scss'
@@ -16,111 +14,32 @@ import deliveyImgUrl_1 from './../../../../assets/images/delivery-icon1.png'
 import deliveyImgUrl_2 from './../../../../assets/images/delivery-icon2.png'
 
 
-const ProductPage = ({ BreadcrumbsComponent, product }) => {
+const ProductPage = ({ BreadcrumbsComponent, product, onSetSize, onSetGift, onChangeAddition, onAddProduct, onIncreaseCount, onDecreaseCount, onRemoveProduct }) => {
 
-    const getUniqueId = cardData => cardData.title.replace(" ", "").split("").reduce((acc, char) => char.charCodeAt(0) + acc, '');
-
-    const SET_SIZE = 'SET_SIZE';
-    const SET_GIFT = 'SET_GIFT';
-    const SET_ADDITIONS = 'SET_ADDITIONS';
-
-    const initialState = {
-        id: product.id,
-        uniqueId: getUniqueId(product),
-        title: product.title,
-        description: product.description,
-        smallImageUrl: product.images.smallImageUrl,
-        sizes: product.sizes,
-        gifts: product.gifts,
-        tags: product.tags,
-        bonuses: product.bonuses,
-        additions: [
-            ...product.additionals.map(item => ({ ...item, selected: false }))
-        ],
-        hasTwoSizes: product.sizes.length === 2,
-        hasDiscount: !!product.sizes[0].discount,
-        hasGifts: !!product.gifts.length,
-        hasBonuses: !!product.bonuses.length,
-        hasAdditions: !!product.additionals.length,
-        checkbox: false,
-        prevButton: null,
-        selectedSize: {
-            weight: product.sizes[0].weight,
-            price: product.sizes[0].price,
-            discount: product.sizes[0].discount,
-        },
-        selectedGift: product.gifts[0],
-    };
-
-    const reducer = (state, action) => {
-        switch (action.type) {
-            case SET_SIZE:
-                return {
-                    ...state,
-                    selectedSize: {
-                        weight: action.payload.weight,
-                        price: action.payload.price,
-                        discount: action.payload.discount,
-                    },
-                    checkbox: action.payload.checkbox,
-                    prevButton: action.payload.button,
-                };
-            case SET_GIFT:
-                return { ...state, selectedGift: action.payload };
-            case SET_ADDITIONS:
-                return { ...state, additions: action.payload };
-            default:
-                return state;
-        }
-    };
-
-    const [state, dispatchLocal] = React.useReducer(reducer, initialState);
-    const setGiftAC = value => ({ type: SET_GIFT, payload: value });
-    const setSizeAC = (weight, price, discount, checkbox, button) => {
-        return {
-            type: SET_SIZE,
-            payload: {
-                weight,
-                price,
-                discount,
-                checkbox,
-                button
-            }
-        }
-    };
-    const changeAdditionsAC = data => ({ type: SET_ADDITIONS, payload: data })
-    const onClickDropdown = value => value === state.selectedGift ? undefined : dispatchLocal(setGiftAC(value));
+    const cartProduct = useSelector(createSelector(
+        state => state.cart.selected,
+        selected => selected.find(elem => elem.id === product.uniqueId)
+    ));
+    const onClickDropdown = value => value === product.selectedGift ? undefined : onSetGift(value);
     const onClickButton = event => {
         const target = event.target;
         const button = target.className;
-        if (state.prevButton === button) return;
+        if (product.prevButton === button) return;
         if (target.dataset.default) {
-            dispatchLocal(setSizeAC(state.sizes[0].weight, state.sizes[0].price, state.sizes[0].discount, false, button));
+            onSetSize(product.sizes[0].weight, product.sizes[0].price, product.sizes[0].discount, false, button);
         } else {
-            dispatchLocal(setSizeAC(state.sizes[1].weight, state.sizes[1].price, state.sizes[1].discount, true, button));
+            onSetSize(product.sizes[1].weight, product.sizes[1].price, product.sizes[1].discount, true, button);
         }
     };
-    const onClickCheckbox = () => dispatchLocal(setSizeAC(
-        state.sizes[+(!state.checkbox)].weight,
-        state.sizes[+(!state.checkbox)].price,
-        state.sizes[+(!state.checkbox)].discount,
-        !state.checkbox
-    ));
-    const cartProduct = useSelector(createSelector(
-        state => state.cart.selected,
-        selected => selected.find(elem => elem.id === state.uniqueId)
-    ));
-    const dispatchGlobal = useDispatch()
-    const onClickOrder = () => cartProduct ? undefined : dispatchGlobal(addProduct(state));
-    const onClickPlusCount = () => dispatchGlobal(increaseCount(state.uniqueId));
-    const onClickMinusCount = () => cartProduct.count > 1 ? dispatchGlobal(decreaseCount(state.uniqueId)) : dispatchGlobal(removeProduct(state.uniqueId));
-    const changeAdditions = id => {
-        if(cartProduct){
-            const data = state.additions.map(item => item.id === id ? {...item, selected: !item.selected} : item);
-            dispatchLocal(changeAdditionsAC(data))
-            dispatchGlobal(setAdditions(state.uniqueId, data))
-        }
-    };
+    const onClickCheckbox = () => onSetSize(
+        product.sizes[+(!product.checkbox)].weight,
+        product.sizes[+(!product.checkbox)].price,
+        product.sizes[+(!product.checkbox)].discount,
+        !product.checkbox
+    );
+    const onClickOrder = () => cartProduct ? undefined : onAddProduct(product);
+    const onClickPlusCount = () => onIncreaseCount(product.uniqueId);
+    const onClickMinusCount = () => cartProduct.count > 1 ? onDecreaseCount(product.uniqueId) : onRemoveProduct(product.uniqueId);
 
 
     return (
@@ -131,9 +50,9 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
             <div className={style.productPage__wrapper}>
                 <article className={style.productPage__content}>
                     <div className={`${style.productPage__img} productPage__img`}>
-                        <img src={state.smallImageUrl} alt="" />
+                        <img src={product.smallImageUrl} alt="" />
                         <div className="product-tag__wrapper">
-                            {state.tags && state.tags.map(({ id, type, content }) => (
+                            {product.tags && product.tags.map(({ id, type, content }) => (
                                 <div
                                     key={id}
                                     className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
@@ -144,34 +63,34 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                         </div>
                     </div>
                     <div className={style.productPage__info}>
-                        <h2>{state.title}</h2>
+                        <h2>{product.title}</h2>
                         <div className={style.productPage__weight_block}>
-                            <div className={style.productPage__weight}>{state.selectedSize.weight}</div>
-                            {state.hasTwoSizes && (
+                            <div className={style.productPage__weight}>{product.selectedSize.weight}</div>
+                            {product.hasTwoSizes && (
                                 <Swicher
                                     onClickButtonHandler={onClickButton}
                                     onClickCheckboxHandler={onClickCheckbox}
-                                    isChecked={state.checkbox}
+                                    isChecked={product.checkbox}
                                 />
                             )}
                         </div>
                         <div className={style.productPage__description}>
-                            {state.description.map((sentence, index) => <p key={index}>{sentence}</p>)}
+                            {product.description.map((sentence, index) => <p key={index}>{sentence}</p>)}
                         </div>
                         <div className={style.productPage__footer}>
-                            {state.hasGifts && (
+                            {product.hasGifts && (
                                 <div className={`${style.productPage__gift} product-page__gift`}>
                                     <GiftDropdown
-                                        list={state.gifts}
-                                        value={state.selectedGift}
+                                        list={product.gifts}
+                                        value={product.selectedGift}
                                         callback={onClickDropdown}
                                     />
                                 </div>
                             )}
                             <div className={style.productPage__price_block}>
                                 <div className={style.productPage__price}>
-                                    {state.hasDiscount && <span className={style.productPage__price_discount}>{state.selectedSize.discount} грн</span>}
-                                    <span className={`${style.productPage__price_ordinary} ${state.hasDiscount ? style.width_discount : ''}`}>{state.selectedSize.price} грн</span>
+                                    {product.hasDiscount && <span className={style.productPage__price_discount}>{product.selectedSize.discount} грн</span>}
+                                    <span className={`${style.productPage__price_ordinary} ${product.hasDiscount ? style.width_discount : ''}`}>{product.selectedSize.price} грн</span>
                                 </div>
                                 <div className={style.productPage__order_btn}>
                                     <button
@@ -207,9 +126,9 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                                     ) : 'Заказать'}</button>
                                 </div>
                             </div>
-                            {state.hasBonuses && (
+                            {product.hasBonuses && (
                                 <div className={style.productPage__delivery}>
-                                    {state.bonuses.map(({ id, type, content }) => (
+                                    {product.bonuses.map(({ id, type, content }) => (
                                         <div className={style.productPage__delivery_item} key={id}>
                                             <span><img src={type === 'delivery' ? deliveyImgUrl_1 : deliveyImgUrl_2} alt="" /></span>
                                             <span>{content}</span>
@@ -221,16 +140,17 @@ const ProductPage = ({ BreadcrumbsComponent, product }) => {
                     </div>
                 </article>
                 <aside className={style.productPage__additional}>
-                    {state.hasAdditions && (
+                    {product.hasAdditions && (
                         <div className={style.productPage__additional_inner}>
                             <h3>Дополнения</h3>
                             <div className={style.productPage__additional_container}>
-                                {state.additions.map((item, index) => (
+                                {product.additions.map((item, index) => (
                                     <AdditionItem
                                         key={index}
+                                        productId={product.uniqueId}
                                         additionData={item}
                                         disabled={!cartProduct}
-                                        changeAdditions={changeAdditions}
+                                        changeAddition={onChangeAddition}
                                     />
                                 ))}
                             </div>

@@ -8,7 +8,8 @@ const {
     DECREASE_COUNT,
     RECALCULATE_TOTAL,
     CLEAR_CART,
-    SET_ADDITIONS,
+    CHANGE_CART_ADDITIONS,
+    REMOVE_ADDITION,
 } = actionTypes;
 
 const initialState = {
@@ -83,7 +84,7 @@ const cartReducer = (state = initialState, action) => {
             };
         case RECALCULATE_TOTAL:
             const recalculated = state.selected.reduce((prev, curr) => {
-                prev.totalCount += curr.count;
+                prev.totalCount += curr.count + curr.additions.reduce((sum, next) => next.selected ? sum + 1 : sum, 0);
                 prev.totalPrice += curr.price * curr.count + curr.additions.reduce((sum, next) => next.selected ? sum + next.price : sum, 0);
                 return prev
             }, {
@@ -95,11 +96,36 @@ const cartReducer = (state = initialState, action) => {
                 totalCount: recalculated.totalCount,
                 totalPrice: recalculated.totalPrice,
             };
-        case SET_ADDITIONS:
+        case CHANGE_CART_ADDITIONS:
             return {
                 ...state,
                 selected: [
-                    ...state.selected.map(item => item.id === action.payload.id ? { ...item, additions: action.payload.additions } : { ...item })
+                    ...state.selected.map(item => {
+                        return item.id === action.payload.productId ? {
+                            ...item,
+                            additions: [
+                                ...item.additions.map(elem => elem.id === action.payload.additionId ? {...elem, selected: !elem.selected} : {...elem})
+                            ]
+                        } : {
+                            ...item
+                        }
+                    })
+                ]
+            };
+        case REMOVE_ADDITION:
+            return {
+                ...state,
+                selected: [
+                    ...state.selected.map(item => {
+                        return item.id === action.payload.productId ? {
+                            ...item,
+                            additions: [
+                                ...item.additions.map(elem => elem.id === action.payload.additionId ? {...elem, selected: false} : {...elem})
+                            ]
+                        } : {
+                            ...item
+                        }
+                    })
                 ]
             };
         case CLEAR_CART:
@@ -120,8 +146,9 @@ const addProductAC = product => ({ type: ADD_PRODUCT, payload: product });
 const removeProductAC = id => ({ type: REMOVE_PRODUCT, payload: id });
 const increaseCountAC = id => ({ type: INCREASE_COUNT, payload: id });
 const decreaseCountAC = id => ({ type: DECREASE_COUNT, payload: id });
-const setAdditionsAC = (id, additions) => ({ type: SET_ADDITIONS, payload: { id, additions } });
+const changeCartAdditionAC = (productId, additionId) => ({ type: CHANGE_CART_ADDITIONS, payload: { productId, additionId } });
 const recalculateTotalAC = () => ({ type: RECALCULATE_TOTAL });
+const removeAdditionAC = (productId, additionId) => ({ type: REMOVE_ADDITION, payload: { productId, additionId } });
 
 export const changePopupCartState = value => ({ type: CHANGE_POPUP_CART_STATE, payload: value });
 export const addProduct = product => dispatch => {
@@ -140,9 +167,12 @@ export const decreaseCount = id => dispatch => {
     dispatch(decreaseCountAC(id));
     dispatch(recalculateTotalAC());
 };
-export const setAdditions = (id, additions) => dispatch => {
-    console.log(additions);
-    dispatch(setAdditionsAC(id, additions));
+export const changeCartAddition = (productId, additionId) => dispatch => {
+    dispatch(changeCartAdditionAC(productId, additionId));
     dispatch(recalculateTotalAC());
 };
 export const clearCart = () => ({ type: CLEAR_CART });
+export const removeAddition = (productId, additionId) => dispatch => {
+    dispatch(removeAdditionAC(productId, additionId));
+    dispatch(recalculateTotalAC());
+};

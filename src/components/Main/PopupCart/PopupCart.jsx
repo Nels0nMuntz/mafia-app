@@ -8,7 +8,7 @@ import style from './PopupCart.module.scss'
 import { Link } from 'react-router-dom';
 
 
-const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseCountItem, decreaseCountItem, closePopupCart }) => {
+const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseCountItem, decreaseCountItem, closePopupCart, removeAddition }) => {
 
     const node = React.useRef();
     const onClosePopupCart = () => closePopupCart();
@@ -30,7 +30,7 @@ const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseC
                     <h2>Корзина</h2>
                 </div>
                 <div className={style.popup_cart__body}>
-                    {list.map(({ id, title, count, price, gift, imageUrl }) => (
+                    {list.map(({ id, title, count, price, gift, imageUrl, additions }) => (
                         <PopupCartItem
                             key={id}
                             id={id}
@@ -38,10 +38,12 @@ const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseC
                             count={count}
                             price={price}
                             gift={gift}
-                            imageUrl={imageUrl}
+                            imageUrl={imageUrl}                            
+                            additions={additions}                            
                             removeItem={removeItem}
                             increaseCountItem={increaseCountItem}
                             decreaseCountItem={decreaseCountItem}
+                            removeAddition={removeAddition}
                         />
                     ))}
                 </div>
