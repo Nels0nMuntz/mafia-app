@@ -7,14 +7,14 @@ import GiftDropdown from '../../common/GiftDropdown/GiftDropdown';
 import './../Home/HomeSlider/HomeSlider.scss'
 
 
-const ProductCard = ({state, url, fastCategories, cartProduct, onClickDropdown, onClickButton, onClickCheckbox, onClickOrder, onClickPlusCount, onClickMinusCount }) => {
-
+const ProductCard = ({data, selectedSize, selectedGift, url, fastCategories, onClickDropdown, onClickButton, onClickCheckbox, onClickOrder, onClickPlusCount, onClickMinusCount, onClickProduct }) => {
+    
     return (
         <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
                 <div className="item-homeSlider__content">
                     <div className="product-tag__wrapper">
-                        {state.tags && state.tags.map(({ id, type, content }) => (
+                        {data.tags && data.tags.map(({ id, type, content }) => (
                             <div
                                 key={id}
                                 className={`product-tag ${type === 'primary' ? 'primary-product-tag' : ''} ${type === 'secondary' ? 'secondary-product-tag' : ''}`}
@@ -23,50 +23,61 @@ const ProductCard = ({state, url, fastCategories, cartProduct, onClickDropdown, 
                             </div>
                         ))}
                     </div>
-                    <Link to={`${fastCategories.length ? `${url}/product/${state.id}?fast=${state.category}` : `${url}/product/${state.id}`}`} className='item-homeSlider__link'>
-                        <img src={state.bigImageUrl} alt='' />
+                    <Link to={`${fastCategories.length ? `${url}/product/${data.id}?fast=${data.category}` : `${url}/product/${data.id}`}`} className='item-homeSlider__link'>
+                        <img 
+                            src={data.images.bigImageUrl} 
+                            alt=''
+                            onClick={onClickProduct}
+                        />
                     </Link>
                     <div className="item-homeSlider__info">
-                        <Link to={`${fastCategories.length ? `${url}/product/${state.id}?fast=${state.category}` : `${url}/product/${state.id}`}`}>
-                            <h3>{state.title}</h3>
+                        <Link to={`${fastCategories.length ? `${url}/product/${data.id}?fast=${data.category}` : `${url}/product/${data.id}`}`}>
+                            <h3
+                                onClick={onClickProduct}
+                            >
+                                {data.title}
+                            </h3>
                         </Link>
                         <div className="item-homeSlider__weight-block">
-                            <div className="item-homeSlider__weight">{state.selectedSize.weight}</div>
-                            {state.hasTwoSizes ? (
+                            <div className="item-homeSlider__weight">{selectedSize.weight}</div>
+                            {data.hasTwoSizes ? (
                                 <div className="item-homeSlider__swicher swicher-homeSlider">
                                     <span
-                                        className="size-btn-1"
-                                        data-default
+                                        // className="size-btn-1"
+                                        // data-default
+                                        data-size-id={data.sizes[0].id}
                                         onClick={onClickButton}
                                     >Средняя</span>
                                     <div
                                         data-checkbox
                                         className={classnames(
                                             "swicher-homeSlider__checkbox",
-                                            state.checkbox && 'checked'
+                                            !data.sizes[0].isSelected && 'checked'
+                                            // state.checkbox && 'checked'
                                         )}
                                         onClick={onClickCheckbox}
                                     >
                                         <span />
                                     </div>
                                     <span
-                                        className="size-btn-2"
+                                        // className="size-btn-2"
+                                        data-size-id={data.sizes[1].id}
                                         onClick={onClickButton}
                                     >Большая</span>
                                 </div>
                             ) : null}
                         </div>
-                        <p className="item-homeSlider__descr">{state.description}</p>
+                        <p className="item-homeSlider__descr">{data.description}</p>
                         <div className="item-homeSlider__price-gift">
-                            <div className={`item-homeSlider__price ${state.selectedSize.discount ? 'with-discount' : ''}`}>
-                                {state.selectedSize.discount ? <span className="item-homeSlider__price-discount">{state.selectedSize.discount} грн</span> : null}
-                                <span className="item-homeSlider__price-ordinary">{`${state.selectedSize.price} грн`}</span>
+                            <div className={`item-homeSlider__price ${selectedSize.discount ? 'with-discount' : ''}`}>
+                                {selectedSize.discount ? <span className="item-homeSlider__price-discount">{selectedSize.discount} грн</span> : null}
+                                <span className="item-homeSlider__price-ordinary">{`${selectedSize.price} грн`}</span>
                             </div>
                             <div className="item-homeSlider__gift-block gift-block">
-                                {state.hasGifts ? (
+                                {data.hasGifts ? (
                                     <GiftDropdown
-                                        list={state.gifts}
-                                        value={state.selectedGift}
+                                        list={data.gifts}
+                                        value={selectedGift.content}
                                         callback={onClickDropdown}
                                     />
                                 ) : null}
@@ -76,10 +87,10 @@ const ProductCard = ({state, url, fastCategories, cartProduct, onClickDropdown, 
                             <button
                                 className={classnames(
                                     'item-homeSlider__btn',
-                                    cartProduct && 'in-cart'
+                                    data.isSelected && 'in-cart'
                                 )}
-                                onClick={onClickOrder}
-                            >{cartProduct ? (
+                                onClick={!data.isSelected ? onClickOrder : undefined}
+                            >{data.isSelected ? (
                                 <div className="item-homeSlider__btn_ordered">
                                     <div
                                         className={classnames(
@@ -93,7 +104,7 @@ const ProductCard = ({state, url, fastCategories, cartProduct, onClickDropdown, 
                                             <line y1="2" x2="20" y2="2" stroke="#E1B787" strokeWidth="4" />
                                         </svg>
                                     </div>
-                                    <div className="order_count">{cartProduct.count}</div>
+                                    <div className="order_count">{data.count}</div>
                                     <div
                                         className="order-manage order-plus"
                                         onClick={onClickPlusCount}

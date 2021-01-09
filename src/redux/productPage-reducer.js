@@ -43,6 +43,7 @@ const productPageReducer = (state = initialState, action) => {
                         discount: action.payload.sizes[0].discount,
                     },
                     selectedGift: action.payload.gifts[0],
+                    isSelected: action.payload.isSelected,
                 }
             };
         case SET_PRODUCT_SIZE:

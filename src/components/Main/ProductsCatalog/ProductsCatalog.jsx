@@ -7,16 +7,34 @@ import withBreadcrumbs from '../../HOC/withBreadcrumbs';
 import style from './ProductsCatalog.module.scss'
 
 
-const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, url, fastCategories }) => {
+const ProductsCatalog = React.memo(({ list, cart, url, fastCategories, menuItem, BreadcrumbsComponent }) => {
 
-    const children = () => (list.map(item => (
-        <ProductCardContainer
-            key={`${item.id}_${item.title}`}
-            cardData={item}
-            url={url}
-            fastCategories={fastCategories}
-        />
-    )));
+    console.log(cart);
+
+    const children = () => list.map(item => {
+        if (item.isSelected) {
+            const cartProduct = cart.find(elem => elem.uniqueId === item.uniqueId);
+            return (
+                <ProductCardContainer
+                    key={cartProduct.uniqueId}
+                    cardData={cartProduct}
+                    url={url}
+                    fastCategories={fastCategories}
+                    menuItem={menuItem}
+                />
+            )
+        } else {
+            return (
+                <ProductCardContainer
+                    key={item.uniqueId}
+                    cardData={item}
+                    url={url}
+                    fastCategories={fastCategories}
+                    menuItem={menuItem}
+                />
+            )
+        }
+    });
 
     return (
         <section className={style.products_catalog}>
@@ -28,6 +46,11 @@ const ProductsCatalog = React.memo(({ BreadcrumbsComponent, list, url, fastCateg
             </div>
         </section>
     );
-}, (prevProps, nextProps) => isEqual(prevProps.list, nextProps.list) && prevProps.isFetching === nextProps.isFetching && isEqual(prevProps.fastCategories, nextProps.fastCategories));
+}, (prevProps, nextProps) => (
+    isEqual(prevProps.list, nextProps.list)
+    && isEqual(prevProps.isFetching === nextProps.isFetching)
+    && isEqual(prevProps.fastCategories, nextProps.fastCategories)
+    && isEqual(prevProps.cart, nextProps.cart)
+));
 
 export default withBreadcrumbs(ProductsCatalog);

@@ -1,124 +1,61 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { PropTypes } from 'prop-types';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { addProduct } from '../../../redux/cart-reducer';
-import { increaseCount, decreaseCount, removeProduct } from '../../../redux/cart-reducer';
+import { addProduct, increaseCount, decreaseCount, removeProduct } from '../../../redux/cart-reducer';
+import { changeProductSize, toggleProductSize, changeProductGift, changeProductState, changeActiveProduct } from '../../../redux/catalog-reducer';
+import { changeProductSizeCart, toggleProductSizeCart, changeProductGiftCart } from '../../../redux/cart-reducer';
 import ProductCard from './ProductCard';
-import { createSelector } from 'reselect';
 
 
-const ProductCardContainer = ({ cardData, url, fastCategories }) => {
+const ProductCardContainer = ({ cardData, url, fastCategories, menuItem }) => {
 
-    const TOGGLE_SIZE = 'TOGGLE_SIZE';
-    const SET_GIFT = 'SET_GIFT';
+    const dispatch = useDispatch();
 
-    const getUniqueId = () => cardData.title.replace(" ", "").split("").reduce((acc, char) => char.charCodeAt(0) + acc, '');
-
-    const initialState = {
-        id: cardData.id,
-        uniqueId: getUniqueId(),
-        title: cardData.title,
-        description: cardData.description,
-        bigImageUrl: cardData.images.bigImageUrl,
-        smallImageUrl: cardData.images.smallImageUrl,
-        category: cardData.category,
-        additions: [
-            ...cardData.additionals.map(item => ({ ...item, selected: false }))
-        ],
-        hasTwoSizes: cardData.sizes.length === 2,
-        hasGifts: !!cardData.gifts.length,
-        gifts: cardData.gifts,
-        tags: cardData.tags,
-        selectedSize: {
-            weight: cardData.sizes[0].weight,
-            price: cardData.sizes[0].price,
-            discount: cardData.sizes[0].discount,
-        },
-        selectedGift: cardData.gifts[0],
-        checkbox: false,
-        prevState: null,
-    };
-
-    const reducer = (state, action) => {
-        switch (action.type) {
-            case TOGGLE_SIZE:
-                return {
-                    ...state,
-                    selectedSize: {
-                        weight: action.payload.weight,
-                        price: action.payload.price,
-                        discount: action.payload.discount,
-                    },
-                    checkbox: action.payload.checkbox,
-                    prevState: action.payload.className,
-                };
-            case SET_GIFT:
-                return { ...state, selectedGift: action.payload };
-            default:
-                return state;
-        }
-    };
-
-    const [state, localDispatch] = React.useReducer(reducer, initialState);
-    const dispatch = useDispatch()
-
-    const toggleSizeAC = (weight, price, discount, checkbox, className) => {
-        return {
-            type: TOGGLE_SIZE,
-            payload: {
-                weight,
-                price,
-                discount,
-                checkbox,
-                className
-            }
-        }
-    };
-
-    const setGiftAC = value => ({ type: SET_GIFT, payload: value });
+    const selectedSize = cardData.sizes.find(item => item.isSelected);
+    const selectedGift = cardData.gifts.find(item => item.isSelected);
+    const isSelected = cardData.isSelected;
 
     const onClickButton = event => {
-        const target = event.target;
-        const className = target.className;
-        if (state.prevState === className) return;
-        if (target.dataset.default) {
-            localDispatch(toggleSizeAC(cardData.sizes[0].weight, cardData.sizes[0].price, cardData.sizes[0].discount, false, className));
-        } else {
-            localDispatch(toggleSizeAC(cardData.sizes[1].weight, cardData.sizes[1].price, cardData.sizes[1].discount, true, className));
+        const sizeId = +(event.target.dataset.sizeId);
+        if(sizeId === selectedSize.id) return;
+        dispatch(isSelected ? changeProductSizeCart(cardData.uniqueId, sizeId) : changeProductSize(menuItem, cardData.uniqueId, sizeId));
+    };
+    const onClickCheckbox = () => dispatch(isSelected ? toggleProductSizeCart(cardData.uniqueId) : toggleProductSize(menuItem, cardData.uniqueId));
+    const onClickDropdown = value => {
+        if(value === selectedGift.content) return;
+        const giftId = cardData.gifts.find(item => item.content === value).id;
+        dispatch(isSelected ? changeProductGiftCart(cardData.uniqueId, giftId) : changeProductGift(menuItem, cardData.uniqueId, giftId));
+    };
+    const onClickOrder = () => {
+        dispatch(changeProductState(menuItem, cardData.uniqueId, true));
+        dispatch(addProduct(cardData));
+    };
+    const onClickPlusCount = () => dispatch(increaseCount(cardData.uniqueId));
+    const onClickMinusCount = () => {
+        if(cardData.count > 1){
+            dispatch(decreaseCount(cardData.uniqueId));
+        }else{
+            dispatch(changeProductState(menuItem, cardData.uniqueId, false));
+            dispatch(removeProduct(cardData.uniqueId));
         }
     };
-
-    const onClickCheckbox = () => localDispatch(toggleSizeAC(
-        cardData.sizes[+(!state.checkbox)].weight,
-        cardData.sizes[+(!state.checkbox)].price,
-        cardData.sizes[+(!state.checkbox)].discount,
-        !state.checkbox
-    ));
-
-    const cartProduct = useSelector(createSelector(
-        state => state.cart.selected,
-        selected => selected.find(elem => elem.id === state.uniqueId)
-    ));
-
-    const onClickOrder = () => cartProduct ? undefined : dispatch(addProduct(state));
-    const onClickDropdown = value => value === state.selectedGift ? undefined : localDispatch(setGiftAC(value));
-    const onClickPlusCount = () => dispatch(increaseCount(state.uniqueId));
-    const onClickMinusCount = () => cartProduct.count > 1 ? dispatch(decreaseCount(state.uniqueId)) : dispatch(removeProduct(state.uniqueId));
-
+    const onClickProduct = () => dispatch(changeActiveProduct(menuItem, cardData.id));
 
     return (
         <ProductCard
-            state={state}
+            data={cardData} 
+            selectedSize={selectedSize}
+            selectedGift={selectedGift}
             url={url}
             fastCategories={fastCategories}
-            cartProduct={cartProduct}
             onClickButton={onClickButton}
             onClickCheckbox={onClickCheckbox}
-            onClickOrder={onClickOrder}
             onClickDropdown={onClickDropdown}
+            onClickOrder={onClickOrder}
             onClickPlusCount={onClickPlusCount}
             onClickMinusCount={onClickMinusCount}
+            onClickProduct={onClickProduct}
         />
     )
 };

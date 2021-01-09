@@ -5,17 +5,14 @@ import './GiftDropdown.scss'
 
 const GiftDropdown = ({ list, value, callback }) => {
 
-    const onClickHandler = ({key}) => {
-        console.log(key);
-        callback(key);
-    }
+    const onClickHandler = ({key}) => callback(key);
 
     const menu = (
         <Menu
             // callback will return value of attribute "key" of <Menu.Item></Menu.Item>
             onClick={onClickHandler}
         >
-            {list.map(content => (
+            {list.map(({id, content}) => (
                 <Menu.Item 
                     key={content}
                 >

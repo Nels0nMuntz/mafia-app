@@ -10,6 +10,9 @@ const {
     CLEAR_CART,
     CHANGE_CART_ADDITIONS,
     REMOVE_ADDITION,
+    TOGGLE_PRODUCT_SIZE_CART,
+    CHANGE_PRODUCT_SIZE_CART,
+    CHANGE_PRODUCT_GIFT_CART,
 } = actionTypes;
 
 const initialState = {
@@ -30,21 +33,16 @@ const cartReducer = (state = initialState, action) => {
                 selected: [
                     ...state.selected,
                     {
-                        id: action.payload.uniqueId,
+                        ...action.payload,
                         count: 1,
-                        price: action.payload.selectedSize.discount ?? action.payload.selectedSize.price,
-                        weight: action.payload.selectedSize.weight,
-                        title: action.payload.title,
-                        imageUrl: action.payload.smallImageUrl,
-                        gift: action.payload.selectedGift === 'Без подарка' ? null : action.payload.selectedGift,
-                        additions: action.payload.additions,
+                        isSelected: true,
                     }
                 ],
             };
         case REMOVE_PRODUCT:
             const newState = {
                 ...state,
-                selected: state.selected.filter(elem => elem.id !== action.payload),
+                selected: state.selected.filter(elem => elem.uniqueId !== action.payload),
             };
             if (!newState.selected.length) {
                 newState.isPopupCartOpen = false;
@@ -57,7 +55,7 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 selected: [
                     ...state.selected.map(item => {
-                        if (item.id === action.payload) {
+                        if (item.uniqueId === action.payload) {
                             return {
                                 ...item,
                                 count: ++item.count
@@ -72,7 +70,7 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 selected: [
                     ...state.selected.map(item => {
-                        if (item.id === action.payload) {
+                        if (item.uniqueId === action.payload) {
                             return {
                                 ...item,
                                 count: --item.count
@@ -85,7 +83,7 @@ const cartReducer = (state = initialState, action) => {
         case RECALCULATE_TOTAL:
             const recalculated = state.selected.reduce((prev, curr) => {
                 prev.totalCount += curr.count + curr.additions.reduce((sum, next) => next.selected ? sum + 1 : sum, 0);
-                prev.totalPrice += curr.price * curr.count + curr.additions.reduce((sum, next) => next.selected ? sum + next.price : sum, 0);
+                prev.totalPrice += curr.sizes.find(item => item.isSelected).price * curr.count + curr.additions.reduce((sum, next) => next.isSelected ? sum + next.price : sum, 0);
                 return prev
             }, {
                 totalCount: 0,
@@ -104,11 +102,11 @@ const cartReducer = (state = initialState, action) => {
                         return item.id === action.payload.productId ? {
                             ...item,
                             additions: [
-                                ...item.additions.map(elem => elem.id === action.payload.additionId ? {...elem, selected: !elem.selected} : {...elem})
+                                ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, selected: !elem.selected } : { ...elem })
                             ]
                         } : {
-                            ...item
-                        }
+                                ...item
+                            }
                     })
                 ]
             };
@@ -120,11 +118,11 @@ const cartReducer = (state = initialState, action) => {
                         return item.id === action.payload.productId ? {
                             ...item,
                             additions: [
-                                ...item.additions.map(elem => elem.id === action.payload.additionId ? {...elem, selected: false} : {...elem})
+                                ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, selected: false } : { ...elem })
                             ]
                         } : {
-                            ...item
-                        }
+                                ...item
+                            }
                     })
                 ]
             };
@@ -134,6 +132,58 @@ const cartReducer = (state = initialState, action) => {
                 selected: [],
                 totalCount: 0,
                 totalPrice: 0,
+            };
+        case TOGGLE_PRODUCT_SIZE_CART:
+            return {
+                ...state,
+                selected: [
+                    ...state.selected.map(item => {
+                        if (item.uniqueId === action.payload) {
+                            return {
+                                ...item,
+                                sizes: [
+                                    ...item.sizes.map(elem => ({ ...elem, isSelected: !elem.isSelected }))
+                                ]
+                            }
+                        } else return item
+                    })
+                ]
+            };
+        case CHANGE_PRODUCT_SIZE_CART:
+            return {
+                ...state,
+                selected: [
+                    ...state.selected.map(item => {
+                        if (item.uniqueId === action.payload.productId) {
+                            return {
+                                ...item,
+                                sizes: [
+                                    ...item.sizes.map(elem => elem.id === action.payload.sizeId ? { ...elem, isSelected: true } : { ...elem, isSelected: false })
+                                ]
+                            };
+                        } else {
+                            return item;
+                        }
+                    })
+                ]
+            };
+        case CHANGE_PRODUCT_GIFT_CART:
+            return {
+                ...state,
+                selected: [
+                    ...state.selected.map(item => {
+                        if (item.uniqueId === action.payload.productId) {
+                            return {
+                                ...item,
+                                gifts: [
+                                    ...item.gifts.map(elem => elem.id === action.payload.giftId ? { ...elem, isSelected: true } : { ...elem, isSelected: false })
+                                ]
+                            };
+                        } else {
+                            return item;
+                        }
+                    })
+                ]
             };
         default:
             return state;
@@ -176,3 +226,6 @@ export const removeAddition = (productId, additionId) => dispatch => {
     dispatch(removeAdditionAC(productId, additionId));
     dispatch(recalculateTotalAC());
 };
+export const toggleProductSizeCart = (productId) => ({ type: TOGGLE_PRODUCT_SIZE_CART, payload: productId });
+export const changeProductSizeCart = (productId, sizeId) => ({ type: CHANGE_PRODUCT_SIZE_CART, payload: { productId, sizeId } });
+export const changeProductGiftCart = (productId, giftId) => ({ type: CHANGE_PRODUCT_GIFT_CART, payload: { productId, giftId } });

@@ -10,11 +10,10 @@ import Preloader from '../../Preloader/Preloader';
 const ProductsCatalogContainer = ({ menuItem, url }) => {
 
     const dispatch = useDispatch();
-    
     const isExists = !!useSelector(state => state.catalog[menuItem]);
     const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
     const fastCategories = useSelector(state => state.catalog.fastCategories);
-    const filterSelector = createSelector(
+    const list = useSelector(createSelector(
         state => state.catalog[menuItem],
         state => state.catalog.currentFastCategory,
         state => state.catalog.currentSortCategory,
@@ -42,9 +41,11 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
                     return sortByFastCategory;
             }
         }
-    );
-
-    const list = useSelector(filterSelector);
+    ));
+    const cart = useSelector(createSelector(
+        state => state.cart.selected,
+        selected => selected
+    ));
 
     React.useEffect(() => {
         if(isExists) return;        
@@ -57,8 +58,10 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
         ) : (
             <ProductsCatalog
                 list={list}
+                cart={cart}
                 url={url}
                 fastCategories={fastCategories}
+                menuItem={menuItem}
             />
         )
     )

@@ -3,7 +3,7 @@ import classnames from 'classnames'
 
 import './Swicher.scss'
 
-const Swicher = ({onClickButtonHandler, onClickCheckboxHandler, isChecked}) => {
+const Swicher = ({ sizes, onClickButtonHandler, onClickCheckboxHandler }) => {
 
     const onClickButton = event => onClickButtonHandler(event);
     const onClickCheckbox = () => onClickCheckboxHandler();
@@ -11,22 +11,21 @@ const Swicher = ({onClickButtonHandler, onClickCheckboxHandler, isChecked}) => {
     return (
         <div className="item-homeSlider__swicher swicher-homeSlider">
             <span
-                className="size-btn-1"
-                data-default
+                data-size-id={sizes[0].id}
                 onClick={onClickButton}
             >Средняя</span>
             <div
                 data-checkbox
                 className={classnames(
                     "swicher-homeSlider__checkbox",
-                    isChecked && 'checked'
+                    !sizes[0].isSelected && 'checked'
                 )}
                 onClick={onClickCheckbox}
             >
                 <span />
             </div>
             <span
-                className="size-btn-2"
+                data-size-id={sizes[1].id}
                 onClick={onClickButton}
             >Большая</span>
         </div>
