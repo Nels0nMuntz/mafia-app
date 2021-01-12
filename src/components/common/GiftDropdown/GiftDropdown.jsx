@@ -14,7 +14,7 @@ const GiftDropdown = ({ list, value, callback }) => {
         >
             {list.map(({content}) => (
                 <Menu.Item 
-                    key={Math.trunc(Math.random() *  38 * 100)}
+                    key={content}
                 >
                     <span>{content}</span>
                 </Menu.Item>

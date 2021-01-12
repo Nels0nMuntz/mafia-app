@@ -12,9 +12,7 @@ import benefits2Img from './../../../assets/images/checkout/benefits2.svg'
 import benefits3Img from './../../../assets/images/checkout/benefits3.svg'
 
 
-const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
-    
-    const sumCount = list.reduce((prev, curr) => prev + curr.count, 0);
+const Checkout = ({ list, totalPrice, totalCount, deliveryPrice, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
 
     if (!list.length) return <Redirect to='/' />
     return (
@@ -35,7 +33,7 @@ const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncrease
                             </div>
                         </div>
                         <div className={style.checkout_list__body}>
-                            {list.map(({ uniqueId, title, images, sizes, gifts, count, hasTwoSizes }) => {
+                            {list.map(({ uniqueId, title, images, sizes, gifts, count, hasTwoSizes, additions }) => {
                                 const selectedSize = sizes.find(item => item.isSelected);
                                 const selectedGift = gifts.find(item => item.isSelected) || '';
                                 return (
@@ -48,6 +46,7 @@ const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncrease
                                         count={count}
                                         price={selectedSize.price}
                                         sizeValue={hasTwoSizes ? selectedSize.value : ''}
+                                        additions={additions}
                                         onDecreaseCount={onDecreaseCount}
                                         onIncreaseCount={onIncreaseCount}
                                         onRemoveProduct={onRemoveProduct}
@@ -58,7 +57,7 @@ const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncrease
                         <div className={style.checkout_list__footer}>
                             <div className={style.checkout_list__row}>
                                 <div className={style.footer_sum}>
-                                    <p>В корзине {sumCount} товаров</p>
+                                    <p>В корзине {totalCount} товаров</p>
                                     <p><span>Сумма за все товары</span><span>{totalPrice} грн</span></p>
                                 </div>
                                 <p className={style.footer_row}>* На товары, помеченные (*), скидка при самовывозе не распространяется.</p>

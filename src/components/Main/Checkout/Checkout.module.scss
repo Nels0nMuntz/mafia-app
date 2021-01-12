@@ -92,7 +92,10 @@
     .checkout_list__row_wrapper {
         flex-wrap  : wrap;
         padding-top: 25px;
-        border-top : 1px solid var(--brown-light);
+
+        &:first-child{
+            border-top : 1px solid var(--brown-light);
+        }
 
         @media screen and (max-width: 767px) {
             padding-top: 20px;

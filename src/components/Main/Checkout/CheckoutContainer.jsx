@@ -13,6 +13,10 @@ const CheckoutContainer = () => {
         state => state.cart.totalPrice,
         totalPrice => totalPrice
     ));
+    const totalCount = useSelector(createSelector(
+        state => state.cart.totalCount,
+        totalCount => totalCount
+    ));
     const deliveryPrice = useSelector(createSelector(
         state => state.cart.deliveryPrice,
         deliveryPrice => deliveryPrice
@@ -29,6 +33,7 @@ const CheckoutContainer = () => {
         <Checkout 
             list={cartList}
             totalPrice={totalPrice}
+            totalCount={totalCount}
             deliveryPrice={deliveryPrice}
             onDecreaseCount={onDecreaseCount}
             onIncreaseCount={onIncreaseCount}
