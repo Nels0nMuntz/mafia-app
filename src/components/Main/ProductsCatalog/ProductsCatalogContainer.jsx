@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from "reselect";
+import PropTypes from 'prop-types';
 
 import ProductsCatalog from './ProductsCatalog';
 import { requestCatalogItem } from '../../../redux/catalog-reducer';
@@ -65,6 +66,17 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
             />
         )
     )
+};
+
+ProductsCatalogContainer.propTypes = {
+    menuItem: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.oneOf([null]).isRequired,
+    ]),
+    url: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.oneOf([null]).isRequired,
+    ]),
 };
 
 export default React.memo(ProductsCatalogContainer);

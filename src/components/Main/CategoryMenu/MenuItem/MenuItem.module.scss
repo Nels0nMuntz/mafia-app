@@ -34,6 +34,9 @@
             color: black;
         }
     }
+    &.active{
+        background-color: #e1b787;
+    }
 
     @media screen and (max-width: 1020px) {  
         width: auto;      

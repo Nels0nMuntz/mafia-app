@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import CategoryMenuContainer from './CategoryMenu/CategoryMenuContainer';
 import ProductsFilter from './ProductsFilter/ProductsFilter';
@@ -16,7 +17,9 @@ const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) =
 
     return (
         <main className={style.main}>
-            <CategoryMenuContainer />
+            <CategoryMenuContainer
+                menuItem={menuItem}
+            />
             {readyToRender && <CheckoutWarningsContainer />}
             <Switch>
                 <Route exact path='/' >
@@ -49,5 +52,17 @@ const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) =
         </main>
     )
 });
+
+Main.propTypes = {
+    menuItem: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.oneOf([null]).isRequired,
+    ]),
+    url: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.oneOf([null]).isRequired,
+    ]),
+    readyToRender: PropTypes.bool.isRequired,
+};
 
 export default Main

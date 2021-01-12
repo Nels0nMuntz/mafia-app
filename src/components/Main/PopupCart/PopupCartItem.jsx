@@ -5,8 +5,6 @@ import style from './PopupCart.module.scss'
 
 const PopupCartItem = ({ uniqueId, title, sizeValue, count, price, gift, imageUrl, additions, removeItem, increaseCountItem, decreaseCountItem, removeAddition }) => {
 
-    console.log(uniqueId);
-
     const onClickRemove = () => removeItem(uniqueId);
     const onClickDecreaseCount = () => count > 1 ? decreaseCountItem(uniqueId) : removeItem(uniqueId);
     const onClickIncreaseCount = () => increaseCountItem(uniqueId);

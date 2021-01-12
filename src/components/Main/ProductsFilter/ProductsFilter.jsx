@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
+import PropTypes from 'prop-types';
 
 import FilterDropdown from './../../common/FilterDropdown/FilterDropdown';
 import { requestSortCategories, requestFastCategories, changeCurrentSortCategory, changeCurrentFastCategory } from '../../../redux/catalog-reducer';
@@ -78,5 +79,12 @@ const ProductsFilter = ({ menuItem }) => {
         </section>
     )
 };
+
+ProductsFilter.propTypes = {
+    menuItem: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.oneOf([null]),
+    ]),
+}
 
 export default React.memo(ProductsFilter);

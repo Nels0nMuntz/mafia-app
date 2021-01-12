@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types';
 
 import MenuItem from './MenuItem/MenuItem';
 import withBreakpoints from './../../HOC/withBreakpoints';
@@ -7,7 +8,7 @@ import withBreakpoints from './../../HOC/withBreakpoints';
 import style from './CategoryMenu.module.scss'
 import CustomScrollbar from './../../common/CustomScrollbar/CustomScrollbar';
 
-const CategoryMenu = ({ categories, increaseMode, changeIncreaseMode, queryMatches }) => {
+const CategoryMenu = ({ categories, increaseMode, changeIncreaseMode, menuItem, queryMatches }) => {
 
     const isVisibiled = increaseMode || (queryMatches && queryMatches.lg); 
 
@@ -33,6 +34,7 @@ const CategoryMenu = ({ categories, increaseMode, changeIncreaseMode, queryMatch
                                     imageUrl={imageUrl}
                                     visibled={isVisibiled}
                                     link={link}
+                                    isActive={menuItem === link}
                                 />
                             </li>
                         ))
@@ -41,6 +43,16 @@ const CategoryMenu = ({ categories, increaseMode, changeIncreaseMode, queryMatch
             </ul>
         </aside>
     );
+};
+
+CategoryMenu.propTypes = {
+    categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+    increaseMode: PropTypes.bool.isRequired,
+    changeIncreaseMode: PropTypes.func.isRequired,
+    menuItem: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.oneOf([null]).isRequired,
+    ]),
 };
 
 export default withBreakpoints(CategoryMenu, {
