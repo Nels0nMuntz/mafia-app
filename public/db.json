@@ -5306,6 +5306,966 @@
                         }
                     ],
                     "additions": []
+                },
+                {
+                    "id": 9,
+                    "title": "Алазанская долина Duruji Valley",
+                    "description": [
+                        "Красное, полусладкое, Грузия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/alazanskaya-dolina-duruji-valley_1597322466183.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/alazanskaya-dolina-duruji-valley.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 189,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 9,
+                    "added": "08.22.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 10,
+                    "title": "Сапераві Duruji Valley",
+                    "description": [
+                        "Красное, сухое, Грузия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/saperavi-duruji-valley_1597322736805.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/saperavi-duruji-valley.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 189,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 8,
+                    "added": "06.22.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 11,
+                    "title": "Kiwi Cuvee Pinot Noir",
+                    "description": [
+                        "Красное сухое вино. Франция",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/kiwi-cuvee-pinot-noir_150057279173.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/kiwi-cuvee-pinot-noir.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 199,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 7,
+                    "added": "06.22.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 12,
+                    "title": "Martini Asti",
+                    "description": [
+                        "Белое сладкое игристое вино. Италия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/martini-asti-075l-d_1583846367474.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/martini-asti-075l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 349,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 9,
+                    "added": "06.13.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 13,
+                    "title": "Pinot Grigio delle Venezie Blush",
+                    "description": [
+                        "Розовое сухое вино. Италия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/pino-gridzhio-roze-075l-d_1583847255426.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/pino-gridzhio-roze-075l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 249,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 8,
+                    "added": "05.15.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 14,
+                    "title": "Fratelli Frizzante Rosato",
+                    "description": [
+                        "Розовое полусладкое игристое вино. Украина",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/frateli-frizante-075l-d_15838454959.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/frateli-frizante-075l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0,75 л",
+                            "price": 89,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Вина и игристые",
+                    "rate": 7,
+                    "added": "05.15.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 15,
+                    "title": "Martini Bianco",
+                    "description": [
+                        "Вермут. Италия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/martini-byanko_1494840313964.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/martini-byanko.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 299,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 9,
+                    "added": "05.15.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 16,
+                    "title": "Martini Rosso",
+                    "description": [
+                        "Терпкий вермут тёмно-янтарного цвета. Италия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/martini-rosso_1494840069535.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/martini-rosso.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 299,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 9,
+                    "added": "05.15.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 17,
+                    "title": "William Lawson's",
+                    "description": [
+                        "Виски светлого золотисто-желтого цвета. Шотландия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/vilyam-louson-shotlandiya.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/vilyam-louson-shotlandiya_1494840523621.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 449,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 8,
+                    "added": "05.15.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 18,
+                    "title": "Aperol",
+                    "description": [
+                        "Аперитив. Италия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/aperol-1l-d_1583844061356.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/aperol-1l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 449,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 8,
+                    "added": "03.10.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 19,
+                    "title": "Bacardi Spiced",
+                    "description": [
+                        "Ром. Италия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/bakardi-spajsed-1l-d_1583843793998.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/bakardi-spajsed-1l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 549,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 8,
+                    "added": "03.10.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 20,
+                    "title": "Becherovka",
+                    "description": [
+                        "Ликер. Чехия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/beherovka-1l-d_1583843920957.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/beherovka-1l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 499,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 7,
+                    "added": "11.10.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 21,
+                    "title": "Jim Beam White",
+                    "description": [
+                        "Виски. США",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/dzhim-bim-vajt-1l-d_1583844295615.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/dzhim-bim-vajt-1l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 649,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 7,
+                    "added": "11.10.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 22,
+                    "title": "Martini Fiero",
+                    "description": [
+                        "Вермут. Италия",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/martini-fiero-075l-d_1583842751507.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/martini-fiero-075l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.75 л",
+                            "price": 269,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 7,
+                    "added": "09.10.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 23,
+                    "title": "Первак",
+                    "description": [
+                        "Водка. Украина",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/pervak-05l-d_1583843184865.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/pervak-05l-d.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.5 л",
+                            "price": 119,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 7,
+                    "added": "09.10.2015",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 24,
+                    "title": "Jack Daniels",
+                    "description": [
+                        "Виски. США",
+                        "* приобрести алкогольные напитки могут лица, достигшие совершеннолетия",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/jack-daniels_1548853457904.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/jack-daniels.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "1 л",
+                            "price": 789,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Крепкие напитки",
+                    "rate": 8,
+                    "added": "09.10.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 25,
+                    "title": "Borjomi",
+                    "description": [
+                        "Газированная минеральная вода",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/borjomi_1548663009988.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/borjomi.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.5 л",
+                            "price": 32,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 9,
+                    "added": "09.10.2016",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 26,
+                    "title": "7Up",
+                    "description": [
+                        "Газированный напиток"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/7up_1555319996344.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/7up.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.5 л",
+                            "price": 15,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 9,
+                    "added": "08.10.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 27,
+                    "title": "Pepsi",
+                    "description": [
+                        "Газированный напиток"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/pepsi_1555319784784.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/pepsi_1555319781895.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.5 л",
+                            "price": 15,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 9,
+                    "added": "08.04.2018",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 28,
+                    "title": "«Моршинская» газированная",
+                    "description": [
+                        "Газированная минеральная вода",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/morshinskaya-gazirovannaya_1524481861541.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/morshinskaya-gazirovannaya_1524481827722.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.75 л",
+                            "price": 29,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 8,
+                    "added": "08.04.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 29,
+                    "title": "Evian",
+                    "description": [
+                        "Негазированная минеральная вода",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/evian_1599119747889.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/evian.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.33 л",
+                            "price": 39,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 8,
+                    "added": "10.26.2019",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 30,
+                    "title": "Ананас",
+                    "description": [
+                        "Пакетированный ананасовый нектар",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/ananas_1548919661801.jpeg",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/ananas.jpeg"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.95 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 7,
+                    "added": "04.26.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 31,
+                    "title": "Апельсин",
+                    "description": [
+                        "Пакетированный апельсиновый сок",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/apelsin_1494953286852.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/apelsin_1494953266463.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.95 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 7,
+                    "added": "04.26.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 32,
+                    "title": "Вишня",
+                    "description": [
+                        "Пакетированный вишневый нектар",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/vishnya_1494953067400.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/vishnya.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.95 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 7,
+                    "added": "04.26.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 33,
+                    "title": "Грейпфрут",
+                    "description": [
+                        "Пакетированный грейпфрутовый сок",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/grejpfrut.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/grejpfrut_1494951743566.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.95 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 7,
+                    "added": "04.26.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 34,
+                    "title": "Красный виноград",
+                    "description": [
+                        "Пакетированный сок из красных сортов винограда",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/krasnyj-vinorgad_1494951248671.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/krasnyj-vinorgad.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.95 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 7,
+                    "added": "04.26.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
+                },
+                {
+                    "id": 35,
+                    "title": "Мультивитамин",
+                    "description": [
+                        "Пакетированный мультивитаминный нектар",
+                        "* стоимость актуальна только для заказа через службу доставки"
+                    ],
+                    "images": {
+                        "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/multivitamin.png",
+                        "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/multivitamin_1494950967286.png"
+                    },
+                    "gifts": [],
+                    "sizes": [
+                        {
+                            "id": 1,
+                            "weight": "0.95 л",
+                            "price": 45,
+                            "discount": null
+                        }
+                    ],
+                    "category": "Соки и вода",
+                    "rate": 7,
+                    "added": "04.26.2017",
+                    "tags": [],
+                    "bonuses": [
+                        {
+                            "id": 1,
+                            "type": "delivery",
+                            "content": "Бесплатная доставка при заказе от 200 грн"
+                        },
+                        {
+                            "id": 1,
+                            "type": "discount",
+                            "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                        }
+                    ],
+                    "additions": []
                 }
             ],
             "fastCategories": [
