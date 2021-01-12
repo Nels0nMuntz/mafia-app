@@ -111,6 +111,13 @@
                     color        : black;
                     user-select: none;
                 }
+
+                & > h3 span{
+                    font-size: 0.9em;
+                    font-style: italic;
+                    color: rgb(61, 61, 61);
+                    font-weight: 300;
+                }
     
                 .item__counter {
                     display      : flex;

@@ -21,7 +21,7 @@ const PopupCartContainer = () => {
     const removeItem = id => dispatch(removeProduct(id));
     const increaseCountItem = id => dispatch(increaseCount(id));
     const decreaseCountItem = id => dispatch(decreaseCount(id));
-    const removeAdditionHandler = (productId, additionId) => dispatch(removeAddition(productId, additionId));
+    const removeAdditionHandler = (uniqueId, additionId) => dispatch(removeAddition(uniqueId, additionId));
 
     React.useEffect(() => {
         const onClickHandler = event => {

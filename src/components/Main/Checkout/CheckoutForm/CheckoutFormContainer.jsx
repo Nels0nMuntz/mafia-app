@@ -10,8 +10,6 @@ import { clearCart } from './../../../../redux/cart-reducer';
 
 const CheckoutFormContainer = ({ fields, footer }) => {
 
-    console.log('CheckoutFormContainer');
-
     const totalPrice = useSelector(createSelector(
         state => state.cart.totalPrice,
         totalPrice => totalPrice
@@ -39,7 +37,7 @@ const CheckoutFormContainer = ({ fields, footer }) => {
     };
     
     const onSubmit = props => {
-        console.log(props.values);
+        console.log(props);
         // select data from store
         // ...
         // clear cart

@@ -9,24 +9,37 @@ import style from './ProductsCatalog.module.scss'
 
 const ProductsCatalog = React.memo(({ list, cart, url, fastCategories, menuItem, BreadcrumbsComponent }) => {
 
-    console.log(cart);
-
     const children = () => list.map(item => {
         if (item.isSelected) {
-            const cartProduct = cart.find(elem => elem.uniqueId === item.uniqueId);
-            return (
-                <ProductCardContainer
-                    key={cartProduct.uniqueId}
-                    cardData={cartProduct}
-                    url={url}
-                    fastCategories={fastCategories}
-                    menuItem={menuItem}
-                />
-            )
+            const selectedSizeId = item.sizes.find(elem => elem.isSelected).id;
+            const cartProducts = cart.filter(elem => elem.productId === item.productId);
+            const cartProductsItem = cartProducts.find(elem => elem.sizes.find(size => size.id === selectedSizeId && size.isSelected));
+            if (cartProductsItem) {
+                return (
+                    <ProductCardContainer
+                        key={cartProductsItem.uniqueId}
+                        cardData={cartProductsItem}
+                        url={url}
+                        fastCategories={fastCategories}
+                        menuItem={menuItem}
+                        isEmptyCart={!cartProducts.length}
+                    />
+                )
+            } else {
+                return (
+                    <ProductCardContainer
+                        key={item.productId}
+                        cardData={item}
+                        url={url}
+                        fastCategories={fastCategories}
+                        menuItem={menuItem}
+                    />
+                )
+            }
         } else {
             return (
                 <ProductCardContainer
-                    key={item.uniqueId}
+                    key={item.productId}
                     cardData={item}
                     url={url}
                     fastCategories={fastCategories}

@@ -10,8 +10,6 @@ const {
     CLEAR_CART,
     CHANGE_CART_ADDITIONS,
     REMOVE_ADDITION,
-    TOGGLE_PRODUCT_SIZE_CART,
-    CHANGE_PRODUCT_SIZE_CART,
     CHANGE_PRODUCT_GIFT_CART,
 } = actionTypes;
 
@@ -34,6 +32,7 @@ const cartReducer = (state = initialState, action) => {
                     ...state.selected,
                     {
                         ...action.payload,
+                        uniqueId: Math.trunc(Math.random() *  action.payload.id * 10000000),
                         count: 1,
                         isSelected: true,
                     }
@@ -82,7 +81,7 @@ const cartReducer = (state = initialState, action) => {
             };
         case RECALCULATE_TOTAL:
             const recalculated = state.selected.reduce((prev, curr) => {
-                prev.totalCount += curr.count + curr.additions.reduce((sum, next) => next.selected ? sum + 1 : sum, 0);
+                prev.totalCount += curr.count + curr.additions.reduce((sum, next) => next.isSelected ? sum + 1 : sum, 0);
                 prev.totalPrice += curr.sizes.find(item => item.isSelected).price * curr.count + curr.additions.reduce((sum, next) => next.isSelected ? sum + next.price : sum, 0);
                 return prev
             }, {
@@ -99,10 +98,10 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 selected: [
                     ...state.selected.map(item => {
-                        return item.id === action.payload.productId ? {
+                        return item.uniqueId === action.payload.uniqueId ? {
                             ...item,
                             additions: [
-                                ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, selected: !elem.selected } : { ...elem })
+                                ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, isSelected: !elem.isSelected } : elem )
                             ]
                         } : {
                                 ...item
@@ -115,10 +114,10 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 selected: [
                     ...state.selected.map(item => {
-                        return item.id === action.payload.productId ? {
+                        return item.uniqueId === action.payload.uniqueId ? {
                             ...item,
                             additions: [
-                                ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, selected: false } : { ...elem })
+                                ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, isSelected: false } : { ...elem })
                             ]
                         } : {
                                 ...item
@@ -133,46 +132,12 @@ const cartReducer = (state = initialState, action) => {
                 totalCount: 0,
                 totalPrice: 0,
             };
-        case TOGGLE_PRODUCT_SIZE_CART:
-            return {
-                ...state,
-                selected: [
-                    ...state.selected.map(item => {
-                        if (item.uniqueId === action.payload) {
-                            return {
-                                ...item,
-                                sizes: [
-                                    ...item.sizes.map(elem => ({ ...elem, isSelected: !elem.isSelected }))
-                                ]
-                            }
-                        } else return item
-                    })
-                ]
-            };
-        case CHANGE_PRODUCT_SIZE_CART:
-            return {
-                ...state,
-                selected: [
-                    ...state.selected.map(item => {
-                        if (item.uniqueId === action.payload.productId) {
-                            return {
-                                ...item,
-                                sizes: [
-                                    ...item.sizes.map(elem => elem.id === action.payload.sizeId ? { ...elem, isSelected: true } : { ...elem, isSelected: false })
-                                ]
-                            };
-                        } else {
-                            return item;
-                        }
-                    })
-                ]
-            };
         case CHANGE_PRODUCT_GIFT_CART:
             return {
                 ...state,
                 selected: [
                     ...state.selected.map(item => {
-                        if (item.uniqueId === action.payload.productId) {
+                        if (item.uniqueId === action.payload.uniqueId) {
                             return {
                                 ...item,
                                 gifts: [
@@ -196,9 +161,9 @@ const addProductAC = product => ({ type: ADD_PRODUCT, payload: product });
 const removeProductAC = id => ({ type: REMOVE_PRODUCT, payload: id });
 const increaseCountAC = id => ({ type: INCREASE_COUNT, payload: id });
 const decreaseCountAC = id => ({ type: DECREASE_COUNT, payload: id });
-const changeCartAdditionAC = (productId, additionId) => ({ type: CHANGE_CART_ADDITIONS, payload: { productId, additionId } });
+const changeCartAdditionAC = (uniqueId, additionId) => ({ type: CHANGE_CART_ADDITIONS, payload: { uniqueId, additionId } });
 const recalculateTotalAC = () => ({ type: RECALCULATE_TOTAL });
-const removeAdditionAC = (productId, additionId) => ({ type: REMOVE_ADDITION, payload: { productId, additionId } });
+const removeAdditionAC = (uniqueId, additionId) => ({ type: REMOVE_ADDITION, payload: { uniqueId, additionId } });
 
 export const changePopupCartState = value => ({ type: CHANGE_POPUP_CART_STATE, payload: value });
 export const addProduct = product => dispatch => {
@@ -217,15 +182,15 @@ export const decreaseCount = id => dispatch => {
     dispatch(decreaseCountAC(id));
     dispatch(recalculateTotalAC());
 };
-export const changeCartAddition = (productId, additionId) => dispatch => {
-    dispatch(changeCartAdditionAC(productId, additionId));
-    dispatch(recalculateTotalAC());
-};
 export const clearCart = () => ({ type: CLEAR_CART });
-export const removeAddition = (productId, additionId) => dispatch => {
-    dispatch(removeAdditionAC(productId, additionId));
+export const changeAddition = (uniqueId, additionId) => dispatch => {
+    dispatch(changeCartAdditionAC(uniqueId, additionId));
     dispatch(recalculateTotalAC());
 };
-export const toggleProductSizeCart = (productId) => ({ type: TOGGLE_PRODUCT_SIZE_CART, payload: productId });
-export const changeProductSizeCart = (productId, sizeId) => ({ type: CHANGE_PRODUCT_SIZE_CART, payload: { productId, sizeId } });
-export const changeProductGiftCart = (productId, giftId) => ({ type: CHANGE_PRODUCT_GIFT_CART, payload: { productId, giftId } });
+export const removeAddition = (uniqueId, additionId) => dispatch => {
+    dispatch(removeAdditionAC(uniqueId, additionId));
+    dispatch(recalculateTotalAC());
+};
+// export const toggleProductSizeCart = (productId) => ({ type: TOGGLE_PRODUCT_SIZE_CART, payload: productId });
+// export const changeProductSizeCart = (productId, sizeId) => ({ type: CHANGE_PRODUCT_SIZE_CART, payload: { productId, sizeId } });
+export const changeProductGiftCart = (uniqueId, giftId) => ({ type: CHANGE_PRODUCT_GIFT_CART, payload: { uniqueId, giftId } });

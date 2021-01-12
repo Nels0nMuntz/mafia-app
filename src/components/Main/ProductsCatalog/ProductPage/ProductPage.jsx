@@ -11,14 +11,22 @@ import AdditionItem from './AdditionsItem/AdditionsItem';
 import style from './ProductPage.module.scss'
 import deliveyImgUrl_1 from './../../../../assets/images/delivery-icon1.png'
 import deliveyImgUrl_2 from './../../../../assets/images/delivery-icon2.png'
-import { addProduct, changeProductGiftCart, changeProductSizeCart, decreaseCount, increaseCount, removeProduct, toggleProductSizeCart } from '../../../../redux/cart-reducer';
+import { addProduct, changeProductGiftCart, decreaseCount, increaseCount, removeProduct, changeAddition } from '../../../../redux/cart-reducer';
 import { changeProductGift, changeProductSize, changeProductState, toggleProductSize } from '../../../../redux/catalog-reducer';
 
 
 const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
 
     const dispatch = useDispatch();
-    const data = product.isSelected ? cart.find(item => item.uniqueId === product.uniqueId) : product;
+    let data = null;
+    const cartProducts = cart.filter(elem => elem.productId === product.productId);
+    if (product.isSelected) {
+        const selectedSizeId = product.sizes.find(elem => elem.isSelected).id;
+        const cartProductsItem = cartProducts.find(elem => elem.sizes.find(size => size.id === selectedSizeId && size.isSelected));
+        data = cartProductsItem ?? product;
+    } else {
+        data = product;
+    };
     const isSelected = data.isSelected;
     const selectedSize = data.sizes.find(item => item.isSelected);
     const selectedGift = data.gifts.find(item => item.isSelected);
@@ -26,16 +34,18 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
     const onClickButton = event => {
         const sizeId = +(event.target.dataset.sizeId);
         if (sizeId === selectedSize.id) return;
-        dispatch(isSelected ? changeProductSizeCart(data.uniqueId, sizeId) : changeProductSize(menuItem, data.uniqueId, sizeId));
+        dispatch(changeProductSize(menuItem, data.productId, sizeId));
     };
-    const onClickCheckbox = () => dispatch(isSelected ? toggleProductSizeCart(data.uniqueId) : toggleProductSize(menuItem, data.uniqueId));
+    const onClickCheckbox = () => dispatch(toggleProductSize(menuItem, data.productId));
     const onClickDropdown = value => {
         if (value === selectedGift.content) return;
         const giftId = data.gifts.find(item => item.content === value).id;
-        dispatch(isSelected ? changeProductGiftCart(data.uniqueId, giftId) : changeProductGift(menuItem, data.uniqueId, giftId));
+        dispatch(changeProductGift(menuItem, data.productId, giftId));
+        dispatch(changeProductGiftCart(data.uniqueId, giftId));
+        // dispatch(isSelected ? changeProductGiftCart(data.uniqueId, giftId) : changeProductGift(menuItem, data.productId, giftId));
     };
     const onClickOrder = () => {
-        dispatch(changeProductState(menuItem, data.uniqueId, true));
+        dispatch(changeProductState(menuItem, data.productId, true));
         dispatch(addProduct(data));
     };
     const onClickPlusCount = () => dispatch(increaseCount(data.uniqueId));
@@ -43,36 +53,11 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
         if (data.count > 1) {
             dispatch(decreaseCount(data.uniqueId));
         } else {
-            dispatch(changeProductState(menuItem, data.uniqueId, false));
+            cartProducts.length === 1 && dispatch(changeProductState(menuItem, data.productId, false));
             dispatch(removeProduct(data.uniqueId));
         }
     };
-
-    // const cartProduct = useSelector(createSelector(
-    //     state => state.cart.selected,
-    //     selected => selected.find(elem => elem.id === product.uniqueId)
-    // ));
-    // const onClickDropdown = value => value === product.selectedGift ? undefined : onSetGift(value);
-    // const onClickButton = event => {
-    //     const target = event.target;
-    //     const button = target.className;
-    //     if (product.prevButton === button) return;
-    //     if (target.dataset.default) {
-    //         onSetSize(product.sizes[0].weight, product.sizes[0].price, product.sizes[0].discount, false, button);
-    //     } else {
-    //         onSetSize(product.sizes[1].weight, product.sizes[1].price, product.sizes[1].discount, true, button);
-    //     }
-    // };
-    // const onClickCheckbox = () => onSetSize(
-    //     product.sizes[+(!product.checkbox)].weight,
-    //     product.sizes[+(!product.checkbox)].price,
-    //     product.sizes[+(!product.checkbox)].discount,
-    //     !product.checkbox
-    // );
-    // const onClickOrder = () => cartProduct ? undefined : onAddProduct(product);
-    // const onClickPlusCount = () => onIncreaseCount(product.uniqueId);
-    // const onClickMinusCount = () => cartProduct.count > 1 ? onDecreaseCount(product.uniqueId) : onRemoveProduct(product.uniqueId);
-
+    const onChangeAddition = additionId => dispatch(changeAddition(data.uniqueId, additionId));
 
     return (
         <section className={style.productPage}>
@@ -130,8 +115,8 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
                                             'item-homeSlider__btn',
                                             'item-homeSlider__btn-mini',
                                         )}
-                                        onClick={!data.isSelected ? onClickOrder : undefined}
-                                    >{data.isSelected ? (
+                                        onClick={!data.uniqueId ? onClickOrder : undefined}
+                                    >{data.isSelected && data.uniqueId ? (
                                         <div className="item-homeSlider__btn_ordered">
                                             <div
                                                 className={classnames(
@@ -176,13 +161,12 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
                         <div className={style.productPage__additional_inner}>
                             <h3>Дополнения</h3>
                             <div className={style.productPage__additional_container}>
-                                {data.additions.map((item, index) => (
+                                {data.additions.map(item => (
                                     <AdditionItem
-                                        key={index}
-                                        productId={data.uniqueId}
+                                        key={item.id}
                                         additionData={item}
-                                        disabled={!data.isSelected}
-                                    // changeAddition={onChangeAddition}
+                                        disabled={!isSelected}
+                                        changeAddition={onChangeAddition}
                                     />
                                 ))}
                             </div>

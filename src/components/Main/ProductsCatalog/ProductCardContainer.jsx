@@ -8,27 +8,27 @@ import { changeProductSizeCart, toggleProductSizeCart, changeProductGiftCart } f
 import ProductCard from './ProductCard';
 
 
-const ProductCardContainer = ({ cardData, url, fastCategories, menuItem }) => {
+const ProductCardContainer = ({ cardData, url, fastCategories, menuItem, isEmptyCart }) => {
 
     const dispatch = useDispatch();
 
     const selectedSize = cardData.sizes.find(item => item.isSelected);
     const selectedGift = cardData.gifts.find(item => item.isSelected);
-    const isSelected = cardData.isSelected;
+    const isSelected = cardData.isSelected && cardData.uniqueId;
 
     const onClickButton = event => {
         const sizeId = +(event.target.dataset.sizeId);
         if(sizeId === selectedSize.id) return;
-        dispatch(isSelected ? changeProductSizeCart(cardData.uniqueId, sizeId) : changeProductSize(menuItem, cardData.uniqueId, sizeId));
+        dispatch(changeProductSize(menuItem, cardData.productId, sizeId));
     };
-    const onClickCheckbox = () => dispatch(isSelected ? toggleProductSizeCart(cardData.uniqueId) : toggleProductSize(menuItem, cardData.uniqueId));
+    const onClickCheckbox = () => dispatch(toggleProductSize(menuItem, cardData.productId));
     const onClickDropdown = value => {
         if(value === selectedGift.content) return;
         const giftId = cardData.gifts.find(item => item.content === value).id;
-        dispatch(isSelected ? changeProductGiftCart(cardData.uniqueId, giftId) : changeProductGift(menuItem, cardData.uniqueId, giftId));
+        dispatch(isSelected ? changeProductGiftCart(cardData.uniqueId, giftId) : changeProductGift(menuItem, cardData.productId, giftId));
     };
     const onClickOrder = () => {
-        dispatch(changeProductState(menuItem, cardData.uniqueId, true));
+        dispatch(changeProductState(menuItem, cardData.productId, true));
         dispatch(addProduct(cardData));
     };
     const onClickPlusCount = () => dispatch(increaseCount(cardData.uniqueId));
@@ -36,11 +36,10 @@ const ProductCardContainer = ({ cardData, url, fastCategories, menuItem }) => {
         if(cardData.count > 1){
             dispatch(decreaseCount(cardData.uniqueId));
         }else{
-            dispatch(changeProductState(menuItem, cardData.uniqueId, false));
+            isEmptyCart && dispatch(changeProductState(menuItem, cardData.productId, false));
             dispatch(removeProduct(cardData.uniqueId));
         }
     };
-    const onClickProduct = () => dispatch(changeActiveProduct(menuItem, cardData.id));
 
     return (
         <ProductCard
@@ -55,7 +54,6 @@ const ProductCardContainer = ({ cardData, url, fastCategories, menuItem }) => {
             onClickOrder={onClickOrder}
             onClickPlusCount={onClickPlusCount}
             onClickMinusCount={onClickMinusCount}
-            onClickProduct={onClickProduct}
         />
     )
 };

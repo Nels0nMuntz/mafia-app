@@ -3,12 +3,25 @@ import classnames from 'classnames'
 import { Link } from 'react-router-dom';
 
 import GiftDropdown from '../../common/GiftDropdown/GiftDropdown';
+import Swicher from './../../common/Swicher/Swicher';
 
 import './../Home/HomeSlider/HomeSlider.scss'
 
 
-const ProductCard = ({data, selectedSize, selectedGift, url, fastCategories, onClickDropdown, onClickButton, onClickCheckbox, onClickOrder, onClickPlusCount, onClickMinusCount, onClickProduct }) => {
-    
+const ProductCard = ({
+    data, 
+    selectedSize,
+    selectedGift,
+    url,
+    fastCategories,
+    onClickDropdown,
+    onClickButton,
+    onClickCheckbox,
+    onClickOrder,
+    onClickPlusCount,
+    onClickMinusCount,
+}) => {
+
     return (
         <article className="products_catalog_item_wrapper">
             <div className="homeSlider__item item-homeSlider">
@@ -24,47 +37,23 @@ const ProductCard = ({data, selectedSize, selectedGift, url, fastCategories, onC
                         ))}
                     </div>
                     <Link to={`${fastCategories.length ? `${url}/product/${data.id}?fast=${data.category}` : `${url}/product/${data.id}`}`} className='item-homeSlider__link'>
-                        <img 
-                            src={data.images.bigImageUrl} 
+                        <img
+                            src={data.images.bigImageUrl}
                             alt=''
-                            onClick={onClickProduct}
                         />
                     </Link>
                     <div className="item-homeSlider__info">
                         <Link to={`${fastCategories.length ? `${url}/product/${data.id}?fast=${data.category}` : `${url}/product/${data.id}`}`}>
-                            <h3
-                                onClick={onClickProduct}
-                            >
-                                {data.title}
-                            </h3>
+                            <h3>{data.title}</h3>
                         </Link>
                         <div className="item-homeSlider__weight-block">
                             <div className="item-homeSlider__weight">{selectedSize.weight}</div>
                             {data.hasTwoSizes ? (
-                                <div className="item-homeSlider__swicher swicher-homeSlider">
-                                    <span
-                                        // className="size-btn-1"
-                                        // data-default
-                                        data-size-id={data.sizes[0].id}
-                                        onClick={onClickButton}
-                                    >Средняя</span>
-                                    <div
-                                        data-checkbox
-                                        className={classnames(
-                                            "swicher-homeSlider__checkbox",
-                                            !data.sizes[0].isSelected && 'checked'
-                                            // state.checkbox && 'checked'
-                                        )}
-                                        onClick={onClickCheckbox}
-                                    >
-                                        <span />
-                                    </div>
-                                    <span
-                                        // className="size-btn-2"
-                                        data-size-id={data.sizes[1].id}
-                                        onClick={onClickButton}
-                                    >Большая</span>
-                                </div>
+                                <Swicher
+                                    sizes={data.sizes}
+                                    onClickButtonHandler={onClickButton}
+                                    onClickCheckboxHandler={onClickCheckbox}
+                                />
                             ) : null}
                         </div>
                         <p className="item-homeSlider__descr">{data.description}</p>
@@ -87,10 +76,10 @@ const ProductCard = ({data, selectedSize, selectedGift, url, fastCategories, onC
                             <button
                                 className={classnames(
                                     'item-homeSlider__btn',
-                                    data.isSelected && 'in-cart'
+                                    data.isSelected && data.uniqueId && 'in-cart'
                                 )}
-                                onClick={!data.isSelected ? onClickOrder : undefined}
-                            >{data.isSelected ? (
+                                onClick={!data.uniqueId ? onClickOrder : undefined}
+                            >{data.isSelected && data.uniqueId ? (
                                 <div className="item-homeSlider__btn_ordered">
                                     <div
                                         className={classnames(

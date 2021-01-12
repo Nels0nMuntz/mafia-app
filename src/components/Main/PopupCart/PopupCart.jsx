@@ -30,22 +30,27 @@ const PopupCart = ({ list, totalPrice, isOpen, setNodeRef, removeItem, increaseC
                     <h2>Корзина</h2>
                 </div>
                 <div className={style.popup_cart__body}>
-                    {list.map(({ id, title, count, price, gift, imageUrl, additions }) => (
-                        <PopupCartItem
-                            key={id}
-                            id={id}
-                            title={title}
-                            count={count}
-                            price={price}
-                            gift={gift}
-                            imageUrl={imageUrl}                            
-                            additions={additions}                            
-                            removeItem={removeItem}
-                            increaseCountItem={increaseCountItem}
-                            decreaseCountItem={decreaseCountItem}
-                            removeAddition={removeAddition}
-                        />
-                    ))}
+                    {list.map(({ uniqueId, title, count, sizes, gifts, images, additions, hasTwoSizes }, i) => {
+                        const selectedSize = sizes.find(item => item.isSelected);
+                        const selectedGift = gifts.find(item => item.isSelected) || '';
+                        return (
+                            <PopupCartItem
+                                key={uniqueId}
+                                uniqueId={uniqueId}
+                                title={title}
+                                sizeValue={hasTwoSizes ? selectedSize.value : ''}
+                                count={count}
+                                price={selectedSize.discount || selectedSize.price}
+                                gift={selectedGift.content}
+                                imageUrl={images.smallImageUrl}
+                                additions={additions}
+                                removeItem={removeItem}
+                                increaseCountItem={increaseCountItem}
+                                decreaseCountItem={decreaseCountItem}
+                                removeAddition={removeAddition}
+                            />
+                        )
+                    })}
                 </div>
                 <div className={style.popup_cart__footer}>
                     <div className={style.popup_cart__footer_price}>

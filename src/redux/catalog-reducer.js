@@ -14,7 +14,6 @@ const {
     CHANGE_PRODUCT_SIZE,
     CHANGE_PRODUCT_GIFT,
     CHANGE_PRODUCT_STATE,
-    CHANGE_ACTIVE_PRODUCT,
 } = actionTypes;
 
 const initialState = {
@@ -26,7 +25,7 @@ const initialState = {
     isSelectedActiveProduct: null,
 };
 
-const getUniqueId = cardData => cardData.title.replace(" ", "").split("").reduce((acc, char) => char.charCodeAt(0) + acc, '');
+const getProductId = cardData => cardData.title.replace(" ", "").split("").reduce((acc, char) => char.charCodeAt(0) + acc, '');
 
 const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -39,7 +38,7 @@ const catalogReducer = (state = initialState, action) => {
                         ...action.payload.data.list.map(item => (
                             {
                                 ...item,
-                                uniqueId: getUniqueId(item),
+                                productId: Math.trunc(Math.random() *  item.id *  item.id * 10000000),
                                 count: 0,
                                 gifts: [
                                     ...item.gifts.map((elem, index) => (
@@ -95,7 +94,7 @@ const catalogReducer = (state = initialState, action) => {
                     ...state[action.payload.menuItem],
                     list: [
                         ...state[action.payload.menuItem].list.map(item => {
-                            if (item.uniqueId === action.payload.productId) {
+                            if (item.productId === action.payload.productId) {
                                 return {
                                     ...item,
                                     sizes: [
@@ -116,7 +115,7 @@ const catalogReducer = (state = initialState, action) => {
                     ...state[action.payload.menuItem],
                     list: [
                         ...state[action.payload.menuItem].list.map(item => {
-                            if (item.uniqueId === action.payload.productId) {
+                            if (item.productId === action.payload.productId) {
                                 return {
                                     ...item,
                                     sizes: [
@@ -137,7 +136,7 @@ const catalogReducer = (state = initialState, action) => {
                     ...state[action.payload.menuItem],
                     list: [
                         ...state[action.payload.menuItem].list.map(item => {
-                            if (item.uniqueId === action.payload.productId) {
+                            if (item.productId === action.payload.productId) {
                                 return {
                                     ...item,
                                     gifts: [
@@ -158,7 +157,7 @@ const catalogReducer = (state = initialState, action) => {
                     ...state[action.payload.menuItem],
                     list: [
                         ...state[action.payload.menuItem].list.map(item => {
-                            if (item.uniqueId === action.payload.productId) {
+                            if (item.productId === action.payload.productId) {
                                 return {
                                     ...item,
                                     isSelected: action.payload.value
@@ -170,32 +169,6 @@ const catalogReducer = (state = initialState, action) => {
                     ]
                 }
             };
-        case CHANGE_ACTIVE_PRODUCT:
-            const isSelected = state[action.payload.menuItem].list.find(item => item.id === action.payload.productId).isSelected;
-            return {
-                ...state,
-                isSelectedActiveProduct: isSelected
-            };
-        //     return {
-        //         ...state,
-        //         [action.payload.menuItem]: {
-        //             ...state[action.payload.menuItem],
-        //             list: [
-        //                 ...state[action.payload.menuItem].list.map(item => {
-        //                     if (item.id === action.payload.productId) {
-        //                         return {
-        //                             ...item,
-        //                             additions: [
-        //                                 ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, isSelected: true } : { ...elem, isSelected: false })
-        //                             ]
-        //                         }
-        //                     }else{
-        //                         return item;
-        //                     }
-        //                 })
-        //             ]
-        //         }
-        //     };
 
         default:
             return state;
@@ -240,5 +213,3 @@ export const toggleProductSize = (menuItem, productId) => ({ type: TOGGLE_PRODUC
 export const changeProductSize = (menuItem, productId, sizeId) => ({ type: CHANGE_PRODUCT_SIZE, payload: { menuItem, productId, sizeId } });
 export const changeProductGift = (menuItem, productId, giftId) => ({ type: CHANGE_PRODUCT_GIFT, payload: { menuItem, productId, giftId } });
 export const changeProductState = (menuItem, productId, value) => ({ type: CHANGE_PRODUCT_STATE, payload: { menuItem, productId, value } });
-export const changeActiveProduct = (menuItem, productId) => ({ type: CHANGE_ACTIVE_PRODUCT, payload: { menuItem, productId } });
-// export const changeProductAddition = (menuItem, productId, additionId) => ({ type: CHANGE_PRODUCT_ADDITION, payload: { menuItem, productId, additionId } });

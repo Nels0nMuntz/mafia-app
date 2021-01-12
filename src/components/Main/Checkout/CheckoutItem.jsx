@@ -2,7 +2,7 @@ import React from 'react'
 
 import style from './Checkout.module.scss'
 
-const CheckoutItem = ({ id, title, imageUrl, gift, count, price, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
+const CheckoutItem = ({ id, title, imageUrl, gift, count, price, sizeValue, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
 
     const onClickIncreaseCount = () => onIncreaseCount(id);
     const onClickDecreaseCount = () => count > 1 ? onDecreaseCount(id) : onRemoveProduct(id);
@@ -14,7 +14,7 @@ const CheckoutItem = ({ id, title, imageUrl, gift, count, price, onDecreaseCount
                 <div className={style.checkout_list__title}>
                     <img src={imageUrl} alt="" />
                     <div>
-                        <h3>{title}<span></span></h3>
+                    <h3>{title}{sizeValue && <span> ({sizeValue})</span>}</h3>
                         <p>{gift}</p>
                     </div>
                 </div>

@@ -3,24 +3,26 @@ import React from 'react'
 import style from './PopupCart.module.scss'
 
 
-const PopupCartItem = ({ id, title, count, price, gift, imageUrl, additions, removeItem, increaseCountItem, decreaseCountItem, removeAddition }) => {
+const PopupCartItem = ({ uniqueId, title, sizeValue, count, price, gift, imageUrl, additions, removeItem, increaseCountItem, decreaseCountItem, removeAddition }) => {
 
-    const onClickRemove = () => removeItem(id);
-    const onClickDecreaseCount = () => count > 1 ? decreaseCountItem(id) : removeItem(id);
-    const onClickIncreaseCount = () => increaseCountItem(id);
+    console.log(uniqueId);
+
+    const onClickRemove = () => removeItem(uniqueId);
+    const onClickDecreaseCount = () => count > 1 ? decreaseCountItem(uniqueId) : removeItem(uniqueId);
+    const onClickIncreaseCount = () => increaseCountItem(uniqueId);
 
     return (
         <div
             className={`${style.popup_cart__item} popup_cart__item`}
-            data-product-id={id}
+            // data-product-id={id}
         >
             <div className={`${style.item__raw} ${style.item__raw_product}`}>
                 <div className={style.item__img}>
                     <img src={imageUrl} alt="" />
                 </div>
                 <div className={style.item__info}>
-                    <h3>{title}</h3>
-                    <p>{gift}</p>
+                    <h3>{title}{sizeValue && <span> ({sizeValue})</span>}</h3>
+                    <p>{gift === 'Без подарка' ? '' : gift}</p>
                     <div className={style.item__counter}>
                         <div
                             className="order-manage order-minus"
@@ -56,7 +58,7 @@ const PopupCartItem = ({ id, title, count, price, gift, imageUrl, additions, rem
                     </svg>
                 </div>
             </div>
-            {additions.map(({ id: additionId, title, price, imgUrl, selected }) => selected && (
+            {additions.map(({ id: additionId, title, price, imgUrl, isSelected }) => isSelected && (
                 <div className={`${style.item__raw} ${style.item__raw_addition}`} key={additionId}>
                     <div className={style.item__img}>
                         <img src={imgUrl} alt="" />
@@ -67,7 +69,7 @@ const PopupCartItem = ({ id, title, count, price, gift, imageUrl, additions, rem
                     </div>
                     <div
                         className={`${style.item__remove} popup-cart-item__remove`}
-                        onClick={() => removeAddition(id, additionId)}
+                        onClick={() => removeAddition(uniqueId, additionId)}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                             <g id="close">

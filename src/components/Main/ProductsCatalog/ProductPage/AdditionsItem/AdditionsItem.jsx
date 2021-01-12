@@ -4,11 +4,11 @@ import classnames from 'classnames'
 import style from './AdditionsItem.module.scss'
 
 
-const AdditionItem = ({ additionData, productId, changeAddition, disabled }) => {
+const AdditionItem = ({ additionData, disabled, changeAddition }) => {
 
-    const { id, title, weight, price, imgUrl, selected } = additionData;
+    const { id, title, weight, price, imgUrl, isSelected } = additionData;
 
-    const onClickButton = () => disabled ? undefined : changeAddition(productId, id);
+    const onClickButton = () => disabled ? undefined : changeAddition(id);
 
     return (
         <div className={`${style.productPage__additional_item} ${style.item_additional}`} key={id}>
@@ -29,7 +29,7 @@ const AdditionItem = ({ additionData, productId, changeAddition, disabled }) => 
                 )}
                 onClick={onClickButton}
             >
-                {selected
+                {isSelected
                     ? (
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="9.5" cy="9.5" r="9" stroke="#EEE9E3" />

@@ -13,8 +13,7 @@ import benefits3Img from './../../../assets/images/checkout/benefits3.svg'
 
 
 const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncreaseCount, onRemoveProduct }) => {
-
-    const sumPrice = list.reduce((prev, { count, price }) => prev + count * price, 0);
+    
     const sumCount = list.reduce((prev, curr) => prev + curr.count, 0);
 
     if (!list.length) return <Redirect to='/' />
@@ -36,26 +35,31 @@ const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncrease
                             </div>
                         </div>
                         <div className={style.checkout_list__body}>
-                            {list.map(({ id, title, imageUrl, gift, count, price }) => (
-                                <CheckoutItem
-                                    key={id}
-                                    id={id}
-                                    title={title}
-                                    imageUrl={imageUrl}
-                                    gift={gift}
-                                    count={count}
-                                    price={price}
-                                    onDecreaseCount={onDecreaseCount}
-                                    onIncreaseCount={onIncreaseCount}
-                                    onRemoveProduct={onRemoveProduct}
-                                />
-                            ))}
+                            {list.map(({ uniqueId, title, images, sizes, gifts, count, hasTwoSizes }) => {
+                                const selectedSize = sizes.find(item => item.isSelected);
+                                const selectedGift = gifts.find(item => item.isSelected) || '';
+                                return (
+                                    <CheckoutItem
+                                        key={uniqueId}
+                                        id={uniqueId}
+                                        title={title}
+                                        imageUrl={images.smallImageUrl}
+                                        gift={selectedGift.content}
+                                        count={count}
+                                        price={selectedSize.price}
+                                        sizeValue={hasTwoSizes ? selectedSize.value : ''}
+                                        onDecreaseCount={onDecreaseCount}
+                                        onIncreaseCount={onIncreaseCount}
+                                        onRemoveProduct={onRemoveProduct}
+                                    />
+                                )
+                            })}
                         </div>
                         <div className={style.checkout_list__footer}>
                             <div className={style.checkout_list__row}>
                                 <div className={style.footer_sum}>
                                     <p>В корзине {sumCount} товаров</p>
-                                    <p><span>Сумма за все товары</span><span>{sumPrice} грн</span></p>
+                                    <p><span>Сумма за все товары</span><span>{totalPrice} грн</span></p>
                                 </div>
                                 <p className={style.footer_row}>* На товары, помеченные (*), скидка при самовывозе не распространяется.</p>
                             </div>
@@ -101,7 +105,7 @@ const Checkout = ({ list, totalPrice, deliveryPrice, onDecreaseCount, onIncrease
                         />
                     </Route>
                 </Route>
-            </div>            
+            </div>
         </div>
     )
 };

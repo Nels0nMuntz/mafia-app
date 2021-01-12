@@ -12,9 +12,9 @@ const GiftDropdown = ({ list, value, callback }) => {
             // callback will return value of attribute "key" of <Menu.Item></Menu.Item>
             onClick={onClickHandler}
         >
-            {list.map(({id, content}) => (
+            {list.map(({content}) => (
                 <Menu.Item 
-                    key={content}
+                    key={Math.trunc(Math.random() *  38 * 100)}
                 >
                     <span>{content}</span>
                 </Menu.Item>
