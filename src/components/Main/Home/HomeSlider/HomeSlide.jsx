@@ -19,6 +19,9 @@ const HomeSlide = ({
     onClickMinusCount,
 }) => {
 
+    // THIS COMPONENT IS NOT USED
+    // THIS COMPONENT SHOULD BE REMOVED
+
     return (
         <div className="homeSlider__item item-homeSlider" key={`homeSlider_${data.id}`}>
             <div className="item-homeSlider__content">

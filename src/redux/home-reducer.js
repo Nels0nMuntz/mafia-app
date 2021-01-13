@@ -29,6 +29,7 @@ const homeReducer = (state = initialState, action) => {
                     ...action.payload.map(item => (
                         {
                             ...item,
+                            count: 0,
                             productId: Math.trunc(Math.random() * item.id * item.id * 10000000),
                             gifts: [
                                 ...item.gifts.map((elem, index) => (

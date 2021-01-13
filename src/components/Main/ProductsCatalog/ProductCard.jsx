@@ -9,17 +9,17 @@ import './../Home/HomeSlider/HomeSlider.scss'
 
 
 const ProductCard = ({
-    data, 
+    data,
     selectedSize,
     selectedGift,
     url,
-    fastCategories,
     onClickDropdown,
     onClickButton,
     onClickCheckbox,
     onClickOrder,
     onClickPlusCount,
     onClickMinusCount,
+    onePrice = false,
 }) => {
 
     return (
@@ -36,14 +36,14 @@ const ProductCard = ({
                             </div>
                         ))}
                     </div>
-                    <Link to={`${fastCategories.length ? `${url}/product/${data.id}?fast=${data.category}` : `${url}/product/${data.id}`}`} className='item-homeSlider__link'>
+                    <Link to={`${url}/product/${data.id}${data.category ? `?fast=${data.category}` : ''}`} className='item-homeSlider__link'>
                         <img
                             src={data.images.bigImageUrl}
                             alt=''
                         />
                     </Link>
                     <div className="item-homeSlider__info">
-                        <Link to={`${fastCategories.length ? `${url}/product/${data.id}?fast=${data.category}` : `${url}/product/${data.id}`}`}>
+                        <Link to={`${url}/product/${data.id}${data.category ? `?fast=${data.category}` : ''}`} className='item-homeSlider__link'>
                             <h3>{data.title}</h3>
                         </Link>
                         <div className="item-homeSlider__weight-block">
@@ -58,10 +58,14 @@ const ProductCard = ({
                         </div>
                         <p className="item-homeSlider__descr">{data.description}</p>
                         <div className="item-homeSlider__price-gift">
-                            <div className={`item-homeSlider__price ${selectedSize.discount ? 'with-discount' : ''}`}>
-                                {selectedSize.discount ? <span className="item-homeSlider__price-discount">{selectedSize.discount} грн</span> : null}
-                                <span className="item-homeSlider__price-ordinary">{`${selectedSize.price} грн`}</span>
-                            </div>
+                            {onePrice ? (
+                                <div className="item-homeSlider__price">{`${selectedSize.discount || selectedSize.price} грн.`}</div>
+                            ) : (
+                                    <div className={`item-homeSlider__price ${selectedSize.discount ? 'with-discount' : ''}`}>
+                                        {selectedSize.discount ? <span className="item-homeSlider__price-discount">{selectedSize.discount} грн</span> : null}
+                                        <span className="item-homeSlider__price-ordinary">{`${selectedSize.price} грн`}</span>
+                                    </div>
+                                )}
                             <div className="item-homeSlider__gift-block gift-block">
                                 {data.hasGifts ? (
                                     <GiftDropdown
@@ -85,7 +89,6 @@ const ProductCard = ({
                                         className={classnames(
                                             "order-manage",
                                             "order-minus",
-                                            // cartProduct.count === 1 && "disabled"
                                         )}
                                         onClick={onClickMinusCount}
                                     >

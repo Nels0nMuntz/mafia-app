@@ -11,7 +11,6 @@ const MainContainer = () => {
     const menuItem = match && match.params.menuItem;
     const product = match && match.params.product;
     const productId = match && match.params.productId;
-    const url = match && match.url;
     const readyToRender = useSelector(state => state.checkout.readyToRenderErrors);
 
     React.useEffect(() => window.scrollTo(0,0))
@@ -21,7 +20,6 @@ const MainContainer = () => {
             menuItem={menuItem}
             product={product}
             productId={productId}
-            url={url}
             readyToRender={readyToRender}
         />
     )

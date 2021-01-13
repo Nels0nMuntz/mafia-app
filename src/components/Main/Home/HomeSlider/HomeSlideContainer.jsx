@@ -1,14 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 
-import HomeSlide from './HomeSlide';
 import { toggleHomeProductSize, changeHomeProductSize, changeHomeProductGift, changeHomeProductState } from '../../../../redux/home-reducer';
 import { addProduct, changeProductGiftCart, increaseCount, decreaseCount, removeProduct } from '../../../../redux/cart-reducer';
+import ProductCard from './../../ProductsCatalog/ProductCard';
 
 
 const HomeSlideContainer = ({ data, isProductOrdered }) => {
-
-    console.log('HomeSlideContainer');
 
     const isSelected = data.isSelected && data.uniqueId;
     const selectedSize = data.sizes.find(item => item.isSelected);
@@ -40,8 +38,9 @@ const HomeSlideContainer = ({ data, isProductOrdered }) => {
     };
 
     return (
-        <HomeSlide
+        <ProductCard
             data={data}
+            url={`/menu-dostavki/${data.menuItem}`}
             selectedSize={selectedSize}
             selectedGift={selectedGift}
             onClickButton={onClickButton}
@@ -50,11 +49,19 @@ const HomeSlideContainer = ({ data, isProductOrdered }) => {
             onClickOrder={onClickOrder}
             onClickPlusCount={onClickPlusCount}
             onClickMinusCount={onClickMinusCount}
+            onePrice={true}
         />
     )
-}
+};
 
-export default React.memo(
-    HomeSlideContainer,
-    
-)
+export default HomeSlideContainer;
+// export default React.memo(
+//     HomeSlideContainer,
+//     (prevProps, nextProps) => {
+//         if(prevProps.isProductOrdered || nextProps.isProductOrdered){
+//             console.log(prevProps);
+//             console.log(nextProps);
+//         }
+//         return isEqual(prevProps, nextProps)
+//     }
+// )

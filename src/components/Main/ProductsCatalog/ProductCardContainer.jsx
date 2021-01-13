@@ -3,12 +3,13 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addProduct, increaseCount, decreaseCount, removeProduct } from '../../../redux/cart-reducer';
-import { changeProductSize, toggleProductSize, changeProductGift, changeProductState, changeActiveProduct } from '../../../redux/catalog-reducer';
-import { changeProductSizeCart, toggleProductSizeCart, changeProductGiftCart } from '../../../redux/cart-reducer';
+import { changeProductSize, toggleProductSize, changeProductGift, changeProductState } from '../../../redux/catalog-reducer';
+import { changeProductGiftCart } from '../../../redux/cart-reducer';
 import ProductCard from './ProductCard';
+import { useRouteMatch } from 'react-router-dom';
 
 
-const ProductCardContainer = ({ cardData, url, fastCategories, menuItem, isEmptyCart }) => {
+const ProductCardContainer = ({ cardData, menuItem, isEmptyCart }) => {
 
     const dispatch = useDispatch();
 
@@ -40,14 +41,14 @@ const ProductCardContainer = ({ cardData, url, fastCategories, menuItem, isEmpty
             dispatch(removeProduct(cardData.uniqueId));
         }
     };
+    const match = useRouteMatch("/:branch/:menuItem");
 
     return (
         <ProductCard
             data={cardData} 
             selectedSize={selectedSize}
             selectedGift={selectedGift}
-            url={url}
-            fastCategories={fastCategories}
+            url={match.url}
             onClickButton={onClickButton}
             onClickCheckbox={onClickCheckbox}
             onClickDropdown={onClickDropdown}

@@ -17,6 +17,8 @@ import { changeProductGift, changeProductSize, changeProductState, toggleProduct
 
 const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
 
+    console.log({ menuItem, product, cart, BreadcrumbsComponent });
+
     const dispatch = useDispatch();
     let data = null;
     const cartProducts = cart.filter(elem => elem.productId === product.productId);

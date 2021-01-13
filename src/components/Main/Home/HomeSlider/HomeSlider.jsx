@@ -9,8 +9,6 @@ import './HomeSlider.scss'
 
 const HomeSlider = ({ sliderData, cart, isMatch }) => {
 
-    // console.log('HomeSlider');
-
     const settings = {
         autoplay: false,
         dots: false,
@@ -32,37 +30,57 @@ const HomeSlider = ({ sliderData, cart, isMatch }) => {
                 }
             },
             {
-                breakpoint: 650,
+                breakpoint: 720,
                 settings: {
                     slidesToShow: 1,
                 }
             },
         ]
     };
-    const children = () => (
-        sliderData.map(item => {
+    const children = () => {
+        const newSliderData = sliderData.map(item => {
             let data = item;
             let isProductOrdered = false;
             if (item.isSelected) {
                 const selectedSizeId = item.sizes.find(elem => elem.isSelected).id;
                 const filteredCart = cart.filter(elem => elem.productId === item.productId);
-                isProductOrdered = !!filteredCart.length
                 const cartItem = filteredCart.find(elem => elem.sizes.find(size => size.id === selectedSizeId && size.isSelected));
-                if(cartItem) data = cartItem;
+                if (cartItem) data = cartItem;
+                isProductOrdered = !!filteredCart.length
             };
-            return (
-                <HomeSlideContainer
-                    key={data.id}
-                    data={data}
-                    isProductOrdered={isProductOrdered}
-                />
-            )
-        })
-    )
+            return { data, isProductOrdered }
+        });
+        return newSliderData.map(({ data, isProductOrdered }) => (
+            <HomeSlideContainer
+                key={data.id}
+                data={data}
+                isProductOrdered={isProductOrdered}
+            />
+        ))
+
+        // sliderData.map(item => {
+        //     let data = item;
+        //     let isProductOrdered = false;
+        //     if (item.isSelected) {
+        //         const selectedSizeId = item.sizes.find(elem => elem.isSelected).id;
+        //         const filteredCart = cart.filter(elem => elem.productId === item.productId);
+        //         isProductOrdered = !!filteredCart.length
+        //         const cartItem = filteredCart.find(elem => elem.sizes.find(size => size.id === selectedSizeId && size.isSelected));
+        //         if(cartItem) data = cartItem;
+        //     };
+        //     return (
+        //         <HomeSlideContainer
+        //             key={data.id}
+        //             data={data}
+        //             isProductOrdered={isProductOrdered}
+        //         />
+        //     )
+        // })
+    }
 
     return (
         <div className="homeSlider">
-            {!!sliderData.length && (isMatch ? children() : <Carousel {...settings} children={children()}/>)}
+            {!!sliderData.length && (isMatch ? children() : <Carousel {...settings} children={children()} />)}
         </div>
     )
 };

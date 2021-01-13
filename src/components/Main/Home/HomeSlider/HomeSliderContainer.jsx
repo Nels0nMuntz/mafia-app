@@ -9,13 +9,11 @@ import withBreakpoints from './../../../HOC/withBreakpoints';
 
 const HomeSliderContainer = ({ sliderData, queryMatches }) => {
 
-    // console.log('HomeSliderContainer');
-
     const isMediaQueryMatch = queryMatches && queryMatches.sm;
     const cart = useSelector(createSelector(
         state => state.cart.selected,
         selected => selected
-    ))
+    ));
 
     return (
         <HomeSlider

@@ -8,12 +8,11 @@ import { requestCatalogItem } from '../../../redux/catalog-reducer';
 import Preloader from '../../Preloader/Preloader';
 
 
-const ProductsCatalogContainer = ({ menuItem, url }) => {
+const ProductsCatalogContainer = ({ menuItem }) => {
 
     const dispatch = useDispatch();
     const isExists = !!useSelector(state => state.catalog[menuItem]);
     const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
-    const fastCategories = useSelector(state => state.catalog.fastCategories);
     const list = useSelector(createSelector(
         state => state.catalog[menuItem],
         state => state.catalog.currentFastCategory,
@@ -60,8 +59,6 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
             <ProductsCatalog
                 list={list}
                 cart={cart}
-                url={url}
-                fastCategories={fastCategories}
                 menuItem={menuItem}
             />
         )
@@ -70,10 +67,6 @@ const ProductsCatalogContainer = ({ menuItem, url }) => {
 
 ProductsCatalogContainer.propTypes = {
     menuItem: PropTypes.oneOfType([
-        PropTypes.string.isRequired,
-        PropTypes.oneOf([null]).isRequired,
-    ]),
-    url: PropTypes.oneOfType([
         PropTypes.string.isRequired,
         PropTypes.oneOf([null]).isRequired,
     ]),

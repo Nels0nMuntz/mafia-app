@@ -13,7 +13,7 @@ import CheckoutFinish from './Checkout/CheckoutFinish/CheckoutFinish';
 
 import style from './Main.module.scss'
 
-const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) => {
+const Main = React.memo(({ menuItem, product, productId, readyToRender }) => {
 
     return (
         <main className={style.main}>
@@ -32,7 +32,6 @@ const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) =
                             <ProductsFilter menuItem={menuItem} />
                             <ProductsCatalogContainer
                                 menuItem={menuItem}
-                                url={url}
                             />
                         </React.Fragment>
                     ) : (
@@ -55,10 +54,6 @@ const Main = React.memo(({ menuItem, product, productId, url, readyToRender }) =
 
 Main.propTypes = {
     menuItem: PropTypes.oneOfType([
-        PropTypes.string.isRequired,
-        PropTypes.oneOf([null]).isRequired,
-    ]),
-    url: PropTypes.oneOfType([
         PropTypes.string.isRequired,
         PropTypes.oneOf([null]).isRequired,
     ]),

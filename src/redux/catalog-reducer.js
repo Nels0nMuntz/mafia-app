@@ -22,7 +22,6 @@ const initialState = {
     currentSortCategory: '',
     currentFastCategory: 'default',
     isFetchingCatalog: false,
-    isSelectedActiveProduct: null,
 };
 
 const catalogReducer = (state = initialState, action) => {

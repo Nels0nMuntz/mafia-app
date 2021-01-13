@@ -7,7 +7,7 @@ import withBreadcrumbs from '../../HOC/withBreadcrumbs';
 import style from './ProductsCatalog.module.scss'
 
 
-const ProductsCatalog = React.memo(({ list, cart, url, fastCategories, menuItem, BreadcrumbsComponent }) => {
+const ProductsCatalog = React.memo(({ list, cart, menuItem, BreadcrumbsComponent }) => {
 
     const children = () => list.map(item => {
         if (item.isSelected) {
@@ -19,8 +19,6 @@ const ProductsCatalog = React.memo(({ list, cart, url, fastCategories, menuItem,
                     <ProductCardContainer
                         key={cartProductsItem.uniqueId}
                         cardData={cartProductsItem}
-                        url={url}
-                        fastCategories={fastCategories}
                         menuItem={menuItem}
                         isEmptyCart={!cartProducts.length}
                     />
@@ -30,8 +28,6 @@ const ProductsCatalog = React.memo(({ list, cart, url, fastCategories, menuItem,
                     <ProductCardContainer
                         key={item.productId}
                         cardData={item}
-                        url={url}
-                        fastCategories={fastCategories}
                         menuItem={menuItem}
                     />
                 )
@@ -41,8 +37,6 @@ const ProductsCatalog = React.memo(({ list, cart, url, fastCategories, menuItem,
                 <ProductCardContainer
                     key={item.productId}
                     cardData={item}
-                    url={url}
-                    fastCategories={fastCategories}
                     menuItem={menuItem}
                 />
             )
@@ -62,7 +56,6 @@ const ProductsCatalog = React.memo(({ list, cart, url, fastCategories, menuItem,
 }, (prevProps, nextProps) => (
     isEqual(prevProps.list, nextProps.list)
     && isEqual(prevProps.isFetching === nextProps.isFetching)
-    && isEqual(prevProps.fastCategories, nextProps.fastCategories)
     && isEqual(prevProps.cart, nextProps.cart)
 ));
 
