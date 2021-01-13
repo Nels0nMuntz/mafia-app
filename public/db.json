@@ -252,104 +252,497 @@
     "recommend-slider": [
         {
             "id": 1,
-            "title": "Супер Фила XXl",
-            "description": "Ролл калифорния, Маки с масляной, Маки с лососем, Ролл филадельфия с лососем, Чизу ролл",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/480x0/super-fila_1560931310292.jpeg",
-            "gifts": [
-                "Pepsi Mango 0,5 л * 2шт",
-                "Без подарка"
+            "title": "Карибская",
+            "description": [
+                "Атлантика: креветки, филе лосося, сыр пармезан, шпинат, томаты, сливки, чеснок Американо: филе куриное sous-vide, колбаски охотничьи, пепперони, сыр моцарелла, кукуруза, болгарский перец, лук конфитюр, соус BBQ, соус маринара, горчица Поло: филе куриное sous-vide, сыр моцарелла, ананас, болгарский перец, чеснок, соус маринара, соус ВВQ"
             ],
-            "sizes": [
-                {
-                    "id": 1,
-                    "weight": "52 шт., 1125 г.",
-                    "price": 399
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "title": "Дабл фила",
-            "description": "Ролл лосось-манго, ролл угорь-груша",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/480x0/dabl-fila_156216975534.jpeg",
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/karibskaya-kruglaya_1592816076356.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karibskaya-kruglaya.jpeg"
+            },
             "gifts": [],
             "sizes": [
                 {
                     "id": 1,
-                    "weight": "16 шт., 470 г.",
-                    "price": 199
+                    "value": "Средняя",
+                    "weight": "550 г.",
+                    "price": 229,
+                    "discount": 189
+                },
+                {
+                    "id": 2,
+                    "value": "Большая",
+                    "weight": "820 г.",
+                    "price": 299,
+                    "discount": 249
                 }
-            ]
+            ],
+            "category": "Круглая",
+            "rate": 9,
+            "added": "04.30.2018",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": []
         },
         {
-            "id": 3,
-            "title": "Супер Фила Xl",
-            "description": "Ролл калифорния, Маки с масляной, Маки с лососем, Ролл филадельфия с лососем, Чизу ролл",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/480x0/super-fila-l_1579030348736.jpeg",
-            "gifts": [
-                "Pepsi Mango 0,5 л * 2шт",
-                "Без подарка"
+            "id": 2,
+            "title": "Карибская метровая",
+            "description": [
+                "Атлантика: креветки, філе лосося, сир пармезан, шпинат, томати, вершки, часник Американо: філе куряче sous-vide, ковбаски мисливські, пепероні, сир моцарела, кукурудза, болгарський перець, цибуля конфітюр, соус BBQ, соус маринара, гірчиця Поло: філе куряче sous-vide, сир моцарела, ананас, болгарський перець, часник, соус маринара, соус ВВQ"
             ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/karibskaya-metrovaya_1592816036677.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karibskaya-metrovaya.jpeg"
+            },
+            "gifts": [],
             "sizes": [
                 {
                     "id": 1,
-                    "weight": "44 шт., 1125 г.",
-                    "price": 339
+                    "value": "Средняя",
+                    "weight": "1380 г.",
+                    "price": 369,
+                    "discount": 329
                 }
-            ]
+            ],
+            "category": "Метровая",
+            "rate": 9,
+            "added": "06.25.2019",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": []
+        },
+        {
+            "id": 3,
+            "title": "Четыре сыра метровая",
+            "description": [
+                "Cыр дор блю, сыр чеддер, сыр пармезан, сыр моцарелла, груша, грецкий орех, сливочный соус и трюфельное масло"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/chetyre-syra-metrovaya_1597818971868.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/chetyre-syra-metrovaya_1597818962157.jpeg"
+            },
+            "gifts": [],
+            "sizes": [
+                {
+                    "id": 1,
+                    "value": "Средняя",
+                    "weight": "1180 г.",
+                    "price": 349,
+                    "discount": 299
+                }
+            ],
+            "category": "Метровая",
+            "rate": 9,
+            "added": "02.18.2018",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": []
         },
         {
             "id": 4,
-            "title": "Мафия",
-            "description": "Карбонара: ветчина, грудинка, сыр пармезан, шампиньоны, томаты черри и сливки Мясная Гурмео: филе куриное sous-vide, ветчина, колбаски охотничьи, пепперони, шампиньоны, лук, петрушка и соус BBQ Четыре сыра: сыр дор блю, сыр чеддер, сыр пармезан, груша, грецкий орех и сливочный соус Сырный бортик: сыр Филадельфия, сыр моцарелла",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/480x0/mafiya_1581069452273.jpeg",
+            "title": "Мафия ",
+            "description": [
+                "Карбонара: ветчина, грудинка, сыр пармезан, шампиньоны, томаты черри и сливки Мясная Гурмео: филе куриное sous-vide, ветчина, колбаски охотничьи, пепперони, шампиньоны, лук, петрушка и соус BBQ Четыре сыра: сыр дор блю, сыр чеддер, сыр пармезан, груша, грецкий орех и сливочный соус Сырный бортик: сыр Филадельфия, сыр моцарелла"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/mafiya_1581069452273.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/mafiya.jpeg"
+            },
             "gifts": [
-                "Bud 0,75 л",
-                "Без подарка"
+                {
+                    "id": 1,
+                    "content": "Bud 0,75 л"
+                },
+                {
+                    "id": 2,
+                    "content": "Без подарка"
+                }
             ],
             "sizes": [
                 {
                     "id": 1,
                     "value": "Средняя",
                     "weight": "570 г.",
-                    "price": 199
+                    "price": 199,
+                    "discount": null
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "value": "Большая",
                     "weight": "850 г.",
-                    "price": 269
+                    "price": 269,
+                    "discount": null
                 }
-            ]
+            ],
+            "category": "Круглая",
+            "rate": 8,
+            "added": "02.01.2017",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": []
         },
         {
             "id": 5,
             "title": "Мафия метровая",
-            "description": "Карбонара: ветчина, грудинка, сыр пармезан, шампиньоны, томаты черри и сливки Мясная Гурмео: филе куриное sous-vide, ветчина, колбаски охотничьи, пепперони, шампиньоны, лук, петрушка и соус BBQ Четыре сыра: сыр дор блю, сыр чеддер, сыр пармезан, груша, грецкий орех и сливочный соус Сырный бортик: сыр Филадельфия, сыр моцарелла",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/480x0/mafiya-metrovaya_1581069694297.jpeg",
+            "description": [
+                "Карбонара: ветчина, грудинка, сыр пармезан, шампиньоны, томаты черри и сливки Мясная Гурмео: филе куриное sous-vide, ветчина, колбаски охотничьи, пепперони, шампиньоны, лук, петрушка и соус BBQ Четыре сыра: сыр дор блю, сыр чеддер, сыр пармезан, груша, грецкий орех и сливочный соус Сырный бортик: сыр Филадельфия, сыр моцарелла"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/mafiya-metrovaya_1581069694297.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/mafiya-metrovaya.jpeg"
+            },
             "gifts": [
-                "Bud 0,75 л",
-                "Без подарка"
+                {
+                    "id": 1,
+                    "content": "Bud 0,75 л"
+                },
+                {
+                    "id": 2,
+                    "content": "Без подарка"
+                }
             ],
             "sizes": [
                 {
                     "id": 1,
+                    "value": "Средняя",
                     "weight": "1340 г.",
-                    "price": 349
+                    "price": 349,
+                    "discount": null
                 }
-            ]
+            ],
+            "category": "Метровая",
+            "rate": 8,
+            "added": "03.11.2017",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": []
         },
         {
             "id": 6,
-            "title": "Атлантик сет",
-            "description": "Ролл №1 - Филадельфия унаги: Ролл с угрем панко, сурими кимчи, грушей и сливочным сыром в икре тобико и кунжуте. Ролл №2 - Зеленый дракон: Ролл с угрем панко, сливочным сыром, авокадо, Тамаго, огурцом, кунжутом и соусом унаги. Ролл №3 - Феликс ролл с угрем: Ролл с угрем, лососем, окунем, сурими кимчи, сливочным сыром, огурцом, Тамаго, соусом спайси и соусом унаги. Ролл №4 - Унаги-сяке Филадельфия: Ролл с угрем и лососем, сливочным сыром, сыром дор блю и грушей. Ролл №5 - Унаги маки: Маки с угрем, огурцом, соусом спайси и соусом унаги. Ролл №6 - Унаги рору: Ролл с угрем, лососем, окунем, сурими кимчи, сливочным сыром, огурцом, Тамаго и соусом унаги.",
-            "imageUrl": "https://mafia.ua/storage/editor/fotos/480x0/atlantik-set_1585898019404.jpeg",
+            "title": "Пицца Охотничья XXL",
+            "description": [
+                "Охотничьи колбаски, молочные колбаски, сыр моцарелла, вешенки, шампиньоны, сладкий лук, перец болгарский, соус BBQ, соус маринара, петрушка и трюфельное масло"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/picca-ohotnichya-xxl_1542267870257.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/picca-ohotnichya-xxl.jpeg"
+            },
+            "gifts": [
+                {
+                    "id": 1,
+                    "content": "Syaropramen Dark 0,5 л"
+                },
+                {
+                    "id": 2,
+                    "content": "Без подарка"
+                }
+            ],
+            "sizes": [
+                {
+                    "id": 1,
+                    "value": "Средняя",
+                    "weight": "1320 г.",
+                    "price": 319,
+                    "discount": null
+                }
+            ],
+            "category": "Метровая",
+            "rate": 8,
+            "added": "08.21.2019",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": []
+        },
+        {
+            "id": 7,
+            "title": "Охотничья",
+            "description": [
+                "Охотничьи колбаски, молочные колбаски, сыр моцарелла, вешенки, шампиньоны, сладкий лук, перец болгарский, соус BBQ, соус маринара, петрушка и трюфельное масло"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/picca-ohotnichya_1542267892836.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/picca-ohotnichya.jpeg"
+            },
             "gifts": [],
             "sizes": [
                 {
                     "id": 1,
-                    "weight": "46 шт., 1250 г.",
-                    "price": 389
+                    "value": "Средняя",
+                    "weight": "500 г.",
+                    "price": 139,
+                    "discount": null
+                },
+                {
+                    "id": 2,
+                    "value": "Большая",
+                    "weight": "750 г.",
+                    "price": 199,
+                    "discount": null
+                }
+            ],
+            "category": "Круглая",
+            "rate": 8,
+            "added": "09.12.2020",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": []
+        },
+        {
+            "id": 8,
+            "title": "Карбонара метровая",
+            "description": [
+                "Сыр моцарелла, ветчина, грудинка, шампиньоны, пармезан, томаты черри и трюфельное масло"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/karbonara-metrovaya_1566297127558.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/karbonara-metrovaya_1566297116241.jpeg"
+            },
+            "gifts": [
+                {
+                    "id": 1,
+                    "content": "Bud 0,75 л"
+                },
+                {
+                    "id": 2,
+                    "content": "Без подарка"
+                }
+            ],
+            "sizes": [
+                {
+                    "id": 1,
+                    "value": "Средняя",
+                    "weight": "1200 г.",
+                    "price": 339,
+                    "discount": null
+                }
+            ],
+            "category": "Метровая",
+            "rate": 7,
+            "added": "04.22.2019",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "Акция"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                }
+            ],
+            "additions": [
+                {
+                    "id": 1,
+                    "title": "Вино Кантар белое",
+                    "weight": "0.37 л",
+                    "price": 45,
+                    "imgUrl": "https://mafia.ua/storage/editor/fotos/140x180/vino-kotnar-beloe.png"
+                },
+                {
+                    "id": 2,
+                    "title": "Вино Кантар красное",
+                    "weight": "0.37 л",
+                    "price": 45,
+                    "imgUrl": "https://mafia.ua/storage/editor/fotos/140x180/vino-kotnar-krasnoe.png"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "title": "Американо метровая",
+            "description": [
+                "Соус BBQ, соус маринара, сыр моцарелла, горчица, филе куриное sous-vide, колбаски охотничьи, пепперони, лук конфитюр, кукуруза, перец болгарский"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/amerikano-metrovaya_1566296641461.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/amerikano-metrovaya_1566296630986.jpeg"
+            },
+            "gifts": [],
+            "sizes": [
+                {
+                    "id": 1,
+                    "value": "Средняя",
+                    "weight": "1335 г.",
+                    "price": 339,
+                    "discount": null
+                }
+            ],
+            "category": "Метровая",
+            "rate": 7,
+            "added": "12.09.2016",
+            "tags": [],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                },
+                {
+                    "id": 2,
+                    "type": "discount",
+                    "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                }
+            ],
+            "additions": [
+                {
+                    "id": 1,
+                    "title": "Вино Кантар белое",
+                    "weight": "0.37 л",
+                    "price": 45,
+                    "imgUrl": "https://mafia.ua/storage/editor/fotos/140x180/vino-kotnar-beloe.png"
+                },
+                {
+                    "id": 2,
+                    "title": "Вино Кантар красное",
+                    "weight": "0.37 л",
+                    "price": 45,
+                    "imgUrl": "https://mafia.ua/storage/editor/fotos/140x180/vino-kotnar-krasnoe.png"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "title": "Маргарита",
+            "description": [
+                "Соус маринара, помидоры, сыр моцарелла, соус песто"
+            ],
+            "images": {
+                "bigImageUrl": "https://mafia.ua/storage/editor/fotos/480x0/margarita_156706066239.jpeg",
+                "smallImageUrl": "https://mafia.ua/storage/editor/fotos/450x450/margarita_1567060656531.jpeg"
+            },
+            "gifts": [],
+            "sizes": [
+                {
+                    "id": 1,
+                    "value": "Средняя",
+                    "weight": "460 г.",
+                    "price": 89,
+                    "discount": null
+                },
+                {
+                    "id": 2,
+                    "value": "Большая",
+                    "weight": "690 г.",
+                    "price": 139,
+                    "discount": null
+                }
+            ],
+            "category": "Круглая",
+            "rate": 7,
+            "added": "10.16.2018",
+            "tags": [
+                {
+                    "id": 1,
+                    "type": "primary",
+                    "content": "1+1 забери сам"
+                }
+            ],
+            "bonuses": [
+                {
+                    "id": 1,
+                    "type": "delivery",
+                    "content": "Безкоштовна доставка при замовленні від 200 грн"
+                },
+                {
+                    "id": 2,
+                    "type": "discount",
+                    "content": "Скидка 20%, если забираете заказ из ресторана, кроме 1+1"
+                }
+            ],
+            "additions": [
+                {
+                    "id": 1,
+                    "title": "Добавка 'Сырный бортик'",
+                    "weight": "45 г",
+                    "price": 19,
+                    "imgUrl": "https://mafia.ua/storage/editor/fotos/140x180/dobavka-syrnyj-bortik.jpeg"
                 }
             ]
         }

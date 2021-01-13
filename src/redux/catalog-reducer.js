@@ -25,8 +25,6 @@ const initialState = {
     isSelectedActiveProduct: null,
 };
 
-const getProductId = cardData => cardData.title.replace(" ", "").split("").reduce((acc, char) => char.charCodeAt(0) + acc, '');
-
 const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CATALOG_ITEM:
@@ -39,7 +37,6 @@ const catalogReducer = (state = initialState, action) => {
                             {
                                 ...item,
                                 productId: Math.trunc(Math.random() *  item.id *  item.id * 10000000),
-                                count: 0,
                                 gifts: [
                                     ...item.gifts.map((elem, index) => (
                                         index === 0 ? {
@@ -86,7 +83,6 @@ const catalogReducer = (state = initialState, action) => {
             return { ...state, currentFastCategory: action.payload, };
         case TOGGLE_IS_FETCHING:
             return { ...state, isFetchingCatalog: action.payload, };
-
         case TOGGLE_PRODUCT_SIZE:
             return {
                 ...state,
@@ -169,7 +165,6 @@ const catalogReducer = (state = initialState, action) => {
                     ]
                 }
             };
-
         default:
             return state;
     };

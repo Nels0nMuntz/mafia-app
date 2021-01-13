@@ -4,119 +4,79 @@ import classnames from 'classnames'
 import GiftDropdown from './../../../common/GiftDropdown/GiftDropdown';
 
 import './HomeSlider.scss'
+import Swicher from './../../../common/Swicher/Swicher';
 
 
-const HomeSlide = ({ data }) => {
-
-    const [slideData, setSlideData] = React.useState(() => ({
-        ...data,
-        checkboxState: false,
-        selected: {
-            size: data.sizes[0],
-            gift: data.gifts[0],
-        },
-    }));
-
-    const onClickDropdown = ({ key }) => {
-        return key === slideData.selected.gift ? undefined : (
-            setSlideData({
-                ...slideData,
-                selected: {
-                    ...slideData.selected,
-                    gift: key
-                },
-            })
-        )
-    };
-
-    const onClickCheckbox = (event) => {
-        // it will work when click on some of cerain size heppened
-        if (event.target.dataset.value) {
-            const value = event.target.dataset.value;
-            // this condition helps React to avoid making unnecessary rerenders
-            if(value === slideData.selected.size.value) return
-            value === slideData.sizes[0].value && (
-                setSlideData({
-                    ...slideData,
-                    checkboxState: false,
-                    selected: {
-                        ...slideData.selected,
-                        size: data.sizes[0]
-                    },
-                })
-            );
-            event.target.dataset.value === slideData.sizes[1].value && (
-                setSlideData({
-                    ...slideData,
-                    checkboxState: true,
-                    selected: {
-                        ...slideData.selected,
-                        size: data.sizes[1]
-                    },
-                })
-            );
-        }
-        // it will work when click on checkbox heppened
-        else {
-            setSlideData({
-                ...slideData,
-                checkboxState: !slideData.checkboxState,
-                selected: {
-                    ...slideData.selected,
-                    size: data.sizes[+(!slideData.checkboxState)]
-                },
-            })
-        }
-    };
+const HomeSlide = ({ 
+    data, 
+    selectedSize, 
+    selectedGift,
+    onClickButton,
+    onClickCheckbox,
+    onClickDropdown,
+    onClickOrder,
+    onClickPlusCount,
+    onClickMinusCount,
+}) => {
 
     return (
-        <div className="homeSlider__item item-homeSlider" key={`homeSlider_${slideData.id}`}>
+        <div className="homeSlider__item item-homeSlider" key={`homeSlider_${data.id}`}>
             <div className="item-homeSlider__content">
-                <img src={slideData.imageUrl} alt='' />
+                <img src={data.images.bigImageUrl} alt='' />
                 <div className="item-homeSlider__info">
-                    <h3>{slideData.title}</h3>
+                    <h3>{data.title}</h3>
                     <div className="item-homeSlider__weight-block">
-                        <div className="item-homeSlider__weight">{slideData.selected.size.weight}</div>
-                        {slideData.sizes.length === 2 ? (
-                            <div className="item-homeSlider__swicher swicher-homeSlider">
-                                <span
-                                    data-value={slideData.sizes[0].value}
-                                    onClick={onClickCheckbox}
-                                >{slideData.sizes[0].value}</span>
-                                <div
-                                    className={classnames(
-                                        "swicher-homeSlider__checkbox",
-                                        slideData.checkboxState && 'checked'
-                                    )}
-                                    onClick={onClickCheckbox}
-                                >
-                                    <span />
-                                </div>
-                                <span
-                                    data-value={slideData.sizes[1].value}
-                                    onClick={onClickCheckbox}
-                                >{slideData.sizes[1].value}</span>
-                            </div>
+                        <div className="item-homeSlider__weight">{selectedSize.weight}</div>
+                        {data.hasTwoSizes ? (
+                            <Swicher
+                                sizes={data.sizes}
+                            onClickButtonHandler={onClickButton}
+                            onClickCheckboxHandler={onClickCheckbox}
+                            />
                         ) : null}
                     </div>
-                    <p className="item-homeSlider__descr">{slideData.description}</p>
+                    <p className="item-homeSlider__descr">{data.description}</p>
                     <div className="item-homeSlider__price-gift">
-                        <div className="item-homeSlider__price">{`${slideData.selected.size.price} грн.`}</div>
+                        <div className="item-homeSlider__price">{`${selectedSize.discount || selectedSize.price} грн.`}</div>
                         <div className="item-homeSlider__gift-block gift-block">
-                            {slideData.gifts.length ? (
+                            {data.hasGifts ? (
                                 <GiftDropdown
-                                    list={slideData.gifts}
-                                    value={slideData.selected.gift}
+                                    list={data.gifts}
+                                    value={selectedGift.content}
                                     callback={onClickDropdown}
                                 />
                             ) : null}
                         </div>
                     </div>
                     <div className="item-homeSlider__order">
-                        <button 
-                            className="item-homeSlider__btn"
-                            // onClick={() => console.log(slideData)}
-                        >Заказать</button>
+                        <button
+                            className={classnames(
+                                "item-homeSlider__btn",
+                                data.isSelected && data.uniqueId && 'in-cart'
+                            )}
+                            onClick={!data.uniqueId ? onClickOrder : undefined}
+                        >{data.isSelected && data.uniqueId ? (
+                            <div className="item-homeSlider__btn_ordered">
+                                <div
+                                    className={ "order-manage order-minus"}
+                                    onClick={onClickMinusCount}
+                                >
+                                    <svg width="16" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line y1="2" x2="20" y2="2" stroke="#E1B787" strokeWidth="4" />
+                                    </svg>
+                                </div>
+                                <div className="order_count">{data.count}</div>
+                                <div
+                                    className="order-manage order-plus"
+                                    onClick={onClickPlusCount}
+                                >
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="8" x2="8" y2="16" stroke="#E1B787" strokeWidth="3" />
+                                        <line y1="8" x2="16" y2="8" stroke="#E1B787" strokeWidth="3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        ) : 'Заказать'}</button>
                     </div>
                 </div>
             </div>

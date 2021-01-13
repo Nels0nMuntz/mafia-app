@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { requireHomePage } from '../../../redux/home-reducer';
 import MainSlider from './MainSlider/MainSlider';
-import HomeSlider from './HomeSlider/HomeSlider';
 import DeliverySlider from './DeliverySlider/DeliverySlider';
 import Preloader from './../../Preloader/Preloader';
+import HomeSliderContainer from './HomeSlider/HomeSliderContainer';
 
 import style from './Home.module.scss'
 
@@ -17,6 +17,7 @@ const Home = () => {
     const mainSlider = useSelector(state => state.home.mainSlider);
     const homeSlider = useSelector(state => state.home.homeSlider);
     const isFetching = useSelector(state => state.home.isFetchingHome);
+
     React.useEffect(() => {
         if (!mainSlider.length && !homeSlider.length) dispatch(requireHomePage());
     }, []);
@@ -37,7 +38,7 @@ const Home = () => {
                         <h2>Мы рекомендуем</h2>
                     </div>
                     <div className={style.slider_container}>
-                        <HomeSlider
+                        <HomeSliderContainer
                             sliderData={homeSlider}
                         />
                     </div>

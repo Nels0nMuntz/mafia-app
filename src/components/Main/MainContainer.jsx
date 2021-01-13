@@ -14,6 +14,8 @@ const MainContainer = () => {
     const url = match && match.url;
     const readyToRender = useSelector(state => state.checkout.readyToRenderErrors);
 
+    React.useEffect(() => window.scrollTo(0,0))
+
     return (
         <Main
             menuItem={menuItem}

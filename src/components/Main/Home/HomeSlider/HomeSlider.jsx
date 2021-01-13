@@ -1,13 +1,16 @@
 import React from 'react'
-import HomeSlide from './HomeSlide';
-
 import { Carousel } from 'antd';
+import PropTypes from 'prop-types';
+
+import HomeSlideContainer from './HomeSlideContainer';
 
 import './HomeSlider.scss'
-import withBreakpoints from '../../../HOC/withBreakpoints';
 
 
-const HomeSlider = ({ queryMatches, sliderData }) => {
+const HomeSlider = ({ sliderData, cart, isMatch }) => {
+
+    // console.log('HomeSlider');
+
     const settings = {
         autoplay: false,
         dots: false,
@@ -36,32 +39,41 @@ const HomeSlider = ({ queryMatches, sliderData }) => {
             },
         ]
     };
+    const children = () => (
+        sliderData.map(item => {
+            let data = item;
+            let isProductOrdered = false;
+            if (item.isSelected) {
+                const selectedSizeId = item.sizes.find(elem => elem.isSelected).id;
+                const filteredCart = cart.filter(elem => elem.productId === item.productId);
+                isProductOrdered = !!filteredCart.length
+                const cartItem = filteredCart.find(elem => elem.sizes.find(size => size.id === selectedSizeId && size.isSelected));
+                if(cartItem) data = cartItem;
+            };
+            return (
+                <HomeSlideContainer
+                    key={data.id}
+                    data={data}
+                    isProductOrdered={isProductOrdered}
+                />
+            )
+        })
+    )
 
     return (
         <div className="homeSlider">
-            {sliderData.length && (
-                queryMatches && queryMatches.sm ? (
-                    sliderData.map(slideData => (
-                        <HomeSlide
-                            key={`${slideData.title}_${slideData.id}`}
-                            data={slideData}
-                        />
-                    ))
-                ) : (
-                    <Carousel {...settings}>
-                        {sliderData.map(slideData => (
-                            <HomeSlide
-                                key={`${slideData.title}_${slideData.id}`}
-                                data={slideData}
-                            />
-                        ))}
-                    </Carousel>
-                )
-            )}
+            {!!sliderData.length && (isMatch ? children() : <Carousel {...settings} children={children()}/>)}
         </div>
     )
 };
 
-export default withBreakpoints(HomeSlider, {
-    sm: '(max-width: 650px)',
-});
+HomeSlider.propTypes = {
+    sliderData: PropTypes.arrayOf(PropTypes.object).isRequired,
+    cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+    isMatch: PropTypes.bool,
+}
+HomeSlider.defaultProps = {
+    isMatch: null,
+}
+
+export default HomeSlider;

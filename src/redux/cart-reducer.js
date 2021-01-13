@@ -60,7 +60,7 @@ const cartReducer = (state = initialState, action) => {
                                 count: ++item.count
                             }
                         }
-                        return { ...item }
+                        return item
                     })
                 ],
             };
@@ -75,7 +75,7 @@ const cartReducer = (state = initialState, action) => {
                                 count: --item.count
                             }
                         }
-                        return { ...item }
+                        return item
                     })
                 ]
             };
@@ -98,14 +98,13 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 selected: [
                     ...state.selected.map(item => {
-                        return item.uniqueId === action.payload.uniqueId ? {
+                        return item.uniqueId === action.payload.uniqueId ? 
+                        {
                             ...item,
                             additions: [
                                 ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, isSelected: !elem.isSelected } : elem )
                             ]
-                        } : {
-                                ...item
-                            }
+                        } : item
                     })
                 ]
             };
@@ -114,14 +113,13 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 selected: [
                     ...state.selected.map(item => {
-                        return item.uniqueId === action.payload.uniqueId ? {
+                        return item.uniqueId === action.payload.uniqueId ? 
+                        {
                             ...item,
                             additions: [
                                 ...item.additions.map(elem => elem.id === action.payload.additionId ? { ...elem, isSelected: false } : { ...elem })
                             ]
-                        } : {
-                                ...item
-                            }
+                        } : item
                     })
                 ]
             };
@@ -191,6 +189,4 @@ export const removeAddition = (uniqueId, additionId) => dispatch => {
     dispatch(removeAdditionAC(uniqueId, additionId));
     dispatch(recalculateTotalAC());
 };
-// export const toggleProductSizeCart = (productId) => ({ type: TOGGLE_PRODUCT_SIZE_CART, payload: productId });
-// export const changeProductSizeCart = (productId, sizeId) => ({ type: CHANGE_PRODUCT_SIZE_CART, payload: { productId, sizeId } });
 export const changeProductGiftCart = (uniqueId, giftId) => ({ type: CHANGE_PRODUCT_GIFT_CART, payload: { uniqueId, giftId } });
