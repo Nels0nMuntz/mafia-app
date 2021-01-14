@@ -23,7 +23,7 @@ const withBreadcrumbs = Component => {
 
         const dispatch = useDispatch()
         const match = useRouteMatch('/menu-dostavki/:menuItem/:product?/:id?');
-        const menuItem = useSelector(state => state.catalog[match.params.menuItem]);
+        const menuItem = useSelector(state => state.catalog.prods[match.params.menuItem]);
 
         const fastCategory = new URL(window.location.href).searchParams.get('fast') ?? '';
         const onClickCartegory = event => {
