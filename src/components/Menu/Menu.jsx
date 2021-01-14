@@ -16,7 +16,7 @@ const Menu = () => {
 
     React.useEffect(() => {
 
-        dispatch(requestMenu());
+        if(!menu.length) dispatch(requestMenu());
 
         const hendler = event => {
             if (!nav || nav.current.contains(event.target)) return;

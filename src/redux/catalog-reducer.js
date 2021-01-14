@@ -95,6 +95,7 @@ const catalogReducer = (state = initialState, action) => {
                             ...action.payload.data.list.map(item => (
                                 {
                                     ...item,
+                                    menuItem: action.payload.menuItem,
                                     productId: Math.trunc(Math.random() * Math.random() * Math.random() * item.id * item.id * 100000000),
                                     gifts: [
                                         ...item.gifts.map((elem, index) => (

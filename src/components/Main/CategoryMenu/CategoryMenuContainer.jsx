@@ -14,6 +14,7 @@ const CategoryMenuContainer = React.memo(({ menuItem }) => {
     const categories = useSelector(state => state.menu.categories);
 
     React.useEffect(() => {
+        if(!!categories.length) return;
         dispatch(requestMenuCategories());
     }, []);
 
