@@ -29,8 +29,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "fake-json": "json-server --watch ./public/db.json --port 3080"
