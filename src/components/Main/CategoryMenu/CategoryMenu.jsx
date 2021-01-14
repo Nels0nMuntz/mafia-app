@@ -23,7 +23,7 @@ const CategoryMenu = ({ categories, increaseMode, changeIncreaseMode, menuItem, 
         >
             <ul className={style.menu_list}>
                 <CustomScrollbar>
-                    {categories.length && (
+                    {!!categories.length && (
                         categories.map(({ id, content, imageUrl, link }) => (
                             <li
                                 key={id}

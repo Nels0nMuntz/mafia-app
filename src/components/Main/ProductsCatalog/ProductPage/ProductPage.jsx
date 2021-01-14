@@ -44,7 +44,6 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
         const giftId = data.gifts.find(item => item.content === value).id;
         dispatch(changeProductGift(menuItem, data.productId, giftId));
         dispatch(changeProductGiftCart(data.uniqueId, giftId));
-        // dispatch(isSelected ? changeProductGiftCart(data.uniqueId, giftId) : changeProductGift(menuItem, data.productId, giftId));
     };
     const onClickOrder = () => {
         dispatch(changeProductState(menuItem, data.productId, true));

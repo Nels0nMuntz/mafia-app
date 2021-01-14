@@ -14,9 +14,11 @@ const {
     CHANGE_PRODUCT_SIZE,
     CHANGE_PRODUCT_GIFT,
     CHANGE_PRODUCT_STATE,
+    SET_CATALOG,
 } = actionTypes;
 
 const initialState = {
+    prods: {},
     sortCategories: [],
     fastCategories: [],
     currentSortCategory: '',
@@ -26,16 +28,17 @@ const initialState = {
 
 const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_CATALOG_ITEM:
-            return {
-                ...state,
-                [action.payload.menuItem]: {
-                    ...action.payload.data,
+        case SET_CATALOG: 
+            let res = {}
+            for(let prop in action.payload){
+                res[prop] = {
+                    ...action.payload[prop],
                     list: [
-                        ...action.payload.data.list.map(item => (
+                        ...action.payload[prop].list.map(item => (
                             {
                                 ...item,
-                                productId: Math.trunc(Math.random() *  item.id *  item.id * 10000000),
+                                menuItem: prop,
+                                productId: Math.trunc(Math.random() * item.id * 10000000),
                                 gifts: [
                                     ...item.gifts.map((elem, index) => (
                                         index === 0 ? {
@@ -70,7 +73,60 @@ const catalogReducer = (state = initialState, action) => {
                             }
                         ))
                     ]
-                },
+                }
+            }
+            return {
+                ...state,
+                prods: res
+            }
+        case SET_CATALOG_ITEM:
+            return {
+                ...state,
+                prods: {
+                    ...state.prods,
+                    [action.payload.menuItem]: {
+                        ...action.payload.data,
+                        list: [
+                            ...action.payload.data.list.map(item => (
+                                {
+                                    ...item,
+                                    productId: Math.trunc(Math.random() * item.id * item.id * 10000000),
+                                    gifts: [
+                                        ...item.gifts.map((elem, index) => (
+                                            index === 0 ? {
+                                                ...elem,
+                                                isSelected: true,
+                                            } : {
+                                                    ...elem,
+                                                    isSelected: false,
+                                                }
+                                        ))
+                                    ],
+                                    sizes: [
+                                        ...item.sizes.map((elem, index) => (
+                                            index === 0 ? {
+                                                ...elem,
+                                                isSelected: true,
+                                            } : {
+                                                    ...elem,
+                                                    isSelected: false,
+                                                }
+                                        ))
+                                    ],
+                                    additions: [
+                                        ...item.additions.map(elem => ({ ...elem, isSelected: false }))
+                                    ],
+                                    hasTwoSizes: item.sizes.length === 2,
+                                    hasDiscount: !!item.sizes[0].discount,
+                                    hasGifts: !!item.gifts.length,
+                                    hasBonuses: !!item.bonuses.length,
+                                    hasAdditions: !!item.additions.length,
+                                    isSelected: false,
+                                }
+                            ))
+                        ]
+                    },
+                }
             };
         case SET_SORT_CATEGORIES:
             return { ...state, sortCategories: action.payload, };
@@ -85,83 +141,95 @@ const catalogReducer = (state = initialState, action) => {
         case TOGGLE_PRODUCT_SIZE:
             return {
                 ...state,
-                [action.payload.menuItem]: {
-                    ...state[action.payload.menuItem],
-                    list: [
-                        ...state[action.payload.menuItem].list.map(item => {
-                            if (item.productId === action.payload.productId) {
-                                return {
-                                    ...item,
-                                    sizes: [
-                                        ...item.sizes.map(size => ({ ...size, isSelected: !size.isSelected }))
-                                    ]
-                                };
-                            } else {
-                                return item;
-                            }
-                        })
-                    ]
+                prods: {
+                    ...state.prods,
+                    [action.payload.menuItem]: {
+                        ...state.prods[action.payload.menuItem],
+                        list: [
+                            ...state.prods[action.payload.menuItem].list.map(item => {
+                                if (item.productId === action.payload.productId) {
+                                    return {
+                                        ...item,
+                                        sizes: [
+                                            ...item.sizes.map(size => ({ ...size, isSelected: !size.isSelected }))
+                                        ]
+                                    };
+                                } else {
+                                    return item;
+                                }
+                            })
+                        ]
+                    }
                 }
             };
         case CHANGE_PRODUCT_SIZE:
             return {
                 ...state,
-                [action.payload.menuItem]: {
-                    ...state[action.payload.menuItem],
-                    list: [
-                        ...state[action.payload.menuItem].list.map(item => {
-                            if (item.productId === action.payload.productId) {
-                                return {
-                                    ...item,
-                                    sizes: [
-                                        ...item.sizes.map(size => size.id === action.payload.sizeId ? { ...size, isSelected: true } : { ...size, isSelected: false })
-                                    ]
-                                };
-                            } else {
-                                return item;
-                            }
-                        })
-                    ]
+                prods: {
+                    ...state.prods,
+                    [action.payload.menuItem]: {
+                        ...state.prods[action.payload.menuItem],
+                        list: [
+                            ...state.prods[action.payload.menuItem].list.map(item => {
+                                if (item.productId === action.payload.productId) {
+                                    return {
+                                        ...item,
+                                        sizes: [
+                                            ...item.sizes.map(size => size.id === action.payload.sizeId ? { ...size, isSelected: true } : { ...size, isSelected: false })
+                                        ]
+                                    };
+                                } else {
+                                    return item;
+                                }
+                            })
+                        ]
+                    }
                 }
             };
         case CHANGE_PRODUCT_GIFT:
             return {
                 ...state,
-                [action.payload.menuItem]: {
-                    ...state[action.payload.menuItem],
-                    list: [
-                        ...state[action.payload.menuItem].list.map(item => {
-                            if (item.productId === action.payload.productId) {
-                                return {
-                                    ...item,
-                                    gifts: [
-                                        ...item.gifts.map(gift => gift.id === action.payload.giftId ? { ...gift, isSelected: true } : { ...gift, isSelected: false })
-                                    ]
+                prods: {
+                    ...state.prods,
+                    [action.payload.menuItem]: {
+                        ...state.prods[action.payload.menuItem],
+                        list: [
+                            ...state.prods[action.payload.menuItem].list.map(item => {
+                                if (item.productId === action.payload.productId) {
+                                    return {
+                                        ...item,
+                                        gifts: [
+                                            ...item.gifts.map(gift => gift.id === action.payload.giftId ? { ...gift, isSelected: true } : { ...gift, isSelected: false })
+                                        ]
+                                    }
+                                } else {
+                                    return item;
                                 }
-                            } else {
-                                return item;
-                            }
-                        })
-                    ]
+                            })
+                        ]
+                    }
                 }
             };
         case CHANGE_PRODUCT_STATE:
             return {
                 ...state,
-                [action.payload.menuItem]: {
-                    ...state[action.payload.menuItem],
-                    list: [
-                        ...state[action.payload.menuItem].list.map(item => {
-                            if (item.productId === action.payload.productId) {
-                                return {
-                                    ...item,
-                                    isSelected: action.payload.value
+                prods: {
+                    ...state.prods,
+                    [action.payload.menuItem]: {
+                        ...state.prods[action.payload.menuItem],
+                        list: [
+                            ...state.prods[action.payload.menuItem].list.map(item => {
+                                if (item.productId === action.payload.productId) {
+                                    return {
+                                        ...item,
+                                        isSelected: action.payload.value
+                                    }
+                                } else {
+                                    return item;
                                 }
-                            } else {
-                                return item;
-                            }
-                        })
-                    ]
+                            })
+                        ]
+                    }
                 }
             };
         default:
@@ -170,6 +238,7 @@ const catalogReducer = (state = initialState, action) => {
 };
 export default catalogReducer;
 
+const setCatalogAC = data => ({ type: SET_CATALOG, payload: data })
 const setCatalogItemaAC = (data, menuItem) => ({ type: SET_CATALOG_ITEM, payload: { data, menuItem } });
 const requestSortCategoriesAC = categories => ({ type: SET_SORT_CATEGORIES, payload: categories });
 const requestFastCategoriesAC = categories => ({ type: SET_FAST_CATEGORIES, payload: categories });
@@ -177,6 +246,12 @@ const changeCurrentSortCategoryAC = category => ({ type: CHANGE_SORT_CATEGORY, p
 const changeCurrentFastCategoryAC = category => ({ type: CHANGE_FAST_CATEGORY, payload: category });
 const toggleIsFetchingAC = value => ({ type: TOGGLE_IS_FETCHING, payload: value || false });
 
+export const requestCatalog = () => async dispatch => {
+    dispatch(toggleIsFetchingAC(true));
+    let response = await catalogAPI.getCatalog();
+    dispatch(setCatalogAC(response));
+    dispatch(toggleIsFetchingAC(false));
+}
 export const requestCatalogItem = menuItem => async dispatch => {
     dispatch(toggleIsFetchingAC(true));
     let response = await catalogAPI.getCatalogItem(menuItem);

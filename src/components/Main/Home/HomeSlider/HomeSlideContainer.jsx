@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 
-import { toggleHomeProductSize, changeHomeProductSize, changeHomeProductGift, changeHomeProductState } from '../../../../redux/home-reducer';
+// import { toggleHomeProductSize, changeHomeProductSize, changeHomeProductGift, changeHomeProductState } from '../../../../redux/home-reducer';
+import { toggleProductSize, changeProductSize, changeProductGift, changeProductState } from '../../../../redux/catalog-reducer';
 import { addProduct, changeProductGiftCart, increaseCount, decreaseCount, removeProduct } from '../../../../redux/cart-reducer';
 import ProductCard from './../../ProductsCatalog/ProductCard';
 
@@ -15,16 +16,16 @@ const HomeSlideContainer = ({ data, isProductOrdered }) => {
     const onClickButton = event => {
         const sizeId = +(event.target.dataset.sizeId);
         if(sizeId === selectedSize.id) return;
-        dispatch(changeHomeProductSize(data.productId, sizeId));
+        dispatch(changeProductSize(data.menuItem, data.productId, sizeId));
     };
-    const onClickCheckbox = () => dispatch(toggleHomeProductSize(data.productId));
+    const onClickCheckbox = () => dispatch(toggleProductSize(data.menuItem, data.productId));
     const onClickDropdown = value => {
         if(value === selectedGift.content) return;
         const giftId = data.gifts.find(item => item.content === value).id;
-        dispatch(isSelected ? changeProductGiftCart(data.uniqueId, giftId) : changeHomeProductGift(data.productId, giftId));
+        dispatch(isSelected ? changeProductGiftCart(data.uniqueId, giftId) : changeProductGift(data.menuItem, data.productId, giftId));
     };
     const onClickOrder = () => {
-        dispatch(changeHomeProductState(data.productId, true));
+        dispatch(changeProductState(data.menuItem, data.productId, true));
         dispatch(addProduct(data));
     };
     const onClickPlusCount = () => dispatch(increaseCount(data.uniqueId));
@@ -32,7 +33,7 @@ const HomeSlideContainer = ({ data, isProductOrdered }) => {
         if(data.count > 1){
             dispatch(decreaseCount(data.uniqueId));
         }else{
-            !isProductOrdered && dispatch(changeHomeProductState(data.productId, false));
+            !isProductOrdered && dispatch(changeProductState(data.menuItem, data.productId, false));
             dispatch(removeProduct(data.uniqueId));
         }
     };

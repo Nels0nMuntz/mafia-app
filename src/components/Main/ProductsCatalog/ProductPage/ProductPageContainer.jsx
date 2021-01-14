@@ -2,7 +2,6 @@ import React from 'react'
 import { createSelector } from 'reselect';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
 
 
 import Preloader from '../../../Preloader/Preloader';
@@ -12,12 +11,9 @@ import { requestCatalogItem } from '../../../../redux/catalog-reducer';
 
 const ProductPageContainer = ({ menuItem, productId }) => {
 
-    let history = useHistory();
-    console.log(history);
-
     const dispatch = useDispatch();
     const product = useSelector(createSelector(
-        state => state.catalog[menuItem],
+        state => state.catalog.prods[menuItem],
         product => product && product.list.find(({ id }) => +productId === id)
     ));
     const cart = useSelector(createSelector(

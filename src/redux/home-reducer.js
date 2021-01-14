@@ -146,15 +146,15 @@ const homeReducer = (state = initialState, action) => {
 export default homeReducer;
 
 const setMainSliderAC = data => ({ type: SET_MAIN_SLIDER, payload: data });
-const setHomeSliderAC = data => ({ type: SET_HOME_SLIDER, payload: data });
+// const setHomeSliderAC = data => ({ type: SET_HOME_SLIDER, payload: data });
 const toggleIsFetching = value => ({ type: TOGGLE_IS_FETCHING, payload: value || false });
 
-export const requireHomePage = () => async dispatch => {
+export const requestHomePage = () => async dispatch => {
     dispatch(toggleIsFetching(true));
     let mainSlider = await homeAPI.getMainSliderData();
     let homeSlider = await homeAPI.getHomeSlider();
     dispatch(setMainSliderAC(mainSlider));
-    dispatch(setHomeSliderAC(homeSlider));
+    // dispatch(setHomeSliderAC(homeSlider));
     dispatch(toggleIsFetching(false));
 };
 export const toggleHomeProductSize = (productId) => ({ type: TOGGLE_HOME_PRODUCT_SIZE, payload: productId });

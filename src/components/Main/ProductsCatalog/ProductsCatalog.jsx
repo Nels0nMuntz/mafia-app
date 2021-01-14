@@ -7,40 +7,52 @@ import withBreadcrumbs from '../../HOC/withBreadcrumbs';
 import style from './ProductsCatalog.module.scss'
 
 
-const ProductsCatalog = React.memo(({ list, cart, menuItem, BreadcrumbsComponent }) => {
+const ProductsCatalog = React.memo(({ list, cart, BreadcrumbsComponent }) => {
 
     const children = () => list.map(item => {
+        let data = item;
+        let isProductOrdered = false;
         if (item.isSelected) {
             const selectedSizeId = item.sizes.find(elem => elem.isSelected).id;
             const cartProducts = cart.filter(elem => elem.productId === item.productId);
             const cartProductsItem = cartProducts.find(elem => elem.sizes.find(size => size.id === selectedSizeId && size.isSelected));
-            if (cartProductsItem) {
-                return (
-                    <ProductCardContainer
-                        key={cartProductsItem.uniqueId}
-                        cardData={cartProductsItem}
-                        menuItem={menuItem}
-                        isEmptyCart={!cartProducts.length}
-                    />
-                )
-            } else {
-                return (
-                    <ProductCardContainer
-                        key={item.productId}
-                        cardData={item}
-                        menuItem={menuItem}
-                    />
-                )
-            }
-        } else {
-            return (
-                <ProductCardContainer
-                    key={item.productId}
-                    cardData={item}
-                    menuItem={menuItem}
-                />
-            )
+            data = cartProductsItem ?? item;
+            isProductOrdered = !cartProducts.length;
         }
+        return (
+            <ProductCardContainer
+                key={data.uniqueId}
+                cardData={data}
+                isProductOrdered={isProductOrdered}
+            />
+        )
+        // if (cartProductsItem) {
+        // return (
+        //     <ProductCardContainer
+        //         key={cartProductsItem.uniqueId}
+        //         cardData={cartProductsItem}
+        //         menuItem={menuItem}
+        //         isEmptyCart={!cartProducts.length}
+        //     />
+        // )
+        // } else {
+        //     return (
+        //         <ProductCardContainer
+        //             key={item.productId}
+        //             cardData={item}
+        //             menuItem={menuItem}
+        //         />
+        //     )
+        // }
+        // } else {
+        //     return (
+        //         <ProductCardContainer
+        //             key={item.productId}
+        //             cardData={item}
+        //             menuItem={menuItem}
+        //         />
+        //     )
+        // }
     });
 
     return (
@@ -49,7 +61,7 @@ const ProductsCatalog = React.memo(({ list, cart, menuItem, BreadcrumbsComponent
                 <BreadcrumbsComponent />
             </div>
             <div className={style.products_container}>
-                {list.length && children()}
+                {!!list.length && children()}
             </div>
         </section>
     );

@@ -9,7 +9,7 @@ import ProductCard from './ProductCard';
 import { useRouteMatch } from 'react-router-dom';
 
 
-const ProductCardContainer = ({ cardData, menuItem, isEmptyCart }) => {
+const ProductCardContainer = ({ cardData, isProductOrdered }) => {
 
     const dispatch = useDispatch();
 
@@ -20,16 +20,16 @@ const ProductCardContainer = ({ cardData, menuItem, isEmptyCart }) => {
     const onClickButton = event => {
         const sizeId = +(event.target.dataset.sizeId);
         if(sizeId === selectedSize.id) return;
-        dispatch(changeProductSize(menuItem, cardData.productId, sizeId));
+        dispatch(changeProductSize(cardData.menuItem, cardData.productId, sizeId));
     };
-    const onClickCheckbox = () => dispatch(toggleProductSize(menuItem, cardData.productId));
+    const onClickCheckbox = () => dispatch(toggleProductSize(cardData.menuItem, cardData.productId));
     const onClickDropdown = value => {
         if(value === selectedGift.content) return;
         const giftId = cardData.gifts.find(item => item.content === value).id;
-        dispatch(isSelected ? changeProductGiftCart(cardData.uniqueId, giftId) : changeProductGift(menuItem, cardData.productId, giftId));
+        dispatch(isSelected ? changeProductGiftCart(cardData.uniqueId, giftId) : changeProductGift(cardData.menuItem, cardData.productId, giftId));
     };
     const onClickOrder = () => {
-        dispatch(changeProductState(menuItem, cardData.productId, true));
+        dispatch(changeProductState(cardData.menuItem, cardData.productId, true));
         dispatch(addProduct(cardData));
     };
     const onClickPlusCount = () => dispatch(increaseCount(cardData.uniqueId));
@@ -37,7 +37,7 @@ const ProductCardContainer = ({ cardData, menuItem, isEmptyCart }) => {
         if(cardData.count > 1){
             dispatch(decreaseCount(cardData.uniqueId));
         }else{
-            isEmptyCart && dispatch(changeProductState(menuItem, cardData.productId, false));
+            isProductOrdered && dispatch(changeProductState(cardData.menuItem, cardData.productId, false));
             dispatch(removeProduct(cardData.uniqueId));
         }
     };
@@ -61,7 +61,6 @@ const ProductCardContainer = ({ cardData, menuItem, isEmptyCart }) => {
 
 ProductCardContainer.propTypes = {
     cardData: PropTypes.object.isRequired,
-    url: PropTypes.string.isRequired,
 };
 
 export default ProductCardContainer;

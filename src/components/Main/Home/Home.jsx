@@ -2,24 +2,42 @@ import React from 'react'
 import classnames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { requireHomePage } from '../../../redux/home-reducer';
+import { requestHomePage } from '../../../redux/home-reducer';
 import MainSlider from './MainSlider/MainSlider';
 import DeliverySlider from './DeliverySlider/DeliverySlider';
 import Preloader from './../../Preloader/Preloader';
 import HomeSliderContainer from './HomeSlider/HomeSliderContainer';
 
 import style from './Home.module.scss'
+import { createSelector } from 'reselect';
+import { requestCatalog } from '../../../redux/catalog-reducer';
 
 
 const Home = () => {
 
     const dispatch = useDispatch();
     const mainSlider = useSelector(state => state.home.mainSlider);
-    const homeSlider = useSelector(state => state.home.homeSlider);
+    const homeSlider = useSelector(createSelector(
+        state => state.catalog.prods,
+        prods => {
+            if(!Object.keys(prods).length) return [];
+            let reccomendedList = [];
+            for(let prod in prods){
+                const reccomended = prods[prod].list.filter(item => item.isReccomended);
+                if(reccomended.length) reccomendedList = reccomendedList.concat(reccomended);
+            };
+            return reccomendedList;
+        }
+    ));
+    const isProdsEmpty = useSelector(createSelector(
+        state => state.catalog.prods,
+        prods => !Object.keys(prods).length
+    ))
     const isFetching = useSelector(state => state.home.isFetchingHome);
 
     React.useEffect(() => {
-        if (!mainSlider.length && !homeSlider.length) dispatch(requireHomePage());
+        if (!mainSlider.length) dispatch(requestHomePage());
+        if(isProdsEmpty) dispatch(requestCatalog());
     }, []);
 
     return (        

@@ -28,4 +28,9 @@ export const catalogAPI = {
         .then(response => response.json())
         .then(data => data[menuItem])  
     },
+    getCatalog(){
+        return fetch('http://localhost:3080/catalog/')
+        .then(response => response.json())
+        .then(data => data)    
+    }
 };

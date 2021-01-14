@@ -11,10 +11,9 @@ import Preloader from '../../Preloader/Preloader';
 const ProductsCatalogContainer = ({ menuItem }) => {
 
     const dispatch = useDispatch();
-    const isExists = !!useSelector(state => state.catalog[menuItem]);
     const isFetching = useSelector(state => state.catalog.isFetchingCatalog);
     const list = useSelector(createSelector(
-        state => state.catalog[menuItem],
+        state => state.catalog.prods[menuItem],
         state => state.catalog.currentFastCategory,
         state => state.catalog.currentSortCategory,
         (catalog, currentFastCategory, currentSortCategory) => {
@@ -48,7 +47,7 @@ const ProductsCatalogContainer = ({ menuItem }) => {
     ));
 
     React.useEffect(() => {
-        if(isExists) return;        
+        if(list.length) return;        
         dispatch(requestCatalogItem(menuItem));            
     }, [menuItem]);
 
