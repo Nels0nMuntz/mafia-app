@@ -40,7 +40,7 @@ const Menu = () => {
         >
             <nav ref={nav}>
                 <ul className={style.menu_list}>
-                    {menu.length && menu.map(({ id, item, submenu }) => (
+                    {!!menu.length && menu.map(({ id, item, submenu }) => (
                         <li key={`${item}_${id}`}>
                             <div className={style.menu_item}>
                                 <span>{item}</span>

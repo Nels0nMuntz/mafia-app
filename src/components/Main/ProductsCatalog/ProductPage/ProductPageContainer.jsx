@@ -24,12 +24,12 @@ const ProductPageContainer = ({ menuItem, productId }) => {
     React.useEffect(() => {
         if (product) return;
         dispatch(requestCatalogItem(menuItem));
+        // dispatch(requestCatalog());
     }, [product]);
 
     return (
         product ? (
             <ProductPage
-                menuItem={menuItem}
                 product={product}
                 cart={cart}
             />

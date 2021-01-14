@@ -29,15 +29,16 @@ const Home = () => {
             return reccomendedList;
         }
     ));
-    const isProdsEmpty = useSelector(createSelector(
-        state => state.catalog.prods,
-        prods => !Object.keys(prods).length
-    ))
+    // const isProdsEmpty = useSelector(createSelector(
+    //     state => state.catalog.prods,
+    //     prods => !Object.keys(prods).length
+    // ))
     const isFetching = useSelector(state => state.home.isFetchingHome);
 
     React.useEffect(() => {
         if (!mainSlider.length) dispatch(requestHomePage());
-        if(isProdsEmpty) dispatch(requestCatalog());
+        dispatch(requestCatalog());
+        // if(isProdsEmpty) dispatch(requestCatalog());
     }, []);
 
     return (        

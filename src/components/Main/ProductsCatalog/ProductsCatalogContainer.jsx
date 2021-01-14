@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 import PropTypes from 'prop-types';
 
 import ProductsCatalog from './ProductsCatalog';
-import { requestCatalogItem } from '../../../redux/catalog-reducer';
+import { requestCatalogItem, requestCatalog } from '../../../redux/catalog-reducer';
 import Preloader from '../../Preloader/Preloader';
 
 
@@ -47,7 +47,8 @@ const ProductsCatalogContainer = ({ menuItem }) => {
     ));
 
     React.useEffect(() => {
-        if(list.length) return;        
+        if(list.length) return;   
+        // dispatch(requestCatalog());            
         dispatch(requestCatalogItem(menuItem));            
     }, [menuItem]);
 
@@ -58,7 +59,6 @@ const ProductsCatalogContainer = ({ menuItem }) => {
             <ProductsCatalog
                 list={list}
                 cart={cart}
-                menuItem={menuItem}
             />
         )
     )

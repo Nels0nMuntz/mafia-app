@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import classnames from 'classnames'
 import { useDispatch } from 'react-redux';
 
@@ -15,9 +15,7 @@ import { addProduct, changeProductGiftCart, decreaseCount, increaseCount, remove
 import { changeProductGift, changeProductSize, changeProductState, toggleProductSize } from '../../../../redux/catalog-reducer';
 
 
-const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
-
-    console.log({ menuItem, product, cart, BreadcrumbsComponent });
+const ProductPage = ({ product, cart, BreadcrumbsComponent }) => {
 
     const dispatch = useDispatch();
     let data = null;
@@ -36,17 +34,17 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
     const onClickButton = event => {
         const sizeId = +(event.target.dataset.sizeId);
         if (sizeId === selectedSize.id) return;
-        dispatch(changeProductSize(menuItem, data.productId, sizeId));
+        dispatch(changeProductSize(product.menuItem, data.productId, sizeId));
     };
-    const onClickCheckbox = () => dispatch(toggleProductSize(menuItem, data.productId));
+    const onClickCheckbox = () => dispatch(toggleProductSize(product.menuItem, data.productId));
     const onClickDropdown = value => {
         if (value === selectedGift.content) return;
         const giftId = data.gifts.find(item => item.content === value).id;
-        dispatch(changeProductGift(menuItem, data.productId, giftId));
+        dispatch(changeProductGift(product.menuItem, data.productId, giftId));
         dispatch(changeProductGiftCart(data.uniqueId, giftId));
     };
     const onClickOrder = () => {
-        dispatch(changeProductState(menuItem, data.productId, true));
+        dispatch(changeProductState(product.menuItem, data.productId, true));
         dispatch(addProduct(data));
     };
     const onClickPlusCount = () => dispatch(increaseCount(data.uniqueId));
@@ -54,7 +52,7 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
         if (data.count > 1) {
             dispatch(decreaseCount(data.uniqueId));
         } else {
-            cartProducts.length === 1 && dispatch(changeProductState(menuItem, data.productId, false));
+            cartProducts.length === 1 && dispatch(changeProductState(product.menuItem, data.productId, false));
             dispatch(removeProduct(data.uniqueId));
         }
     };
@@ -182,6 +180,7 @@ const ProductPage = ({ menuItem, product, cart, BreadcrumbsComponent }) => {
 ProductPage.propTypes = {
     BreadcrumbsComponent: PropTypes.elementType.isRequired,
     product: PropTypes.object.isRequired,
+    cart: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default withBreadcrumbs(ProductPage)

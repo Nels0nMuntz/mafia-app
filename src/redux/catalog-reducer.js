@@ -28,56 +28,61 @@ const initialState = {
 
 const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_CATALOG: 
+        case SET_CATALOG:
             let res = {}
-            for(let prop in action.payload){
-                res[prop] = {
-                    ...action.payload[prop],
-                    list: [
-                        ...action.payload[prop].list.map(item => (
-                            {
-                                ...item,
-                                menuItem: prop,
-                                productId: Math.trunc(Math.random() * item.id * 10000000),
-                                gifts: [
-                                    ...item.gifts.map((elem, index) => (
-                                        index === 0 ? {
-                                            ...elem,
-                                            isSelected: true,
-                                        } : {
+            for (let prop in action.payload) {
+                if (!state.prods[prop]) {
+                    res[prop] = {
+                        ...action.payload[prop],
+                        list: [
+                            ...action.payload[prop].list.map(item => (
+                                {
+                                    ...item,
+                                    menuItem: prop,
+                                    productId: Math.trunc(Math.random() * Math.random() * Math.random() * Math.random() * item.id * 100000000),
+                                    gifts: [
+                                        ...item.gifts.map((elem, index) => (
+                                            index === 0 ? {
                                                 ...elem,
-                                                isSelected: false,
-                                            }
-                                    ))
-                                ],
-                                sizes: [
-                                    ...item.sizes.map((elem, index) => (
-                                        index === 0 ? {
-                                            ...elem,
-                                            isSelected: true,
-                                        } : {
+                                                isSelected: true,
+                                            } : {
+                                                    ...elem,
+                                                    isSelected: false,
+                                                }
+                                        ))
+                                    ],
+                                    sizes: [
+                                        ...item.sizes.map((elem, index) => (
+                                            index === 0 ? {
                                                 ...elem,
-                                                isSelected: false,
-                                            }
-                                    ))
-                                ],
-                                additions: [
-                                    ...item.additions.map(elem => ({ ...elem, isSelected: false }))
-                                ],
-                                hasTwoSizes: item.sizes.length === 2,
-                                hasDiscount: !!item.sizes[0].discount,
-                                hasGifts: !!item.gifts.length,
-                                hasBonuses: !!item.bonuses.length,
-                                hasAdditions: !!item.additions.length,
-                                isSelected: false,
-                            }
-                        ))
-                    ]
+                                                isSelected: true,
+                                            } : {
+                                                    ...elem,
+                                                    isSelected: false,
+                                                }
+                                        ))
+                                    ],
+                                    additions: [
+                                        ...item.additions.map(elem => ({ ...elem, isSelected: false }))
+                                    ],
+                                    hasTwoSizes: item.sizes.length === 2,
+                                    hasDiscount: !!item.sizes[0].discount,
+                                    hasGifts: !!item.gifts.length,
+                                    hasBonuses: !!item.bonuses.length,
+                                    hasAdditions: !!item.additions.length,
+                                    isSelected: false,
+                                }
+                            ))
+                        ]
+                    }
                 }
             }
             return {
                 ...state,
-                prods: res
+                prods: {
+                    ...state.prods,
+                    ...res
+                }
             }
         case SET_CATALOG_ITEM:
             return {
@@ -90,7 +95,7 @@ const catalogReducer = (state = initialState, action) => {
                             ...action.payload.data.list.map(item => (
                                 {
                                     ...item,
-                                    productId: Math.trunc(Math.random() * item.id * item.id * 10000000),
+                                    productId: Math.trunc(Math.random() * Math.random() * Math.random() * item.id * item.id * 100000000),
                                     gifts: [
                                         ...item.gifts.map((elem, index) => (
                                             index === 0 ? {

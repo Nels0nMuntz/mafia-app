@@ -61,6 +61,7 @@ const ProductCardContainer = ({ cardData, isProductOrdered }) => {
 
 ProductCardContainer.propTypes = {
     cardData: PropTypes.object.isRequired,
+    isProductOrdered: PropTypes.bool.isRequired,
 };
 
 export default ProductCardContainer;

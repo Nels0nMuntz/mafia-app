@@ -1,5 +1,6 @@
 import React from 'react';
 import { isEqual } from 'lodash'
+import PropTypes from 'prop-types';
 
 import ProductCardContainer from './ProductCardContainer';
 import withBreadcrumbs from '../../HOC/withBreadcrumbs';
@@ -21,38 +22,11 @@ const ProductsCatalog = React.memo(({ list, cart, BreadcrumbsComponent }) => {
         }
         return (
             <ProductCardContainer
-                key={data.uniqueId}
+                key={data.productId}
                 cardData={data}
                 isProductOrdered={isProductOrdered}
             />
-        )
-        // if (cartProductsItem) {
-        // return (
-        //     <ProductCardContainer
-        //         key={cartProductsItem.uniqueId}
-        //         cardData={cartProductsItem}
-        //         menuItem={menuItem}
-        //         isEmptyCart={!cartProducts.length}
-        //     />
-        // )
-        // } else {
-        //     return (
-        //         <ProductCardContainer
-        //             key={item.productId}
-        //             cardData={item}
-        //             menuItem={menuItem}
-        //         />
-        //     )
-        // }
-        // } else {
-        //     return (
-        //         <ProductCardContainer
-        //             key={item.productId}
-        //             cardData={item}
-        //             menuItem={menuItem}
-        //         />
-        //     )
-        // }
+        );
     });
 
     return (
@@ -70,5 +44,10 @@ const ProductsCatalog = React.memo(({ list, cart, BreadcrumbsComponent }) => {
     && isEqual(prevProps.isFetching === nextProps.isFetching)
     && isEqual(prevProps.cart, nextProps.cart)
 ));
+
+ProductsCatalog.propTypes = {
+    list: PropTypes.arrayOf(PropTypes.object).isRequired,
+    cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
 
 export default withBreadcrumbs(ProductsCatalog);

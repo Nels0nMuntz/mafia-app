@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import GiftDropdown from '../../common/GiftDropdown/GiftDropdown';
 import Swicher from './../../common/Swicher/Swicher';
@@ -114,6 +115,20 @@ const ProductCard = ({
             </div>
         </article>
     )
-}
+};
+
+ProductCard.propTypes = {
+    data: PropTypes.object.isRequired,
+    selectedSize: PropTypes.object.isRequired,
+    selectedGift: PropTypes.object,
+    url: PropTypes.string.isRequired,
+    onClickDropdown: PropTypes.func.isRequired,
+    onClickButton: PropTypes.func.isRequired,
+    onClickCheckbox: PropTypes.func.isRequired,
+    onClickOrder: PropTypes.func.isRequired,
+    onClickPlusCount: PropTypes.func.isRequired,
+    onClickMinusCount: PropTypes.func.isRequired,
+    onePrice: PropTypes.bool,
+};
 
 export default ProductCard
