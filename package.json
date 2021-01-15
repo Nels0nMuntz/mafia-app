@@ -33,7 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fake-json": "json-server --watch ./public/db.json --port 3080"
+    "server": "node server.js",
+    "fake-json": "npx json-server --watch ./public/db.json --port 3080"
   },
   "eslintConfig": {
     "extends": [
