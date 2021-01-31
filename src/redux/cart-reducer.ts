@@ -189,35 +189,79 @@ const increaseCountAC = (id: number): {
     type: "INCREASE_COUNT",
     payload: id
 });
-const decreaseCountAC = (id: number): { type: DECREASE_COUNT, payload: number } => ({ type: "DECREASE_COUNT", payload: id });
-const changeCartAdditionAC = (uniqueId: number, additionId: number): { type: CHANGE_CART_ADDITIONS, payload: number } => ({ type: "CHANGE_CART_ADDITIONS", payload: { uniqueId, additionId } });
-const recalculateTotalAC = (): { type: REMOVE_PRODUCT, payload: number } => ({ type: "RECALCULATE_TOTAL" });
-const removeAdditionAC = (uniqueId: number, additionId: number): { type: REMOVE_PRODUCT, payload: number } => ({ type: "REMOVE_ADDITION", payload: { uniqueId, additionId } });
 
-export const changePopupCartState = value => ({ type: "CHANGE_POPUP_CART_STATE", payload: value });
-export const addProduct = product => dispatch => {
+const decreaseCountAC = (id: number): {
+    type: DECREASE_COUNT
+    payload: number
+} => ({
+    type: "DECREASE_COUNT",
+    payload: id
+});
+
+const changeCartAdditionAC = (uniqueId: number, additionId: number): {
+    type: CHANGE_CART_ADDITIONS
+    payload: {
+        uniqueId: number
+        additionId: number
+    }
+} => ({
+    type: "CHANGE_CART_ADDITIONS",
+    payload: { uniqueId, additionId }
+});
+
+const recalculateTotalAC = (): { type: RECALCULATE_TOTAL } => ({ type: "RECALCULATE_TOTAL" });
+
+const removeAdditionAC = (uniqueId: number, additionId: number): {
+    type: REMOVE_ADDITION,
+    payload: {
+        uniqueId: number
+        additionId: number
+    }
+} => ({
+    type: "REMOVE_ADDITION",
+    payload: { uniqueId, additionId }
+});
+
+export const changePopupCartState = (value: boolean): {
+    type: CHANGE_POPUP_CART_STATE
+    payload: boolean
+} => ({
+    type: "CHANGE_POPUP_CART_STATE",
+    payload: value
+});
+
+export const addProduct = (product: IProduct) => (dispatch: any) => {
     dispatch(addProductAC(product));
     dispatch(recalculateTotalAC());
 };
-export const removeProduct = id => dispatch => {
+export const removeProduct = (id: number) => (dispatch: any) => {
     dispatch(removeProductAC(id));
     dispatch(recalculateTotalAC());
 };
-export const increaseCount = id => dispatch => {
+export const increaseCount = (id: number) => (dispatch: any) => {
     dispatch(increaseCountAC(id));
     dispatch(recalculateTotalAC());
 };
-export const decreaseCount = id => dispatch => {
+export const decreaseCount = (id: number) => (dispatch: any) => {
     dispatch(decreaseCountAC(id));
     dispatch(recalculateTotalAC());
 };
-export const clearCart = () => ({ type: "CLEAR_CART" });
-export const changeAddition = (uniqueId, additionId) => dispatch => {
+export const clearCart = (): { type: CLEAR_CART } => ({ type: "CLEAR_CART" });
+export const changeAddition = (uniqueId: number, additionId: number) => (dispatch: any) => {
     dispatch(changeCartAdditionAC(uniqueId, additionId));
     dispatch(recalculateTotalAC());
 };
-export const removeAddition = (uniqueId, additionId) => dispatch => {
+export const removeAddition = (uniqueId: number, additionId: number) => (dispatch: any) => {
     dispatch(removeAdditionAC(uniqueId, additionId));
     dispatch(recalculateTotalAC());
 };
-export const changeProductGiftCart = (uniqueId, giftId) => ({ type: "CHANGE_PRODUCT_GIFT_CART", payload: { uniqueId, giftId } });
+export const changeProductGiftCart = (uniqueId: number, giftId: number): {
+    type: CHANGE_PRODUCT_GIFT_CART,
+    payload: {
+        uniqueId: number
+        giftId: number
+    }
+} => ({
+    type: "CHANGE_PRODUCT_GIFT_CART",
+    payload: { uniqueId, giftId }
+});
