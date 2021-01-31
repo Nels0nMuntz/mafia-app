@@ -1,15 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import withBreakpoints from './../../HOC/withBreakpoints';
+import withBreakpoints from '../../HOC/withBreakpoints';
 
 import style from './HeaderLogo.module.scss'
 import logoImg from '../../../assets/images/logo.svg'
 import logoMiniImg from '../../../assets/images/logo-mini.svg'
 
+type Props = {
+    queryMatches: {
+        md: boolean
+    } | null
+}
 
-
-const HeaderLogo = ({ queryMatches }) => {
+const HeaderLogo: React.FC<Props> = ({ queryMatches }) => {
 
     return (
         <div className={style.logo_wrapper}>

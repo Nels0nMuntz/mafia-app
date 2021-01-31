@@ -4,22 +4,19 @@ import classnames from 'classnames'
 
 import { requestCategories } from '../../redux/header-reducer';
 import Hamburger from './Hamburger/Hamburger'
-
-import style from './Header.module.scss'
 import HeaderLeft from './HeaderLeft/HeaderLeft';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
 import HeaderRightContainer from './HeaderRight/HeaderRightContainer';
+import { RootStateType } from '../../redux/store';
+
+import style from './Header.module.scss'
 
 
-const Header = () => {
+const Header: React.FC = () => {
 
     const dispatch = useDispatch();
-    const categories = useSelector(state => state.header.categories);
-
-    useEffect(() => {
-        if(!!categories.length) return
-        dispatch(requestCategories());
-    }, []);
+    const categories = useSelector((state: RootStateType) => state.header.categories);
+    useEffect(() => { dispatch(requestCategories()); }, []);
 
     return (
         <header

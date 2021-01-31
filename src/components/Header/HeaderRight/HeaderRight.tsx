@@ -5,13 +5,23 @@ import style from './HeaderRight.module.scss'
 import cartImg from '../../../assets/images/shopping-cart.svg'
 import avatar from './../../../assets/images/avatar.svg'
 
-import HeaderDropdown from './../../common/HeaderDropdown/HeaderDropdown';
-import withBreakpoints from './../../HOC/withBreakpoints';
+import HeaderDropdown from '../../common/HeaderDropdown/HeaderDropdown';
+import withBreakpoints from '../../HOC/withBreakpoints';
 
+type Props = {
+    categories: CategoryType[]
+    totalCount: number
+    totalPrice: number
+    onClickCartIcon: () => void
+    queryMatches: {
+        lg: boolean
+        md: boolean
+    }
+}
 
-const HeaderRight = React.memo(({ categories, onClickCartIcon, totalCount, totalPrice, queryMatches }) => {
-    
-    const { md, lg } = { ...queryMatches };
+const HeaderRight: React.FC<Props> = React.memo(({ categories, onClickCartIcon, totalCount, totalPrice, queryMatches }) => {
+
+    const { md, lg } = {...queryMatches};
 
     return (
         <div className={style.header_right_wrapper}>
@@ -22,8 +32,8 @@ const HeaderRight = React.memo(({ categories, onClickCartIcon, totalCount, total
                         <React.Fragment>
                             <li>
                                 <HeaderDropdown
-                                    title={categories.find(category => category.type === 'language').title}
-                                    list={categories.find(category => category.type === 'language').list}
+                                    title={categories.find(category => category.type === 'language')?.title}
+                                    list={categories.find(category => category.type === 'language')?.list}
                                 />
                             </li>
                             <li>
@@ -45,7 +55,7 @@ const HeaderRight = React.memo(({ categories, onClickCartIcon, totalCount, total
                     >
                         <img className={style.cart_icon} src={cartImg} alt="cart" />
                         <span>{totalCount}</span>
-                        {md ? '' : (totalPrice ? `${totalPrice} грн` :'Корзина')}
+                        {md ? '' : (totalPrice ? `${totalPrice} грн` : 'Корзина')}
                     </div>
                 </li>
             </ul>

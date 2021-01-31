@@ -4,10 +4,10 @@ type SET_MENU = "SET_MENU";
 type SET_CATEGORIES = "SET_CATEGORIES";
 type TOGGLE_MENU_STATE = "TOGGLE_MENU_STATE";
 
-type CategoryType = {
-    type: string,
-    title: string,
-};
+// type CategoryType = {
+//     type: string,
+//     title: string,
+// };
 type MenuItemType = {
     id: number,
     item: string,
@@ -32,21 +32,25 @@ export type InitialStateType = {
     isMenuOpen: boolean,
 }
 
-const initialState = {
+const initialState: InitialStateType = {
     categories: [
         {
+            id: 1,
             type: "city",
             title: 'Харьков'
         },
         {
+            id: 2,
             type: "restaurants",
             title: 'Рестораны'
         },
         {
+            id: 3,
             type: "contacts",
             title: 'Контакты'
         },
         {
+            id: 4,
             type: "language",
             title: 'RU'
         },
